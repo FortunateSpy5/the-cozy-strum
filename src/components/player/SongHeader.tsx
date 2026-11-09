@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Guitar, Music, Gauge, ArrowLeft, Copy, Check, Edit3, Heart } from 'lucide-react';
 import type { SongMetadata } from '../../lib/types';
 
@@ -22,8 +22,15 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
   onToggleFavorite,
 }) => {
   const [copied, setCopied] = useState(false);
+  const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isGuitar = metadata.instrument === 'guitar';
   const editSlug = metadata.slug ?? '';
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+    };
+  }, []);
 
   const handleCopyShare = async () => {
     try {
@@ -33,9 +40,10 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
         await navigator.clipboard.writeText(window.location.href);
       }
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+      copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000);
     } catch {
-      // fallback
+      // clipboard fallback
     }
   };
 
@@ -54,9 +62,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
 
         <div className="flex items-center gap-2">
           {isSavingPrefs && (
-            <span className="text-[10px] font-mono text-terracotta/80 animate-pulse hidden sm:inline">
-              Saving…
-            </span>
+            <span className="text-[10px] font-mono text-terracotta/80 animate-pulse hidden sm:inline">Saving…</span>
           )}
 
           {onToggleFavorite && (
@@ -72,9 +78,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
               aria-label={isFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
             >
               <Heart
-                className={`w-3.5 h-3.5 ${
-                  isFavorited ? 'fill-current text-rose-600 dark:text-rose-400' : 'text-walnut'
-                }`}
+                className={`w-3.5 h-3.5 ${isFavorited ? 'fill-current text-rose-600 dark:text-rose-400' : 'text-walnut'}`}
                 aria-hidden="true"
               />
               <span className="hidden sm:inline">{isFavorited ? 'Favorited' : 'Favorite'}</span>
@@ -113,9 +117,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-espresso tracking-tight [text-wrap:balance]">
             {metadata.title}
           </h1>
-          <p className="text-base sm:text-lg text-walnut font-medium mt-0.5">
-            {metadata.artist}
-          </p>
+          <p className="text-base sm:text-lg text-walnut font-medium mt-0.5">{metadata.artist}</p>
         </div>
 
         {/* Instrument & Key Badge */}
@@ -150,9 +152,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
 
       {/* Technical Spec Strip */}
       <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-walnut pt-1 border-t border-warm/60">
-        <span className="px-2 py-0.5 rounded bg-surface border border-warm">
-          Tuning: {metadata.tuning}
-        </span>
+        <span className="px-2 py-0.5 rounded bg-surface border border-warm">Tuning: {metadata.tuning}</span>
         {metadata.capo > 0 && (
           <span className="px-2 py-0.5 rounded bg-surface border border-warm font-semibold text-terracotta">
             Capo: Fret {metadata.capo}

@@ -146,10 +146,13 @@ describe('Accessibility & UX Verification', () => {
     const modals = [
       fs.readFileSync(path.resolve('src/components/import/BackupRestoreModal.tsx'), 'utf-8'),
       fs.readFileSync(path.resolve('src/components/player/MetronomeModal.tsx'), 'utf-8'),
-      fs.readFileSync(path.resolve('src/components/player/KeyboardShortcutsModal.tsx'), 'utf-8')
+      fs.readFileSync(path.resolve('src/components/player/KeyboardShortcutsModal.tsx'), 'utf-8'),
+      fs.readFileSync(path.resolve('src/components/setlists/CreateSetlistModal.tsx'), 'utf-8'),
+      fs.readFileSync(path.resolve('src/components/setlists/AddSongToSetlistModal.tsx'), 'utf-8'),
     ];
     for (const m of modals) {
       assert.ok(m.includes('[overscroll-behavior:contain]'), 'Modal must declare overscroll-behavior: contain');
+      assert.ok(m.includes('useModalA11y'), 'Modal must use useModalA11y for WCAG focus trap and escape handling');
     }
 
     const form = fs.readFileSync(path.resolve('src/components/import/MetadataForm.tsx'), 'utf-8');
@@ -186,5 +189,20 @@ describe('Accessibility & UX Verification', () => {
 
     const css = fs.readFileSync(path.resolve('src/styles/global.css'), 'utf-8');
     assert.ok(css.includes('overflow-x: hidden;'), 'global.css must prevent horizontal viewport overflow');
+  });
+
+  it('verifies SetlistCard and Setlist modals keyboard accessibility and 40px+ tap targets', () => {
+    const card = fs.readFileSync(path.resolve('src/components/setlists/SetlistCard.tsx'), 'utf-8');
+    assert.ok(card.includes('role="button"'), 'SetlistCard must declare role="button"');
+    assert.ok(card.includes('tabIndex={0}'), 'SetlistCard must have tabIndex={0} for keyboard focus');
+    assert.ok(card.includes("e.key === 'Enter'"), 'SetlistCard must support Enter key selection');
+    assert.ok(card.includes('focus-visible:ring-2'), 'SetlistCard must have visible focus rings');
+
+    const addModal = fs.readFileSync(path.resolve('src/components/setlists/AddSongToSetlistModal.tsx'), 'utf-8');
+    assert.ok(addModal.includes('aria-label='), 'AddSongToSetlistModal input must have aria-label');
+
+    const songCard = fs.readFileSync(path.resolve('src/components/library/SongCard.tsx'), 'utf-8');
+    assert.ok(songCard.includes('min-h-[40px]'), 'SongCard favorite button must meet 40px minimum target');
+    assert.ok(!songCard.includes('min-h-[36px]'), 'SongCard must not use 36px buttons');
   });
 });

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, ListPlus } from 'lucide-react';
+import { useModalA11y } from '../common/useModalA11y';
 
 interface CreateSetlistModalProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ export function CreateSetlistModal({
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const dialogRef = useModalA11y({ isOpen, onClose });
 
   if (!isOpen) return null;
 
@@ -38,14 +40,18 @@ export function CreateSetlistModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="create-setlist-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/50 backdrop-blur-xs animate-in fade-in duration-150"
+      ref={dialogRef}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/50 backdrop-blur-xs animate-in fade-in duration-150 [overscroll-behavior:contain]"
     >
       <div className="w-full max-w-md rounded-2xl bg-surface border border-warm p-6 shadow-2xl relative">
         <button
           onClick={onClose}
           type="button"
           aria-label="Close dialog"
-          className="absolute right-4 top-4 p-1 rounded-lg text-walnut hover:text-espresso min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+          className="absolute right-4 top-4 p-1 rounded-lg text-walnut hover:text-espresso min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
         >
           <X className="w-4 h-4" aria-hidden="true" />
         </button>
@@ -92,14 +98,14 @@ export function CreateSetlistModal({
             <button
               type="button"
               onClick={onClose}
-              className="min-h-[44px] px-4 py-2 rounded-xl text-xs font-medium text-walnut hover:text-espresso hover:bg-canvas transition-colors"
+              className="min-h-[44px] px-4 py-2 rounded-xl text-xs font-medium text-walnut hover:text-espresso hover:bg-canvas transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={!title.trim() || isSubmitting}
-              className="min-h-[44px] px-5 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:bg-terracotta/90 transition-colors disabled:opacity-50"
+              className="min-h-[44px] px-5 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:bg-terracotta/90 transition-colors disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
             >
               {isSubmitting ? 'Creating…' : 'Create Setlist'}
             </button>

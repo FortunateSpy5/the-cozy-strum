@@ -125,8 +125,8 @@ export function SetlistsManagerIsland(): React.JSX.Element {
       </div>
 
       {isLoading ? (
-        <div className="py-16 text-center">
-          <Loader2 className="w-8 h-8 animate-spin mx-auto text-walnut/50 mb-2" />
+        <div className="py-16 text-center" role="status" aria-live="polite">
+          <Loader2 className="w-8 h-8 animate-spin mx-auto text-walnut/50 mb-2" aria-hidden="true" />
           <p className="text-xs text-walnut">Loading your setlists…</p>
         </div>
       ) : setlists.length > 0 ? (

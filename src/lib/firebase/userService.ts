@@ -89,6 +89,13 @@ export async function toggleFavoriteTab(uid: string, tabId: string): Promise<str
   return updatedFavorites;
 }
 
+export function sanitizePrefKey(tabId: string): string {
+  if (['__proto__', 'constructor', 'prototype'].includes(tabId)) {
+    return `safe_${tabId}`;
+  }
+  return tabId.replace(/\./g, '_');
+}
+
 export async function saveSongPracticePreferences(
   uid: string,
   tabId: string,
@@ -97,11 +104,12 @@ export async function saveSongPracticePreferences(
   const db = getFirebaseDb();
   if (!db) return;
 
+  const safeKey = sanitizePrefKey(tabId);
   const userRef = doc(db, 'users', uid);
   const now = new Date().toISOString();
 
   await updateDoc(userRef, {
-    [`songPreferences.${tabId}`]: prefs,
+    [`songPreferences.${safeKey}`]: prefs,
     updatedAt: now,
   });
 
@@ -111,7 +119,7 @@ export async function saveSongPracticePreferences(
       ...profile,
       songPreferences: {
         ...profile.songPreferences,
-        [tabId]: prefs,
+        [safeKey]: prefs,
       },
       updatedAt: now,
     };

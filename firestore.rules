@@ -40,6 +40,7 @@ service cloud.firestore {
                     && request.resource.data.authorUid == request.auth.uid
                     && request.resource.data.status in ['draft', 'pending_review'];
       allow update: if (isSignedIn() && resource.data.authorUid == request.auth.uid 
+                        && request.resource.data.authorUid == resource.data.authorUid
                         && request.resource.data.status in ['draft', 'pending_review'])
                     || isAdmin();
       allow delete: if (isSignedIn() && resource.data.authorUid == request.auth.uid) || isAdmin();
@@ -49,7 +50,8 @@ service cloud.firestore {
     match /setlists/{setlistId} {
       allow read: if resource.data.isPublic == true || isOwner(resource.data.ownerUid) || isAdmin();
       allow create: if isSignedIn() && request.resource.data.ownerUid == request.auth.uid;
-      allow update, delete: if isOwner(resource.data.ownerUid) || isAdmin();
+      allow update: if (isOwner(resource.data.ownerUid) && request.resource.data.ownerUid == resource.data.ownerUid) || isAdmin();
+      allow delete: if isOwner(resource.data.ownerUid) || isAdmin();
     }
 
     // DMCA Requests: Anyone can submit (create); only Admins can read or resolve

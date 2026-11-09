@@ -15,15 +15,24 @@ export function SetlistCard({ setlist, onSelect }: SetlistCardProps): React.JSX.
 
   return (
     <div
+      role="button"
+      tabIndex={0}
       onClick={() => onSelect(setlist.id)}
-      className="group p-5 rounded-2xl bg-surface border border-warm hover:border-terracotta hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onSelect(setlist.id);
+        }
+      }}
+      aria-label={`View setlist: ${setlist.title}, ${setlist.tabIds.length} ${setlist.tabIds.length === 1 ? 'song' : 'songs'}`}
+      className="group p-5 rounded-2xl bg-surface border border-warm hover:border-terracotta hover:shadow-md transition-all cursor-pointer flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
     >
       <div>
         <div className="flex items-center justify-between mb-2">
           <span className="font-mono text-xs text-walnut px-2 py-0.5 rounded bg-canvas border border-warm">
             {setlist.tabIds.length} {setlist.tabIds.length === 1 ? 'song' : 'songs'}
           </span>
-          <ChevronRight className="w-4 h-4 text-walnut group-hover:text-terracotta transition-colors" />
+          <ChevronRight className="w-4 h-4 text-walnut group-hover:text-terracotta transition-colors" aria-hidden="true" />
         </div>
         <h3 className="font-serif text-lg font-bold text-espresso group-hover:text-terracotta transition-colors">
           {setlist.title}
@@ -41,9 +50,10 @@ export function SetlistCard({ setlist, onSelect }: SetlistCardProps): React.JSX.
           <a
             href={stageUrl}
             onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-1 text-terracotta font-semibold hover:underline"
+            aria-label={`Launch stage mode for ${setlist.title}`}
+            className="min-h-[40px] px-2.5 py-1 rounded-lg inline-flex items-center gap-1 text-terracotta font-semibold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
-            <Play className="w-3 h-3 fill-current" />
+            <Play className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
             <span>Stage</span>
           </a>
         )}

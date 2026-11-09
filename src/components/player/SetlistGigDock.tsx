@@ -18,6 +18,7 @@ export function SetlistGigDock({ currentTabId }: SetlistGigDockProps): React.JSX
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    let isSubscribed = true;
     const params = new URLSearchParams(window.location.search);
     const setlistId = params.get('setlist');
     const indexParam = params.get('index');
@@ -27,6 +28,7 @@ export function SetlistGigDock({ currentTabId }: SetlistGigDockProps): React.JSX
     // Load tabs map for song titles
     const custom = getUserTabs();
     getCatalogIndex().then((catalog) => {
+      if (!isSubscribed) return;
       const cloud = catalogToTabItems(catalog);
       const map = new Map<string, TabItem>();
       cloud.forEach((t) => map.set(t.id || t.slug, t));
@@ -35,16 +37,20 @@ export function SetlistGigDock({ currentTabId }: SetlistGigDockProps): React.JSX
     });
 
     getSetlistById(setlistId).then((res) => {
-      if (res) {
-        setSetlist(res);
-        if (indexParam !== null) {
-          setCurrentIndex(parseInt(indexParam, 10));
-        } else {
-          const idx = res.tabIds.indexOf(currentTabId);
-          setCurrentIndex(idx >= 0 ? idx : 0);
-        }
+      if (!isSubscribed || !res) return;
+      setSetlist(res);
+      if (indexParam !== null) {
+        const parsed = parseInt(indexParam, 10);
+        setCurrentIndex(Number.isFinite(parsed) ? parsed : 0);
+      } else {
+        const idx = res.tabIds.indexOf(currentTabId);
+        setCurrentIndex(idx >= 0 ? idx : 0);
       }
     });
+
+    return () => {
+      isSubscribed = false;
+    };
   }, [currentTabId]);
 
   if (!setlist || currentIndex < 0) return null;
@@ -83,16 +89,16 @@ export function SetlistGigDock({ currentTabId }: SetlistGigDockProps): React.JSX
           {hasPrev && prevTabId ? (
             <a
               href={getSongUrl(prevTabId, currentIndex - 1)}
-              className="min-h-[40px] px-2.5 sm:px-3 py-1 rounded-xl bg-warm/20 hover:bg-warm/30 text-xs font-medium text-cream inline-flex items-center gap-1 transition-colors"
+              className="min-h-[40px] px-2.5 sm:px-3 py-1 rounded-xl bg-warm/20 hover:bg-warm/30 text-xs font-medium text-cream inline-flex items-center gap-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               title={`Previous: ${prevTitle}`}
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4" aria-hidden="true" />
               <span className="hidden md:inline truncate max-w-[120px]">{prevTitle}</span>
               <span className="md:hidden">Prev</span>
             </a>
           ) : (
             <span className="min-h-[40px] px-2 sm:px-3 py-1 rounded-xl text-xs font-medium text-cream/30 inline-flex items-center gap-1 opacity-50 cursor-not-allowed">
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4" aria-hidden="true" />
               <span className="hidden sm:inline">Start</span>
             </span>
           )}
@@ -100,27 +106,27 @@ export function SetlistGigDock({ currentTabId }: SetlistGigDockProps): React.JSX
           {hasNext && nextTabId ? (
             <a
               href={getSongUrl(nextTabId, currentIndex + 1)}
-              className="min-h-[40px] px-2.5 sm:px-3 py-1 rounded-xl bg-terracotta hover:bg-terracotta/90 text-xs font-semibold text-white inline-flex items-center gap-1 transition-colors"
+              className="min-h-[40px] px-2.5 sm:px-3 py-1 rounded-xl bg-terracotta hover:bg-terracotta/90 text-xs font-semibold text-white inline-flex items-center gap-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               title={`Next: ${nextTitle}`}
             >
               <span className="hidden md:inline truncate max-w-[120px]">{nextTitle}</span>
               <span className="md:hidden">Next</span>
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </a>
           ) : (
             <span className="min-h-[40px] px-2 sm:px-3 py-1 rounded-xl text-xs font-medium text-cream/30 inline-flex items-center gap-1 opacity-50 cursor-not-allowed">
               <span className="hidden sm:inline">End</span>
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </span>
           )}
 
           <a
             href={`/setlists`}
-            className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl hover:bg-warm/20 text-cream/70 hover:text-cream transition-colors ml-1"
+            className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl hover:bg-warm/20 text-cream/70 hover:text-cream transition-colors ml-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
             title="Exit Stage Mode and return to Setlists"
             aria-label="Exit Stage Mode"
           >
-            <X className="w-4 h-4" />
+            <X className="w-4 h-4" aria-hidden="true" />
           </a>
         </div>
       </div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Play, Plus, ChevronUp, ChevronDown, Trash2, Music } from 'lucide-react';
+import React, { useState, useMemo, useCallback } from 'react';
+import { ArrowLeft, Play, Plus, Trash2, Music } from 'lucide-react';
 import type { Setlist } from '../../lib/firebase/types';
 import type { TabItem } from '../../lib/types';
 import { AddSongToSetlistModal } from './AddSongToSetlistModal';
+import { SetlistSongRow } from './SetlistSongRow';
 
 interface SetlistDetailViewProps {
   setlist: Setlist;
@@ -25,24 +26,39 @@ export function SetlistDetailView({
 }: SetlistDetailViewProps): React.JSX.Element {
   const [isAddOpen, setIsAddOpen] = useState(false);
 
-  const tabsMap = new Map<string, TabItem>();
-  allTabs.forEach((t) => tabsMap.set(t.id || t.slug, t));
+  const tabsMap = useMemo(() => {
+    const map = new Map<string, TabItem>();
+    allTabs.forEach((t) => map.set(t.id || t.slug, t));
+    return map;
+  }, [allTabs]);
 
-  const orderedTabs = setlist.tabIds
-    .map((id) => tabsMap.get(id))
-    .filter((t): t is TabItem => Boolean(t));
+  const orderedTabs = useMemo(() => {
+    return setlist.tabIds
+      .map((id) => tabsMap.get(id))
+      .filter((t): t is TabItem => Boolean(t));
+  }, [setlist.tabIds, tabsMap]);
 
-  const handleMove = async (index: number, direction: 'up' | 'down') => {
-    const newIdx = direction === 'up' ? index - 1 : index + 1;
-    if (newIdx < 0 || newIdx >= setlist.tabIds.length) return;
+  const handleMove = useCallback(
+    async (index: number, direction: 'up' | 'down') => {
+      const newIdx = direction === 'up' ? index - 1 : index + 1;
+      if (newIdx < 0 || newIdx >= setlist.tabIds.length) return;
 
-    const copy = [...setlist.tabIds];
-    const temp = copy[index]!;
-    copy[index] = copy[newIdx]!;
-    copy[newIdx] = temp;
+      const copy = [...setlist.tabIds];
+      const temp = copy[index]!;
+      copy[index] = copy[newIdx]!;
+      copy[newIdx] = temp;
 
-    await onReorder(setlist.id, copy);
-  };
+      await onReorder(setlist.id, copy);
+    },
+    [setlist.tabIds, setlist.id, onReorder]
+  );
+
+  const handleRemove = useCallback(
+    (tabId: string) => {
+      onRemoveSong(setlist.id, tabId);
+    },
+    [setlist.id, onRemoveSong]
+  );
 
   const firstSongId = setlist.tabIds[0];
   const stageModeUrl = firstSongId
@@ -66,7 +82,7 @@ export function SetlistDetailView({
           {stageModeUrl && (
             <a
               href={stageModeUrl}
-              className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:bg-terracotta/90 transition-colors shadow-2xs"
+              className="min-h-[44px] inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:bg-terracotta/90 transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
             >
               <Play className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
               <span>Launch Stage Mode</span>
@@ -79,10 +95,11 @@ export function SetlistDetailView({
               }
             }}
             type="button"
-            className="min-h-[44px] px-3 py-2 rounded-xl border border-warm bg-canvas text-walnut hover:text-rose-600 hover:border-rose-300 text-xs font-medium transition-colors cursor-pointer"
+            className="min-h-[44px] px-3 py-2 rounded-xl border border-warm bg-canvas text-walnut hover:text-rose-600 hover:border-rose-300 text-xs font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
             title="Delete this setlist"
+            aria-label="Delete this setlist"
           >
-            <Trash2 className="w-4 h-4" />
+            <Trash2 className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -116,46 +133,15 @@ export function SetlistDetailView({
               const songUrl = `/tab?id=${encodeURIComponent(tabId)}&setlist=${encodeURIComponent(setlist.id)}&index=${idx}`;
 
               return (
-                <div key={`${tabId}-${idx}`} className="p-4 flex items-center justify-between gap-3 hover:bg-canvas/50 transition-colors">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="font-mono text-xs text-walnut/60 w-5">{idx + 1}.</span>
-                    <div className="truncate">
-                      <a href={songUrl} className="font-serif font-bold text-sm text-espresso hover:text-terracotta transition-colors truncate block">
-                        {tab.title}
-                      </a>
-                      <p className="text-xs text-walnut truncate">
-                        {tab.artist} • <span className="capitalize">{tab.instrument}</span>
-                        {tab.capo > 0 ? ` • Capo ${tab.capo}` : ''}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1 shrink-0">
-                    <button
-                      onClick={() => handleMove(idx, 'up')}
-                      disabled={idx === 0}
-                      aria-label={`Move ${tab.title} up`}
-                      className="min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg hover:bg-canvas text-walnut disabled:opacity-30 transition-colors cursor-pointer"
-                    >
-                      <ChevronUp className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => handleMove(idx, 'down')}
-                      disabled={idx === orderedTabs.length - 1}
-                      aria-label={`Move ${tab.title} down`}
-                      className="min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg hover:bg-canvas text-walnut disabled:opacity-30 transition-colors cursor-pointer"
-                    >
-                      <ChevronDown className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => onRemoveSong(setlist.id, tabId)}
-                      aria-label={`Remove ${tab.title} from setlist`}
-                      className="min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg hover:bg-rose-50 text-walnut hover:text-rose-600 transition-colors cursor-pointer ml-1"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
+                <SetlistSongRow
+                  key={`${tabId}-${idx}`}
+                  tab={tab}
+                  index={idx}
+                  totalSongs={orderedTabs.length}
+                  songUrl={songUrl}
+                  onMove={handleMove}
+                  onRemove={handleRemove}
+                />
               );
             })}
           </div>

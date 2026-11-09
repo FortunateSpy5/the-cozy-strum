@@ -38,6 +38,16 @@ export function usePerSongPracticeMemory({
   const [isSavingPrefs, setIsSavingPrefs] = useState<boolean>(false);
   const hasRestoredRef = useRef<boolean>(false);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const onRestorePreferencesRef = useRef(onRestorePreferences);
+  onRestorePreferencesRef.current = onRestorePreferences;
+  const isMountedRef = useRef<boolean>(true);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     const unsubAuth = subscribeToAuth((currentUser, currentProfile) => {
@@ -61,14 +71,14 @@ export function usePerSongPracticeMemory({
 
   // Restore saved preferences on initial load
   useEffect(() => {
-    if (profile && tabId && !hasRestoredRef.current && onRestorePreferences) {
+    if (profile && tabId && !hasRestoredRef.current && onRestorePreferencesRef.current) {
       const saved = profile.songPreferences?.[tabId];
       if (saved) {
         hasRestoredRef.current = true;
-        onRestorePreferences(saved);
+        onRestorePreferencesRef.current(saved);
       }
     }
-  }, [profile, tabId, onRestorePreferences]);
+  }, [profile, tabId]);
 
   // Debounce saving song preferences (2500ms)
   useEffect(() => {
@@ -80,7 +90,7 @@ export function usePerSongPracticeMemory({
 
     debounceTimerRef.current = setTimeout(async () => {
       try {
-        setIsSavingPrefs(true);
+        if (isMountedRef.current) setIsSavingPrefs(true);
         await saveSongPracticePreferences(user.uid, tabId, {
           transpose: currentSemitones,
           scrollSpeed: currentSpeed,
@@ -89,7 +99,7 @@ export function usePerSongPracticeMemory({
       } catch {
         // silent sync fallback
       } finally {
-        setIsSavingPrefs(false);
+        if (isMountedRef.current) setIsSavingPrefs(false);
       }
     }, 2500);
 

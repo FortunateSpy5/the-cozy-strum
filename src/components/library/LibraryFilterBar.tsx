@@ -70,7 +70,7 @@ export function LibraryFilterBar({
               type="button"
               onClick={() => onInstrumentChange(inst)}
               aria-pressed={instrumentFilter === inst}
-              className={`min-h-[40px] px-3 py-1 rounded-lg text-xs font-medium capitalize transition-colors ${
+              className={`min-h-[40px] px-3 py-1 rounded-lg text-xs font-medium capitalize transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
                 instrumentFilter === inst ? 'bg-terracotta text-white' : 'text-walnut hover:text-espresso'
               }`}
             >
@@ -92,7 +92,7 @@ export function LibraryFilterBar({
               type="button"
               onClick={() => onTypeChange(id)}
               aria-pressed={typeFilter === id}
-              className={`min-h-[40px] px-2.5 py-1 rounded-lg text-xs font-medium transition-colors ${
+              className={`min-h-[40px] px-2.5 py-1 rounded-lg text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
                 typeFilter === id ? 'bg-espresso text-canvas dark:bg-cream dark:text-espresso' : 'text-walnut hover:text-espresso'
               }`}
             >

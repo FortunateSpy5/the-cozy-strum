@@ -10,12 +10,12 @@ interface SongCardProps {
   onDeleteCustom?: (id: string) => void;
 }
 
-export const SongCard: React.FC<SongCardProps> = ({
+export const SongCard = React.memo<SongCardProps>(function SongCard({
   tab,
   isFavorited = false,
   onToggleFavorite,
   onDeleteCustom,
-}) => {
+}) {
   const isGuitar = tab.instrument === 'guitar';
   const tabUrl = tab.isCustom
     ? `/player?slug=${encodeURIComponent(tab.slug)}${tab.id ? `&id=${encodeURIComponent(tab.id)}` : ''}`
@@ -77,7 +77,7 @@ export const SongCard: React.FC<SongCardProps> = ({
                   e.stopPropagation();
                   onToggleFavorite(tab.id ?? tab.slug);
                 }}
-                className="relative z-10 p-1 rounded-md text-walnut/60 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                className="relative z-10 p-1 rounded-lg text-walnut/60 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center"
                 title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
                 aria-label={`${isFavorited ? 'Remove from' : 'Add to'} favorites: ${tab.title}`}
               >
@@ -170,4 +170,4 @@ export const SongCard: React.FC<SongCardProps> = ({
       </div>
     </article>
   );
-};
+});

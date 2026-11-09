@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import type { User } from 'firebase/auth';
 import { Plus, Music2, Sparkles, Loader2 } from 'lucide-react';
 import type { TabItem, Instrument, SongCategory } from '../../lib/types';
@@ -58,18 +58,18 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
     }
   };
 
-  const handleDeleteCustom = (id: string) => {
+  const handleDeleteCustom = useCallback((id: string) => {
     deleteUserTab(id);
     setCustomTabs((prev) => prev.filter((t) => t.id !== id));
-  };
+  }, []);
 
-  const handleToggleFavorite = async (tabId: string) => {
+  const handleToggleFavorite = useCallback(async (tabId: string) => {
     if (!user) {
       alert('Please sign in to save songs to your personal Favorites.');
       return;
     }
     await toggleFavoriteTab(user.uid, tabId);
-  };
+  }, [user]);
 
   const favoriteIds = profile?.favoriteTabIds ?? [];
 

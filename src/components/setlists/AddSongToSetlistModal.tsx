@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Search, Plus, Check } from 'lucide-react';
 import type { TabItem } from '../../lib/types';
+import { useModalA11y } from '../common/useModalA11y';
 
 interface AddSongToSetlistModalProps {
   isOpen: boolean;
@@ -19,6 +20,7 @@ export function AddSongToSetlistModal({
 }: AddSongToSetlistModalProps): React.JSX.Element | null {
   const [query, setQuery] = useState('');
   const [addingId, setAddingId] = useState<string | null>(null);
+  const dialogRef = useModalA11y({ isOpen, onClose });
 
   if (!isOpen) return null;
 
@@ -43,14 +45,18 @@ export function AddSongToSetlistModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="add-song-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/50 backdrop-blur-xs animate-in fade-in duration-150"
+      ref={dialogRef}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/50 backdrop-blur-xs animate-in fade-in duration-150 [overscroll-behavior:contain]"
     >
       <div className="w-full max-w-lg rounded-2xl bg-surface border border-warm p-6 shadow-2xl relative max-h-[85vh] flex flex-col">
         <button
           onClick={onClose}
           type="button"
           aria-label="Close dialog"
-          className="absolute right-4 top-4 p-1 rounded-lg text-walnut hover:text-espresso min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+          className="absolute right-4 top-4 p-1 rounded-lg text-walnut hover:text-espresso min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
         >
           <X className="w-4 h-4" aria-hidden="true" />
         </button>
@@ -64,6 +70,7 @@ export function AddSongToSetlistModal({
           <input
             type="search"
             autoFocus
+            aria-label="Search available songs by title or artist"
             placeholder="Search by song title or artist…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -93,7 +100,8 @@ export function AddSongToSetlistModal({
                   <button
                     onClick={() => handleAdd(id)}
                     disabled={isAlreadyAdded || addingId === id}
-                    className={`min-h-[40px] px-3 py-1.5 rounded-lg text-xs font-semibold inline-flex items-center gap-1.5 transition-colors disabled:opacity-60 cursor-pointer ${
+                    aria-label={isAlreadyAdded ? `${tab.title} is already added` : `Add ${tab.title} to setlist`}
+                    className={`min-h-[40px] px-3 py-1.5 rounded-lg text-xs font-semibold inline-flex items-center gap-1.5 transition-colors disabled:opacity-60 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
                       isAlreadyAdded
                         ? 'bg-warm/40 text-walnut cursor-default'
                         : 'bg-terracotta text-white hover:bg-terracotta/90'
@@ -123,7 +131,7 @@ export function AddSongToSetlistModal({
           <button
             type="button"
             onClick={onClose}
-            className="min-h-[44px] px-5 py-2 rounded-xl bg-canvas border border-warm text-xs font-medium text-espresso hover:border-terracotta transition-colors"
+            className="min-h-[44px] px-5 py-2 rounded-xl bg-canvas border border-warm text-xs font-medium text-espresso hover:border-terracotta transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
             Done
           </button>
