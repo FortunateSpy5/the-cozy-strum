@@ -307,13 +307,16 @@ We integrate **LRCLIB (`https://lrclib.net/api`)** across two separate environme
 - Setlists manager (`/setlists`) for creating, ordering, and managing gig sets.
 - Full-screen "Stage Mode / Gig Mode" dock with previous/next sequential performance navigation.
 
-### Phase 3: Community Song Submission Studio + LRCLIB Lyrics Fetcher (`/submit`) *(Next Milestone)*
-- Full submission studio with LRCLIB search modal (`https://lrclib.net/api/search`).
-- Auto-insert blank chord lines above lyrics for 1-click chord positioning.
-- Multi-category tag selector from predefined `SONG_CATEGORIES`.
-- Private vault vs. Community submission (`status: 'pending_review'`).
+### Phase 3: Community Song Submission Studio + LRCLIB Lyrics Fetcher (`/submit`) *(Completed)*
+- Full submission studio with in-browser LRCLIB search modal (`https://lrclib.net/api/search`).
+- Auto-insert blank chord lines above lyrics for 1-click chord positioning (`formatLyricsForChords`).
+- Multi-category tag selector from predefined 25 `SONG_CATEGORIES` (no ampersands) and musical tuning metadata.
+- Dual submission modes: Private vault tab (`status: 'draft'`, `visibility: 'private'`) vs. Community submission (`status: 'pending_review'`, `visibility: 'public'`).
+- Hardened Firestore rules preventing DMCA resurrection, enforcing 0-initialized metrics, and checking max string lengths.
+- Fully accessible DMCA policy and notice request route at `/dmca` with direct report link in the tab player header.
+- Multi-agent code review complete: React 19 `useDeferredValue` for AST, zero `alert()` calls, 44px touch targets, and 81 unit tests passing.
 
-### Phase 4: DMCA Takedown Portal & Admin Moderation Dashboard (`/dmca` & `/admin`)
+### Phase 4: DMCA Takedown Portal & Admin Moderation Dashboard (`/admin`) *(Next Milestone)*
 - DMCA form island writing directly to `dmca_requests`.
 - Protected Admin Dashboard: Submissions queue (Approve/Reject), DMCA queue (1-click Soft-Deletion `status: 'removed_dmca'`), and All Tabs manager.
 

@@ -72,6 +72,7 @@ export function getFirebaseDb(): Firestore | null {
         localCache: persistentLocalCache({
           tabManager: persistentMultipleTabManager(),
         }),
+        ignoreUndefinedProperties: true,
       });
     } catch {
       // Fall back if already initialized or browser doesn't support persistent cache

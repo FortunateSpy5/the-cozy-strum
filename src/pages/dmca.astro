@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="DMCA & Copyright Policy — The Cozy Strum"
+  description="DMCA takedown notice and copyright policy for The Cozy Strum guitar sanctuary."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <div class="p-6 sm:p-10 rounded-3xl bg-surface border border-warm shadow-xs space-y-6">
+      <div class="border-b border-warm pb-6">
+        <span class="text-xs font-mono uppercase tracking-wider text-terracotta font-semibold">Legal & Fair Use</span>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-1">DMCA & Copyright Notice</h1>
+        <p class="text-sm text-walnut mt-2">
+          The Cozy Strum is a non-commercial, personal practice sanctuary designed to help musicians learn string instruments through chord charts and educational user commentary.
+        </p>
+      </div>
+
+      <section class="space-y-3 text-sm text-espresso leading-relaxed">
+        <h2 class="font-serif text-xl font-bold text-espresso">Educational Practice & Fair Use</h2>
+        <p>
+          Tablatures and chord progressions published in this sanctuary represent community interpretations, chord transcriptions, and educational studies created by contributing string players. They are provided solely for personal practice, scholarship, and musical education.
+        </p>
+      </section>
+
+      <section class="space-y-3 text-sm text-espresso leading-relaxed">
+        <h2 class="font-serif text-xl font-bold text-espresso">Takedown Request Procedure</h2>
+        <p>
+          If you are a copyright owner or authorized representative and believe that any user-submitted transcription, chord chart, or lyric segment infringes upon your copyright, we will promptly review and remove the material in accordance with the Digital Millennium Copyright Act (17 U.S.C. § 512).
+        </p>
+        <p>
+          To expedite our review, please ensure your takedown notification includes:
+        </p>
+        <ol class="list-decimal list-inside space-y-1.5 text-xs text-walnut bg-canvas p-4 rounded-2xl border border-warm/80 font-mono">
+          <li>The title and artist of the copyrighted musical composition.</li>
+          <li>The exact URL or Document ID of the tab on The Cozy Strum.</li>
+          <li>Your contact information (name, address, telephone number, and email).</li>
+          <li>A statement affirming your good-faith belief that the use is unauthorized.</li>
+          <li>An electronic or physical signature of the authorized copyright holder.</li>
+        </ol>
+      </section>
+
+      <div class="p-5 rounded-2xl bg-canvas border border-warm space-y-3">
+        <h3 class="font-serif text-base font-bold text-espresso">Submit a Takedown Request</h3>
+        <p class="text-xs text-walnut">
+          Click below to compose a pre-filled DMCA notice email with the song details attached:
+        </p>
+        <a
+          id="dmca-mailto-link"
+          href="mailto:dmca@thecozystrum.local?subject=DMCA%20Takedown%20Notice"
+          class="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 rounded-xl bg-terracotta text-white font-semibold text-xs hover:bg-terracotta/90 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+        >
+          Send DMCA Takedown Notice
+        </a>
+      </div>
+
+      <div class="pt-4 border-t border-warm flex items-center justify-between text-xs text-walnut">
+        <a
+          href="/"
+          class="min-h-[44px] inline-flex items-center px-2 py-1 rounded-md text-walnut hover:text-terracotta transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+        >
+          ← Back to Sanctuary
+        </a>
+        <span>Response turnaround: within 24-48 business hours</span>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const tabId = params.get('tabId');
+        const title = params.get('title');
+        const mailtoBtn = document.getElementById('dmca-mailto-link');
+        if (mailtoBtn && (tabId || title)) {
+          const subject = encodeURIComponent(`DMCA Notice: ${title || tabId}`);
+          const body = encodeURIComponent(
+            `I am reporting copyright infringement regarding:\n\nSong: ${title || 'N/A'}\nTab ID / URL: ${window.location.origin}/tab?id=${tabId || ''}\n\n[Please add your copyright holder details here]\n`
+          );
+          mailtoBtn.setAttribute('href', `mailto:dmca@thecozystrum.local?subject=${subject}&body=${body}`);
+        }
+      } catch (e) {
+        // quiet fallback
+      }
+    })();
+  </script>
+</BaseLayout>

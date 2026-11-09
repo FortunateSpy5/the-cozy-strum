@@ -69,7 +69,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
             <button
               onClick={onToggleFavorite}
               type="button"
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-xl border text-xs font-medium transition-colors shadow-2xs ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-xl border text-xs font-medium transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
                 isFavorited
                   ? 'bg-rose-50 border-rose-300 text-rose-700 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300'
                   : 'bg-canvas border-warm hover:border-terracotta text-espresso'
@@ -92,7 +92,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
             title="Copy raw tab and chords to clipboard"
             aria-label="Copy raw tab and chords to clipboard"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5 text-walnut" aria-hidden="true" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5 text-walnut" aria-hidden="true" />}
             <span className="hidden sm:inline">{copied ? 'Copied!' : 'Copy Tab / Share'}</span>
             <span className="sm:hidden">{copied ? 'Copied!' : 'Share'}</span>
           </button>
@@ -169,6 +169,14 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
             Strum: <strong className="text-espresso font-semibold">{metadata.strummingPattern}</strong>
           </span>
         )}
+        <a
+          href={`/dmca?tabId=${encodeURIComponent(editSlug)}&title=${encodeURIComponent(metadata.title)}`}
+          className="ml-auto min-h-[44px] inline-flex items-center px-2.5 py-1 text-xs text-walnut hover:text-terracotta underline decoration-dotted transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+          title="Report copyright infringement or request DMCA removal"
+          aria-label={`Report copyright infringement or request DMCA removal for ${metadata.title}`}
+        >
+          Report / DMCA
+        </a>
       </div>
     </div>
   );

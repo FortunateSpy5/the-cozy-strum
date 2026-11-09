@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SongSubmissionIsland } from '../components/submit/SongSubmissionIsland';
+---
+
+<BaseLayout
+  title="Submit a Song — The Cozy Strum"
+  description="Contribute guitar and ukulele chords to the Cozy Strum community or save private practice tabs with auto-fetched lyrics from LRCLIB."
+>
+  <SongSubmissionIsland client:load />
+</BaseLayout>

@@ -38,10 +38,19 @@ service cloud.firestore {
                   || isAdmin();
       allow create: if isSignedIn() 
                     && request.resource.data.authorUid == request.auth.uid
-                    && request.resource.data.status in ['draft', 'pending_review'];
+                    && request.resource.data.status in ['draft', 'pending_review']
+                    && request.resource.data.favoritesCount == 0
+                    && request.resource.data.viewsCount == 0
+                    && request.resource.data.title is string && request.resource.data.title.size() <= 200
+                    && request.resource.data.artist is string && request.resource.data.artist.size() <= 200
+                    && request.resource.data.content is string && request.resource.data.content.size() <= 65536;
       allow update: if (isSignedIn() && resource.data.authorUid == request.auth.uid 
+                        && resource.data.status != 'removed_dmca'
                         && request.resource.data.authorUid == resource.data.authorUid
-                        && request.resource.data.status in ['draft', 'pending_review'])
+                        && request.resource.data.status in ['draft', 'pending_review']
+                        && request.resource.data.title is string && request.resource.data.title.size() <= 200
+                        && request.resource.data.artist is string && request.resource.data.artist.size() <= 200
+                        && request.resource.data.content is string && request.resource.data.content.size() <= 65536)
                     || isAdmin();
       allow delete: if (isSignedIn() && resource.data.authorUid == request.auth.uid) || isAdmin();
     }
