@@ -38,7 +38,7 @@ describe('Phase 5: Local Audio + LRCLIB Chord Sync Pipeline', () => {
 
   it('executes python test_aligner.py unit tests and verifies 100% pass', () => {
     try {
-      const output = execSync('python tools/chord-sync/test_aligner.py', {
+      execSync('python tools/chord-sync/test_aligner.py', {
         encoding: 'utf-8',
         timeout: 10000,
         stdio: ['pipe', 'pipe', 'pipe'],
