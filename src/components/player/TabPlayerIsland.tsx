@@ -22,7 +22,7 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
   const [fontSize, setFontSize] = useState<'sm' | 'base' | 'lg' | 'xl'>('base');
   const [columnMode, setColumnMode] = useState<'single' | 'two-column' | 'three-column'>('single');
   const [isScrolling, setIsScrolling] = useState(false);
-  const [scrollSpeed, setScrollSpeed] = useState(2.0);
+  const [scrollSpeed, setScrollSpeed] = useState(1.0);
   const [activeChord, setActiveChord] = useState<string | null>(null);
   const [isMetronomeOpen, setIsMetronomeOpen] = useState(false);
   const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
@@ -32,8 +32,8 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
     return metadata.key ? transposeChord(metadata.key, semitones) : undefined;
   }, [metadata.key, semitones]);
 
-  // RequestAnimationFrame Auto-Scroller hook
-  useAutoScroller(isScrolling, scrollSpeed);
+  // RequestAnimationFrame Auto-Scroller hook with bottom detection
+  useAutoScroller(isScrolling, scrollSpeed, () => setIsScrolling(false));
 
   // Global Keyboard Shortcuts hook
   usePlayerShortcuts({

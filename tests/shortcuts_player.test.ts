@@ -250,4 +250,48 @@ describe('Player Shortcuts & Keyboard Navigation Logic', () => {
     for (let i = 0; i < 30; i++) transpose(1);
     assert.equal(semitones, 11, 'Transposition must clamp at +11 semitones');
   });
+
+  it('subpixel accumulator enables 0.5x speed without dropping below 1px integer threshold', () => {
+    const basePps = 14;
+    const speed = 0.5;
+    const pps = speed * basePps; // 7 px/sec
+    const delta = 16.67; // ~60fps frame delta in ms
+
+    let accumulator = 0;
+    let totalScrolled = 0;
+    const framesInOneSecond = 60;
+
+    for (let f = 0; f < framesInOneSecond; f++) {
+      const shift = (pps * delta) / 1000;
+      accumulator += shift;
+      if (accumulator >= 1) {
+        const toScroll = Math.floor(accumulator);
+        accumulator -= toScroll;
+        totalScrolled += toScroll;
+      }
+    }
+
+    assert.ok(totalScrolled >= 6 && totalScrolled <= 8, `Expected ~7 pixels in 1 second at 0.5x, got ${totalScrolled}`);
+    assert.ok(totalScrolled > 0, '0.5x speed must produce non-zero scroll movement');
+  });
+
+  it('scroll speed 1.0x moves approximately 14 pixels per second', () => {
+    const basePps = 14;
+    const speed = 1.0;
+    const pps = speed * basePps;
+    const delta = 16.67;
+
+    let accumulator = 0;
+    let totalScrolled = 0;
+    for (let f = 0; f < 60; f++) {
+      accumulator += (pps * delta) / 1000;
+      if (accumulator >= 1) {
+        const toScroll = Math.floor(accumulator);
+        accumulator -= toScroll;
+        totalScrolled += toScroll;
+      }
+    }
+
+    assert.ok(totalScrolled >= 13 && totalScrolled <= 15, `Expected ~14 pixels in 1 second at 1.0x, got ${totalScrolled}`);
+  });
 });

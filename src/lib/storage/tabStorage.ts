@@ -10,7 +10,7 @@ export const DEFAULT_PREFS: UserPreferences = {
   theme: 'parchment',
   defaultInstrument: 'guitar',
   fontSize: 'base',
-  autoScrollSpeed: 2.0,
+  autoScrollSpeed: 1.0,
   columnMode: 'single',
   dockPosition: 'bottom',
   metronomeVolume: 0.8

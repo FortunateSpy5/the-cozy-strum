@@ -153,7 +153,7 @@ export function sanitizePreferences(raw: unknown): Partial<UserPreferences> {
   if (typeof obj.fontSize === 'string' && VALID_FONT_SIZES.has(obj.fontSize)) {
     clean.fontSize = obj.fontSize as UserPreferences['fontSize'];
   }
-  if (typeof obj.autoScrollSpeed === 'number' && Number.isFinite(obj.autoScrollSpeed) && obj.autoScrollSpeed >= 0.5 && obj.autoScrollSpeed <= 5.0) {
+  if (typeof obj.autoScrollSpeed === 'number' && Number.isFinite(obj.autoScrollSpeed) && obj.autoScrollSpeed >= 0.5 && obj.autoScrollSpeed <= 10.0) {
     clean.autoScrollSpeed = obj.autoScrollSpeed;
   }
   if (typeof obj.columnMode === 'string' && VALID_COLUMN_MODES.has(obj.columnMode)) {
