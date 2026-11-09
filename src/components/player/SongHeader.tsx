@@ -1,30 +1,75 @@
-import React from 'react';
-import { Guitar, Music, Gauge, ArrowLeft } from 'lucide-react';
+import React, { useState } from 'react';
+import { Guitar, Music, Gauge, ArrowLeft, Copy, Check, Edit3 } from 'lucide-react';
 import type { SongMetadata } from '../../lib/types';
 
 interface SongHeaderProps {
   metadata: SongMetadata;
   currentKey?: string;
   transposedSemitones: number;
+  rawTabContent?: string;
 }
 
 export const SongHeader: React.FC<SongHeaderProps> = ({
   metadata,
   currentKey,
-  transposedSemitones
+  transposedSemitones,
+  rawTabContent
 }) => {
+  const [copied, setCopied] = useState(false);
   const isGuitar = metadata.instrument === 'guitar';
+  const editSlug = metadata.slug ?? '';
+
+  const handleCopyShare = async () => {
+    try {
+      if (rawTabContent) {
+        await navigator.clipboard.writeText(rawTabContent);
+      } else if (typeof window !== 'undefined') {
+        await navigator.clipboard.writeText(window.location.href);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback
+    }
+  };
 
   return (
     <div className="mb-6 space-y-3">
-      {/* Back to Library */}
-      <a
-        href="/"
-        className="inline-flex items-center gap-1.5 text-xs font-medium text-walnut hover:text-terracotta min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded-md transition-colors"
-      >
-        <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
-        <span>Back to Sanctuary</span>
-      </a>
+      {/* Top Navigation & Quick Actions */}
+      <div className="flex items-center justify-between gap-2">
+        <a
+          href="/"
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-walnut hover:text-terracotta min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded-md transition-colors"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+          <span>Back to Sanctuary</span>
+        </a>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleCopyShare}
+            type="button"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs font-medium text-espresso transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta shadow-2xs"
+            title="Copy raw tab and chords to clipboard"
+            aria-label="Copy raw tab and chords to clipboard"
+          >
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5 text-walnut" aria-hidden="true" />}
+            <span>{copied ? 'Copied!' : 'Copy Tab / Share'}</span>
+          </button>
+
+          {editSlug && (
+            <a
+              href={`/import?edit=${encodeURIComponent(editSlug)}`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs font-medium text-espresso transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta shadow-2xs"
+              title="Edit chords, capo, or lyrics in the Quick Paste Studio"
+            >
+              <Edit3 className="w-3.5 h-3.5 text-terracotta" aria-hidden="true" />
+              <span className="hidden sm:inline">Edit in Quick Paste</span>
+              <span className="sm:hidden">Edit</span>
+            </a>
+          )}
+        </div>
+      </div>
 
       {/* Main Title Row */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">

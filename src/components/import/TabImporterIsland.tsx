@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Download, Bookmark, Sparkles, Check, ArrowRight, Archive } from 'lucide-react';
 import type { SongMetadata, UserTab } from '../../lib/types';
 import { parseSongText } from '../../lib/parser/songParser';
-import { saveUserTab } from '../../lib/storage/tabStorage';
+import { saveUserTab, getUserTabBySlug } from '../../lib/storage/tabStorage';
 import { generateMarkdownWithFrontmatter, downloadMarkdownFile } from '../../lib/storage/exportMd';
 import { MetadataForm } from './MetadataForm';
 import { BackupRestoreModal } from './BackupRestoreModal';
@@ -14,6 +14,22 @@ export const TabImporterIsland: React.FC = () => {
   const [metadata, setMetadata] = useState<SongMetadata>(getSampleMetadata);
   const [savedSlug, setSavedSlug] = useState<string | null>(null);
   const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
+
+  useEffect(() => {
+    const editSlug = new URLSearchParams(window.location.search).get('edit');
+    if (editSlug) {
+      const found = getUserTabBySlug(editSlug);
+      if (found) {
+        setRawText(found.content);
+        setMetadata({
+          title: found.title, artist: found.artist, instrument: found.instrument,
+          tuning: found.tuning, capo: found.capo, bpm: found.bpm, difficulty: found.difficulty,
+          strummingPattern: found.strummingPattern, tags: found.tags,
+          isFingerstyle: found.isFingerstyle, key: found.key, createdAt: found.createdAt
+        });
+      }
+    }
+  }, []);
 
   const slug = useMemo(() => {
     return (
@@ -127,7 +143,7 @@ export const TabImporterIsland: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2.5">
           {savedSlug && (
             <a
-              href={`/tabs/custom?slug=${savedSlug}`}
+              href={`/player?slug=${encodeURIComponent(savedSlug)}`}
               className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-all"
             >
               <span>Play Now</span>

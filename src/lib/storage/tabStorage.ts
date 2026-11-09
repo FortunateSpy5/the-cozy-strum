@@ -66,6 +66,12 @@ export function getUserTabBySlug(slug: string): UserTab | null {
   return tabs.find((t) => t.slug === slug) ?? null;
 }
 
+export function getUserTabById(id: string): UserTab | null {
+  if (!id) return null;
+  const tabs = getUserTabs();
+  return tabs.find((t) => t.id === id) ?? null;
+}
+
 export function getUserPrefs(): UserPreferences {
   const saved = safeGetItem<Partial<UserPreferences>>(STORAGE_KEYS.PREFS, {});
   if (!saved || typeof saved !== 'object' || Array.isArray(saved)) {

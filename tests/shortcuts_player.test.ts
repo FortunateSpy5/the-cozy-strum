@@ -91,7 +91,7 @@ describe('Player Shortcuts & Keyboard Navigation Logic', () => {
         e.preventDefault?.();
         opts.onResetTranspose();
         return 'reset_transpose';
-      } else if (e.code === 'KeyC' || e.key.toLowerCase() === 'c') {
+      } else if (e.code === 'KeyC' || e.code === 'KeyS' || e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 's') {
         e.preventDefault?.();
         if (e.repeat) return 'ignored_repeat';
         opts.onToggleColumns();
@@ -193,6 +193,15 @@ describe('Player Shortcuts & Keyboard Navigation Logic', () => {
 
     assert.equal(dispatch({ key: '?', code: 'Slash', shiftKey: true }), 'toggled_shortcuts');
     assert.equal(shortcutsOpened, true);
+  });
+
+  it('allows "S" or "C" shortcut to toggle 2-column stage view', () => {
+    let columnsToggled = 0;
+    const dispatch = createShortcutDispatcher({ onToggleColumns: () => { columnsToggled++; } });
+
+    assert.equal(dispatch({ key: 's', code: 'KeyS' }), 'toggled_columns');
+    assert.equal(dispatch({ key: 'c', code: 'KeyC' }), 'toggled_columns');
+    assert.equal(columnsToggled, 2);
   });
 
   it('ignores Space bar key repeat to prevent auto-scroll stutter', () => {

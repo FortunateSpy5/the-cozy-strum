@@ -10,7 +10,9 @@ interface SongCardProps {
 
 export const SongCard: React.FC<SongCardProps> = ({ tab, onDeleteCustom }) => {
   const isGuitar = tab.instrument === 'guitar';
-  const tabUrl = tab.isCustom ? `/tabs/custom?slug=${tab.slug}` : `/tabs/${tab.slug}`;
+  const tabUrl = tab.isCustom
+    ? `/player?slug=${encodeURIComponent(tab.slug)}${tab.id ? `&id=${encodeURIComponent(tab.id)}` : ''}`
+    : `/tabs/${tab.slug}`;
 
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();

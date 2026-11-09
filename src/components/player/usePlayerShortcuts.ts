@@ -64,7 +64,7 @@ export function usePlayerShortcuts(options: PlayerShortcutsOptions) {
       } else if (e.key === '0' || (!e.shiftKey && (e.code === 'Digit0' || e.code === 'Numpad0'))) {
         e.preventDefault();
         opts.onResetTranspose();
-      } else if (e.code === 'KeyC' || e.key.toLowerCase() === 'c') {
+      } else if (e.code === 'KeyC' || e.code === 'KeyS' || e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 's') {
         e.preventDefault();
         if (e.repeat) return;
         opts.onToggleColumns();

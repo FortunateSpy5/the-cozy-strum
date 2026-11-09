@@ -2,13 +2,25 @@
   command = "npm run build"
   publish = "dist"
 
+[[redirects]]
+  from = "/tabs/custom"
+  to = "/player"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/custom"
+  to = "/player"
+  status = 301
+  force = false
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "microphone=(), camera=(), geolocation=()"
+    Permissions-Policy = "microphone=(), camera=(), geolocation=(), screen-wake-lock=(self)"
 
 [[headers]]
   for = "/_astro/*"

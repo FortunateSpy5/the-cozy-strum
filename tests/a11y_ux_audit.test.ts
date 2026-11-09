@@ -112,4 +112,23 @@ describe('Accessibility & UX Verification', () => {
     assert.ok(shortcutsFile.includes('isContentEditable'), 'Must ignore contenteditable');
     assert.ok(shortcutsFile.includes('ctrlKey'), 'Must ignore shortcuts when ctrlKey or metaKey is pressed');
   });
+
+  it('verifies index.astro passes initialTabs to LibraryIsland with client:load', () => {
+    const indexAstro = fs.readFileSync(path.resolve('src/pages/index.astro'), 'utf-8');
+    assert.ok(indexAstro.includes('client:load'), 'LibraryIsland must use client:load');
+    assert.ok(!indexAstro.includes('client:only'), 'LibraryIsland must NEVER use client:only');
+    assert.ok(indexAstro.includes('initialTabs={initialTabs}'), 'Must pass initialTabs to LibraryIsland');
+  });
+
+  it('verifies SongHeader provides Copy Raw Tab and Edit in Quick Paste', () => {
+    const header = fs.readFileSync(path.resolve('src/components/player/SongHeader.tsx'), 'utf-8');
+    assert.ok(header.includes('Copy Tab / Share'), 'Must provide Copy Tab / Share');
+    assert.ok(header.includes('/import?edit='), 'Must provide Edit in Quick Paste link');
+  });
+
+  it('verifies custom tab routing to /player?slug= prevents 404s', () => {
+    assert.ok(fs.existsSync(path.resolve('src/pages/player.astro')), 'src/pages/player.astro must exist');
+    const songCard = fs.readFileSync(path.resolve('src/components/library/SongCard.tsx'), 'utf-8');
+    assert.ok(songCard.includes('/player?slug='), 'SongCard must route custom tabs to /player?slug=');
+  });
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Plus } from 'lucide-react';
 import type { UserTab } from '../../lib/types';
-import { getUserTabBySlug } from '../../lib/storage/tabStorage';
+import { getUserTabBySlug, getUserTabById } from '../../lib/storage/tabStorage';
 import { TabPlayerIsland } from './TabPlayerIsland';
 
 export const CustomTabLoaderIsland: React.FC = () => {
@@ -10,8 +10,13 @@ export const CustomTabLoaderIsland: React.FC = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
     const slug = params.get('slug');
-    if (slug) {
+
+    if (id) {
+      const found = getUserTabById(id) ?? (slug ? getUserTabBySlug(slug) : null);
+      setTab(found);
+    } else if (slug) {
       const found = getUserTabBySlug(slug);
       setTab(found);
     }

@@ -12,7 +12,7 @@ const SHORTCUTS = [
   { key: '↑ / ↓', desc: 'Adjust Scroll Speed (±0.5x)' },
   { key: '[ / ]', desc: 'Transpose Key (Down / Up 1 semitone)' },
   { key: '0', desc: 'Reset Transposition to Original Key' },
-  { key: 'C', desc: 'Toggle Multi-Column Stage Mode' },
+  { key: 'S / C', desc: 'Toggle Multi-Column Stage Mode' },
   { key: 'I', desc: 'Switch Instrument (Guitar ↔ Ukulele)' },
   { key: 'M', desc: 'Open / Close Metronome' },
   { key: '?', desc: 'Show Keyboard Shortcuts' },

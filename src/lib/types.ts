@@ -15,6 +15,8 @@ export interface SongMetadata {
   isFingerstyle: boolean;
   key?: string;
   createdAt: string;
+  slug?: string;
+  isCustom?: boolean;
 }
 
 export interface UserTab extends SongMetadata {

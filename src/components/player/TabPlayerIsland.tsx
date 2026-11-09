@@ -8,8 +8,10 @@ import { TabRenderer } from './TabRenderer';
 import { StickyPracticeDock } from './StickyPracticeDock';
 import { MetronomeModal } from './MetronomeModal';
 import { KeyboardShortcutsModal } from './KeyboardShortcutsModal';
+import { ShortcutLegendBar } from './ShortcutLegendBar';
 import { useAutoScroller } from './useAutoScroller';
 import { usePlayerShortcuts } from './usePlayerShortcuts';
+import { useWakeLock } from './useWakeLock';
 
 interface TabPlayerIslandProps {
   metadata: SongMetadata;
@@ -35,6 +37,9 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
   // RequestAnimationFrame Auto-Scroller hook with bottom detection
   useAutoScroller(isScrolling, scrollSpeed, () => setIsScrolling(false));
 
+  // Screen Wake Lock hook: keeps phone/laptop display awake during practice
+  const { isSupported: isWakeSupported, isActive: isWakeActive, toggleWakeLock } = useWakeLock(true);
+
   // Global Keyboard Shortcuts hook
   usePlayerShortcuts({
     onToggleScroll: () => setIsScrolling((prev) => !prev),
@@ -54,7 +59,12 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
 
   return (
     <div className="tab-player-container relative min-h-screen">
-      <SongHeader metadata={metadata} currentKey={currentKey} transposedSemitones={semitones} />
+      <SongHeader
+        metadata={metadata}
+        currentKey={currentKey}
+        transposedSemitones={semitones}
+        rawTabContent={rawTabContent}
+      />
 
       <ChordStrip
         uniqueChords={ast.uniqueChords}
@@ -70,6 +80,18 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
         columnMode={columnMode}
         onChordClick={(chord) => setActiveChord(chord)}
       />
+
+      {/* Floating subtle keyboard shortcut reference & wake lock */}
+      <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-30 w-[95%] max-w-3xl pointer-events-none">
+        <div className="pointer-events-auto">
+          <ShortcutLegendBar
+            isWakeLockActive={isWakeActive}
+            isWakeLockSupported={isWakeSupported}
+            onToggleWakeLock={toggleWakeLock}
+            onOpenShortcutsModal={() => setIsShortcutsOpen(true)}
+          />
+        </div>
+      </div>
 
       <StickyPracticeDock
         isScrolling={isScrolling}
