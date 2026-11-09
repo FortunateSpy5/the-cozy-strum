@@ -7,6 +7,30 @@ export default defineConfig({
   output: 'static',
   integrations: [react()],
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+    build: {
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('@firebase/firestore') || id.includes('firebase/firestore')) {
+              return 'firebase-firestore';
+            }
+            if (id.includes('@firebase/auth') || id.includes('firebase/auth')) {
+              return 'firebase-auth';
+            }
+            if (
+              id.includes('@firebase/app') ||
+              id.includes('firebase/app') ||
+              id.includes('@firebase/util') ||
+              id.includes('@firebase/component') ||
+              id.includes('@firebase/logger')
+            ) {
+              return 'firebase-app';
+            }
+          },
+        },
+      },
+    },
+  },
 });
