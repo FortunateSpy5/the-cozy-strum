@@ -24,6 +24,7 @@ describe('Phase 5: Local Audio + LRCLIB Chord Sync Pipeline', () => {
       'tab_injector.py',
       'ug_chord_fetcher.py',
       'benchmark_against_ug.py',
+      'audit_saved_songs.py',
       'sync_generator.py',
       'test_aligner.py',
     ];
