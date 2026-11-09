@@ -316,10 +316,14 @@ We integrate **LRCLIB (`https://lrclib.net/api`)** across two separate environme
 - Fully accessible DMCA policy and notice request route at `/dmca` with direct report link in the tab player header.
 - Multi-agent code review complete: React 19 `useDeferredValue` for AST, zero `alert()` calls, 44px touch targets, and 81 unit tests passing.
 
-### Phase 4: DMCA Takedown Portal & Admin Moderation Dashboard (`/admin`) *(Next Milestone)*
-- DMCA form island writing directly to `dmca_requests`.
-- Protected Admin Dashboard: Submissions queue (Approve/Reject), DMCA queue (1-click Soft-Deletion `status: 'removed_dmca'`), and All Tabs manager.
+### Phase 4: DMCA Takedown Portal & Admin Moderation Dashboard (`/admin`) *(Completed)*
+- Interactive DMCA claim island (`DmcaFormIsland.tsx`, `DmcaClaimantFields.tsx`, `DmcaSuccessNotice.tsx`) on `/dmca` writing verified claims to `dmca_requests`.
+- Protected Admin Console at `/admin` (`AdminDashboardIsland.tsx`) with role-based auth gate (`AdminAuthGate.tsx`).
+- Submissions queue (`SubmissionsQueue.tsx`, `SubmissionReviewModal.tsx`) with full tab preview and 1-click Approve (atomically updating `tabs/{id}` and `meta/catalog_index`) or Reject.
+- DMCA claims queue (`DmcaClaimsQueue.tsx`) with 1-click soft-delete takedown (`status: 'removed_dmca'`), automated catalog index removal, and claim dismissal.
+- Catalog maintenance panel (`CatalogManagerPanel.tsx`) with index rebuilder, sample song seeder, and local TTL cache eviction.
+- Zero `any`, strict types, all components < 185 lines, and 85 passing unit tests.
 
-### Phase 5: Local Audio + LRCLIB Automated Sync CLI (`tools/chord-sync/`)
+### Phase 5: Local Audio + LRCLIB Automated Sync CLI (`tools/chord-sync/`) *(Next Milestone)*
 - Local Python CLI tool (`tools/chord-sync/sync_generator.py`) running on PC.
 - Uses `lrclib.net` synced lyrics and `librosa`/`chord-extractor` harmony detection.

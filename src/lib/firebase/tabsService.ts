@@ -8,7 +8,7 @@ import { getFirebaseDb } from './config';
 import type { CloudTab, CatalogIndexDoc, TabSummary, SongCategory } from './types';
 import { SEED_TABS } from './seedTabs';
 
-const CACHE_KEY = 'cozy_strum_catalog_cache';
+export const CATALOG_CACHE_KEY = 'cozy_strum_catalog_cache';
 const TTL_MS = 15 * 60 * 1000; // 15 minutes
 
 interface CachedCatalog {
@@ -80,7 +80,7 @@ export function catalogToTabItems(catalog: CatalogIndexDoc): import('../types').
 export async function getCatalogIndex(forceRefresh = false): Promise<CatalogIndexDoc> {
   if (typeof window !== 'undefined' && !forceRefresh) {
     try {
-      const raw = localStorage.getItem(CACHE_KEY);
+      const raw = localStorage.getItem(CATALOG_CACHE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as CachedCatalog;
         if (Date.now() - parsed.timestamp < TTL_MS) {
@@ -104,7 +104,7 @@ export async function getCatalogIndex(forceRefresh = false): Promise<CatalogInde
     if (snap.exists()) {
       const data = snap.data() as CatalogIndexDoc;
       if (typeof window !== 'undefined') {
-        localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data }));
+        localStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data }));
       }
       return data;
     }
@@ -114,7 +114,7 @@ export async function getCatalogIndex(forceRefresh = false): Promise<CatalogInde
 
   const fallback = createFallbackCatalogIndex();
   if (typeof window !== 'undefined') {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: fallback }));
+    localStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: fallback }));
   }
   return fallback;
 }
@@ -159,7 +159,7 @@ export async function seedInitialTabs(): Promise<CatalogIndexDoc> {
 
   if (!db) {
     if (typeof window !== 'undefined') {
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: catalog }));
+      localStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: catalog }));
     }
     return catalog;
   }
@@ -177,7 +177,7 @@ export async function seedInitialTabs(): Promise<CatalogIndexDoc> {
   await batch.commit();
 
   if (typeof window !== 'undefined') {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: catalog }));
+    localStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: catalog }));
   }
 
   return catalog;

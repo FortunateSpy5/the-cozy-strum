@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AdminDashboardIsland } from '../components/admin/AdminDashboardIsland';
+---
+
+<BaseLayout
+  title="Admin Moderation Console — The Cozy Strum"
+  description="Sanctuary administration console: review community chord submissions, handle DMCA takedowns, and manage catalog indexes."
+>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <AdminDashboardIsland client:load />
+  </main>
+</BaseLayout>

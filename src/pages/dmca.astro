@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { DmcaFormIsland } from '../components/dmca/DmcaFormIsland';
 ---
 
 <BaseLayout
   title="DMCA & Copyright Policy — The Cozy Strum"
   description="DMCA takedown notice and copyright policy for The Cozy Strum guitar sanctuary."
 >
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-8">
     <div class="p-6 sm:p-10 rounded-3xl bg-surface border border-warm shadow-xs space-y-6">
       <div class="border-b border-warm pb-6">
         <span class="text-xs font-mono uppercase tracking-wider text-terracotta font-semibold">Legal & Fair Use</span>
@@ -40,17 +41,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ol>
       </section>
 
+      {/* Interactive DMCA Form Island */}
+      <DmcaFormIsland client:load />
+
+      {/* Mailto Alternate Option */}
       <div class="p-5 rounded-2xl bg-canvas border border-warm space-y-3">
-        <h3 class="font-serif text-base font-bold text-espresso">Submit a Takedown Request</h3>
+        <h3 class="font-serif text-base font-bold text-espresso">Alternate Option: Direct Email Notice</h3>
         <p class="text-xs text-walnut">
-          Click below to compose a pre-filled DMCA notice email with the song details attached:
+          Prefer using your email client? Click below to compose a pre-filled DMCA notice email:
         </p>
         <a
           id="dmca-mailto-link"
           href="mailto:dmca@thecozystrum.local?subject=DMCA%20Takedown%20Notice"
-          class="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 rounded-xl bg-terracotta text-white font-semibold text-xs hover:bg-terracotta/90 transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+          class="inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 rounded-xl bg-surface border border-warm text-espresso font-semibold text-xs hover:border-terracotta transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
         >
-          Send DMCA Takedown Notice
+          Send Email via Mail Client
         </a>
       </div>
 
@@ -80,9 +85,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           );
           mailtoBtn.setAttribute('href', `mailto:dmca@thecozystrum.local?subject=${subject}&body=${body}`);
         }
-      } catch (e) {
-        // quiet fallback
-      }
+      } catch (e) {}
     })();
   </script>
 </BaseLayout>

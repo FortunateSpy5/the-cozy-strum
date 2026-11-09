@@ -93,3 +93,23 @@ export interface Setlist {
   createdAt: string;
   updatedAt: string;
 }
+
+export type DmcaStatus = 'open' | 'approved_removed' | 'dismissed';
+
+export interface DmcaRequest {
+  id: string;
+  tabId: string;
+  songTitle: string;
+  artistName: string;
+  claimantName: string;
+  claimantEmail: string;
+  companyOrRightsholder: string;
+  infringingUrl: string;
+  statementOfGoodFaith: boolean;
+  digitalSignature: string;
+  status: DmcaStatus;
+  adminNotes?: string;
+  resolvedByUid?: string;
+  createdAt: string;
+  resolvedAt?: string;
+}
