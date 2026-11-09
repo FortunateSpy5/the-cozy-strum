@@ -115,7 +115,7 @@ export const TabImporterIsland: React.FC = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-surface border border-warm">
         <div className="text-xs text-walnut" role="status" aria-live="polite">
           {savedSlug ? (
-            <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
+            <span className="inline-flex items-center gap-1.5 text-emerald-700 dark:text-emerald-300 font-semibold">
               <Check className="w-4 h-4" aria-hidden="true" />
               Song saved to browser library!
             </span>

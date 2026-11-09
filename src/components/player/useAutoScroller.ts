@@ -41,8 +41,9 @@ export function useAutoScroller(isScrolling: boolean, scrollSpeed: number) {
   }, [isScrolling, scrollStep]);
 
   useEffect(() => {
+    if (!isScrolling) return;
+
     const handleWheel = () => {
-      if (!isScrolling) return;
       isUserScrollingRef.current = true;
       if (userScrollTimeoutRef.current !== null) {
         window.clearTimeout(userScrollTimeoutRef.current);

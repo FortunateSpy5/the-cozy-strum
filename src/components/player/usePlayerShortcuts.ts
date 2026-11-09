@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export interface PlayerShortcutsOptions {
   onToggleScroll: () => void;
@@ -14,6 +14,9 @@ export interface PlayerShortcutsOptions {
 }
 
 export function usePlayerShortcuts(options: PlayerShortcutsOptions) {
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement | null;
@@ -23,59 +26,68 @@ export function usePlayerShortcuts(options: PlayerShortcutsOptions) {
           el.tagName === 'TEXTAREA' ||
           el.tagName === 'SELECT' ||
           el.isContentEditable ||
-          el.closest('input, textarea, select, [contenteditable="true"]'))
+          Boolean(el.closest?.('input, textarea, select, [contenteditable="true"], [contenteditable=""]')))
       ) {
         return;
       }
 
       if (e.ctrlKey || e.metaKey || e.altKey) return;
 
-      if (options.hasActiveModal) {
+      const opts = optionsRef.current;
+
+      if (opts.hasActiveModal) {
         if (e.key === 'Escape') {
           e.preventDefault();
-          options.onCloseModals();
+          opts.onCloseModals();
         }
         return;
       }
 
-      if (e.code === 'Space') {
+      if ((e.code === 'Space' || e.key === ' ') && !e.shiftKey) {
         e.preventDefault();
-        if (el && el.tagName === 'BUTTON') el.blur();
-        options.onToggleScroll();
-      } else if (e.code === 'ArrowUp') {
+        if (e.repeat) return;
+        const btn = el?.closest?.('button');
+        if (btn) btn.blur();
+        opts.onToggleScroll();
+      } else if (e.code === 'ArrowUp' || e.key === 'ArrowUp') {
         e.preventDefault();
-        options.onAdjustSpeed(0.5);
-      } else if (e.code === 'ArrowDown') {
+        opts.onAdjustSpeed(0.5);
+      } else if (e.code === 'ArrowDown' || e.key === 'ArrowDown') {
         e.preventDefault();
-        options.onAdjustSpeed(-0.5);
-      } else if (e.code === 'BracketLeft' || e.key === '[') {
+        opts.onAdjustSpeed(-0.5);
+      } else if (e.key === '[' || (!e.shiftKey && e.code === 'BracketLeft')) {
         e.preventDefault();
-        options.onTranspose(-1);
-      } else if (e.code === 'BracketRight' || e.key === ']') {
+        opts.onTranspose(-1);
+      } else if (e.key === ']' || (!e.shiftKey && e.code === 'BracketRight')) {
         e.preventDefault();
-        options.onTranspose(1);
-      } else if (e.code === 'Digit0' || e.code === 'Numpad0' || e.key === '0') {
+        opts.onTranspose(1);
+      } else if (e.key === '0' || (!e.shiftKey && (e.code === 'Digit0' || e.code === 'Numpad0'))) {
         e.preventDefault();
-        options.onResetTranspose();
+        opts.onResetTranspose();
       } else if (e.code === 'KeyC' || e.key.toLowerCase() === 'c') {
         e.preventDefault();
-        options.onToggleColumns();
+        if (e.repeat) return;
+        opts.onToggleColumns();
       } else if (e.code === 'KeyI' || e.key.toLowerCase() === 'i') {
         e.preventDefault();
-        options.onToggleInstrument();
+        if (e.repeat) return;
+        opts.onToggleInstrument();
       } else if (e.code === 'KeyM' || e.key.toLowerCase() === 'm') {
         e.preventDefault();
-        options.onToggleMetronome();
+        if (e.repeat) return;
+        opts.onToggleMetronome();
       } else if (e.key === '?' || (e.code === 'Slash' && e.shiftKey)) {
         e.preventDefault();
-        options.onToggleShortcuts();
+        if (e.repeat) return;
+        opts.onToggleShortcuts();
       } else if (e.key === 'Escape') {
         e.preventDefault();
-        options.onCloseModals();
+        opts.onCloseModals();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [options]);
+  }, []);
 }
+

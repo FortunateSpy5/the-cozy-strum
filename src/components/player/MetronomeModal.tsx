@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Square, X, Plus, Minus, Volume2 } from 'lucide-react';
 import { AudioMetronome } from '../../lib/music/audioMetronome';
+import { useModalA11y } from '../common/useModalA11y';
 
 interface MetronomeModalProps {
   initialBpm?: number;
@@ -18,18 +19,15 @@ export const MetronomeModal: React.FC<MetronomeModalProps> = ({
   const [activeBeat, setActiveBeat] = useState(0);
   const [volume, setVolume] = useState(0.8);
   const metronomeRef = useRef<AudioMetronome | null>(null);
+  // Focus trap, backdrop click, and Escape key dismissal
+  // Handles focus trap, Tab cycling, and Escape key listener
+  const dialogRef = useModalA11y({ isOpen: true, onClose });
 
   useEffect(() => {
     metronomeRef.current = new AudioMetronome(bpm, (beat) => setActiveBeat(beat));
     metronomeRef.current.setVolume(volume);
     return () => { metronomeRef.current?.dispose(); };
   }, []);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
 
   const togglePlay = () => {
     if (!metronomeRef.current) return;
@@ -48,13 +46,17 @@ export const MetronomeModal: React.FC<MetronomeModalProps> = ({
   const strumAria = strumTokens.map((t) => t.includes('D') ? 'Down' : t.includes('U') ? 'Up' : t).join(' ');
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-espresso/40 backdrop-blur-xs p-4">
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="metronome-title"
-        className="w-full max-w-sm rounded-3xl bg-surface border border-warm shadow-2xl p-6 relative"
-      >
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="metronome-title"
+      ref={dialogRef}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-espresso/40 backdrop-blur-xs p-4"
+    >
+      <div className="w-full max-w-sm rounded-3xl bg-surface border border-warm shadow-2xl p-6 relative">
         <button
           onClick={onClose}
           type="button"

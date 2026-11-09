@@ -1,17 +1,25 @@
 import type { UserTab, Setlist, UserPreferences } from '../types';
-import { getUserTabs, saveUserTab, getSetlists, saveSetlist, getUserPrefs, saveUserPrefs } from './tabStorage';
+import {
+  getUserTabs,
+  saveUserTab,
+  getSetlists,
+  saveSetlist,
+  getUserPrefs,
+  saveUserPrefs
+} from './tabStorage';
 import { generateMarkdownWithFrontmatter } from './exportMd';
 import { createZipUint8Array, downloadBlob, type ZipFileInput } from './zipExport';
+import {
+  type BackupPayload,
+  parseBackupJson,
+  sanitizeUserTab,
+  sanitizeSetlist,
+  sanitizePreferences,
+  sanitizeZipSlug
+} from './backupValidation';
 
-export interface BackupPayload {
-  app: 'the-cozy-strum';
-  version: number;
-  exportedAt: string;
-  totalTabs: number;
-  tabs: UserTab[];
-  setlists?: Setlist[];
-  preferences?: Partial<UserPreferences>;
-}
+export type { BackupPayload };
+export { parseBackupJson };
 
 export function createBackupJson(
   tabs: UserTab[],
@@ -28,18 +36,6 @@ export function createBackupJson(
     preferences
   };
   return JSON.stringify(payload, null, 2);
-}
-
-export function parseBackupJson(jsonString: string): BackupPayload {
-  const parsed = JSON.parse(jsonString) as unknown;
-  if (!parsed || typeof parsed !== 'object') {
-    throw new Error('Invalid JSON: Root must be an object.');
-  }
-  const obj = parsed as Record<string, unknown>;
-  if (!Array.isArray(obj.tabs)) {
-    throw new Error('Invalid backup: Missing "tabs" array.');
-  }
-  return parsed as BackupPayload;
 }
 
 export function exportAllTabsAsJson(): { count: number; filename: string } {
@@ -65,7 +61,7 @@ export function exportAllTabsAsZip(): { count: number; filename: string } {
 
   const files: ZipFileInput[] = [];
 
-  // 1. Full JSON backup file inside ZIP
+  // 1. Full JSON backup snapshot inside ZIP
   files.push({
     name: 'backup.json',
     content: createBackupJson(tabs, setlists, prefs)
@@ -74,8 +70,9 @@ export function exportAllTabsAsZip(): { count: number; filename: string } {
   // 2. Individual formatted Markdown files for each tab
   for (const tab of tabs) {
     const md = generateMarkdownWithFrontmatter(tab, tab.content);
+    const safeSlug = sanitizeZipSlug(tab.slug || tab.title);
     files.push({
-      name: `tabs/${tab.slug}.md`,
+      name: `tabs/${safeSlug}.md`,
       content: md
     });
   }
@@ -100,26 +97,50 @@ Contents:
   return { count: tabs.length, filename };
 }
 
-export function restoreTabsFromJson(jsonString: string): { success: boolean; count: number; error?: string } {
+export function restoreTabsFromJson(jsonString: string): {
+  success: boolean;
+  count: number;
+  error?: string;
+} {
   try {
     const data = parseBackupJson(jsonString);
     let importedCount = 0;
+    let quotaErrorEncountered = false;
 
-    for (const tab of data.tabs) {
-      if (tab.slug && tab.content && tab.title) {
-        saveUserTab(tab);
-        importedCount++;
+    for (const rawTab of data.tabs) {
+      const cleanTab = sanitizeUserTab(rawTab);
+      if (cleanTab) {
+        const saved = saveUserTab(cleanTab);
+        if (saved) {
+          importedCount++;
+        } else {
+          quotaErrorEncountered = true;
+        }
       }
     }
 
     if (Array.isArray(data.setlists)) {
-      for (const setlist of data.setlists) {
-        saveSetlist(setlist);
+      for (const rawSetlist of data.setlists) {
+        const cleanSetlist = sanitizeSetlist(rawSetlist);
+        if (cleanSetlist) {
+          saveSetlist(cleanSetlist);
+        }
       }
     }
 
     if (data.preferences) {
-      saveUserPrefs(data.preferences);
+      const cleanPrefs = sanitizePreferences(data.preferences);
+      if (Object.keys(cleanPrefs).length > 0) {
+        saveUserPrefs(cleanPrefs);
+      }
+    }
+
+    if (quotaErrorEncountered && importedCount === 0) {
+      return {
+        success: false,
+        count: 0,
+        error: 'LocalStorage quota exceeded. Please free up browser storage space.'
+      };
     }
 
     return { success: true, count: importedCount };

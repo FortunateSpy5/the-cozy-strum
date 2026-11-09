@@ -3,39 +3,25 @@ import { Play, Pause, Columns2, Music, Guitar, Clock, Keyboard } from 'lucide-re
 import type { Instrument } from '../../lib/types';
 
 interface StickyPracticeDockProps {
-  isScrolling: boolean;
-  scrollSpeed: number;
-  semitones: number;
+  isScrolling: boolean; scrollSpeed: number; semitones: number;
   columnMode: 'single' | 'two-column' | 'three-column';
   fontSize: 'sm' | 'base' | 'lg' | 'xl';
   instrument: Instrument;
-  onToggleScroll: () => void;
+  onToggleScroll: () => void; onResetTranspose: () => void;
+  onToggleColumns: () => void; onToggleInstrument: () => void;
+  onOpenMetronome: () => void; onOpenShortcuts: () => void;
   onChangeSpeed: (delta: number) => void;
   onTranspose: (delta: number) => void;
-  onResetTranspose: () => void;
-  onToggleColumns: () => void;
   onChangeFontSize: (larger: boolean) => void;
-  onToggleInstrument: () => void;
-  onOpenMetronome: () => void;
-  onOpenShortcuts: () => void;
 }
 
+const STEP_BTN = 'px-2.5 py-1.5 min-h-[44px] min-w-[40px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta';
+const DOCK_ICON_BTN = 'p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2';
+
 export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
-  isScrolling,
-  scrollSpeed,
-  semitones,
-  columnMode,
-  fontSize,
-  instrument,
-  onToggleScroll,
-  onChangeSpeed,
-  onTranspose,
-  onResetTranspose,
-  onToggleColumns,
-  onChangeFontSize,
-  onToggleInstrument,
-  onOpenMetronome,
-  onOpenShortcuts
+  isScrolling, scrollSpeed, semitones, columnMode, fontSize, instrument,
+  onToggleScroll, onChangeSpeed, onTranspose, onResetTranspose,
+  onToggleColumns, onChangeFontSize, onToggleInstrument, onOpenMetronome, onOpenShortcuts
 }) => {
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-4xl" role="toolbar" aria-label="Practice tools dock">
@@ -60,19 +46,19 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onChangeSpeed(-0.5)}
               type="button"
-              className="px-2 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className={STEP_BTN}
               title="Slower speed (Down Arrow)"
               aria-label="Decrease scroll speed"
             >
               -
             </button>
-            <span className="px-1.5 py-1 font-bold text-espresso min-w-[36px] text-center" aria-label={`Current speed ${scrollSpeed.toFixed(1)}x`}>
+            <span className="px-1.5 py-1 font-bold text-espresso min-w-[40px] text-center" aria-label={`Current speed ${scrollSpeed.toFixed(1)}x`}>
               {scrollSpeed.toFixed(1)}x
             </span>
             <button
               onClick={() => onChangeSpeed(0.5)}
               type="button"
-              className="px-2 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className={STEP_BTN}
               title="Faster speed (Up Arrow)"
               aria-label="Increase scroll speed"
             >
@@ -90,7 +76,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onTranspose(-1)}
               type="button"
-              className="px-2.5 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center hover:text-terracotta rounded font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className={`${STEP_BTN} font-bold`}
               title="Transpose Down 1 Semitone ([)"
               aria-label="Transpose down 1 semitone"
             >
@@ -99,7 +85,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={onResetTranspose}
               type="button"
-              className="px-2 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center font-bold text-espresso hover:text-terracotta text-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className="px-2.5 py-1.5 min-h-[44px] min-w-[40px] flex items-center justify-center font-bold text-espresso hover:text-terracotta text-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               title="Reset transposition (0)"
               aria-label={`Reset transposition, currently ${semitones === 0 ? 'original key' : semitones > 0 ? `+${semitones}` : semitones}`}
             >
@@ -108,7 +94,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onTranspose(1)}
               type="button"
-              className="px-2.5 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center hover:text-terracotta rounded font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className={`${STEP_BTN} font-bold`}
               title="Transpose Up 1 Semitone (])"
               aria-label="Transpose up 1 semitone"
             >
@@ -122,7 +108,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           <button
             onClick={onToggleInstrument}
             type="button"
-            className="p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs font-mono text-espresso flex items-center justify-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+            className={`${DOCK_ICON_BTN} font-mono text-xs gap-1`}
             title={`Active: ${instrument}. Click to switch (I)`}
             aria-label={`Instrument: ${instrument}. Click to switch to ${instrument === 'guitar' ? 'ukulele' : 'guitar'}`}
           >
@@ -147,7 +133,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onChangeFontSize(false)}
               type="button"
-              className="px-2 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center hover:text-terracotta text-[10px] rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className={`${STEP_BTN} text-[10px]`}
               title="Decrease font size"
               aria-label="Decrease font size"
             >
@@ -159,7 +145,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onChangeFontSize(true)}
               type="button"
-              className="px-2 py-1 min-h-[40px] min-w-[36px] flex items-center justify-center hover:text-terracotta text-xs font-bold rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className={`${STEP_BTN} text-xs font-bold`}
               title="Increase font size"
               aria-label="Increase font size"
             >
@@ -170,7 +156,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           <button
             onClick={onOpenMetronome}
             type="button"
-            className="p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+            className={DOCK_ICON_BTN}
             title="Open Metronome (M)"
             aria-label="Open metronome modal"
           >
@@ -180,7 +166,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           <button
             onClick={onOpenShortcuts}
             type="button"
-            className="p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+            className={DOCK_ICON_BTN}
             title="Keyboard Shortcuts (?)"
             aria-label="Open keyboard shortcuts guide"
           >

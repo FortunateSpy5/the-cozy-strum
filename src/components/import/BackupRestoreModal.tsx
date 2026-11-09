@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, FileJson, Archive, Upload, Check, AlertCircle } from 'lucide-react';
 import { getUserTabs } from '../../lib/storage/tabStorage';
 import { exportAllTabsAsJson, exportAllTabsAsZip, restoreTabsFromJson } from '../../lib/storage/backupRestore';
+import { useModalA11y } from '../common/useModalA11y';
 
 interface BackupRestoreModalProps {
   isOpen: boolean;
@@ -17,6 +18,7 @@ export const BackupRestoreModal: React.FC<BackupRestoreModalProps> = ({
   const [tabCount, setTabCount] = useState(0);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useModalA11y({ isOpen, onClose });
 
   useEffect(() => {
     if (isOpen) {
@@ -24,14 +26,6 @@ export const BackupRestoreModal: React.FC<BackupRestoreModalProps> = ({
       setFeedback(null);
     }
   }, [isOpen]);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) onClose();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -82,6 +76,10 @@ export const BackupRestoreModal: React.FC<BackupRestoreModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-labelledby="backup-modal-title"
+      ref={dialogRef}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/60 backdrop-blur-xs animate-in fade-in duration-150"
     >
       <div className="relative w-full max-w-md p-6 rounded-3xl bg-surface border border-warm shadow-2xl space-y-5">
@@ -97,7 +95,7 @@ export const BackupRestoreModal: React.FC<BackupRestoreModalProps> = ({
           <button
             onClick={onClose}
             type="button"
-            className="p-1.5 rounded-xl hover:bg-canvas text-walnut hover:text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-canvas text-walnut hover:text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" aria-hidden="true" />
@@ -163,6 +161,7 @@ export const BackupRestoreModal: React.FC<BackupRestoreModalProps> = ({
             onChange={handleFileUpload}
             className="hidden"
             id="restore-backup-input"
+            aria-label="Upload JSON backup file"
           />
           <button
             onClick={() => fileInputRef.current?.click()}

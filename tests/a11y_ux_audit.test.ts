@@ -51,15 +51,47 @@ describe('Accessibility & UX Verification', () => {
     const metronome = fs.readFileSync(path.resolve('src/components/player/MetronomeModal.tsx'), 'utf-8');
     assert.ok(metronome.includes('role="dialog"'), 'Metronome must have role="dialog"');
     assert.ok(metronome.includes('aria-modal="true"'), 'Metronome must have aria-modal="true"');
-    assert.ok(metronome.includes('role="status"'), 'Beat indicator must have role="status"');
-    assert.ok(metronome.includes('Escape'), 'Metronome must listen for Escape key');
+    assert.ok(metronome.includes('aria-labelledby='), 'Metronome must have aria-labelledby');
+    assert.ok(metronome.includes('min-w-[44px] min-h-[44px]'), 'Metronome close button must be 44px tap target');
+    assert.ok(metronome.includes('useModalA11y'), 'Metronome must use modal focus trap/return');
   });
 
-  it('verifies StickyPracticeDock has toolbar role and min-h/min-w 44px tap targets', () => {
+  it('verifies BackupRestoreModal dialog semantics, 44px tap targets, and focus trap', () => {
+    const modal = fs.readFileSync(path.resolve('src/components/import/BackupRestoreModal.tsx'), 'utf-8');
+    assert.ok(modal.includes('role="dialog"'), 'Must have role="dialog"');
+    assert.ok(modal.includes('aria-modal="true"'), 'Must have aria-modal="true"');
+    assert.ok(modal.includes('aria-labelledby="backup-modal-title"'), 'Must have aria-labelledby');
+    assert.ok(modal.includes('aria-label="Close modal"'), 'Close button must have aria-label');
+    assert.ok(modal.includes('min-w-[44px] min-h-[44px]'), 'Close button must have min 44px tap target');
+    assert.ok(modal.includes('role="status"'), 'Feedback message must have role="status"');
+    assert.ok(modal.includes('aria-live="polite"'), 'Feedback message must have aria-live="polite"');
+    assert.ok(modal.includes('useModalA11y'), 'Must use modal a11y focus trap and escape handler');
+  });
+
+  it('verifies KeyboardShortcutsModal dialog semantics, 44px tap targets, and focus trap', () => {
+    const modal = fs.readFileSync(path.resolve('src/components/player/KeyboardShortcutsModal.tsx'), 'utf-8');
+    assert.ok(modal.includes('role="dialog"'), 'Must have role="dialog"');
+    assert.ok(modal.includes('aria-modal="true"'), 'Must have aria-modal="true"');
+    assert.ok(modal.includes('aria-labelledby="shortcuts-modal-title"'), 'Must have aria-labelledby');
+    assert.ok(modal.includes('aria-label="Close shortcuts modal"'), 'Close button must have aria-label');
+    assert.ok(modal.includes('min-w-[44px] min-h-[44px]'), 'Close button must have min 44px tap target');
+    assert.ok(modal.includes('min-h-[44px]'), 'Got it button must have min 44px tap target');
+    assert.ok(!modal.includes('min-h-[40px]'), 'No 40px buttons should remain');
+    assert.ok(modal.includes('useModalA11y'), 'Must use modal a11y focus trap and escape handler');
+  });
+
+  it('verifies StickyPracticeDock has toolbar role and all buttons meet 44px tap targets', () => {
     const dock = fs.readFileSync(path.resolve('src/components/player/StickyPracticeDock.tsx'), 'utf-8');
     assert.ok(dock.includes('role="toolbar"'), 'Dock must have role="toolbar"');
     assert.ok(dock.includes('min-h-[44px]'), 'Buttons must support 44px minimum tap targets');
+    assert.ok(!dock.includes('min-h-[40px]'), 'Sub-44px buttons must not exist in dock');
     assert.ok(dock.includes('focus-visible:ring-2'), 'Buttons must have visible focus rings');
+  });
+
+  it('verifies TabImporter live feedback meets WCAG AA contrast', () => {
+    const importer = fs.readFileSync(path.resolve('src/components/import/TabImporterIsland.tsx'), 'utf-8');
+    assert.ok(importer.includes('text-emerald-700'), 'Must use emerald-700 for high-contrast on parchment');
+    assert.ok(!importer.includes('text-emerald-600'), 'Must not use low-contrast emerald-600');
   });
 
   it('verifies ChordDiagramSvg provides descriptive accessible text for screen readers', () => {
