@@ -22,6 +22,7 @@ describe('Phase 5: Local Audio + LRCLIB Chord Sync Pipeline', () => {
       'tab_synthesizer.py',
       'tab_fetcher.py',
       'tab_injector.py',
+      'ug_chord_fetcher.py',
       'sync_generator.py',
       'test_aligner.py',
     ];
@@ -68,6 +69,7 @@ describe('Phase 5: Local Audio + LRCLIB Chord Sync Pipeline', () => {
       assert.ok(output.includes('--upload'), 'CLI must support --upload');
       assert.ok(output.includes('--fingerstyle'), 'CLI must support --fingerstyle');
       assert.ok(output.includes('--fetch-tab'), 'CLI must support --fetch-tab');
+      assert.ok(output.includes('--fetch-chords'), 'CLI must support --fetch-chords');
       assert.ok(output.includes('--dry-run'), 'CLI must support --dry-run');
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : String(err);

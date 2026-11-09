@@ -28,6 +28,7 @@ from section_detector import detect_song_sections
 from tab_synthesizer import synthesize_tab_block
 from tab_fetcher import clean_ug_tab_text, extract_first_ascii_tab_block
 from tab_injector import inject_tab_block, resolve_ascii_tab
+from ug_chord_fetcher import clean_ug_content, extract_recurring_progression, compute_harmonic_overlap
 
 class TestChordSyncPipeline(unittest.TestCase):
     def test_parse_lrc_timestamp(self):
@@ -132,6 +133,17 @@ class TestChordSyncPipeline(unittest.TestCase):
         injected = inject_tab_block(base_sheet, "e|--0--|", "Intro Tab")
         self.assertTrue("[Intro Tab]" in injected)
         self.assertTrue("e|--0--|" in injected)
+
+    def test_ug_chord_utilities(self):
+        cleaned = clean_ug_content("[ch]Am[/ch] [ch]G[/ch] &amp; [ch]C[/ch]")
+        self.assertEqual(cleaned, "Am G & C")
+
+        chords = ["Am", "C", "D", "F", "Am", "C", "D", "F", "E"]
+        prog = extract_recurring_progression(chords)
+        self.assertEqual(prog, ["Am", "C", "D", "F"])
+
+        overlap = compute_harmonic_overlap(["C", "Am", "F", "G"], ["C", "Am7", "Fmaj7", "G7"])
+        self.assertAlmostEqual(overlap, 1.0)
 
 if __name__ == "__main__":
     unittest.main()
