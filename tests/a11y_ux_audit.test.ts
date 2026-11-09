@@ -68,10 +68,16 @@ describe('Accessibility & UX Verification', () => {
     assert.ok(chordSvg.includes('<desc>'), 'Chord diagram SVG must have <desc> tag');
   });
 
-  it('verifies TabPlayerIsland ignores shortcuts when typing or when modifier keys are pressed', () => {
-    const island = fs.readFileSync(path.resolve('src/components/player/TabPlayerIsland.tsx'), 'utf-8');
-    assert.ok(island.includes('target.tagName === \'INPUT\'') || island.includes('el.tagName === \'INPUT\''), 'Must ignore INPUT tags');
-    assert.ok(island.includes('isContentEditable'), 'Must ignore contenteditable');
-    assert.ok(island.includes('ctrlKey'), 'Must ignore shortcuts when ctrlKey or metaKey is pressed');
+  it('verifies TabPlayer shortcuts ignore typing and modifier keys', () => {
+    const shortcutsFile = fs.existsSync(path.resolve('src/components/player/usePlayerShortcuts.ts'))
+      ? fs.readFileSync(path.resolve('src/components/player/usePlayerShortcuts.ts'), 'utf-8')
+      : fs.readFileSync(path.resolve('src/components/player/TabPlayerIsland.tsx'), 'utf-8');
+
+    assert.ok(
+      shortcutsFile.includes("target.tagName === 'INPUT'") || shortcutsFile.includes("el.tagName === 'INPUT'"),
+      'Must ignore INPUT tags'
+    );
+    assert.ok(shortcutsFile.includes('isContentEditable'), 'Must ignore contenteditable');
+    assert.ok(shortcutsFile.includes('ctrlKey'), 'Must ignore shortcuts when ctrlKey or metaKey is pressed');
   });
 });

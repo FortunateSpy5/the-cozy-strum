@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Download, Bookmark, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { Download, Bookmark, Sparkles, Check, ArrowRight, Archive } from 'lucide-react';
 import type { SongMetadata, UserTab } from '../../lib/types';
 import { parseSongText } from '../../lib/parser/songParser';
 import { saveUserTab } from '../../lib/storage/tabStorage';
 import { generateMarkdownWithFrontmatter, downloadMarkdownFile } from '../../lib/storage/exportMd';
 import { MetadataForm } from './MetadataForm';
+import { BackupRestoreModal } from './BackupRestoreModal';
 import { TabRenderer } from '../player/TabRenderer';
 import { SAMPLE_TAB, getSampleMetadata } from './sampleTab';
 
@@ -12,6 +13,7 @@ export const TabImporterIsland: React.FC = () => {
   const [rawText, setRawText] = useState(SAMPLE_TAB);
   const [metadata, setMetadata] = useState<SongMetadata>(getSampleMetadata);
   const [savedSlug, setSavedSlug] = useState<string | null>(null);
+  const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
 
   const slug = useMemo(() => {
     return (
@@ -45,42 +47,39 @@ export const TabImporterIsland: React.FC = () => {
     downloadMarkdownFile(`${slug}.md`, mdContent);
   };
 
-  const handleLoadDemo = () => {
-    setRawText(SAMPLE_TAB);
-    setMetadata(getSampleMetadata());
-  };
-
   return (
     <div className="space-y-6">
-      {/* Importer Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-espresso">
-            Quick Paste Studio
-          </h1>
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-espresso">Quick Paste Studio</h1>
           <p className="text-xs sm:text-sm text-walnut">
             Paste raw text from Ultimate Guitar. Chords and ASCII staves are parsed instantly.
           </p>
         </div>
-        <button
-          onClick={handleLoadDemo}
-          type="button"
-          className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs font-medium text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-terracotta" aria-hidden="true" />
-          Load Demo Song
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsBackupModalOpen(true)}
+            type="button"
+            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-amber-600 text-xs font-medium text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 transition-colors"
+            title="Backup or export all tabs in browser localStorage as JSON or ZIP"
+          >
+            <Archive className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
+            <span>Backup / Export (JSON/ZIP)</span>
+          </button>
+          <button
+            onClick={() => { setRawText(SAMPLE_TAB); setMetadata(getSampleMetadata()); }}
+            type="button"
+            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs font-medium text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-terracotta" aria-hidden="true" />
+            <span className="hidden sm:inline">Load Demo</span>
+          </button>
+        </div>
       </div>
 
-      {/* Metadata Configuration Form */}
-      <MetadataForm
-        metadata={metadata}
-        onChange={(partial) => setMetadata((prev) => ({ ...prev, ...partial }))}
-      />
+      <MetadataForm metadata={metadata} onChange={(p) => setMetadata((prev) => ({ ...prev, ...p }))} />
 
-      {/* Split Screen Editor & Live Preview */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Left: Raw Text Area */}
         <div className="flex flex-col space-y-2">
           <div className="flex items-center justify-between text-xs font-mono text-walnut px-1">
             <label htmlFor="raw-tab-input">Raw Ultimate Guitar Text</label>
@@ -97,7 +96,6 @@ export const TabImporterIsland: React.FC = () => {
           />
         </div>
 
-        {/* Right: Live Parsed Preview */}
         <div className="flex flex-col space-y-2">
           <div className="flex items-center justify-between text-xs font-mono text-walnut px-1">
             <span>Live Sanctuary Preview</span>
@@ -109,17 +107,11 @@ export const TabImporterIsland: React.FC = () => {
             aria-label="Parsed sanctuary tab live preview"
             className="w-full h-[450px] p-4 rounded-2xl bg-surface border border-warm overflow-y-auto scrollbar-thin focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
-            <TabRenderer
-              lines={ast.lines}
-              semitones={0}
-              fontSize="base"
-              columnMode="single"
-            />
+            <TabRenderer lines={ast.lines} semitones={0} fontSize="base" columnMode="single" />
           </div>
         </div>
       </div>
 
-      {/* Action Footer */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-surface border border-warm">
         <div className="text-xs text-walnut" role="status" aria-live="polite">
           {savedSlug ? (
@@ -132,36 +124,50 @@ export const TabImporterIsland: React.FC = () => {
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
           {savedSlug && (
             <a
               href={`/tabs/custom?slug=${savedSlug}`}
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-all"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-all"
             >
               <span>Play Now</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
             </a>
           )}
           <button
+            onClick={() => setIsBackupModalOpen(true)}
+            type="button"
+            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-amber-600 text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 transition-all shadow-xs"
+            title="Export or backup all tabs saved in localStorage"
+          >
+            <Archive className="w-4 h-4 text-amber-600" aria-hidden="true" />
+            <span>Backup Tabs</span>
+          </button>
+          <button
             onClick={handleSaveToBrowser}
             type="button"
             className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-all shadow-xs"
           >
             <Bookmark className="w-4 h-4" aria-hidden="true" />
-            Save to Browser Library
+            Save to Library
           </button>
           <button
             onClick={handleDownloadMd}
             type="button"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-all shadow-xs"
+            className="inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-all shadow-xs"
             title="Download .md for src/content/tabs/"
             aria-label="Download markdown file for Git repository"
           >
             <Download className="w-4 h-4" aria-hidden="true" />
-            Download .md File
+            <span>.md File</span>
           </button>
         </div>
       </div>
+
+      <BackupRestoreModal
+        isOpen={isBackupModalOpen}
+        onClose={() => setIsBackupModalOpen(false)}
+      />
     </div>
   );
 };

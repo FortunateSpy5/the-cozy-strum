@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Pause, Columns2, Music, Guitar, Clock } from 'lucide-react';
+import { Play, Pause, Columns2, Music, Guitar, Clock, Keyboard } from 'lucide-react';
 import type { Instrument } from '../../lib/types';
 
 interface StickyPracticeDockProps {
@@ -17,6 +17,7 @@ interface StickyPracticeDockProps {
   onChangeFontSize: (larger: boolean) => void;
   onToggleInstrument: () => void;
   onOpenMetronome: () => void;
+  onOpenShortcuts: () => void;
 }
 
 export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
@@ -33,7 +34,8 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
   onToggleColumns,
   onChangeFontSize,
   onToggleInstrument,
-  onOpenMetronome
+  onOpenMetronome,
+  onOpenShortcuts
 }) => {
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-4xl" role="toolbar" aria-label="Practice tools dock">
@@ -44,9 +46,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             onClick={onToggleScroll}
             type="button"
             className={`flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-semibold transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
-              isScrolling
-                ? 'bg-amber-600 text-white animate-pulse'
-                : 'bg-terracotta text-white hover:opacity-90'
+              isScrolling ? 'bg-amber-600 text-white animate-pulse' : 'bg-terracotta text-white hover:opacity-90'
             }`}
             title="Toggle Auto-Scroll (Space)"
             aria-label={isScrolling ? 'Pause auto-scroll (Shortcut: Space)' : 'Start auto-scroll (Shortcut: Space)'}
@@ -117,9 +117,8 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           </div>
         </div>
 
-        {/* Right: Instrument, Stage Columns, Font Size & Metronome */}
-        <div className="flex items-center gap-1 sm:gap-2">
-          {/* Instrument Toggle */}
+        {/* Right: Instrument, Stage Columns, Font Size, Metronome & Shortcuts */}
+        <div className="flex items-center gap-1 sm:gap-1.5">
           <button
             onClick={onToggleInstrument}
             type="button"
@@ -131,7 +130,6 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <span className="hidden lg:inline capitalize">{instrument}</span>
           </button>
 
-          {/* Stage Column Mode */}
           <button
             onClick={onToggleColumns}
             type="button"
@@ -145,7 +143,6 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <Columns2 className="w-4 h-4" aria-hidden="true" />
           </button>
 
-          {/* Font Size A- / A+ */}
           <div role="group" aria-label="Font size controls" className="inline-flex items-center rounded-xl bg-canvas border border-warm p-0.5 text-xs font-mono">
             <button
               onClick={() => onChangeFontSize(false)}
@@ -170,15 +167,24 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             </button>
           </div>
 
-          {/* Metronome */}
           <button
             onClick={onOpenMetronome}
             type="button"
             className="p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
-            title="Open Click Metronome (M)"
+            title="Open Metronome (M)"
             aria-label="Open metronome modal"
           >
             <Clock className="w-4 h-4" aria-hidden="true" />
+          </button>
+
+          <button
+            onClick={onOpenShortcuts}
+            type="button"
+            className="p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+            title="Keyboard Shortcuts (?)"
+            aria-label="Open keyboard shortcuts guide"
+          >
+            <Keyboard className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>
