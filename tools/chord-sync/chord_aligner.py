@@ -133,8 +133,8 @@ def align_chords_with_lyrics(
             chord_line = build_chord_line_for_lyrics(text, start, end, line_chords)
         elif progression:
             active_prog = (chorus_progression if sec_name == "Chorus" and chorus_progression else progression)
-            # Cycle 2-3 chords per line
-            take = 2 if len(active_prog) == 4 else len(active_prog)
+            dur = end - start
+            take = 2 if len(active_prog) == 4 else (3 if len(active_prog) > 4 and dur >= 4.5 else min(2, len(active_prog)) if len(active_prog) > 4 else len(active_prog))
             batch = [active_prog[(prog_cycle_idx + i) % len(active_prog)] for i in range(take)]
             prog_cycle_idx += take
             chord_line = build_progression_line_for_lyrics(text, batch)

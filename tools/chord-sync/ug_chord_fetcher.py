@@ -55,8 +55,8 @@ def extract_recurring_progression(chords: list[str], max_len: int = 4) -> list[s
 
 def fetch_ug_chords(song_name: str, artist_name: str, timeout: int = 8) -> Optional[UGChordData]:
     """Queries Ultimate Guitar for the #1 top-rated chord sheet and extracts chords & progression."""
-    query = f"{song_name} {artist_name}".strip()
-    params = urllib.parse.urlencode({"search_type": "title", "value": query})
+    clean_title = re.sub(r"\s*[\(\[\{].*?[\)\]\}]", "", song_name).strip()
+    params = urllib.parse.urlencode({"search_type": "title", "value": clean_title})
     url = f"{SEARCH_URL}?{params}"
     headers = {"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml"}
 
@@ -76,6 +76,12 @@ def fetch_ug_chords(song_name: str, artist_name: str, timeout: int = 8) -> Optio
         chord_entries = [r for r in results if r.get("type") == "Chords" and r.get("tab_url")]
         if not chord_entries:
             return None
+
+        if artist_name:
+            a_lower = artist_name.lower().split("/")[0].strip()
+            matched = [r for r in chord_entries if a_lower in r.get("artist_name", "").lower() or r.get("artist_name", "").lower() in a_lower]
+            if matched:
+                chord_entries = matched
 
         # Sort by highest rating / vote count
         chord_entries.sort(key=lambda r: float(r.get("rating", 0) or 0) * (int(r.get("votes", 0) or 0) ** 0.5), reverse=True)
@@ -118,12 +124,41 @@ def fetch_ug_chords(song_name: str, artist_name: str, timeout: int = 8) -> Optio
     except Exception:
         return None
 
-def compute_harmonic_overlap(list_a: list[str], list_b: list[str]) -> float:
-    """Computes harmonic similarity between two chord sets (0.0 to 1.0)."""
+SEMITONES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+FLAT_MAP = {"Db": "C#", "Eb": "D#", "Gb": "F#", "Ab": "G#", "Bb": "A#"}
+
+def transpose_root(root: str, semitones: int) -> str:
+    r = FLAT_MAP.get(root, root)
+    if r not in SEMITONES:
+        return root
+    return SEMITONES[(SEMITONES.index(r) + semitones) % 12]
+
+def transpose_chord_names(chords: list[str], semitones: int) -> list[str]:
+    """Transposes a list of chord strings by N semitones."""
+    if semitones == 0:
+        return chords
+    out: list[str] = []
+    for c in chords:
+        m = re.match(r"^([A-G][b#]?)(.*)", c)
+        if m:
+            root, suffix = m.groups()
+            new_root = transpose_root(root, semitones)
+            if "/" in suffix:
+                q, bass = suffix.split("/", 1)
+                out.append(f"{new_root}{q}/{transpose_root(bass, semitones)}")
+            else:
+                out.append(f"{new_root}{suffix}")
+        else:
+            out.append(c)
+    return out
+
+def compute_harmonic_overlap(list_a: list[str], list_b: list[str], shift_semitones: int = 0) -> float:
+    """Computes harmonic similarity between two chord sets, optionally shifting list_b by capo difference."""
     if not list_a or not list_b:
         return 0.0
+    shifted_b = transpose_chord_names(list_b, shift_semitones) if shift_semitones != 0 else list_b
     set_a = {re.sub(r"(maj|min|m|7|sus\d|add\d|dim).*", "", c) for c in list_a}
-    set_b = {re.sub(r"(maj|min|m|7|sus\d|add\d|dim).*", "", c) for c in list_b}
+    set_b = {re.sub(r"(maj|min|m|7|sus\d|add\d|dim).*", "", c) for c in shifted_b}
     intersection = set_a & set_b
     union = set_a | set_b
     return round(len(intersection) / len(union), 2) if union else 0.0
