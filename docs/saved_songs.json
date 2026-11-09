@@ -13,7 +13,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/anuv-jain/husn-official-5066086",
     "artistUrl": "https://www.ultimate-guitar.com/artist/anuv_jain_422200",
     "slug": "husn",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -31,7 +31,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/osho-jain/tu-aisa-kaise-hai-chords-3600665",
     "artistUrl": "https://www.ultimate-guitar.com/artist/osho_jain_524921",
     "slug": "tu-aisa-kaise-hai",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -49,7 +49,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/arijit-anand/musafir-chords-4198093",
     "artistUrl": "https://www.ultimate-guitar.com/artist/arijit_anand_1619587",
     "slug": "musafir",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -67,7 +67,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/barfi-kyon-chords-3388133",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "kyon",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -85,7 +85,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/jolly-llb-2-bawara-mann-chords-2365901",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "bawara-mann",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -103,7 +103,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/stu-larsen/thirteen-sad-farewells-chords-1489325",
     "artistUrl": "https://www.ultimate-guitar.com/artist/stu_larsen_26938",
     "slug": "thirteen-sad-farewells",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -319,7 +319,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/forest-blakk/fall-into-me-chords-3888971",
     "artistUrl": "https://www.ultimate-guitar.com/artist/forest_blakk_172380",
     "slug": "fall-into-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -337,7 +337,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/anuv-jain/ocean-ukulele-2801867",
     "artistUrl": "https://www.ultimate-guitar.com/artist/anuv_jain_422200",
     "slug": "ocean",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -355,7 +355,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/anuv-jain/alag-aasmaan-chords-3272030",
     "artistUrl": "https://www.ultimate-guitar.com/artist/anuv_jain_422200",
     "slug": "alag-aasmaan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -463,7 +463,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-head-and-the-heart/rivers-and-roads-chords-1026669",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_head_and_the_heart_30545",
     "slug": "rivers-and-roads",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -499,7 +499,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/imagine-dragons/demons-chords-1149539",
     "artistUrl": "https://www.ultimate-guitar.com/artist/imagine_dragons_36784",
     "slug": "demons",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -517,7 +517,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/anuv-jain/riha-chords-3176474",
     "artistUrl": "https://www.ultimate-guitar.com/artist/anuv_jain_422200",
     "slug": "riha",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -535,7 +535,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/kodaline/moving-on-chords-1714569",
     "artistUrl": "https://www.ultimate-guitar.com/artist/kodaline_38213",
     "slug": "moving-on",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -571,7 +571,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/jeff-buckley/hallelujah-chords-198052",
     "artistUrl": "https://www.ultimate-guitar.com/artist/jeff_buckley_9898",
     "slug": "hallelujah",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -589,7 +589,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/death-cab-for-cutie/i-will-follow-you-into-the-dark-chords-335735",
     "artistUrl": "https://www.ultimate-guitar.com/artist/death_cab_for_cutie_7750",
     "slug": "i-will-follow-you-into-the-dark",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -607,7 +607,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/plain-white-ts/hey-there-delilah-chords-337676",
     "artistUrl": "https://www.ultimate-guitar.com/artist/plain_white_ts_3257",
     "slug": "hey-there-delilah",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -625,7 +625,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/john-legend/all-of-me-chords-1248578",
     "artistUrl": "https://www.ultimate-guitar.com/artist/john_legend_11714",
     "slug": "all-of-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -643,7 +643,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/james-arthur/say-you-wont-let-go-chords-1874747",
     "artistUrl": "https://www.ultimate-guitar.com/artist/james_arthur_38784",
     "slug": "say-you-wont-let-go",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -661,7 +661,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/train/hey-soul-sister-chords-884388",
     "artistUrl": "https://www.ultimate-guitar.com/artist/train_250",
     "slug": "hey-soul-sister",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -679,7 +679,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/lewis-capaldi/someone-you-loved-chords-2512737",
     "artistUrl": "https://www.ultimate-guitar.com/artist/lewis_capaldi_76757",
     "slug": "someone-you-loved",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -697,7 +697,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/avicii/wake-me-up-chords-1397339",
     "artistUrl": "https://www.ultimate-guitar.com/artist/avicii_34411",
     "slug": "wake-me-up",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -769,7 +769,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/mason-jennings/just-try-chords-1474596",
     "artistUrl": "https://www.ultimate-guitar.com/artist/mason_jennings_8943",
     "slug": "just-try",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -787,7 +787,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/jason-mraz/i-wont-give-up-chords-1121840",
     "artistUrl": "https://www.ultimate-guitar.com/artist/jason_mraz_10984",
     "slug": "i-wont-give-up",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -805,7 +805,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/kodaline/all-i-want-chords-1203493",
     "artistUrl": "https://www.ultimate-guitar.com/artist/kodaline_38213",
     "slug": "all-i-want",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -823,7 +823,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/sam-smith/stay-with-me-chords-1473600",
     "artistUrl": "https://www.ultimate-guitar.com/artist/sam_smith_41350",
     "slug": "stay-with-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -841,7 +841,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/fort-atlantic/let-your-heart-hold-fast-chords-1201773",
     "artistUrl": "https://www.ultimate-guitar.com/artist/fort_atlantic_39109",
     "slug": "let-your-heart-hold-fast",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -859,7 +859,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/christina-perri/a-thousand-years-chords-1101795",
     "artistUrl": "https://www.ultimate-guitar.com/artist/christina_perri_29331",
     "slug": "a-thousand-years",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -913,7 +913,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/dikshant/aankhon-se-batana-chords-4176607",
     "artistUrl": "https://www.ultimate-guitar.com/artist/dikshant_1594855",
     "slug": "aankhon-se-batana",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -931,7 +931,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/damien-jurado/kola-chords-1817544",
     "artistUrl": "https://www.ultimate-guitar.com/artist/damien_jurado_11842",
     "slug": "kola",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -949,7 +949,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/barfi-saawali-si-raat-chords-2930279",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "saawali-si-raat",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -967,7 +967,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/anuv-jain/baarishein-chords-2792962",
     "artistUrl": "https://www.ultimate-guitar.com/artist/anuv_jain_422200",
     "slug": "baarishein",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1003,7 +1003,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/barfi-phir-le-aya-dil-chords-1486916",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "phir-le-aya-dil",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1021,7 +1021,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/jab-we-met-tum-se-hi-chords-1425759",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tum-se-hi",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1039,7 +1039,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/yeh-jawaani-hai-deewani-subhanallah-chords-1515608",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "subhanallah",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1057,7 +1057,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/armaan-malik/main-rahoon-ya-na-rahoon-chords-1798602",
     "artistUrl": "https://www.ultimate-guitar.com/artist/armaan_malik_63971",
     "slug": "main-rahoon-ya-na-rahoon",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1075,7 +1075,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-television/mismatched-aise-kyun-chords-3485060",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_television_886",
     "slug": "aise-kyun",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1093,7 +1093,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/nautanki-saala-mera-mann-kehne-laga-chords-1220424",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "mera-mann-kehne-laga",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1111,7 +1111,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/woh-kaun-thi-lag-ja-gale-chords-1460402",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "lag-ja-gale",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1129,7 +1129,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ed-sheeran/perfect-chords-1956589",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ed_sheeran_30232",
     "slug": "perfect",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1147,7 +1147,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/pink-sweat/at-my-worst-chords-3256316",
     "artistUrl": "https://www.ultimate-guitar.com/artist/pink_sweat_161025",
     "slug": "at-my-worst",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1183,7 +1183,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/stephen-sanchez/until-i-found-you-chords-3860363",
     "artistUrl": "https://www.ultimate-guitar.com/artist/stephen_sanchez_597908",
     "slug": "until-i-found-you",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1201,7 +1201,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/zach-seabaugh/christmas-lights-chords-4417289",
     "artistUrl": "https://www.ultimate-guitar.com/artist/zach_seabaugh_1795451",
     "slug": "christmas-lights",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1219,7 +1219,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/zach-seabaugh/girl-in-a-coffee-shop-chords-4429835",
     "artistUrl": "https://www.ultimate-guitar.com/artist/zach_seabaugh_1795451",
     "slug": "girl-in-a-coffee-shop",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1345,7 +1345,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/jp-saxe/if-the-world-was-ending-chords-2859782",
     "artistUrl": "https://www.ultimate-guitar.com/artist/jp_saxe_161396",
     "slug": "if-the-world-was-ending",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1363,7 +1363,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ed-sheeran/tenerife-sea-chords-1496492",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ed_sheeran_30232",
     "slug": "tenerife-sea",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1381,7 +1381,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/peter-gabriel/the-book-of-love-chords-142629",
     "artistUrl": "https://www.ultimate-guitar.com/artist/peter_gabriel_10343",
     "slug": "the-book-of-love",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1399,7 +1399,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ed-sheeran/photograph-chords-1493446",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ed_sheeran_30232",
     "slug": "photograph",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1417,7 +1417,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/goldhouse/i-dont-wanna-know-chords-3406445",
     "artistUrl": "https://www.ultimate-guitar.com/artist/goldhouse_114475",
     "slug": "i-dont-wanna-know",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1435,7 +1435,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/prateek-kuhad/co2-chords-4211650",
     "artistUrl": "https://www.ultimate-guitar.com/artist/prateek_kuhad_102543",
     "slug": "co2",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1453,7 +1453,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-local-train/dil-mere-chords-2343103",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_local_train_66377",
     "slug": "dil-mere",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1507,7 +1507,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/ajab-prem-ki-ghazab-kahani-tu-jaane-na-chords-3060079",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tu-jaane-na",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1525,7 +1525,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/keane/somewhere-only-we-know-chords-109970",
     "artistUrl": "https://www.ultimate-guitar.com/artist/keane_8014",
     "slug": "somewhere-only-we-know",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -1579,7 +1579,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/prateek-kuhad/100-words-tabs-2792125",
     "artistUrl": "https://www.ultimate-guitar.com/artist/prateek_kuhad_102543",
     "slug": "100-words",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1597,7 +1597,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/prateek-kuhad/100-words-chords-2630865",
     "artistUrl": "https://www.ultimate-guitar.com/artist/prateek_kuhad_102543",
     "slug": "100-words-2",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1615,7 +1615,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-local-train/choo-lo-chords-2929589",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_local_train_66377",
     "slug": "choo-lo",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1633,7 +1633,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/mark-ambor/good-to-be-chords-4994074",
     "artistUrl": "https://www.ultimate-guitar.com/artist/mark_ambor_1020992",
     "slug": "good-to-be",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1651,7 +1651,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/piku-journey-song-chords-1727410",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "journey-song",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1669,7 +1669,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dum-laga-ke-haisha-moh-moh-ke-dhaage-male-chords-2505804",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "moh-moh-ke-dhaage-male",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1705,7 +1705,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/amit-trivedi/madhubala-chords-3485912",
     "artistUrl": "https://www.ultimate-guitar.com/artist/amit_trivedi_31412",
     "slug": "madhubala",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1723,7 +1723,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/parineeta-piyu-bole-chords-2355827",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "piyu-bole",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1741,7 +1741,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/sonu-nigam/pal-pal-har-pal-chords-1756749",
     "artistUrl": "https://www.ultimate-guitar.com/artist/sonu_nigam_16362",
     "slug": "pal-pal-har-pal",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1777,7 +1777,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/avicii/the-nights-chords-1688442",
     "artistUrl": "https://www.ultimate-guitar.com/artist/avicii_34411",
     "slug": "the-nights",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -1795,7 +1795,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/aditya-a/chaand-baaliyan-chords-4130638",
     "artistUrl": "https://www.ultimate-guitar.com/artist/aditya_a_1518739",
     "slug": "chaand-baaliyan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1813,7 +1813,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/arijit-anand/khayaal-chords-5219793",
     "artistUrl": "https://www.ultimate-guitar.com/artist/arijit_anand_1619587",
     "slug": "khayaal",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1831,7 +1831,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/walk-off-the-earth/my-stupid-heart-chords-4619402",
     "artistUrl": "https://www.ultimate-guitar.com/artist/walk_off_the_earth_35756",
     "slug": "my-stupid-heart",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -1849,7 +1849,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ed-sheeran/afterglow-chords-3477983",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ed_sheeran_30232",
     "slug": "afterglow",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1867,7 +1867,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-television/mismatched-kahaan-ho-tum-chords-3419612",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_television_886",
     "slug": "kahaan-ho-tum",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1885,7 +1885,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-lumineers/ophelia-chords-1812380",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_lumineers_32384",
     "slug": "ophelia",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -1903,7 +1903,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/mark-ambor/belong-together-chords-5149801",
     "artistUrl": "https://www.ultimate-guitar.com/artist/mark_ambor_1020992",
     "slug": "belong-together",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -1921,7 +1921,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/amit-trivedi/sham-chords-1034588",
     "artistUrl": "https://www.ultimate-guitar.com/artist/amit_trivedi_31412",
     "slug": "sham",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -1939,7 +1939,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/wake-up-sid-iktara-chords-1061139",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "iktara",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -1975,7 +1975,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/sandipon-roy/amar-ekla-akash-chords-1518461",
     "artistUrl": "https://www.ultimate-guitar.com/artist/sandipon_roy_48041",
     "slug": "amar-ekla-akash",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -1993,7 +1993,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/damien-jurado/museum-of-flight-chords-1133914",
     "artistUrl": "https://www.ultimate-guitar.com/artist/damien_jurado_11842",
     "slug": "museum-of-flight",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2011,7 +2011,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hasee-toh-phasee-zehnaseeb-chords-1506663",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "zehnaseeb",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -2029,7 +2029,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/onerepublic/counting-stars-chords-1233464",
     "artistUrl": "https://www.ultimate-guitar.com/artist/onerepublic_15735",
     "slug": "counting-stars",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -2047,7 +2047,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/mike-posner/i-took-a-pill-in-ibiza-chords-1784262",
     "artistUrl": "https://www.ultimate-guitar.com/artist/mike_posner_25179",
     "slug": "i-took-a-pill-in-ibiza",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2065,7 +2065,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/drew-holcomb-and-the-neighbors/what-would-i-do-without-you-chords-1210860",
     "artistUrl": "https://www.ultimate-guitar.com/artist/drew_holcomb_and_the_neighbors_29285",
     "slug": "what-would-i-do-without-you",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2083,7 +2083,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/belle-and-sebastian/we-rule-the-school-chords-627469",
     "artistUrl": "https://www.ultimate-guitar.com/artist/belle_and_sebastian_1838",
     "slug": "we-rule-the-school",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2101,7 +2101,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-computer-games/the-witcher-3-wild-hunt-the-wolven-storm-priscillas-song-chords-1745813",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_computer_games_892",
     "slug": "the-wolven-storm-priscillas-song",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2137,7 +2137,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/baishe-srabon-ekbar-bol-chords-1511992",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "ekbar-bol",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -2155,7 +2155,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/matt-hartke/londons-song-chords-3103898",
     "artistUrl": "https://www.ultimate-guitar.com/artist/matt_hartke_24474",
     "slug": "londons-song",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2173,7 +2173,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-hunts/along-the-way-chords-4449200",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_hunts_41595",
     "slug": "along-the-way",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2191,7 +2191,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/open-tee-bioscope-bondhu-chol-chords-1710130",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "bondhu-chol",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -2209,7 +2209,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/4962253",
     "artistUrl": "https://www.ultimate-guitar.com/artist/143237",
     "slug": "i-am-not-who-i-was",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2227,7 +2227,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/qala-ghodey-pe-sawaar-chords-4564850",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "ghodey-pe-sawaar",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -2245,7 +2245,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/yeh-jawaani-hai-deewani-ilahi-reprise-chords-1395536",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "ilahi-reprise",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -2263,7 +2263,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/willie-nelson/on-the-road-again-chords-1084379",
     "artistUrl": "https://www.ultimate-guitar.com/artist/willie_nelson_11004",
     "slug": "on-the-road-again",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2281,7 +2281,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/jason-mraz/i-wont-give-up-chords-1121837",
     "artistUrl": "https://www.ultimate-guitar.com/artist/jason_mraz_10984",
     "slug": "i-wont-give-up-2",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2299,7 +2299,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/autograph-benche-thakar-gaan-chords-4417823",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "benche-thakar-gaan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -2317,7 +2317,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/barfi-aashiyan-chords-1237760",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "aashiyan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -2335,7 +2335,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/chalo-paltai-class-room-chords-1091840",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "class-room",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -2353,7 +2353,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/walk-the-moon/shut-up-and-dance-chords-1673689",
     "artistUrl": "https://www.ultimate-guitar.com/artist/walk_the_moon_33159",
     "slug": "shut-up-and-dance",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2371,7 +2371,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/imagine-dragons/on-top-of-the-world-chords-1164788",
     "artistUrl": "https://www.ultimate-guitar.com/artist/imagine_dragons_36784",
     "slug": "on-top-of-the-world",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -2389,7 +2389,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ed-sheeran/the-a-team-chords-1082501",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ed_sheeran_30232",
     "slug": "the-a-team",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2425,7 +2425,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/bruno-mars/marry-you-chords-1009718",
     "artistUrl": "https://www.ultimate-guitar.com/artist/bruno_mars_28280",
     "slug": "marry-you",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2461,7 +2461,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/aguner-porosh-moni-chords-1909921",
     "artistUrl": "https://www.ultimate-guitar.com/artist/rabindranath_tagore_45257",
     "slug": "aguner-porosh-moni",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -2479,7 +2479,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/green-day/wake-me-up-when-september-ends-chords-953997",
     "artistUrl": "https://www.ultimate-guitar.com/artist/green_day_1368",
     "slug": "wake-me-up-when-september-ends",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -2515,7 +2515,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/crooked-fingers/heavy-hours-chords-3746267",
     "artistUrl": "https://www.ultimate-guitar.com/artist/crooked_fingers_16581",
     "slug": "heavy-hours",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2533,7 +2533,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/family-of-the-year/hero-chords-1227774",
     "artistUrl": "https://www.ultimate-guitar.com/artist/family_of_the_year_35023",
     "slug": "hero",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -2551,7 +2551,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/jaane-tu-ya-jaane-na-kabhi-kabhi-aditi-chords-3202646",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "kabhi-kabhi-aditi",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 4,
     "batchName": "Batch 4: Bollywood Modern Acoustic Classics"
   },
@@ -2569,7 +2569,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/life-in-a-metro-batein-kuchh-ankahee-si-chords-543668",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "batein-kuchh-ankahee-si",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -2587,7 +2587,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/don-henley/the-end-of-the-innocence-chords-1061296",
     "artistUrl": "https://www.ultimate-guitar.com/artist/don_henley_10510",
     "slug": "the-end-of-the-innocence",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2605,7 +2605,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/ajab-prem-ki-ghazab-kahani-tera-hone-laga-hoon-chords-887956",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tera-hone-laga-hoon",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -2623,7 +2623,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/2736612",
     "artistUrl": "https://www.ultimate-guitar.com/artist/shawn_mendes_46783",
     "slug": "seorita",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2659,7 +2659,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/fools-garden/lemon-tree-chords-607747",
     "artistUrl": "https://www.ultimate-guitar.com/artist/fools_garden_2569",
     "slug": "lemon-tree",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -2803,7 +2803,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/tom-petty/wildflowers-chords-1091924",
     "artistUrl": "https://www.ultimate-guitar.com/artist/tom_petty_9673",
     "slug": "wildflowers",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2821,7 +2821,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/tom-odell/another-love-chords-1198980",
     "artistUrl": "https://www.ultimate-guitar.com/artist/tom_odell_39037",
     "slug": "another-love",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2839,7 +2839,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/george-ezra/blame-it-on-me-chords-1499230",
     "artistUrl": "https://www.ultimate-guitar.com/artist/george_ezra_43813",
     "slug": "blame-it-on-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2857,7 +2857,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/a-star-is-born-shallow-chords-2480119",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "shallow",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2893,7 +2893,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/willie-nelson/blue-eyes-crying-in-the-rain-chords-1985171",
     "artistUrl": "https://www.ultimate-guitar.com/artist/willie_nelson_11004",
     "slug": "blue-eyes-crying-in-the-rain",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -2929,7 +2929,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/cloud-cult/you-were-born-chords-1475928",
     "artistUrl": "https://www.ultimate-guitar.com/artist/cloud_cult_12072",
     "slug": "you-were-born",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -2965,7 +2965,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/meri-pyaari-bindu-maana-ke-hum-yaar-nahin-chords-3292064",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "maana-ke-hum-yaar-nahin",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -2983,7 +2983,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/jab-we-met-aaoge-jab-tum-chords-1009544",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "aaoge-jab-tum",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3001,7 +3001,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/phata-poster-nikhla-hero-main-rang-sharbaton-ka-chords-2157875",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "main-rang-sharbaton-ka",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3019,7 +3019,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/calum-scott/you-are-the-reason-chords-2267805",
     "artistUrl": "https://www.ultimate-guitar.com/artist/calum_scott_61085",
     "slug": "you-are-the-reason",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3037,7 +3037,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/plain-white-ts/rhythm-of-love-chords-987125",
     "artistUrl": "https://www.ultimate-guitar.com/artist/plain_white_ts_3257",
     "slug": "rhythm-of-love",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -3055,7 +3055,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/chotushkone-boba-tunnel-chords-1676567",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "boba-tunnel",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3073,7 +3073,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/praktan-tumi-jaake-bhalobaso-female-chords-1903951",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tumi-jaake-bhalobaso-female",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3091,7 +3091,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/bastu-shaap-tomake-chuye-dilam-male-chords-1977731",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tomake-chuye-dilam-male",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3109,7 +3109,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ranajoy-bhattacharjee/mon-kyamoner-jonmodin-chords-3175091",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ranajoy_bhattacharjee_443738",
     "slug": "mon-kyamoner-jonmodin",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3127,7 +3127,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dwitiyo-purush-abar-phire-ele-chords-2959946",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "abar-phire-ele",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3145,7 +3145,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/generation-ami-tor-sathe-chords-4308086",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tor-sathe",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3163,7 +3163,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/generation-ami-bhule-jeo-chords-2641170",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "bhule-jeo",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3181,7 +3181,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/2609958",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "kal-shara-raat",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3199,7 +3199,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/kishmish-oboseshe-chords-4165030",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "oboseshe",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3217,7 +3217,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/autograph-amake-amar-moto-thakte-dao-chords-1674246",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "amake-amar-moto-thakte-dao",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3235,7 +3235,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/autograph-chol-rastay-saji-tram-line-chords-3880154",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "chol-rastay-saji-tram-line",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3253,7 +3253,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/uma-ure-jaak-chords-1859321",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "ure-jaak",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3271,7 +3271,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/jax/like-my-father-chords-3745148",
     "artistUrl": "https://www.ultimate-guitar.com/artist/jax_826802",
     "slug": "like-my-father",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3289,7 +3289,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/james-arthur/falling-like-the-stars-chords-2689908",
     "artistUrl": "https://www.ultimate-guitar.com/artist/james_arthur_38784",
     "slug": "falling-like-the-stars",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -3307,7 +3307,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/yaeow-neptune/the-way-i-love-you-chords-3840458",
     "artistUrl": "https://www.ultimate-guitar.com/artist/yaeow_neptune_1140764",
     "slug": "the-way-i-love-you",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3325,7 +3325,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-milk-carton-kids/will-you-remember-me-chords-4793882",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_milk_carton_kids_36282",
     "slug": "will-you-remember-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3343,7 +3343,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/the-greatest-showman-rewrite-the-stars-chords-2289475",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "rewrite-the-stars",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3361,7 +3361,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/dean-lewis/how-do-i-say-goodbye-chords-4329215",
     "artistUrl": "https://www.ultimate-guitar.com/artist/dean_lewis_70772",
     "slug": "how-do-i-say-goodbye",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -3379,7 +3379,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/rovalio/iraaday-chords-4345355",
     "artistUrl": "https://www.ultimate-guitar.com/artist/rovalio_1654723",
     "slug": "iraaday",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3397,7 +3397,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/antaheen-jao-pakhi-chords-3211844",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "jao-pakhi",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3415,7 +3415,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/rishi-panda/ishita-chords-5041645",
     "artistUrl": "https://www.ultimate-guitar.com/artist/rishi_panda_517673",
     "slug": "ishita",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3433,7 +3433,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/anubha-bajaj/lamhey-chords-4905049",
     "artistUrl": "https://www.ultimate-guitar.com/artist/anubha_bajaj_1999667",
     "slug": "lamhey",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3451,7 +3451,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/chandrabindoo/eita-tomar-gaan-chords-2021735",
     "artistUrl": "https://www.ultimate-guitar.com/artist/chandrabindoo_35364",
     "slug": "eita-tomar-gaan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3487,7 +3487,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/tere-naal-love-ho-gaya-piya-o-re-piya-chords-1133315",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "piya-o-re-piya",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3505,7 +3505,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/suzonn/farq-hai-chords-4963888",
     "artistUrl": "https://www.ultimate-guitar.com/artist/suzonn_601241",
     "slug": "farq-hai",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3523,7 +3523,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/shallow-alcove/dream-song-chords-4951132",
     "artistUrl": "https://www.ultimate-guitar.com/artist/shallow_alcove_1873295",
     "slug": "dream-song",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3541,7 +3541,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/karwaan-kadam-chords-2547144",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "kadam",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3559,7 +3559,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/aashiqui-2-tum-hi-ho-chords-1244521",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tum-hi-ho",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3577,7 +3577,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/aashiqui-2-chahun-main-ya-naa-chords-1752083",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "chahun-main-ya-naa",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3595,7 +3595,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/aashiqui-2-sunn-raha-hai-chords-1242348",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "sunn-raha-hai",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3613,7 +3613,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/twin-strings/baarish-ka-asar-chords-3992005",
     "artistUrl": "https://www.ultimate-guitar.com/artist/twin_strings_1001750",
     "slug": "baarish-ka-asar",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3631,7 +3631,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/glen-hansard/falling-slowly-chords-542037",
     "artistUrl": "https://www.ultimate-guitar.com/artist/glen_hansard_19096",
     "slug": "falling-slowly",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -3649,7 +3649,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/glen-hansard/falling-slowly-official-2459456",
     "artistUrl": "https://www.ultimate-guitar.com/artist/glen_hansard_19096",
     "slug": "falling-slowly-2",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -3685,7 +3685,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/jason-mraz/im-yours-chords-468625",
     "artistUrl": "https://www.ultimate-guitar.com/artist/jason_mraz_10984",
     "slug": "im-yours",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -3703,7 +3703,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/12th-fail-bolo-na-chords-5127844",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "bolo-na",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3721,7 +3721,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ali-sethi/chan-kitan-chords-2933165",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ali_sethi_131807",
     "slug": "chan-kitan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3739,7 +3739,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/justh/chor-chords-5171476",
     "artistUrl": "https://www.ultimate-guitar.com/artist/justh_2629918",
     "slug": "chor",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 3,
     "batchName": "Batch 3: Hindi Acoustic Indie Pioneers"
   },
@@ -3757,7 +3757,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ayushmann-khurrana/nazm-nazm-chords-2364697",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ayushmann_khurrana_38749",
     "slug": "nazm-nazm",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3775,7 +3775,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/rupankar-bagchi/gaan-khuje-pai-chords-1797527",
     "artistUrl": "https://www.ultimate-guitar.com/artist/rupankar_bagchi_46759",
     "slug": "gaan-khuje-pai",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3793,7 +3793,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/alex-sierra/little-do-you-know-chords-1503387",
     "artistUrl": "https://www.ultimate-guitar.com/artist/alex_sierra_46038",
     "slug": "little-do-you-know",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3811,7 +3811,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/vicky-donor-pani-da-rang-chords-1433051",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "pani-da-rang",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3829,7 +3829,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/bachna-ae-haseeno-khuda-jaane-chords-1411426",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "khuda-jaane",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3847,7 +3847,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/chalo-lets-go-chupi-chupi-raat-chords-3639707",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "chupi-chupi-raat",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -3865,7 +3865,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/do-aur-do-pyaar-tu-hai-kahaan-chords-5219241",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tu-hai-kahaan",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -3883,7 +3883,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/passenger/let-her-go-chords-1137467",
     "artistUrl": "https://www.ultimate-guitar.com/artist/passenger_21762",
     "slug": "let-her-go",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 7,
     "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
   },
@@ -3901,7 +3901,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/coldplay/yellow-chords-114080",
     "artistUrl": "https://www.ultimate-guitar.com/artist/coldplay_1782",
     "slug": "yellow",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -3919,7 +3919,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/coldplay/the-scientist-chords-180849",
     "artistUrl": "https://www.ultimate-guitar.com/artist/coldplay_1782",
     "slug": "the-scientist",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -3937,7 +3937,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-cartoons/bolt-barking-at-the-moon-chords-780330",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_cartoons_6356",
     "slug": "barking-at-the-moon",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3955,7 +3955,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/gotye/somebody-that-i-used-to-know-chords-1094597",
     "artistUrl": "https://www.ultimate-guitar.com/artist/gotye_22374",
     "slug": "somebody-that-i-used-to-know",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -3991,7 +3991,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/3-idiots-give-me-some-sunshine-chords-909099",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "give-me-some-sunshine",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 5,
     "batchName": "Batch 5: Bollywood Romantics & Melodic Soundtracks"
   },
@@ -4009,7 +4009,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/misc-soundtrack/prosen-tor-jonyo-chords-2241225",
     "artistUrl": "https://www.ultimate-guitar.com/artist/misc_soundtrack_910",
     "slug": "tor-jonyo",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -4027,7 +4027,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/green-day/boulevard-of-broken-dreams-chords-146744",
     "artistUrl": "https://www.ultimate-guitar.com/artist/green_day_1368",
     "slug": "boulevard-of-broken-dreams",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -4045,7 +4045,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/green-day/good-riddance-time-of-your-life-chords-12835",
     "artistUrl": "https://www.ultimate-guitar.com/artist/green_day_1368",
     "slug": "good-riddance-time-of-your-life",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   },
@@ -4063,7 +4063,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/parachute/kiss-me-slowly-chords-1052369",
     "artistUrl": "https://www.ultimate-guitar.com/artist/parachute_28303",
     "slug": "kiss-me-slowly",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -4099,7 +4099,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/1899435",
     "artistUrl": "https://www.ultimate-guitar.com/artist/wacci_57619",
     "slug": "kirameki",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -4117,7 +4117,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/moshader-chumu-chords-5164867",
     "artistUrl": "https://www.ultimate-guitar.com/artist/taalpatar_shepai_542269",
     "slug": "moshader-chumu",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 2,
     "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   },
@@ -4135,7 +4135,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-replacements/skyway-chords-81935",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_replacements_6764",
     "slug": "skyway",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 9,
     "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
   },
@@ -4153,7 +4153,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-lumineers/ho-hey-chords-1047662",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_lumineers_32384",
     "slug": "ho-hey",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
   }

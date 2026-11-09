@@ -2,22 +2,22 @@
 
 > **The Cozy Strum** sanctuary practice archive. Automatically parsed from user's Ultimate Guitar saved list.
 
-**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 57 Built-in, 174 Pending across Batches
+**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 231 Completed & Synced to Cloud Firestore (233 total catalog tabs)
 
 
 ## Batch Overview
 
 | Batch | Category / Theme | Song Count | Built-in / Pending | Status |
 |---|---|---|---|---|
-| **Batch 1** | Bengali Acoustic Essentials & Rabindrasangeet | 25 songs | 25/25 | ✅ Completed |
-| **Batch 2** | Bengali Cinema & Contemporary Melodies | 24 songs | 0/24 | ⏳ Ready to create |
-| **Batch 3** | Hindi Acoustic Indie Pioneers | 26 songs | 0/26 | ⏳ Ready to create |
-| **Batch 4** | Bollywood Modern Acoustic Classics | 20 songs | 0/20 | ⏳ Ready to create |
-| **Batch 5** | Bollywood Romantics & Melodic Soundtracks | 16 songs | 0/16 | ⏳ Ready to create |
-| **Batch 6** | The Beatles Anthology & Vintage 60s/70s Classics | 31 songs | 31/31 | ✅ Completed |
-| **Batch 7** | Singer-Songwriters & Acoustic Storytellers | 28 songs | 0/28 | ⏳ Ready to create |
-| **Batch 8** | Indie Pop, Folk-Rock & Campfire Anthems | 27 songs | 1/27 | ⏳ In Progress (1/27) |
-| **Batch 9** | Modern Ballads, Pop Hits & Screen OSTs | 34 songs | 0/34 | ⏳ Ready to create |
+| **Batch 1** | Bengali Acoustic Essentials & Rabindrasangeet | 25 songs | 25/25 | ✅ Completed & Synced |
+| **Batch 2** | Bengali Cinema & Contemporary Melodies | 24 songs | 24/24 | ✅ Completed & Synced |
+| **Batch 3** | Hindi Acoustic Indie Pioneers | 26 songs | 26/26 | ✅ Completed & Synced |
+| **Batch 4** | Bollywood Modern Acoustic Classics | 20 songs | 20/20 | ✅ Completed & Synced |
+| **Batch 5** | Bollywood Romantics & Melodic Soundtracks | 16 songs | 16/16 | ✅ Completed & Synced |
+| **Batch 6** | The Beatles Anthology & Vintage 60s/70s Classics | 31 songs | 31/31 | ✅ Completed & Synced |
+| **Batch 7** | Singer-Songwriters & Acoustic Storytellers | 28 songs | 28/28 | ✅ Completed & Synced |
+| **Batch 8** | Indie Pop, Folk-Rock & Campfire Anthems | 27 songs | 27/27 | ✅ Completed & Synced |
+| **Batch 9** | Modern Ballads, Pop Hits & Screen OSTs | 34 songs | 34/34 | ✅ Completed & Synced |
 
 ---
 
