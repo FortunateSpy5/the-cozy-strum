@@ -23,6 +23,8 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#FAF6F0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14110F" media="(prefers-color-scheme: dark)" />
 
     <!-- Google Fonts Preconnect & Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,7 +61,7 @@ const {
       Skip to main content
     </a>
     <Header />
-    <main id="main-content" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8 focus:outline-none">
+    <main id="main-content" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8 scroll-mt-6 focus:outline-none">
       <slot />
     </main>
     <Footer />

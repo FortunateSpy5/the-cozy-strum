@@ -25,8 +25,8 @@ export const CustomTabLoaderIsland: React.FC = () => {
 
   if (loading) {
     return (
-      <div role="status" aria-live="polite" className="py-20 text-center text-sm font-mono text-walnut animate-pulse">
-        Loading saved tab from browser storage...
+      <div role="status" aria-live="polite" className="py-20 text-center text-sm font-mono text-walnut animate-pulse motion-reduce:animate-none">
+        Loading saved tab from browser storage…
       </div>
     );
   }
@@ -34,7 +34,7 @@ export const CustomTabLoaderIsland: React.FC = () => {
   if (!tab) {
     return (
       <div className="py-16 text-center max-w-md mx-auto space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-espresso">Tab Not Found</h2>
+        <h2 className="font-serif text-2xl font-bold text-espresso [text-wrap:balance]">Tab Not Found</h2>
         <p className="text-sm text-walnut">
           This tab was either deleted from your browser or the link is invalid.
         </p>

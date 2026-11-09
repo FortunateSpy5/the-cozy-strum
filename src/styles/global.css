@@ -2,6 +2,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --bg-canvas: #FAF6F0;
     --bg-surface: #F3ECE1;
     --border-warm: #E4D7C5;
@@ -12,6 +13,7 @@
   }
 
   html.dark {
+    color-scheme: dark;
     --bg-canvas: #14110F;
     --bg-surface: #1E1916;
     --border-warm: #2E2620;
@@ -26,6 +28,8 @@
     color: var(--text-espresso);
     font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif;
     min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
     transition: background-color 200ms ease, color 200ms ease;
   }
 }
@@ -65,4 +69,16 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-walnut);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

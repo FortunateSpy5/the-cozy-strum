@@ -2,29 +2,29 @@
 
 > **The Cozy Strum** sanctuary practice archive. Automatically parsed from user's Ultimate Guitar saved list.
 
-**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 2 Built-in, 229 Planned in 9 Batches
+**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 32 Built-in, 199 Pending across Batches
 
 
 ## Batch Overview
 
-| Batch | Category / Theme | Song Count | Status |
-|---|---|---|---|
-| **Batch 1** | Bengali Acoustic Essentials & Rabindrasangeet | 25 songs | Ready to create |
-| **Batch 2** | Bengali Cinema & Contemporary Melodies | 24 songs | Ready to create |
-| **Batch 3** | Hindi Acoustic Indie Pioneers | 26 songs | Ready to create |
-| **Batch 4** | Bollywood Modern Acoustic Classics | 20 songs | Ready to create |
-| **Batch 5** | Bollywood Romantics & Melodic Soundtracks | 16 songs | Ready to create |
-| **Batch 6** | The Beatles Anthology & Vintage 60s/70s Classics | 31 songs | Ready to create (1 built-in) |
-| **Batch 7** | Singer-Songwriters & Acoustic Storytellers | 28 songs | Ready to create |
-| **Batch 8** | Indie Pop, Folk-Rock & Campfire Anthems | 27 songs | Ready to create (1 built-in) |
-| **Batch 9** | Modern Ballads, Pop Hits & Screen OSTs | 34 songs | Ready to create |
+| Batch | Category / Theme | Song Count | Built-in / Pending | Status |
+|---|---|---|---|---|
+| **Batch 1** | Bengali Acoustic Essentials & Rabindrasangeet | 25 songs | 0/25 | ⏳ Ready to create |
+| **Batch 2** | Bengali Cinema & Contemporary Melodies | 24 songs | 0/24 | ⏳ Ready to create |
+| **Batch 3** | Hindi Acoustic Indie Pioneers | 26 songs | 0/26 | ⏳ Ready to create |
+| **Batch 4** | Bollywood Modern Acoustic Classics | 20 songs | 0/20 | ⏳ Ready to create |
+| **Batch 5** | Bollywood Romantics & Melodic Soundtracks | 16 songs | 0/16 | ⏳ Ready to create |
+| **Batch 6** | The Beatles Anthology & Vintage 60s/70s Classics | 31 songs | 31/31 | ✅ Completed |
+| **Batch 7** | Singer-Songwriters & Acoustic Storytellers | 28 songs | 0/28 | ⏳ Ready to create |
+| **Batch 8** | Indie Pop, Folk-Rock & Campfire Anthems | 27 songs | 1/27 | ⏳ In Progress (1/27) |
+| **Batch 9** | Modern Ballads, Pop Hits & Screen OSTs | 34 songs | 0/34 | ⏳ Ready to create |
 
 ---
 
 
-### Batch 1: Bengali Acoustic Essentials & Rabindrasangeet (25 songs)
+### Batch 1: Bengali Acoustic Essentials & Rabindrasangeet (25 songs — 0/25 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 7 | **Hemlock Society — Ekhon Onek Raat** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hemlock-society-ekhon-onek-raat-chords-1502430) |
 | 8 | **Jodi Boli** | Pratik Kundu | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/pratik-kundu/jodi-boli-chords-3731195) |
@@ -52,9 +52,9 @@
 | 94 | **Chalo Paltai — Bariye Dao** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/chalo-paltai-bariye-dao-chords-2407343) |
 | 98 | **Ami Sudhu Khujechi Amay** | Taalpatar Shepai | `Chords` | Mar 25, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/ami-sudhu-khujechi-amay-chords-4135189) |
 
-### Batch 2: Bengali Cinema & Contemporary Melodies (24 songs)
+### Batch 2: Bengali Cinema & Contemporary Melodies (24 songs — 0/24 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 110 | **Amar Ekla Akash** | Sandipon Roy | `Chords` | Aug 2, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/sandipon-roy/amar-ekla-akash-chords-1518461) |
 | 119 | **Baishe Srabon — Ekbar Bol** | Misc Soundtrack | `Chords` | Aug 21, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/baishe-srabon-ekbar-bol-chords-1511992) |
@@ -81,9 +81,9 @@
 | 223 | **Prosen — Tor Jonyo** | Misc Soundtrack | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/prosen-tor-jonyo-chords-2241225) |
 | 229 | **Moshader Chumu** | Taalpatar Shepai | `Chords` | Jun 11, 2025 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/moshader-chumu-chords-5164867) |
 
-### Batch 3: Hindi Acoustic Indie Pioneers (26 songs)
+### Batch 3: Hindi Acoustic Indie Pioneers (26 songs — 0/26 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 1 | **Husn** | Anuv Jain | `Official` | Dec 23, 2023 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/anuv-jain/husn-official-5066086) |
 | 2 | **Tu Aisa Kaise Hai** | Osho Jain | `Chords` | Dec 23, 2023 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/osho-jain/tu-aisa-kaise-hai-chords-3600665) |
@@ -112,9 +112,9 @@
 | 207 | **Chan Kitan** | Ali Sethi | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/ali-sethi/chan-kitan-chords-2933165) |
 | 208 | **Chor** | Justh | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/justh/chor-chords-5171476) |
 
-### Batch 4: Bollywood Modern Acoustic Classics (20 songs)
+### Batch 4: Bollywood Modern Acoustic Classics (20 songs — 0/20 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 4 | **Barfi — Kyon** | Misc Soundtrack | `Chords` | Jan 10, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/barfi-kyon-chords-3388133) |
 | 5 | **Jolly Llb 2 — Bawara Mann** | Misc Soundtrack | `Chords` | Jan 11, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/jolly-llb-2-bawara-mann-chords-2365901) |
@@ -137,9 +137,9 @@
 | 129 | **Barfi — Aashiyan** | Misc Soundtrack | `Chords` | Oct 21, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/barfi-aashiyan-chords-1237760) |
 | 142 | **Jaane Tu Ya Jaane Na — Kabhi Kabhi Aditi** | Misc Soundtrack | `Chords` | Nov 2, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/jaane-tu-ya-jaane-na-kabhi-kabhi-aditi-chords-3202646) |
 
-### Batch 5: Bollywood Romantics & Melodic Soundtracks (16 songs)
+### Batch 5: Bollywood Romantics & Melodic Soundtracks (16 songs — 0/16 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 143 | **Life In A Metro — Batein Kuchh Ankahee Si** | Misc Soundtrack | `Chords` | Nov 27, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/life-in-a-metro-batein-kuchh-ankahee-si-chords-543668) |
 | 145 | **Ajab Prem Ki Ghazab Kahani — Tera Hone Laga Hoon** | Misc Soundtrack | `Chords` | Dec 1, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/ajab-prem-ki-ghazab-kahani-tera-hone-laga-hoon-chords-887956) |
@@ -158,45 +158,45 @@
 | 215 | **Do Aur Do Pyaar — Tu Hai Kahaan** | Misc Soundtrack | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/do-aur-do-pyaar-tu-hai-kahaan-chords-5219241) |
 | 222 | **3 Idiots — Give Me Some Sunshine** | Misc Soundtrack | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/3-idiots-give-me-some-sunshine-chords-909099) |
 
-### Batch 6: The Beatles Anthology & Vintage 60s/70s Classics (31 songs)
+### Batch 6: The Beatles Anthology & Vintage 60s/70s Classics (31 songs — ✅ Complete)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
-| 17 | **Hotel California** | Eagles | `Chords` | Jan 14, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/eagles/hotel-california-chords-46190) |
-| 21 | **What A Wonderful World (ver 9)** | Louis Armstrong | `Chords` | Jan 20, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/louis-armstrong/what-a-wonderful-world-chords-955258) |
-| 25 | **Yellow Submarine** | The Beatles | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/yellow-submarine-chords-672077) |
-| 31 | **La Vie En Rose (ver 2)** | Louis Armstrong | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/louis-armstrong/la-vie-en-rose-chords-1459227) |
-| 40 | **Cant Help Falling In Love** | Elvis Presley | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/elvis-presley/cant-help-falling-in-love-chords-1086983) |
-| 41 | **Hurt** | Johnny Cash | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/johnny-cash/hurt-chords-89849) |
-| 42 | **Dust In The Wind (ver 2)** | Kansas | `Chords` | Feb 17, 2024 | ✅ Built-in | [UG Tab](https://tabs.ultimate-guitar.com/tab/kansas/dust-in-the-wind-chords-874870) |
-| 49 | **You Are My Sunshine** | Johnny Cash | `Chords` | Feb 18, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/johnny-cash/you-are-my-sunshine-chords-834069) |
-| 50 | **The Sound Of Silence (ver 2)** | Simon & Garfunkel | `Chords` | Feb 18, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/simon-garfunkel/the-sound-of-silence-chords-159157) |
-| 65 | **I Want To Hold Your Hand (ver 3)** | The Beatles | `Chords` | Feb 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/i-want-to-hold-your-hand-chords-457088) |
-| 69 | **Love Of My Life** | Queen | `Chords` | Feb 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/queen/love-of-my-life-chords-340088) |
-| 109 | **Stand By Me** | Ben E. King | `Chords` | Jul 30, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/ben-e-king/stand-by-me-chords-73005) |
-| 118 | **Hey Jude (ver 2)** | The Beatles | `Chords` | Aug 21, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/hey-jude-chords-514527) |
-| 134 | **Love Will Keep Us Alive** | Eagles | `Chords` | Oct 26, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/eagles/love-will-keep-us-alive-chords-14318) |
-| 136 | **Hollywood Nights** | Bob Seger & The Silver Bullet Band | `Chords` | Nov 1, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/bob-seger-the-silver-bullet-band/hollywood-nights-chords-1502015) |
-| 139 | **Vincent** | Don McLean | `Chords` | Nov 2, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/don-mclean/vincent-chords-75922) |
-| 147 | **Let It Be** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/let-it-be-chords-17427) |
-| 149 | **Blackbird** | The Beatles | `Official` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/blackbird-official-2093927) |
-| 150 | **Yesterday** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/yesterday-chords-17450) |
-| 151 | **Eleanor Rigby (ver 3)** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/eleanor-rigby-chords-760029) |
-| 152 | **Here Comes The Sun** | The Beatles | `Official` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/here-comes-the-sun-official-1990437) |
-| 153 | **In My Life (ver 6)** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/in-my-life-chords-531847) |
-| 154 | **Eight Days A Week (ver 4)** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/eight-days-a-week-chords-848333) |
-| 155 | **Pale Blue Eyes (ver 2)** | The Velvet Underground | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-velvet-underground/pale-blue-eyes-chords-1192699) |
-| 160 | **The Beast In Me** | Johnny Cash | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/johnny-cash/the-beast-in-me-chords-1419121) |
-| 162 | **Faded Love** | Patsy Cline | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/patsy-cline/faded-love-chords-64807) |
-| 164 | **The Wind** | Cat Stevens (Yusuf Islam) | `Official` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/cat-stevens-yusuf-islam/the-wind-official-2083523) |
-| 193 | **I Will (ver 2)** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/i-will-chords-95973) |
-| 204 | **The Long And Winding Road** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/the-long-and-winding-road-chords-525032) |
-| 221 | **Norwegian Wood (ver 2)** | The Beatles | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-beatles/norwegian-wood-chords-1050930) |
-| 227 | **Im A Believer** | The Monkees | `Chords` | Feb 1, 2025 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-monkees/im-a-believer-chords-25298) |
+| 17 | **Hotel California** | Eagles | `Chords` | Jan 14, 2024 | ✅ Built-in | [hotel-california](/tabs/hotel-california) ([UG](https://tabs.ultimate-guitar.com/tab/eagles/hotel-california-chords-46190)) |
+| 21 | **What A Wonderful World (ver 9)** | Louis Armstrong | `Chords` | Jan 20, 2024 | ✅ Built-in | [what-a-wonderful-world](/tabs/what-a-wonderful-world) ([UG](https://tabs.ultimate-guitar.com/tab/louis-armstrong/what-a-wonderful-world-chords-955258)) |
+| 25 | **Yellow Submarine** | The Beatles | `Chords` | Feb 17, 2024 | ✅ Built-in | [yellow-submarine](/tabs/yellow-submarine) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/yellow-submarine-chords-672077)) |
+| 31 | **La Vie En Rose (ver 2)** | Louis Armstrong | `Chords` | Feb 17, 2024 | ✅ Built-in | [la-vie-en-rose](/tabs/la-vie-en-rose) ([UG](https://tabs.ultimate-guitar.com/tab/louis-armstrong/la-vie-en-rose-chords-1459227)) |
+| 40 | **Cant Help Falling In Love** | Elvis Presley | `Chords` | Feb 17, 2024 | ✅ Built-in | [cant-help-falling-in-love](/tabs/cant-help-falling-in-love) ([UG](https://tabs.ultimate-guitar.com/tab/elvis-presley/cant-help-falling-in-love-chords-1086983)) |
+| 41 | **Hurt** | Johnny Cash | `Chords` | Feb 17, 2024 | ✅ Built-in | [hurt](/tabs/hurt) ([UG](https://tabs.ultimate-guitar.com/tab/johnny-cash/hurt-chords-89849)) |
+| 42 | **Dust In The Wind (ver 2)** | Kansas | `Chords` | Feb 17, 2024 | ✅ Built-in | [dust-in-the-wind](/tabs/dust-in-the-wind) ([UG](https://tabs.ultimate-guitar.com/tab/kansas/dust-in-the-wind-chords-874870)) |
+| 49 | **You Are My Sunshine** | Johnny Cash | `Chords` | Feb 18, 2024 | ✅ Built-in | [you-are-my-sunshine](/tabs/you-are-my-sunshine) ([UG](https://tabs.ultimate-guitar.com/tab/johnny-cash/you-are-my-sunshine-chords-834069)) |
+| 50 | **The Sound Of Silence (ver 2)** | Simon & Garfunkel | `Chords` | Feb 18, 2024 | ✅ Built-in | [the-sound-of-silence](/tabs/the-sound-of-silence) ([UG](https://tabs.ultimate-guitar.com/tab/simon-garfunkel/the-sound-of-silence-chords-159157)) |
+| 65 | **I Want To Hold Your Hand (ver 3)** | The Beatles | `Chords` | Feb 22, 2024 | ✅ Built-in | [i-want-to-hold-your-hand](/tabs/i-want-to-hold-your-hand) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/i-want-to-hold-your-hand-chords-457088)) |
+| 69 | **Love Of My Life** | Queen | `Chords` | Feb 22, 2024 | ✅ Built-in | [love-of-my-life](/tabs/love-of-my-life) ([UG](https://tabs.ultimate-guitar.com/tab/queen/love-of-my-life-chords-340088)) |
+| 109 | **Stand By Me** | Ben E. King | `Chords` | Jul 30, 2024 | ✅ Built-in | [stand-by-me](/tabs/stand-by-me) ([UG](https://tabs.ultimate-guitar.com/tab/ben-e-king/stand-by-me-chords-73005)) |
+| 118 | **Hey Jude (ver 2)** | The Beatles | `Chords` | Aug 21, 2024 | ✅ Built-in | [hey-jude](/tabs/hey-jude) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/hey-jude-chords-514527)) |
+| 134 | **Love Will Keep Us Alive** | Eagles | `Chords` | Oct 26, 2024 | ✅ Built-in | [love-will-keep-us-alive](/tabs/love-will-keep-us-alive) ([UG](https://tabs.ultimate-guitar.com/tab/eagles/love-will-keep-us-alive-chords-14318)) |
+| 136 | **Hollywood Nights** | Bob Seger & The Silver Bullet Band | `Chords` | Nov 1, 2024 | ✅ Built-in | [hollywood-nights](/tabs/hollywood-nights) ([UG](https://tabs.ultimate-guitar.com/tab/bob-seger-the-silver-bullet-band/hollywood-nights-chords-1502015)) |
+| 139 | **Vincent** | Don McLean | `Chords` | Nov 2, 2024 | ✅ Built-in | [vincent](/tabs/vincent) ([UG](https://tabs.ultimate-guitar.com/tab/don-mclean/vincent-chords-75922)) |
+| 147 | **Let It Be** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [let-it-be](/tabs/let-it-be) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/let-it-be-chords-17427)) |
+| 149 | **Blackbird** | The Beatles | `Official` | Dec 22, 2024 | ✅ Built-in | [blackbird](/tabs/blackbird) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/blackbird-official-2093927)) |
+| 150 | **Yesterday** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [yesterday](/tabs/yesterday) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/yesterday-chords-17450)) |
+| 151 | **Eleanor Rigby (ver 3)** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [eleanor-rigby](/tabs/eleanor-rigby) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/eleanor-rigby-chords-760029)) |
+| 152 | **Here Comes The Sun** | The Beatles | `Official` | Dec 22, 2024 | ✅ Built-in | [here-comes-the-sun](/tabs/here-comes-the-sun) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/here-comes-the-sun-official-1990437)) |
+| 153 | **In My Life (ver 6)** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [in-my-life](/tabs/in-my-life) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/in-my-life-chords-531847)) |
+| 154 | **Eight Days A Week (ver 4)** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [eight-days-a-week](/tabs/eight-days-a-week) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/eight-days-a-week-chords-848333)) |
+| 155 | **Pale Blue Eyes (ver 2)** | The Velvet Underground | `Chords` | Dec 22, 2024 | ✅ Built-in | [pale-blue-eyes](/tabs/pale-blue-eyes) ([UG](https://tabs.ultimate-guitar.com/tab/the-velvet-underground/pale-blue-eyes-chords-1192699)) |
+| 160 | **The Beast In Me** | Johnny Cash | `Chords` | Dec 22, 2024 | ✅ Built-in | [the-beast-in-me](/tabs/the-beast-in-me) ([UG](https://tabs.ultimate-guitar.com/tab/johnny-cash/the-beast-in-me-chords-1419121)) |
+| 162 | **Faded Love** | Patsy Cline | `Chords` | Dec 22, 2024 | ✅ Built-in | [faded-love](/tabs/faded-love) ([UG](https://tabs.ultimate-guitar.com/tab/patsy-cline/faded-love-chords-64807)) |
+| 164 | **The Wind** | Cat Stevens (Yusuf Islam) | `Official` | Dec 22, 2024 | ✅ Built-in | [the-wind](/tabs/the-wind) ([UG](https://tabs.ultimate-guitar.com/tab/cat-stevens-yusuf-islam/the-wind-official-2083523)) |
+| 193 | **I Will (ver 2)** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [i-will](/tabs/i-will) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/i-will-chords-95973)) |
+| 204 | **The Long And Winding Road** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [the-long-and-winding-road](/tabs/the-long-and-winding-road) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/the-long-and-winding-road-chords-525032)) |
+| 221 | **Norwegian Wood (ver 2)** | The Beatles | `Chords` | Dec 22, 2024 | ✅ Built-in | [norwegian-wood](/tabs/norwegian-wood) ([UG](https://tabs.ultimate-guitar.com/tab/the-beatles/norwegian-wood-chords-1050930)) |
+| 227 | **Im A Believer** | The Monkees | `Chords` | Feb 1, 2025 | ✅ Built-in | [im-a-believer](/tabs/im-a-believer) ([UG](https://tabs.ultimate-guitar.com/tab/the-monkees/im-a-believer-chords-25298)) |
 
-### Batch 7: Singer-Songwriters & Acoustic Storytellers (28 songs)
+### Batch 7: Singer-Songwriters & Acoustic Storytellers (28 songs — 0/28 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 6 | **Thirteen Sad Farewells** | Stu Larsen | `Chords` | Jan 12, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/stu-larsen/thirteen-sad-farewells-chords-1489325) |
 | 18 | **Fall Into Me** | Forest Blakk | `Chords` | Jan 15, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/forest-blakk/fall-into-me-chords-3888971) |
@@ -227,12 +227,12 @@
 | 205 | **Im Yours** | Jason Mraz | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/jason-mraz/im-yours-chords-468625) |
 | 216 | **Let Her Go** | Passenger | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/passenger/let-her-go-chords-1137467) |
 
-### Batch 8: Indie Pop, Folk-Rock & Campfire Anthems (27 songs)
+### Batch 8: Indie Pop, Folk-Rock & Campfire Anthems (27 songs — 1/27 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 26 | **Rivers And Roads** | The Head and the Heart | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-head-and-the-heart/rivers-and-roads-chords-1026669) |
-| 27 | **Riptide (ver 2)** | Vance Joy | `Chords` | Feb 17, 2024 | ✅ Built-in | [UG Tab](https://tabs.ultimate-guitar.com/tab/vance-joy/riptide-chords-1237247) |
+| 27 | **Riptide (ver 2)** | Vance Joy | `Chords` | Feb 17, 2024 | ✅ Built-in | [riptide](/tabs/riptide) ([UG](https://tabs.ultimate-guitar.com/tab/vance-joy/riptide-chords-1237247)) |
 | 28 | **Demons (ver 2)** | Imagine Dragons | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/imagine-dragons/demons-chords-1149539) |
 | 30 | **Moving On** | Kodaline | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/kodaline/moving-on-chords-1714569) |
 | 33 | **I Will Follow You Into The Dark (ver 3)** | Death Cab for Cutie | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/death-cab-for-cutie/i-will-follow-you-into-the-dark-chords-335735) |
@@ -259,9 +259,9 @@
 | 225 | **Good Riddance Time Of Your Life** | Green Day | `Chords` | Dec 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/green-day/good-riddance-time-of-your-life-chords-12835) |
 | 231 | **Ho Hey** | The Lumineers | `Chords` | Aug 9, 2026 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/the-lumineers/ho-hey-chords-1047662) |
 
-### Batch 9: Modern Ballads, Pop Hits & Screen OSTs (34 songs)
+### Batch 9: Modern Ballads, Pop Hits & Screen OSTs (34 songs — 0/34 Built-in)
 
-| # | Title | Artist | Type | Saved Date | Status | UG Link |
+| # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
 | 38 | **Someone You Loved** | Lewis Capaldi | `Chords` | Feb 17, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/lewis-capaldi/someone-you-loved-chords-2512737) |
 | 64 | **At My Worst** | Pink Sweat$ | `Chords` | Feb 19, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/pink-sweat/at-my-worst-chords-3256316) |

@@ -73,21 +73,14 @@ export const TabRenderer: React.FC<TabRendererProps> = ({
                   return (
                     <React.Fragment key={`c-${cIdx}`}>
                       {padding}
-                      <span
-                        role="button"
-                        tabIndex={0}
+                      <button
+                        type="button"
                         aria-label={`Inspect ${chordName} chord`}
                         onClick={() => onChordClick?.(chordName)}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            onChordClick?.(chordName);
-                          }
-                        }}
-                        className="cursor-pointer hover:underline hover:text-terracotta rounded px-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-terracotta transition-colors"
+                        className="inline bg-transparent border-0 p-0 font-inherit font-bold cursor-pointer hover:underline hover:text-terracotta rounded-xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-terracotta transition-colors text-inherit"
                       >
                         {chordName}
-                      </span>
+                      </button>
                     </React.Fragment>
                   );
                 })

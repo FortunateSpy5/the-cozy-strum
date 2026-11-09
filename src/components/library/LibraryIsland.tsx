@@ -62,9 +62,12 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
           <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-walnut/70" aria-hidden="true" />
           <input
             id="library-search-input"
+            name="search"
             type="search"
+            autoComplete="off"
+            spellCheck={false}
             aria-label="Search tabs by song title, artist, or tags"
-            placeholder="Search by song title, artist, or tags..."
+            placeholder="Search by song title, artist, or tags…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-2 min-h-[44px] rounded-xl bg-canvas border border-warm text-sm text-espresso placeholder:text-walnut/50 focus:outline-none focus:border-terracotta focus-visible:ring-2 focus-visible:ring-terracotta/30"
@@ -81,7 +84,7 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
                 type="button"
                 onClick={() => setInstrumentFilter(inst)}
                 aria-pressed={instrumentFilter === inst}
-                className={`min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
+                className={`min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
                   instrumentFilter === inst ? 'bg-terracotta text-white shadow-xs' : 'text-walnut hover:text-espresso'
                 }`}
               >
@@ -102,7 +105,7 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
                 type="button"
                 onClick={() => setTypeFilter(id)}
                 aria-pressed={typeFilter === id}
-                className={`min-h-[38px] px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
+                className={`min-h-[44px] px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
                   typeFilter === id ? 'bg-espresso text-canvas dark:bg-cream dark:text-espresso' : 'text-walnut hover:text-espresso'
                 }`}
               >

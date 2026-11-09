@@ -19,8 +19,7 @@ export const MetronomeModal: React.FC<MetronomeModalProps> = ({
   const [activeBeat, setActiveBeat] = useState(0);
   const [volume, setVolume] = useState(0.8);
   const metronomeRef = useRef<AudioMetronome | null>(null);
-  // Focus trap, backdrop click, and Escape key dismissal
-  // Handles focus trap, Tab cycling, and Escape key listener
+  // Handles focus trap, Tab cycling, backdrop click, and Escape key dismissal
   const dialogRef = useModalA11y({ isOpen: true, onClose });
 
   useEffect(() => {
@@ -54,7 +53,7 @@ export const MetronomeModal: React.FC<MetronomeModalProps> = ({
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-espresso/40 backdrop-blur-xs p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-espresso/40 backdrop-blur-xs p-4 [overscroll-behavior:contain]"
     >
       <div className="w-full max-w-sm rounded-3xl bg-surface border border-warm shadow-2xl p-6 relative">
         <button
@@ -121,7 +120,7 @@ export const MetronomeModal: React.FC<MetronomeModalProps> = ({
             <div
               key={`beat-${b}`}
               aria-hidden="true"
-              className={`w-3.5 h-3.5 rounded-full transition-all duration-75 ${
+              className={`w-3.5 h-3.5 rounded-full transition-[transform,background-color] duration-75 motion-reduce:transition-none ${
                 isPlaying && activeBeat === b
                   ? b === 0 ? 'bg-terracotta scale-125 shadow-md shadow-terracotta/40' : 'bg-amber-500 scale-110'
                   : 'bg-canvas border border-warm'
@@ -184,7 +183,7 @@ export const MetronomeModal: React.FC<MetronomeModalProps> = ({
           onClick={togglePlay}
           type="button"
           aria-label={isPlaying ? 'Stop metronome' : 'Start metronome'}
-          className={`w-full min-h-[44px] py-3 rounded-2xl font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
+          className={`w-full min-h-[44px] py-3 rounded-2xl font-medium text-sm flex items-center justify-center gap-2 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
             isPlaying ? 'bg-red-700 text-white hover:bg-red-800' : 'bg-terracotta text-white hover:opacity-90'
           }`}
         >

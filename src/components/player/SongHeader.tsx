@@ -74,7 +74,7 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
       {/* Main Title Row */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div>
-          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-espresso tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-espresso tracking-tight [text-wrap:balance]">
             {metadata.title}
           </h1>
           <p className="text-base sm:text-lg text-walnut font-medium mt-0.5">

@@ -80,7 +80,7 @@ export const BackupRestoreModal: React.FC<BackupRestoreModalProps> = ({
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/60 backdrop-blur-xs animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/60 backdrop-blur-xs animate-in fade-in duration-150 [overscroll-behavior:contain]"
     >
       <div className="relative w-full max-w-md p-6 rounded-3xl bg-surface border border-warm shadow-2xl space-y-5">
         <div className="flex items-center justify-between border-b border-warm/60 pb-3">

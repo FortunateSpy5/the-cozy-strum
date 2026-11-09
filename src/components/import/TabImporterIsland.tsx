@@ -67,7 +67,7 @@ export const TabImporterIsland: React.FC = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-espresso">Quick Paste Studio</h1>
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-espresso [text-wrap:balance]">Quick Paste Studio</h1>
           <p className="text-xs sm:text-sm text-walnut">
             Paste raw text from Ultimate Guitar. Chords and ASCII staves are parsed instantly.
           </p>
@@ -103,10 +103,12 @@ export const TabImporterIsland: React.FC = () => {
           </div>
           <textarea
             id="raw-tab-input"
+            name="rawTabContent"
+            autoComplete="off"
             value={rawText}
             onChange={(e) => setRawText(e.target.value)}
             aria-label="Raw Ultimate Guitar tablature and chord text input"
-            placeholder="Paste your raw chords and tabs here..."
+            placeholder="Paste your raw chords and tabs here…"
             className="w-full h-[450px] p-4 rounded-2xl bg-canvas border border-warm font-mono text-xs sm:text-sm text-espresso focus:outline-none focus:border-terracotta focus-visible:ring-2 focus-visible:ring-terracotta/40 resize-none leading-5 scrollbar-thin"
             spellCheck="false"
           />
@@ -144,7 +146,7 @@ export const TabImporterIsland: React.FC = () => {
           {savedSlug && (
             <a
               href={`/player?slug=${encodeURIComponent(savedSlug)}`}
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-all"
+              className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
             >
               <span>Play Now</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -153,7 +155,7 @@ export const TabImporterIsland: React.FC = () => {
           <button
             onClick={() => setIsBackupModalOpen(true)}
             type="button"
-            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-amber-600 text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 transition-all shadow-xs"
+            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-amber-600 text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 transition-colors shadow-xs"
             title="Export or backup all tabs saved in localStorage"
           >
             <Archive className="w-4 h-4 text-amber-600" aria-hidden="true" />
@@ -162,7 +164,7 @@ export const TabImporterIsland: React.FC = () => {
           <button
             onClick={handleSaveToBrowser}
             type="button"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-all shadow-xs"
+            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-opacity shadow-xs"
           >
             <Bookmark className="w-4 h-4" aria-hidden="true" />
             Save to Library
@@ -170,7 +172,7 @@ export const TabImporterIsland: React.FC = () => {
           <button
             onClick={handleDownloadMd}
             type="button"
-            className="inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-all shadow-xs"
+            className="inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors shadow-xs"
             title="Download .md for src/content/tabs/"
             aria-label="Download markdown file for Git repository"
           >

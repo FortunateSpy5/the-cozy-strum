@@ -18,7 +18,7 @@ export const ShortcutLegendBar: React.FC<ShortcutLegendBarProps> = ({
     <div
       role="region"
       aria-label="Practice keyboard shortcuts quick reference"
-      className="hidden md:flex items-center justify-between gap-3 px-4 py-1.5 rounded-full bg-surface/85 backdrop-blur-md border border-warm/60 shadow-xs text-[11px] font-mono text-walnut mb-2 max-w-3xl mx-auto transition-all"
+      className="hidden md:flex items-center justify-between gap-3 px-4 py-1.5 rounded-full bg-surface/85 backdrop-blur-md border border-warm/60 shadow-xs text-[11px] font-mono text-walnut mb-2 max-w-3xl mx-auto transition-colors"
     >
       {/* Keyboard Shortcuts */}
       <div className="flex items-center gap-3">
@@ -53,7 +53,7 @@ export const ShortcutLegendBar: React.FC<ShortcutLegendBarProps> = ({
             title={isWakeLockActive ? 'Screen Wake Lock: Active (Prevents screen sleep)' : 'Screen Wake Lock: Inactive'}
             aria-pressed={isWakeLockActive}
           >
-            {isWakeLockActive ? <Sun className="w-3 h-3 text-amber-600 animate-spin-slow" aria-hidden="true" /> : <SunDim className="w-3 h-3" aria-hidden="true" />}
+            {isWakeLockActive ? <Sun className="w-3 h-3 text-amber-600 animate-spin-slow motion-reduce:animate-none" aria-hidden="true" /> : <SunDim className="w-3 h-3" aria-hidden="true" />}
             <span>{isWakeLockActive ? 'Screen Awake' : 'Screen Sleep OK'}</span>
           </button>
         )}

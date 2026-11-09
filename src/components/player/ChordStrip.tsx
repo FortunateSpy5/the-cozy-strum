@@ -45,9 +45,9 @@ export const ChordStrip: React.FC<ChordStripProps> = ({
           return (
             <div
               key={`${rawChord}-${transposedName}-${instrument}`}
-              className={`p-2 rounded-xl transition-all flex flex-col items-center shrink-0 ${
+              className={`p-2 rounded-xl transition-[transform,border-color,background-color] motion-reduce:transition-none flex flex-col items-center shrink-0 ${
                 isHighlighted
-                  ? 'bg-canvas border-2 border-terracotta scale-105 shadow-md'
+                  ? 'bg-canvas border-2 border-terracotta scale-105 motion-reduce:scale-100 shadow-md'
                   : 'bg-canvas/50 border border-warm/80 hover:border-terracotta/60'
               }`}
             >

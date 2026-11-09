@@ -33,7 +33,7 @@ export const SongCard: React.FC<SongCardProps> = ({ tab, onDeleteCustom }) => {
 
   return (
     <article
-      className="group flex flex-col justify-between p-5 rounded-2xl bg-surface border border-warm hover:border-terracotta hover:shadow-md transition-all relative overflow-hidden focus-within:ring-2 focus-within:ring-terracotta"
+      className="group flex flex-col justify-between p-5 rounded-2xl bg-surface border border-warm hover:border-terracotta hover:shadow-md transition-[border-color,box-shadow] relative overflow-hidden focus-within:ring-2 focus-within:ring-terracotta"
     >
       <div>
         {/* Top Badges */}

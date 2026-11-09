@@ -301,7 +301,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/eagles/hotel-california-chords-46190",
     "artistUrl": "https://www.ultimate-guitar.com/artist/eagles_1509",
     "slug": "hotel-california",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -373,7 +373,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/louis-armstrong/what-a-wonderful-world-chords-955258",
     "artistUrl": "https://www.ultimate-guitar.com/artist/louis_armstrong_9719",
     "slug": "what-a-wonderful-world",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -445,7 +445,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/yellow-submarine-chords-672077",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "yellow-submarine",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -553,7 +553,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/louis-armstrong/la-vie-en-rose-chords-1459227",
     "artistUrl": "https://www.ultimate-guitar.com/artist/louis_armstrong_9719",
     "slug": "la-vie-en-rose",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -715,7 +715,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/elvis-presley/cant-help-falling-in-love-chords-1086983",
     "artistUrl": "https://www.ultimate-guitar.com/artist/elvis_presley_11125",
     "slug": "cant-help-falling-in-love",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -733,7 +733,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/johnny-cash/hurt-chords-89849",
     "artistUrl": "https://www.ultimate-guitar.com/artist/johnny_cash_10001",
     "slug": "hurt",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -877,7 +877,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/johnny-cash/you-are-my-sunshine-chords-834069",
     "artistUrl": "https://www.ultimate-guitar.com/artist/johnny_cash_10001",
     "slug": "you-are-my-sunshine",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -895,7 +895,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/simon-garfunkel/the-sound-of-silence-chords-159157",
     "artistUrl": "https://www.ultimate-guitar.com/artist/simon_garfunkel_274",
     "slug": "the-sound-of-silence",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -1165,7 +1165,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/i-want-to-hold-your-hand-chords-457088",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "i-want-to-hold-your-hand",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -1237,7 +1237,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/queen/love-of-my-life-chords-340088",
     "artistUrl": "https://www.ultimate-guitar.com/artist/queen_590",
     "slug": "love-of-my-life",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -1957,7 +1957,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/ben-e-king/stand-by-me-chords-73005",
     "artistUrl": "https://www.ultimate-guitar.com/artist/ben_e_king_10676",
     "slug": "stand-by-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2119,7 +2119,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/hey-jude-chords-514527",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "hey-jude",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2407,7 +2407,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/eagles/love-will-keep-us-alive-chords-14318",
     "artistUrl": "https://www.ultimate-guitar.com/artist/eagles_1509",
     "slug": "love-will-keep-us-alive",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2443,7 +2443,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/bob-seger-the-silver-bullet-band/hollywood-nights-chords-1502015",
     "artistUrl": "https://www.ultimate-guitar.com/artist/bob_seger_the_silver_bullet_band_128829",
     "slug": "hollywood-nights",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2497,7 +2497,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/don-mclean/vincent-chords-75922",
     "artistUrl": "https://www.ultimate-guitar.com/artist/don_mclean_10895",
     "slug": "vincent",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2641,7 +2641,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/let-it-be-chords-17427",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "let-it-be",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2677,7 +2677,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/blackbird-official-2093927",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "blackbird",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2695,7 +2695,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/yesterday-chords-17450",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "yesterday",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2713,7 +2713,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/eleanor-rigby-chords-760029",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "eleanor-rigby",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2731,7 +2731,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/here-comes-the-sun-official-1990437",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "here-comes-the-sun",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2749,7 +2749,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/in-my-life-chords-531847",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "in-my-life",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2767,7 +2767,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/eight-days-a-week-chords-848333",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "eight-days-a-week",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2785,7 +2785,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-velvet-underground/pale-blue-eyes-chords-1192699",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_velvet_underground_115",
     "slug": "pale-blue-eyes",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2875,7 +2875,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/johnny-cash/the-beast-in-me-chords-1419121",
     "artistUrl": "https://www.ultimate-guitar.com/artist/johnny_cash_10001",
     "slug": "the-beast-in-me",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2911,7 +2911,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/patsy-cline/faded-love-chords-64807",
     "artistUrl": "https://www.ultimate-guitar.com/artist/patsy_cline_10052",
     "slug": "faded-love",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -2947,7 +2947,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/cat-stevens-yusuf-islam/the-wind-official-2083523",
     "artistUrl": "https://www.ultimate-guitar.com/artist/cat_stevens_yusuf_islam_2658",
     "slug": "the-wind",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -3469,7 +3469,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/i-will-chords-95973",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "i-will",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -3667,7 +3667,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/the-long-and-winding-road-chords-525032",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "the-long-and-winding-road",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -3973,7 +3973,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-beatles/norwegian-wood-chords-1050930",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_beatles_1916",
     "slug": "norwegian-wood",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },
@@ -4081,7 +4081,7 @@
     "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-monkees/im-a-believer-chords-25298",
     "artistUrl": "https://www.ultimate-guitar.com/artist/the_monkees_835",
     "slug": "im-a-believer",
-    "isExisting": false,
+    "isExisting": true,
     "batch": 6,
     "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
   },

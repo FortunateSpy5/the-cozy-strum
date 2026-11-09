@@ -31,8 +31,8 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           <button
             onClick={onToggleScroll}
             type="button"
-            className={`flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-semibold transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
-              isScrolling ? 'bg-amber-600 text-white animate-pulse' : 'bg-terracotta text-white hover:opacity-90'
+            className={`flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-semibold transition-[background-color,opacity] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
+              isScrolling ? 'bg-amber-600 text-white animate-pulse motion-reduce:animate-none' : 'bg-terracotta text-white hover:opacity-90'
             }`}
             title="Toggle Auto-Scroll (Space)"
             aria-label={isScrolling ? 'Pause auto-scroll (Shortcut: Space)' : 'Start auto-scroll (Shortcut: Space)'}

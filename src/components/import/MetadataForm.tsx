@@ -13,11 +13,13 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-title-input" className="block font-medium text-walnut mb-1">Song Title *</label>
         <input
           id="meta-title-input"
+          name="title"
           type="text"
+          autoComplete="off"
           value={metadata.title}
           onChange={(e) => onChange({ title: e.target.value })}
-          placeholder="e.g. Wonderwall"
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          placeholder="e.g. Wonderwall…"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
           required
         />
       </div>
@@ -26,11 +28,13 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-artist-input" className="block font-medium text-walnut mb-1">Artist / Band *</label>
         <input
           id="meta-artist-input"
+          name="artist"
           type="text"
+          autoComplete="off"
           value={metadata.artist}
           onChange={(e) => onChange({ artist: e.target.value })}
-          placeholder="e.g. Oasis"
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          placeholder="e.g. Oasis…"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
           required
         />
       </div>
@@ -39,12 +43,13 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-instrument-select" className="block font-medium text-walnut mb-1">Instrument</label>
         <select
           id="meta-instrument-select"
+          name="instrument"
           value={metadata.instrument}
           onChange={(e) => onChange({ instrument: e.target.value as Instrument })}
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
         >
-          <option value="guitar">6-String Guitar</option>
-          <option value="ukulele">4-String Ukulele</option>
+          <option value="guitar" className="bg-surface text-espresso">6-String Guitar</option>
+          <option value="ukulele" className="bg-surface text-espresso">4-String Ukulele</option>
         </select>
       </div>
 
@@ -52,12 +57,14 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-capo-input" className="block font-medium text-walnut mb-1">Capo Fret (0 = None)</label>
         <input
           id="meta-capo-input"
+          name="capo"
           type="number"
           min="0"
           max="12"
+          autoComplete="off"
           value={metadata.capo}
           onChange={(e) => onChange({ capo: parseInt(e.target.value, 10) || 0 })}
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
         />
       </div>
 
@@ -65,13 +72,15 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-bpm-input" className="block font-medium text-walnut mb-1">BPM (Optional)</label>
         <input
           id="meta-bpm-input"
+          name="bpm"
           type="number"
           min="30"
           max="300"
+          autoComplete="off"
           value={metadata.bpm ?? ''}
           onChange={(e) => onChange({ bpm: e.target.value ? parseInt(e.target.value, 10) : undefined })}
-          placeholder="e.g. 110"
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          placeholder="e.g. 110…"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
         />
       </div>
 
@@ -79,13 +88,14 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-difficulty-select" className="block font-medium text-walnut mb-1">Difficulty</label>
         <select
           id="meta-difficulty-select"
+          name="difficulty"
           value={metadata.difficulty}
           onChange={(e) => onChange({ difficulty: e.target.value as Difficulty })}
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
         >
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="beginner" className="bg-surface text-espresso">Beginner</option>
+          <option value="intermediate" className="bg-surface text-espresso">Intermediate</option>
+          <option value="advanced" className="bg-surface text-espresso">Advanced</option>
         </select>
       </div>
 
@@ -93,11 +103,13 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <label htmlFor="meta-strumming-input" className="block font-medium text-walnut mb-1">Strumming Pattern (Optional)</label>
         <input
           id="meta-strumming-input"
+          name="strummingPattern"
           type="text"
+          autoComplete="off"
           value={metadata.strummingPattern ?? ''}
           onChange={(e) => onChange({ strummingPattern: e.target.value || undefined })}
-          placeholder="e.g. D - D U - U D U"
-          className="w-full min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
+          placeholder="e.g. D - D U - U D U…"
+          className="w-full min-h-[44px] px-3 py-1.5 rounded-lg bg-surface border border-warm text-espresso font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:border-transparent"
         />
       </div>
 
@@ -105,6 +117,7 @@ export const MetadataForm: React.FC<MetadataFormProps> = ({ metadata, onChange }
         <input
           type="checkbox"
           id="fingerstyle-check"
+          name="isFingerstyle"
           checked={metadata.isFingerstyle}
           onChange={(e) => onChange({ isFingerstyle: e.target.checked })}
           className="rounded accent-terracotta w-4 h-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"

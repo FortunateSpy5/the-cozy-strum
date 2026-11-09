@@ -131,4 +131,39 @@ describe('Accessibility & UX Verification', () => {
     const songCard = fs.readFileSync(path.resolve('src/components/library/SongCard.tsx'), 'utf-8');
     assert.ok(songCard.includes('/player?slug='), 'SongCard must route custom tabs to /player?slug=');
   });
+
+  it('verifies Web Interface Guidelines compliance across layout, css, and modals', () => {
+    const layout = fs.readFileSync(path.resolve('src/layouts/BaseLayout.astro'), 'utf-8');
+    assert.ok(layout.includes('name="theme-color"'), 'BaseLayout must include theme-color meta tag');
+    assert.ok(layout.includes('scroll-mt-6'), 'BaseLayout main tag must have scroll-mt-6');
+
+    const css = fs.readFileSync(path.resolve('src/styles/global.css'), 'utf-8');
+    assert.ok(css.includes('color-scheme: light;'), 'global.css :root must specify color-scheme: light');
+    assert.ok(css.includes('color-scheme: dark;'), 'global.css html.dark must specify color-scheme: dark');
+    assert.ok(css.includes('prefers-reduced-motion: reduce'), 'global.css must have prefers-reduced-motion rules');
+    assert.ok(css.includes('touch-action: manipulation;'), 'global.css must have touch-action: manipulation');
+
+    const modals = [
+      fs.readFileSync(path.resolve('src/components/import/BackupRestoreModal.tsx'), 'utf-8'),
+      fs.readFileSync(path.resolve('src/components/player/MetronomeModal.tsx'), 'utf-8'),
+      fs.readFileSync(path.resolve('src/components/player/KeyboardShortcutsModal.tsx'), 'utf-8')
+    ];
+    for (const m of modals) {
+      assert.ok(m.includes('[overscroll-behavior:contain]'), 'Modal must declare overscroll-behavior: contain');
+    }
+
+    const form = fs.readFileSync(path.resolve('src/components/import/MetadataForm.tsx'), 'utf-8');
+    assert.ok(form.includes('min-h-[44px]'), 'MetadataForm inputs must have 44px min height');
+    assert.ok(!form.includes('min-h-[40px]'), 'MetadataForm must not have 40px inputs');
+    assert.ok(form.includes('autoComplete="off"'), 'MetadataForm inputs must have autoComplete="off"');
+    assert.ok(form.includes('name="title"'), 'MetadataForm inputs must have name attribute');
+
+    const renderer = fs.readFileSync(path.resolve('src/components/player/TabRenderer.tsx'), 'utf-8');
+    assert.ok(renderer.includes('<button\n                        type="button"'), 'TabRenderer must use native button for chords');
+    assert.ok(!renderer.includes('role="button"'), 'TabRenderer must not use span role="button"');
+
+    const footer = fs.readFileSync(path.resolve('src/components/common/Footer.astro'), 'utf-8');
+    assert.ok(footer.includes('Astro 5 & React'), 'Footer should use & instead of +');
+    assert.ok(!footer.includes('min-h-[36px]'), 'Footer links must not have 36px min-height');
+  });
 });
