@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 The Cozy Strum — Automated Audio + LRCLIB Chord-over-Lyrics Generator CLI.
-Pairs open-source millisecond-synced lyrics with audio chords, UG verified chords, and selective tabs.
+Pairs open-source millisecond-synced lyrics with audio harmony detection and fingerstyle tab synthesis.
+100% self-contained, open-source, and legally clean.
 """
 
 from __future__ import annotations
@@ -18,7 +19,6 @@ from chord_extractor_wrapper import extract_chords_from_audio, TimestampedChord
 from chord_aligner import format_cozy_strum_tab
 from firestore_uploader import upload_tab_to_firestore
 from tab_injector import resolve_ascii_tab, inject_tab_block
-from ug_chord_fetcher import fetch_ug_chords
 
 def parse_chord_list(arg: str | None) -> list[str]:
     """Parses a space or comma separated chord string into a list of chords."""
@@ -38,10 +38,7 @@ def build_cli_parser() -> argparse.ArgumentParser:
     parser.add_argument("--audio", help="Path to local audio file (.mp3, .wav) or .chords file")
     parser.add_argument("--progression", help="Verse chord progression (e.g., 'Em7 G Dsus4 A7sus4')")
     parser.add_argument("--chorus-progression", help="Chorus chord progression (e.g., 'Cadd9 Em7 G')")
-    parser.add_argument("--fetch-chords", action="store_true", help="Fetch verified chords & capo from Ultimate Guitar")
     parser.add_argument("--fingerstyle", choices=["travis", "arpeggio"], help="Generate fingerstyle pattern")
-    parser.add_argument("--fetch-tab", action="store_true", help="Fetch real ASCII tab from public archive")
-    parser.add_argument("--tab-section", default="intro", help="Tab section to extract (intro, solo, riff)")
     parser.add_argument("--lrc-file", help="Path to local .lrc file (skips LRCLIB online fetch)")
     parser.add_argument("--capo", type=int, default=0, help="Capo fret position")
     parser.add_argument("--instrument", default="guitar", choices=["guitar", "ukulele"])
@@ -92,32 +89,21 @@ def main() -> int:
     progression = parse_chord_list(args.progression)
     chorus_prog = parse_chord_list(args.chorus_progression)
 
-    # Step 2.5: UG Verified Chords Fallback
-    capo_pos = args.capo
-    if args.fetch_chords and not progression and not chords:
-        print(f"[UGChordBridge] Querying Ultimate Guitar for verified chords...")
-        ug_data = fetch_ug_chords(title, artist)
-        if ug_data:
-            progression = ug_data["verse_progression"]
-            if capo_pos == 0 and ug_data["capo"] > 0:
-                capo_pos = ug_data["capo"]
-            print(f"[OK] Loaded UG verified progression: {progression} (Capo: {capo_pos})")
-
     # Step 3: Alignment & Tab Generation
     print("[Aligner] Aligning chords over lyrics with intelligent section detection...")
     tab_content = format_cozy_strum_tab(
         title=title, artist=artist, lyrics=lyrics, chords=chords,
         progression=progression, chorus_progression=chorus_prog,
-        capo=capo_pos, instrument=args.instrument,
+        capo=args.capo, instrument=args.instrument,
     )
 
     used_chords = sorted(list({c["chord"] for c in chords if c["chord"]} | set(progression) | set(chorus_prog)))
 
-    # Step 4: Tab Retrieval / Fingerstyle Generation
+    # Step 4: Procedural Fingerstyle Generation (Selective)
     tab_stave, tab_label = resolve_ascii_tab(
-        title=title, artist=artist, chords=progression or used_chords,
-        instrument=args.instrument, fingerstyle=args.fingerstyle,
-        fetch_tab=args.fetch_tab, section=args.tab_section,
+        chords=progression or used_chords,
+        instrument=args.instrument,
+        fingerstyle=args.fingerstyle,
     )
     if tab_stave:
         print(f"[TabEngine] Injected {tab_label} into song sheet.")
@@ -127,7 +113,7 @@ def main() -> int:
     if args.output:
         if args.output.lower().endswith(".json"):
             payload = {
-                "title": title, "artist": artist, "capo": capo_pos,
+                "title": title, "artist": artist, "capo": args.capo,
                 "instrument": args.instrument, "chordsUsed": used_chords, "content": tab_content,
             }
             with open(args.output, "w", encoding="utf-8") as f:
@@ -143,7 +129,7 @@ def main() -> int:
         try:
             doc_id = upload_tab_to_firestore(
                 title=title, artist=artist, content=tab_content, chords_used=used_chords,
-                service_account_path=args.service_account, capo=capo_pos, instrument=args.instrument,
+                service_account_path=args.service_account, capo=args.capo, instrument=args.instrument,
             )
             print(f"[Success] Successfully uploaded tab to Firestore with ID: {doc_id}")
         except Exception as err:

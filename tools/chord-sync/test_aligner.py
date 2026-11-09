@@ -26,9 +26,7 @@ from chord_aligner import (
 )
 from section_detector import detect_song_sections
 from tab_synthesizer import synthesize_tab_block
-from tab_fetcher import clean_ug_tab_text, extract_first_ascii_tab_block
 from tab_injector import inject_tab_block, resolve_ascii_tab
-from ug_chord_fetcher import clean_ug_content, extract_recurring_progression, compute_harmonic_overlap
 
 class TestChordSyncPipeline(unittest.TestCase):
     def test_parse_lrc_timestamp(self):
@@ -121,29 +119,15 @@ class TestChordSyncPipeline(unittest.TestCase):
         self.assertTrue("G|--" in uke_tab)
         self.assertFalse("E|--" in uke_tab.splitlines()[0])  # First stave line is A string
 
-    def test_clean_ug_tab_and_inject(self):
-        raw_tab = "[tab]e|--0--1--\nB|--1--3--\nG|--0--2--\nD|--2--0--\n[/tab]"
-        cleaned = clean_ug_tab_text(raw_tab)
-        self.assertFalse("[tab]" in cleaned)
-        extracted = extract_first_ascii_tab_block(cleaned)
-        self.assertIsNotNone(extracted)
-        self.assertTrue("e|--0--1--" in (extracted or ""))
-
+    def test_inject_tab_block(self):
         base_sheet = "Title - Artist\nCapo: 0\n\n[Verse 1]\nLyrics"
         injected = inject_tab_block(base_sheet, "e|--0--|", "Intro Tab")
         self.assertTrue("[Intro Tab]" in injected)
         self.assertTrue("e|--0--|" in injected)
 
-    def test_ug_chord_utilities(self):
-        cleaned = clean_ug_content("[ch]Am[/ch] [ch]G[/ch] &amp; [ch]C[/ch]")
-        self.assertEqual(cleaned, "Am G & C")
-
-        chords = ["Am", "C", "D", "F", "Am", "C", "D", "F", "E"]
-        prog = extract_recurring_progression(chords)
-        self.assertEqual(prog, ["Am", "C", "D", "F"])
-
-        overlap = compute_harmonic_overlap(["C", "Am", "F", "G"], ["C", "Am7", "Fmaj7", "G7"])
-        self.assertAlmostEqual(overlap, 1.0)
+        stave, label = resolve_ascii_tab(["C", "G"], instrument="guitar", fingerstyle="travis")
+        self.assertTrue("Fingerpicking Pattern" in label)
+        self.assertIsNotNone(stave)
 
 if __name__ == "__main__":
     unittest.main()
