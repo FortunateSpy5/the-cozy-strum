@@ -13,12 +13,10 @@ from typing import TypedDict, Optional
 LRCLIB_API_URL = "https://lrclib.net/api"
 USER_AGENT = "TheCozyStrum-ChordSync/1.0 (https://github.com/FortunateSpy5/the-cozy-strum)"
 
-
 class LyricLine(TypedDict):
     start_time: float
     end_time: float
     text: str
-
 
 def parse_lrc_timestamp(stamp: str) -> float:
     """Converts a standard LRC timestamp string [mm:ss.xx] or [mm:ss] into seconds."""
@@ -29,15 +27,15 @@ def parse_lrc_timestamp(stamp: str) -> float:
         return round(minutes * 60.0 + seconds, 3)
     return 0.0
 
-
 def parse_lrc_content(lrc_text: str, default_line_duration: float = 3.5) -> list[LyricLine]:
     """Parses raw LRC text into a list of structured timestamped LyricLine dictionaries."""
     raw_entries: list[tuple[float, str]] = []
     timestamp_pattern = re.compile(r"\[(\d{1,2}:\d{2}(?:\.\d{1,3})?)\]")
+    meta_pattern = re.compile(r"^\[(ar|al|ti|by|length|offset|re|ve):.*\]", re.IGNORECASE)
 
     for raw_line in lrc_text.splitlines():
         line = raw_line.strip()
-        if not line:
+        if not line or meta_pattern.match(line):
             continue
 
         timestamps = timestamp_pattern.findall(line)
@@ -45,9 +43,12 @@ def parse_lrc_content(lrc_text: str, default_line_duration: float = 3.5) -> list
             continue
 
         text_only = timestamp_pattern.sub("", line).strip()
+        # Clean musical symbols
+        clean_text = re.sub(r"[♫♪♩]", "", text_only).strip()
+
         for ts_str in timestamps:
             seconds = parse_lrc_timestamp(ts_str)
-            raw_entries.append((seconds, text_only))
+            raw_entries.append((seconds, clean_text))
 
     raw_entries.sort(key=lambda item: item[0])
 
@@ -55,7 +56,6 @@ def parse_lrc_content(lrc_text: str, default_line_duration: float = 3.5) -> list
     for idx, (start_time, text) in enumerate(raw_entries):
         if idx + 1 < len(raw_entries):
             next_start = raw_entries[idx + 1][0]
-            # Cap the line duration to 8s max to avoid long instrumental gaps skewing text
             end_time = min(next_start, start_time + 8.0)
             if end_time <= start_time:
                 end_time = start_time + default_line_duration
@@ -69,7 +69,6 @@ def parse_lrc_content(lrc_text: str, default_line_duration: float = 3.5) -> list
         })
 
     return parsed_lines
-
 
 def fetch_lrclib_synced_lyrics(
     title: str,
@@ -100,7 +99,6 @@ def fetch_lrclib_synced_lyrics(
             if synced:
                 return parse_lrc_content(synced)
     except Exception:
-        # Fallback to search query if exact /get fails
         pass
 
     search_url = f"{LRCLIB_API_URL}/search?{query_str}"

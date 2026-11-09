@@ -16,6 +16,7 @@ describe('Phase 5: Local Audio + LRCLIB Chord Sync Pipeline', () => {
       '__init__.py',
       'lrc_fetcher.py',
       'chord_extractor_wrapper.py',
+      'section_detector.py',
       'chord_aligner.py',
       'firestore_uploader.py',
       'sync_generator.py',

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 The Cozy Strum — Automated Audio + LRCLIB Chord-over-Lyrics Generator CLI.
-Pairs open-source millisecond-synced lyrics with audio chord detection.
+Pairs open-source millisecond-synced lyrics with audio chord detection and progression mapping.
 """
 
 from __future__ import annotations
@@ -9,13 +9,21 @@ import argparse
 import json
 import sys
 import os
+import re
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from lrc_fetcher import fetch_lrclib_synced_lyrics, parse_lrc_content, LyricLine
 from chord_extractor_wrapper import extract_chords_from_audio, TimestampedChord
-from chord_aligner import format_cozy_strum_tab, align_chords_with_lyrics
+from chord_aligner import format_cozy_strum_tab
 from firestore_uploader import upload_tab_to_firestore
+
+def parse_chord_list(arg: str | None) -> list[str]:
+    """Parses a space or comma separated chord string into a list of chords."""
+    if not arg:
+        return []
+    parts = re.split(r"[\s,]+", arg.strip())
+    return [p for p in parts if p]
 
 def build_cli_parser() -> argparse.ArgumentParser:
     """Builds the command-line argument parser."""
@@ -25,7 +33,9 @@ def build_cli_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--title", required=True, help="Song title (e.g., 'Wonderwall')")
     parser.add_argument("--artist", required=True, help="Artist or band name (e.g., 'Oasis')")
-    parser.add_argument("--audio", help="Path to local audio file (.mp3, .wav, .m4a) or .chords file")
+    parser.add_argument("--audio", help="Path to local audio file (.mp3, .wav) or .chords file")
+    parser.add_argument("--progression", help="Verse chord progression (e.g., 'Em7 G Dsus4 A7sus4')")
+    parser.add_argument("--chorus-progression", help="Chorus chord progression (e.g., 'Cadd9 Em7 G')")
     parser.add_argument("--lrc-file", help="Path to local .lrc file (skips LRCLIB online fetch)")
     parser.add_argument("--capo", type=int, default=0, help="Capo fret position")
     parser.add_argument("--instrument", default="guitar", choices=["guitar", "ukulele"])
@@ -73,22 +83,27 @@ def main() -> int:
         print(f"[Audio] Extracting harmony and chords from '{args.audio}'...")
         chords = extract_chords_from_audio(args.audio)
         print(f"[OK] Extracted {len(chords)} timestamped chords.")
-    else:
-        print("[Info] No audio supplied (--audio). Generating clean lyric template with section headers.")
 
-    # Step 3: Alignment & Tab Generation
-    print("[Aligner] Aligning chords over lyrics proportionally...")
+    # Step 3: Progression Parsing
+    progression = parse_chord_list(args.progression)
+    chorus_prog = parse_chord_list(args.chorus_progression)
+
+    # Step 4: Alignment & Tab Generation
+    print("[Aligner] Aligning chords over lyrics with intelligent section detection...")
     tab_content = format_cozy_strum_tab(
         title=title,
         artist=artist,
         lyrics=lyrics,
         chords=chords,
+        progression=progression,
+        chorus_progression=chorus_prog,
         capo=args.capo,
         instrument=args.instrument,
     )
-    unique_chords = sorted(list({c["chord"] for c in chords if c["chord"]}))
 
-    # Step 4: Output / Save / Upload
+    used_chords = sorted(list({c["chord"] for c in chords if c["chord"]} | set(progression) | set(chorus_prog)))
+
+    # Step 5: Output / Save / Upload
     if args.output:
         out_ext = os.path.splitext(args.output)[1].lower()
         if out_ext == ".json":
@@ -97,7 +112,7 @@ def main() -> int:
                 "artist": artist,
                 "capo": args.capo,
                 "instrument": args.instrument,
-                "chordsUsed": unique_chords,
+                "chordsUsed": used_chords,
                 "content": tab_content,
             }
             with open(args.output, "w", encoding="utf-8") as f:
@@ -115,7 +130,7 @@ def main() -> int:
                 title=title,
                 artist=artist,
                 content=tab_content,
-                chords_used=unique_chords,
+                chords_used=used_chords,
                 service_account_path=args.service_account,
                 capo=args.capo,
                 instrument=args.instrument,
@@ -126,9 +141,9 @@ def main() -> int:
             return 1
 
     if args.dry_run or not args.output:
-        print("\n" + "=" * 50)
+        print("\n" + "=" * 55)
         print(tab_content)
-        print("=" * 50 + "\n")
+        print("=" * 55 + "\n")
 
     print("[Complete] Tab generation complete! Cozy practicing!")
     return 0
