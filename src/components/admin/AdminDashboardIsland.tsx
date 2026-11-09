@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import type { User } from 'firebase/auth';
-import { ShieldCheck, Inbox, FileText, Database, Loader2, RefreshCw } from 'lucide-react';
+import { ShieldCheck, Loader2, RefreshCw } from 'lucide-react';
 import { subscribeToAuth } from '../../lib/firebase/auth';
 import type { UserProfile, CloudTab, DmcaRequest } from '../../lib/firebase/types';
 import { getPendingSubmissions, approveSubmission, rejectSubmission } from '../../lib/firebase/adminService';
 import { getDmcaRequests, resolveDmcaRequest } from '../../lib/firebase/dmcaService';
 import { AdminAuthGate } from './AdminAuthGate';
+import { AdminNavTabs, type AdminTab } from './AdminNavTabs';
 import { SubmissionsQueue } from './SubmissionsQueue';
 import { DmcaClaimsQueue } from './DmcaClaimsQueue';
 import { CatalogManagerPanel } from './CatalogManagerPanel';
-
-type AdminTab = 'submissions' | 'dmca' | 'catalog';
 
 export function AdminDashboardIsland(): React.JSX.Element {
   const [user, setUser] = useState<User | null>(null);
@@ -21,6 +20,7 @@ export function AdminDashboardIsland(): React.JSX.Element {
   const [pendingTabs, setPendingTabs] = useState<CloudTab[]>([]);
   const [dmcaClaims, setDmcaClaims] = useState<DmcaRequest[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(false);
+  const [liveFeedback, setLiveFeedback] = useState<string>('');
 
   useEffect(() => {
     return subscribeToAuth((currentUser, currentProfile, loading) => {
@@ -39,6 +39,7 @@ export function AdminDashboardIsland(): React.JSX.Element {
       ]);
       setPendingTabs(submissions);
       setDmcaClaims(claims);
+      setLiveFeedback(`Loaded ${submissions.length} submissions and ${claims.length} claims.`);
     } finally {
       setIsLoadingData(false);
     }
@@ -50,17 +51,20 @@ export function AdminDashboardIsland(): React.JSX.Element {
     }
   }, [profile, loadData]);
 
-  const handleApprove = async (tab: CloudTab) => {
+  const handleApprove = useCallback(async (tab: CloudTab) => {
     await approveSubmission(tab);
     setPendingTabs((prev) => prev.filter((t) => t.id !== tab.id));
-  };
+    setLiveFeedback(`Tab "${tab.title}" approved and published to catalog.`);
+  }, []);
 
-  const handleReject = async (tabId: string, reason?: string) => {
+  const handleReject = useCallback(async (tabId: string, reason?: string) => {
+    const target = pendingTabs.find((t) => t.id === tabId);
     await rejectSubmission(tabId, reason);
     setPendingTabs((prev) => prev.filter((t) => t.id !== tabId));
-  };
+    setLiveFeedback(`Tab "${target?.title || tabId}" rejected.`);
+  }, [pendingTabs]);
 
-  const handleResolveDmca = async (
+  const handleResolveDmca = useCallback(async (
     requestId: string,
     tabId: string,
     resolution: 'approved_removed' | 'dismissed',
@@ -71,11 +75,12 @@ export function AdminDashboardIsland(): React.JSX.Element {
     setDmcaClaims((prev) =>
       prev.map((c) => (c.id === requestId ? { ...c, status: resolution } : c))
     );
-  };
+    setLiveFeedback(`DMCA claim ${resolution === 'approved_removed' ? 'approved and removed' : 'dismissed'}.`);
+  }, [user]);
 
   if (authLoading) {
     return (
-      <div className="py-20 flex flex-col items-center justify-center space-y-3">
+      <div role="status" aria-live="polite" className="py-20 flex flex-col items-center justify-center space-y-3">
         <Loader2 className="w-8 h-8 text-terracotta animate-spin" aria-hidden="true" />
         <p className="text-xs font-mono text-walnut">Verifying admin credentials…</p>
       </div>
@@ -90,6 +95,10 @@ export function AdminDashboardIsland(): React.JSX.Element {
 
   return (
     <div className="space-y-6">
+      <div role="status" aria-live="polite" className="sr-only">
+        {liveFeedback}
+      </div>
+
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-warm pb-4">
         <div>
           <div className="flex items-center gap-2">
@@ -112,75 +121,39 @@ export function AdminDashboardIsland(): React.JSX.Element {
         </button>
       </div>
 
-      <div className="flex gap-2 border-b border-warm/80 overflow-x-auto pb-1">
-        <button
-          type="button"
-          onClick={() => setActiveTab('submissions')}
-          className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 cursor-pointer ${
-            activeTab === 'submissions'
-              ? 'bg-terracotta text-white shadow-xs'
-              : 'text-walnut hover:text-espresso hover:bg-canvas'
-          }`}
-        >
-          <Inbox className="w-4 h-4" aria-hidden="true" />
-          <span>Submissions</span>
-          {pendingTabs.length > 0 && (
-            <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-white text-terracotta font-black">
-              {pendingTabs.length}
-            </span>
-          )}
-        </button>
+      <AdminNavTabs
+        activeTab={activeTab}
+        onSelectTab={setActiveTab}
+        pendingCount={pendingTabs.length}
+        openDmcaCount={openDmcaCount}
+      />
 
-        <button
-          type="button"
-          onClick={() => setActiveTab('dmca')}
-          className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 cursor-pointer ${
-            activeTab === 'dmca'
-              ? 'bg-terracotta text-white shadow-xs'
-              : 'text-walnut hover:text-espresso hover:bg-canvas'
-          }`}
-        >
-          <FileText className="w-4 h-4" aria-hidden="true" />
-          <span>DMCA Claims</span>
-          {openDmcaCount > 0 && (
-            <span className="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-rose-600 text-white font-black">
-              {openDmcaCount}
-            </span>
-          )}
-        </button>
+      <div
+        id={`panel-${activeTab}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${activeTab}`}
+        tabIndex={0}
+        className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded-xl"
+      >
+        {activeTab === 'submissions' && (
+          <SubmissionsQueue
+            pendingTabs={pendingTabs}
+            isLoading={isLoadingData}
+            onApprove={handleApprove}
+            onReject={handleReject}
+          />
+        )}
 
-        <button
-          type="button"
-          onClick={() => setActiveTab('catalog')}
-          className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 cursor-pointer ${
-            activeTab === 'catalog'
-              ? 'bg-terracotta text-white shadow-xs'
-              : 'text-walnut hover:text-espresso hover:bg-canvas'
-          }`}
-        >
-          <Database className="w-4 h-4" aria-hidden="true" />
-          <span>Catalog & Tools</span>
-        </button>
+        {activeTab === 'dmca' && (
+          <DmcaClaimsQueue
+            claims={dmcaClaims}
+            isLoading={isLoadingData}
+            onResolve={handleResolveDmca}
+          />
+        )}
+
+        {activeTab === 'catalog' && <CatalogManagerPanel />}
       </div>
-
-      {activeTab === 'submissions' && (
-        <SubmissionsQueue
-          pendingTabs={pendingTabs}
-          isLoading={isLoadingData}
-          onApprove={handleApprove}
-          onReject={handleReject}
-        />
-      )}
-
-      {activeTab === 'dmca' && (
-        <DmcaClaimsQueue
-          claims={dmcaClaims}
-          isLoading={isLoadingData}
-          onResolve={handleResolveDmca}
-        />
-      )}
-
-      {activeTab === 'catalog' && <CatalogManagerPanel />}
     </div>
   );
 }

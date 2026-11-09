@@ -31,7 +31,7 @@ export function SubmissionsQueue({
 
   if (isLoading) {
     return (
-      <div className="py-16 text-center space-y-3">
+      <div role="status" aria-live="polite" className="py-16 text-center space-y-3">
         <Loader2 className="w-6 h-6 text-terracotta animate-spin mx-auto" aria-hidden="true" />
         <p className="text-xs font-mono text-walnut">Loading submission queue…</p>
       </div>
@@ -61,8 +61,17 @@ export function SubmissionsQueue({
         {pendingTabs.map((tab) => (
           <div
             key={tab.id}
+            role="button"
+            tabIndex={0}
+            aria-label={`Inspect ${tab.title} by ${tab.artist}`}
             onClick={() => setSelectedTab(tab)}
-            className="p-4 rounded-xl bg-canvas border border-warm hover:border-terracotta transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 cursor-pointer group shadow-2xs"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setSelectedTab(tab);
+              }
+            }}
+            className="p-4 rounded-xl bg-canvas border border-warm hover:border-terracotta transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 cursor-pointer group shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
             <div className="space-y-1">
               <div className="flex items-center gap-2">
@@ -82,8 +91,13 @@ export function SubmissionsQueue({
             <div className="flex items-center gap-2 self-end sm:self-center">
               <button
                 type="button"
-                onClick={() => setSelectedTab(tab)}
-                className="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface border border-warm hover:border-espresso text-xs font-medium text-espresso transition-colors inline-flex items-center gap-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+                id={`review-btn-${tab.id}`}
+                aria-label={`Review tab: ${tab.title} by ${tab.artist}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedTab(tab);
+                }}
+                className="min-h-[44px] px-3.5 py-2 rounded-xl bg-surface border border-warm hover:border-espresso text-xs font-medium text-espresso transition-colors inline-flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               >
                 <Eye className="w-3.5 h-3.5 text-walnut" aria-hidden="true" />
                 <span>Review Tab</span>
@@ -92,8 +106,9 @@ export function SubmissionsQueue({
               <button
                 type="button"
                 disabled={approvingId === tab.id}
+                aria-label={`Quick approve: ${tab.title} by ${tab.artist}`}
                 onClick={(e) => handleQuickApprove(tab, e)}
-                className="min-h-[40px] px-3.5 py-1.5 rounded-lg bg-emerald-700 text-white text-xs font-semibold hover:bg-emerald-800 transition-colors inline-flex items-center gap-1 cursor-pointer disabled:opacity-50 shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+                className="min-h-[44px] px-4 py-2 rounded-xl bg-emerald-700 text-white text-xs font-semibold hover:bg-emerald-800 transition-colors inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
               >
                 {approvingId === tab.id ? (
                   <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { X, Check, XCircle, Loader2 } from 'lucide-react';
 import { useModalA11y } from '../common/useModalA11y';
 import type { CloudTab } from '../../lib/firebase/types';
@@ -22,14 +22,21 @@ export function SubmissionReviewModal({
   const [showRejectInput, setShowRejectInput] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
+  useEffect(() => {
+    setRejectReason('');
+    setShowRejectInput(false);
+  }, [tab?.id]);
+
   const modalRef = useModalA11y({
     isOpen: Boolean(tab),
     onClose,
   });
 
-  if (!tab) return null;
+  const ast = useMemo(() => {
+    return tab ? parseSongText(tab.content) : { lines: [], uniqueChords: [] };
+  }, [tab?.content]);
 
-  const ast = parseSongText(tab.content);
+  if (!tab) return null;
 
   const handleApprove = async () => {
     try {
@@ -56,18 +63,20 @@ export function SubmissionReviewModal({
       ref={modalRef}
       role="dialog"
       aria-modal="true"
+      aria-busy={isProcessing}
       aria-labelledby="review-modal-title"
       onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
+        if (!isProcessing && e.target === e.currentTarget) onClose();
       }}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/50 backdrop-blur-xs animate-in fade-in duration-150 [overscroll-behavior:contain]"
     >
       <div className="w-full max-w-3xl rounded-2xl bg-surface border border-warm p-6 shadow-2xl relative max-h-[90vh] flex flex-col">
         <button
           onClick={onClose}
+          disabled={isProcessing}
           type="button"
           aria-label="Close tab review dialog"
-          className="absolute right-4 top-4 p-1 rounded-lg text-walnut hover:text-espresso min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+          className="absolute right-4 top-4 p-1 rounded-lg text-walnut hover:text-espresso min-h-[44px] min-w-[44px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors disabled:opacity-50"
         >
           <X className="w-4 h-4" aria-hidden="true" />
         </button>
@@ -103,6 +112,7 @@ export function SubmissionReviewModal({
             <input
               id="reject-reason"
               type="text"
+              autoFocus
               placeholder="e.g., Inaccurate chorus chords, broken ASCII tabs"
               value={rejectReason}
               onChange={(e) => setRejectReason(e.target.value)}
@@ -114,8 +124,9 @@ export function SubmissionReviewModal({
         <div className="pt-4 mt-3 border-t border-warm flex flex-wrap items-center justify-between gap-3">
           <button
             type="button"
+            disabled={isProcessing}
             onClick={onClose}
-            className="min-h-[44px] px-4 py-2 rounded-xl text-xs font-medium text-walnut hover:text-espresso hover:bg-canvas transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+            className="min-h-[44px] px-4 py-2 rounded-xl text-xs font-medium text-walnut hover:text-espresso hover:bg-canvas transition-colors disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
             Cancel
           </button>
@@ -124,8 +135,9 @@ export function SubmissionReviewModal({
             {!showRejectInput ? (
               <button
                 type="button"
+                disabled={isProcessing}
                 onClick={() => setShowRejectInput(true)}
-                className="min-h-[44px] px-4 py-2 rounded-xl bg-rose-50 border border-rose-300 text-rose-700 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300 text-xs font-semibold hover:bg-rose-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+                className="min-h-[44px] px-4 py-2 rounded-xl bg-rose-50 border border-rose-300 text-rose-700 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300 text-xs font-semibold hover:bg-rose-100 transition-colors inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               >
                 <XCircle className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Reject...</span>

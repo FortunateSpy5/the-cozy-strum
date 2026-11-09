@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Database, RefreshCw, Sparkles, Check, Loader2 } from 'lucide-react';
+import { Database, RefreshCw, Sparkles, Check, AlertCircle, Loader2 } from 'lucide-react';
 import { rebuildCatalogIndex } from '../../lib/firebase/adminService';
 import { seedInitialTabs, CATALOG_CACHE_KEY } from '../../lib/firebase/tabsService';
 
@@ -56,8 +56,20 @@ export function CatalogManagerPanel(): React.JSX.Element {
         </p>
 
         {message && (
-          <div role="status" aria-live="polite" className="p-3 rounded-xl bg-surface border border-warm text-xs text-espresso flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-400 shrink-0" aria-hidden="true" />
+          <div
+            role={message.startsWith('Error:') ? 'alert' : 'status'}
+            aria-live="polite"
+            className={`p-3 rounded-xl border text-xs flex items-center gap-2 ${
+              message.startsWith('Error:')
+                ? 'bg-rose-50 border-rose-300 text-rose-800 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300'
+                : 'bg-surface border-warm text-espresso'
+            }`}
+          >
+            {message.startsWith('Error:') ? (
+              <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" aria-hidden="true" />
+            ) : (
+              <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-400 shrink-0" aria-hidden="true" />
+            )}
             <span>{message}</span>
           </div>
         )}
@@ -66,6 +78,7 @@ export function CatalogManagerPanel(): React.JSX.Element {
           <button
             type="button"
             disabled={isRebuilding}
+            aria-busy={isRebuilding}
             onClick={handleRebuild}
             className="min-h-[44px] p-4 rounded-xl bg-surface border border-warm hover:border-terracotta transition-colors flex flex-col items-start gap-1 cursor-pointer disabled:opacity-50 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
@@ -79,6 +92,7 @@ export function CatalogManagerPanel(): React.JSX.Element {
           <button
             type="button"
             disabled={isSeeding}
+            aria-busy={isSeeding}
             onClick={handleSeed}
             className="min-h-[44px] p-4 rounded-xl bg-surface border border-warm hover:border-terracotta transition-colors flex flex-col items-start gap-1 cursor-pointer disabled:opacity-50 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >

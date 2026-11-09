@@ -3,6 +3,7 @@ import { ShieldAlert, Send, Loader2 } from 'lucide-react';
 import { submitDmcaRequest, type DmcaSubmissionInput } from '../../lib/firebase/dmcaService';
 import { DmcaSuccessNotice } from './DmcaSuccessNotice';
 import { DmcaClaimantFields } from './DmcaClaimantFields';
+import { DmcaStatementAgreement } from './DmcaStatementAgreement';
 
 const inputClass =
   'w-full px-3 py-2 min-h-[44px] rounded-xl bg-canvas border border-warm text-sm text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta';
@@ -132,19 +133,10 @@ export function DmcaFormIsland(): React.JSX.Element {
       />
 
       <div className="pt-2 border-t border-warm space-y-3">
-        <label className="flex items-start gap-2.5 text-xs text-espresso cursor-pointer">
-          <input
-            type="checkbox"
-            name="statementOfGoodFaith"
-            required
-            checked={formData.statementOfGoodFaith}
-            onChange={(e) => setFormData((p) => ({ ...p, statementOfGoodFaith: e.target.checked }))}
-            className="mt-0.5 text-terracotta focus:ring-terracotta rounded"
-          />
-          <span>
-            I have a good-faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law. I swear, under penalty of perjury, that the information in this notice is accurate and that I am the copyright owner or authorized to act on behalf of the owner.
-          </span>
-        </label>
+        <DmcaStatementAgreement
+          checked={formData.statementOfGoodFaith}
+          onChange={(checked) => setFormData((p) => ({ ...p, statementOfGoodFaith: checked }))}
+        />
 
         <div>
           <label htmlFor="dmca-sig" className="block text-xs font-semibold text-walnut uppercase tracking-wider mb-1">

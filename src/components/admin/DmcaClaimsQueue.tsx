@@ -5,7 +5,12 @@ import type { DmcaRequest } from '../../lib/firebase/types';
 interface DmcaClaimsQueueProps {
   claims: DmcaRequest[];
   isLoading: boolean;
-  onResolve: (requestId: string, tabId: string, resolution: 'approved_removed' | 'dismissed', notes?: string) => Promise<void>;
+  onResolve: (
+    requestId: string,
+    tabId: string,
+    resolution: 'approved_removed' | 'dismissed',
+    notes?: string
+  ) => Promise<void>;
 }
 
 export function DmcaClaimsQueue({
@@ -33,7 +38,7 @@ export function DmcaClaimsQueue({
 
   if (isLoading) {
     return (
-      <div className="py-16 text-center space-y-3">
+      <div role="status" aria-live="polite" className="py-16 text-center space-y-3">
         <Loader2 className="w-6 h-6 text-terracotta animate-spin mx-auto" aria-hidden="true" />
         <p className="text-xs font-mono text-walnut">Loading copyright claims…</p>
       </div>
@@ -46,11 +51,16 @@ export function DmcaClaimsQueue({
         <h3 className="font-serif text-base font-bold text-espresso">
           Copyright Takedown Requests ({filteredClaims.length})
         </h3>
-        <div className="flex gap-1.5 bg-canvas p-1 rounded-xl border border-warm">
+        <div
+          role="group"
+          aria-label="Filter claims by status"
+          className="flex gap-1.5 bg-canvas p-1 rounded-xl border border-warm"
+        >
           <button
             type="button"
+            aria-pressed={filter === 'open'}
             onClick={() => setFilter('open')}
-            className={`min-h-[36px] px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+            className={`min-h-[44px] px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
               filter === 'open' ? 'bg-terracotta text-white' : 'text-walnut hover:text-espresso'
             }`}
           >
@@ -58,8 +68,9 @@ export function DmcaClaimsQueue({
           </button>
           <button
             type="button"
+            aria-pressed={filter === 'all'}
             onClick={() => setFilter('all')}
-            className={`min-h-[36px] px-3 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+            className={`min-h-[44px] px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
               filter === 'all' ? 'bg-terracotta text-white' : 'text-walnut hover:text-espresso'
             }`}
           >
@@ -69,7 +80,7 @@ export function DmcaClaimsQueue({
       </div>
 
       {filteredClaims.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-canvas border border-warm space-y-2">
+        <div role="status" aria-live="polite" className="p-12 text-center rounded-2xl bg-canvas border border-warm space-y-2">
           <ShieldCheck className="w-8 h-8 text-emerald-700 dark:text-emerald-400 mx-auto" aria-hidden="true" />
           <h3 className="font-serif text-lg font-bold text-espresso">No Open Copyright Claims</h3>
           <p className="text-xs text-walnut">All legal notices have been reviewed and resolved.</p>
@@ -115,7 +126,7 @@ export function DmcaClaimsQueue({
                   <p>Claimant: <strong className="text-espresso font-sans">{claim.claimantName}</strong> ({claim.claimantEmail})</p>
                   {claim.companyOrRightsholder && <p>Organization: {claim.companyOrRightsholder}</p>}
                   <p>Digital Signature: <span className="italic text-espresso font-sans">"{claim.digitalSignature}"</span></p>
-                  <p className="text-[10px] text-walnut/70">Filed: {new Date(claim.createdAt).toLocaleString()}</p>
+                  <p className="text-[10px] text-walnut">Filed: {new Date(claim.createdAt).toLocaleString()}</p>
                 </div>
 
                 {isOpen && (
@@ -123,8 +134,9 @@ export function DmcaClaimsQueue({
                     <button
                       type="button"
                       disabled={isProcessing}
+                      aria-label={`Dismiss copyright notice for ${claim.songTitle}`}
                       onClick={() => handleAction(claim.id, claim.tabId, 'dismissed')}
-                      className="min-h-[40px] px-3.5 py-1.5 rounded-xl border border-warm text-xs font-medium text-walnut hover:text-espresso hover:bg-surface transition-colors inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+                      className="min-h-[44px] px-4 py-2 rounded-xl border border-warm text-xs font-medium text-walnut hover:text-espresso hover:bg-surface transition-colors inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-walnut" aria-hidden="true" />
                       <span>Dismiss Notice</span>
@@ -133,8 +145,9 @@ export function DmcaClaimsQueue({
                     <button
                       type="button"
                       disabled={isProcessing}
+                      aria-label={`Soft-delete tab and approve DMCA for ${claim.songTitle}`}
                       onClick={() => handleAction(claim.id, claim.tabId, 'approved_removed')}
-                      className="min-h-[40px] px-4 py-1.5 rounded-xl bg-rose-700 text-white text-xs font-semibold hover:bg-rose-800 transition-colors inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
+                      className="min-h-[44px] px-4 py-2 rounded-xl bg-rose-700 text-white text-xs font-semibold hover:bg-rose-800 transition-colors inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
                     >
                       {isProcessing ? (
                         <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />

@@ -1,7 +1,17 @@
-import { doc, setDoc, getDocs, updateDoc, collection, query, orderBy, deleteField } from 'firebase/firestore';
+import {
+  doc,
+  setDoc,
+  getDoc,
+  getDocs,
+  updateDoc,
+  collection,
+  query,
+  orderBy,
+  limit,
+} from 'firebase/firestore';
 import type { User } from 'firebase/auth';
 import { getFirebaseDb } from './config';
-import type { DmcaRequest, DmcaStatus } from './types';
+import type { DmcaRequest, DmcaStatus, CatalogIndexDoc, SongCategory } from './types';
 import { CATALOG_CACHE_KEY } from './tabsService';
 
 export interface DmcaSubmissionInput {
@@ -53,7 +63,6 @@ export async function submitDmcaRequest(input: DmcaSubmissionInput): Promise<str
     return id;
   }
 
-  // Local fallback
   return id;
 }
 
@@ -61,7 +70,11 @@ export async function getDmcaRequests(): Promise<DmcaRequest[]> {
   const db = getFirebaseDb();
   if (!db) return [];
 
-  const q = query(collection(db, 'dmca_requests'), orderBy('createdAt', 'desc'));
+  const q = query(
+    collection(db, 'dmca_requests'),
+    orderBy('createdAt', 'desc'),
+    limit(100)
+  );
   const snap = await getDocs(q);
   return snap.docs.map((d) => d.data() as DmcaRequest);
 }
@@ -93,18 +106,35 @@ export async function resolveDmcaRequest(
       updatedAt: now,
     });
 
-    // Remove tab from public catalog index
+    // Remove tab from public catalog index and recalculate counts
     const indexRef = doc(db, 'meta', 'catalog_index');
     try {
-      await updateDoc(indexRef, {
-        [`items.${tabId}`]: deleteField(),
-        lastUpdated: now,
-      });
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem(CATALOG_CACHE_KEY);
+      const snap = await getDoc(indexRef);
+      if (snap.exists()) {
+        const catalog = snap.data() as CatalogIndexDoc;
+        const items = { ...catalog.items };
+        delete items[tabId];
+
+        const categoryCounts: Partial<Record<SongCategory, number>> = {};
+        for (const item of Object.values(items)) {
+          for (const cat of item.categories || []) {
+            categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+          }
+        }
+
+        await setDoc(indexRef, {
+          lastUpdated: now,
+          totalCount: Object.keys(items).length,
+          items,
+          categoryCounts,
+        });
+
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem(CATALOG_CACHE_KEY);
+        }
       }
     } catch {
-      // index might not contain tab
+      // index update fallback
     }
   }
 }

@@ -29,7 +29,9 @@ export function AdminAuthGate({ isAuthenticated }: AdminAuthGateProps): React.JS
         {!isAuthenticated && (
           <button
             type="button"
-            onClick={() => signInWithGoogle()}
+            onClick={() => {
+              signInWithGoogle().catch(() => {});
+            }}
             className="min-h-[44px] px-5 py-2.5 rounded-xl bg-terracotta text-white font-semibold text-xs hover:bg-terracotta/90 transition-colors inline-flex items-center gap-2 cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
             <LogIn className="w-4 h-4" aria-hidden="true" />

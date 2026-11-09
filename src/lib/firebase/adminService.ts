@@ -1,6 +1,5 @@
 import {
   doc,
-  getDoc,
   getDocs,
   setDoc,
   updateDoc,
@@ -9,6 +8,7 @@ import {
   where,
   orderBy,
   limit,
+  runTransaction,
 } from 'firebase/firestore';
 import { getFirebaseDb } from './config';
 import type { CloudTab, TabSummary, CatalogIndexDoc, SongCategory } from './types';
@@ -48,26 +48,20 @@ export async function approveSubmission(tab: CloudTab): Promise<void> {
 
   const now = new Date().toISOString();
   const tabRef = doc(db, 'tabs', tab.id);
+  const metaRef = doc(db, 'meta', 'catalog_index');
 
-  // 1. Mark approved
-  await updateDoc(tabRef, {
-    status: 'approved',
-    updatedAt: now,
-  });
-
-  // 2. Add lightweight TabSummary to meta/catalog_index
   const summary: TabSummary = {
     id: tab.id,
     slug: tab.slug,
     title: tab.title,
     artist: tab.artist,
-    categories: tab.categories,
+    categories: tab.categories || [],
     instrument: tab.instrument,
     tuning: tab.tuning,
     capo: tab.capo,
     difficulty: tab.difficulty,
     isFingerstyle: tab.isFingerstyle,
-    chordsUsed: tab.chordsUsed,
+    chordsUsed: tab.chordsUsed || [],
     updatedAt: now,
     ...(tab.album ? { album: tab.album } : {}),
     ...(tab.releaseYear ? { releaseYear: tab.releaseYear } : {}),
@@ -76,29 +70,34 @@ export async function approveSubmission(tab: CloudTab): Promise<void> {
     ...(tab.timeSignature ? { timeSignature: tab.timeSignature } : {}),
   };
 
-  const metaRef = doc(db, 'meta', 'catalog_index');
-  const metaSnap = await getDoc(metaRef);
-  const currentCatalog = metaSnap.exists()
-    ? (metaSnap.data() as CatalogIndexDoc)
-    : { lastUpdated: now, totalCount: 0, items: {}, categoryCounts: {} };
-
-  const updatedItems = {
-    ...currentCatalog.items,
-    [tab.id]: summary,
-  };
-
-  const categoryCounts: Partial<Record<SongCategory, number>> = {};
-  for (const item of Object.values(updatedItems)) {
-    for (const cat of item.categories || []) {
-      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+  await runTransaction(db, async (txn) => {
+    const tabSnap = await txn.get(tabRef);
+    if (!tabSnap.exists()) return;
+    const tabData = tabSnap.data() as CloudTab;
+    if (tabData.status === 'removed_dmca') {
+      throw new Error('Cannot approve a tab that has been removed for DMCA compliance.');
     }
-  }
 
-  await setDoc(metaRef, {
-    lastUpdated: now,
-    totalCount: Object.keys(updatedItems).length,
-    items: updatedItems,
-    categoryCounts,
+    const metaSnap = await txn.get(metaRef);
+    const current = metaSnap.exists()
+      ? (metaSnap.data() as CatalogIndexDoc)
+      : { lastUpdated: now, totalCount: 0, items: {}, categoryCounts: {} };
+
+    const items = { ...current.items, [tab.id]: summary };
+    const categoryCounts: Partial<Record<SongCategory, number>> = {};
+    for (const item of Object.values(items)) {
+      for (const cat of item.categories || []) {
+        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+      }
+    }
+
+    txn.update(tabRef, { status: 'approved', updatedAt: now });
+    txn.set(metaRef, {
+      lastUpdated: now,
+      totalCount: Object.keys(items).length,
+      items,
+      categoryCounts,
+    });
   });
 
   if (typeof window !== 'undefined') {
