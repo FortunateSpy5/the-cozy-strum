@@ -42,7 +42,8 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
           className="inline-flex items-center gap-1.5 text-xs font-medium text-walnut hover:text-terracotta min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded-md transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>Back to Sanctuary</span>
+          <span className="hidden sm:inline">Back to Sanctuary</span>
+          <span className="sm:hidden">Back</span>
         </a>
 
         <div className="flex items-center gap-2">
@@ -54,7 +55,8 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
             aria-label="Copy raw tab and chords to clipboard"
           >
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5 text-walnut" aria-hidden="true" />}
-            <span>{copied ? 'Copied!' : 'Copy Tab / Share'}</span>
+            <span className="hidden sm:inline">{copied ? 'Copied!' : 'Copy Tab / Share'}</span>
+            <span className="sm:hidden">{copied ? 'Copied!' : 'Share'}</span>
           </button>
 
           {editSlug && (

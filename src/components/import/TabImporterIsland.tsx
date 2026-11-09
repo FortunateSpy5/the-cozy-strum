@@ -72,7 +72,7 @@ export const TabImporterIsland: React.FC = () => {
             Paste raw text from Ultimate Guitar. Chords and ASCII staves are parsed instantly.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
           <button
             onClick={() => setIsBackupModalOpen(true)}
             type="button"
@@ -80,7 +80,8 @@ export const TabImporterIsland: React.FC = () => {
             title="Backup or export all tabs in browser localStorage as JSON or ZIP"
           >
             <Archive className="w-3.5 h-3.5 text-amber-600" aria-hidden="true" />
-            <span>Backup / Export (JSON/ZIP)</span>
+            <span>Backup / Export</span>
+            <span className="hidden sm:inline">(JSON/ZIP)</span>
           </button>
           <button
             onClick={() => { setRawText(SAMPLE_TAB); setMetadata(getSampleMetadata()); }}
@@ -142,11 +143,11 @@ export const TabImporterIsland: React.FC = () => {
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 w-full sm:w-auto">
           {savedSlug && (
             <a
               href={`/player?slug=${encodeURIComponent(savedSlug)}`}
-              className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-terracotta text-terracotta text-xs font-semibold hover:bg-terracotta hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors col-span-2 sm:col-span-1"
             >
               <span>Play Now</span>
               <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
@@ -155,7 +156,7 @@ export const TabImporterIsland: React.FC = () => {
           <button
             onClick={() => setIsBackupModalOpen(true)}
             type="button"
-            className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-amber-600 text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 transition-colors shadow-xs"
+            className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-amber-600 text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 transition-colors shadow-xs"
             title="Export or backup all tabs saved in localStorage"
           >
             <Archive className="w-4 h-4 text-amber-600" aria-hidden="true" />
@@ -164,7 +165,7 @@ export const TabImporterIsland: React.FC = () => {
           <button
             onClick={handleSaveToBrowser}
             type="button"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-opacity shadow-xs"
+            className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-semibold hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-opacity shadow-xs"
           >
             <Bookmark className="w-4 h-4" aria-hidden="true" />
             Save to Library
@@ -172,7 +173,7 @@ export const TabImporterIsland: React.FC = () => {
           <button
             onClick={handleDownloadMd}
             type="button"
-            className="inline-flex items-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors shadow-xs"
+            className="inline-flex items-center justify-center gap-2 min-h-[44px] px-3.5 py-2 rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors shadow-xs"
             title="Download .md for src/content/tabs/"
             aria-label="Download markdown file for Git repository"
           >

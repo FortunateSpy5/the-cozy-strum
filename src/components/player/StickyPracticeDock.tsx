@@ -15,8 +15,8 @@ interface StickyPracticeDockProps {
   onChangeFontSize: (larger: boolean) => void;
 }
 
-const STEP_BTN = 'px-2.5 py-1.5 min-h-[44px] min-w-[40px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta';
-const DOCK_ICON_BTN = 'p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2';
+const STEP_BTN = 'px-1.5 sm:px-2.5 py-1.5 min-h-[44px] min-w-[34px] sm:min-w-[40px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta font-bold';
+const DOCK_ICON_BTN = 'p-2 min-h-[44px] min-w-[40px] sm:min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2';
 
 export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
   isScrolling, scrollSpeed, semitones, columnMode, fontSize, instrument,
@@ -24,14 +24,14 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
   onToggleColumns, onChangeFontSize, onToggleInstrument, onOpenMetronome, onOpenShortcuts
 }) => {
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-4xl" role="toolbar" aria-label="Practice tools dock">
-      <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 sm:p-3 rounded-2xl bg-surface/90 dark:bg-surface/95 backdrop-blur-md border border-warm shadow-xl">
+    <div className="fixed bottom-3 sm:bottom-4 left-0 right-0 z-40 max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none" role="toolbar" aria-label="Practice tools dock">
+      <div className="pointer-events-auto flex items-center justify-between gap-1.5 sm:gap-2 p-2 sm:p-2.5 rounded-2xl bg-surface border border-warm shadow-xl overflow-x-auto scrollbar-none transition-colors">
         {/* Left: Auto-Scroll Group */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           <button
             onClick={onToggleScroll}
             type="button"
-            className={`flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-semibold transition-[background-color,opacity] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
+            className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-semibold transition-[background-color,opacity] shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
               isScrolling ? 'bg-amber-600 text-white animate-pulse motion-reduce:animate-none' : 'bg-terracotta text-white hover:opacity-90'
             }`}
             title="Toggle Auto-Scroll (Space)"
@@ -52,7 +52,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             >
               -
             </button>
-            <span className="px-1.5 py-1 font-bold text-espresso min-w-[40px] text-center" aria-label={`Current speed ${scrollSpeed.toFixed(1)}x`}>
+            <span className="px-1 font-bold text-espresso min-w-[34px] sm:min-w-[40px] text-center" aria-label={`Current speed ${scrollSpeed.toFixed(1)}x`}>
               {scrollSpeed.toFixed(1)}x
             </span>
             <button
@@ -68,7 +68,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
         </div>
 
         {/* Center: Transpose Controls */}
-        <div role="group" aria-label="Transpose controls" className="flex items-center gap-1">
+        <div role="group" aria-label="Transpose controls" className="flex items-center gap-1 shrink-0">
           <span className="text-[11px] font-mono uppercase text-walnut hidden md:inline mr-1" aria-hidden="true">
             Transpose:
           </span>
@@ -76,7 +76,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onTranspose(-1)}
               type="button"
-              className={`${STEP_BTN} font-bold`}
+              className={STEP_BTN}
               title="Transpose Down 1 Semitone ([)"
               aria-label="Transpose down 1 semitone"
             >
@@ -85,7 +85,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={onResetTranspose}
               type="button"
-              className="px-2.5 py-1.5 min-h-[44px] min-w-[40px] flex items-center justify-center font-bold text-espresso hover:text-terracotta text-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className="px-1.5 sm:px-2.5 py-1.5 min-h-[44px] min-w-[34px] sm:min-w-[40px] flex items-center justify-center font-bold text-espresso hover:text-terracotta text-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
               title="Reset transposition (0)"
               aria-label={`Reset transposition, currently ${semitones === 0 ? 'original key' : semitones > 0 ? `+${semitones}` : semitones}`}
             >
@@ -94,7 +94,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <button
               onClick={() => onTranspose(1)}
               type="button"
-              className={`${STEP_BTN} font-bold`}
+              className={STEP_BTN}
               title="Transpose Up 1 Semitone (])"
               aria-label="Transpose up 1 semitone"
             >
@@ -104,7 +104,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
         </div>
 
         {/* Right: Instrument, Stage Columns, Font Size, Metronome & Shortcuts */}
-        <div className="flex items-center gap-1 sm:gap-1.5">
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
           <button
             onClick={onToggleInstrument}
             type="button"
@@ -119,7 +119,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           <button
             onClick={onToggleColumns}
             type="button"
-            className={`p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
+            className={`hidden md:flex p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
               columnMode !== 'single' ? 'text-terracotta border-terracotta' : 'text-espresso'
             }`}
             title="Toggle Fit-to-Screen Stage Mode (C)"
@@ -129,7 +129,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             <Columns2 className="w-4 h-4" aria-hidden="true" />
           </button>
 
-          <div role="group" aria-label="Font size controls" className="inline-flex items-center rounded-xl bg-canvas border border-warm p-0.5 text-xs font-mono">
+          <div role="group" aria-label="Font size controls" className="hidden sm:inline-flex items-center rounded-xl bg-canvas border border-warm p-0.5 text-xs font-mono">
             <button
               onClick={() => onChangeFontSize(false)}
               type="button"
@@ -166,7 +166,7 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
           <button
             onClick={onOpenShortcuts}
             type="button"
-            className={DOCK_ICON_BTN}
+            className={`hidden md:flex ${DOCK_ICON_BTN}`}
             title="Keyboard Shortcuts (?)"
             aria-label="Open keyboard shortcuts guide"
           >

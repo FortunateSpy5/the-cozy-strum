@@ -146,7 +146,7 @@ The site builds into a pure static `/dist` directory with zero runtime Node serv
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "microphone=(), camera=(), geolocation=()"
+    Permissions-Policy = "microphone=(), camera=(), geolocation=(), screen-wake-lock=(self)"
 
 [[headers]]
   for = "/_astro/*"
@@ -157,4 +157,41 @@ The site builds into a pure static `/dist` directory with zero runtime Node serv
   for = "/*.woff2"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/custom"
+  to = "/player"
+  status = 301
+  force = false
 ```
+
+---
+
+## 5. Unified Layout Geometry & 60fps Compositor Stabilization
+
+### 5.1 Standardized Width Alignment (`max-w-6xl`)
+To eliminate visual dissonance from disparate container breakpoints, all core interface tiers align strictly to the Header navbar geometry:
+- **Navbar**: `max-w-6xl mx-auto px-4 sm:px-6`
+- **Main Viewport & Song Header**: `max-w-6xl mx-auto px-4 sm:px-6`
+- **Tab Sheet & Section Lines**: `w-full` within `max-w-6xl`
+- **Shortcut Legend Bar**: `max-w-6xl mx-auto px-4 sm:px-6`
+- **Sticky Practice Dock**: `max-w-6xl mx-auto px-4 sm:px-6`
+
+### 5.2 Scroll Jitter Elimination (Frosted Glass Removal)
+Applying CSS `backdrop-filter: blur(...)` to fixed floating elements during continuous requestAnimationFrame scrolling forces Chromium/Gecko/WebKit to continuously re-rasterize and re-blur moving font glyphs, causing GPU compositor pipeline stalls and visible frame jitter.
+- Replaced semi-transparent blurred surfaces with solid, opaque `bg-surface` (`#F3ECE1` light / `#1E1916` dark).
+- Enforced isolated GPU compositor layers via `transform-gpu` and `will-change: transform`.
+- Guaranteed a continuous 60fps/120fps auto-scroll experience with zero dropped frames.
+
+---
+
+## 6. Backup & Restore Architecture (`src/lib/storage/`)
+
+### 6.1 JSON Serialization & Security
+- `exportAllTabsAsJson()`: Serializes all browser-stored `UserTab` entries with ISO metadata and client origin markers.
+- `restoreTabsFromJson()`: Validates input JSON with defensive schema enforcement, deep key validation, and protection against `__proto__` prototype pollution.
+
+### 6.2 Zero-Dependency Pure JS ZIP Engine (`src/lib/storage/zipEngine.ts`)
+- Implements standard PKZIP 2.0 format (`PK\x03\x04` local headers, `PK\x01\x02` central directory headers, and `PK\x05\x06` End of Central Directory).
+- Computes standard IEEE 802.3 CRC-32 checksums with a precomputed polynomial table.
+- Converts stored browser tabs directly into `.md` files with valid Zod frontmatter, packaged into a `.zip` archive ready to extract into `src/content/tabs/`.

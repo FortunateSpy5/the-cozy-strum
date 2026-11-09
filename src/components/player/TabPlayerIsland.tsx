@@ -82,7 +82,7 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
       />
 
       {/* Floating subtle keyboard shortcut reference & wake lock */}
-      <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-30 w-[95%] max-w-3xl pointer-events-none">
+      <div className="fixed bottom-20 left-0 right-0 z-30 max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none">
         <div className="pointer-events-auto">
           <ShortcutLegendBar
             isWakeLockActive={isWakeActive}

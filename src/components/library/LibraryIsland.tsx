@@ -75,7 +75,7 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
         </div>
 
         {/* Filter buttons */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 sm:pb-0 scrollbar-none sm:flex-wrap">
           {/* Instrument Filter */}
           <div role="group" aria-label="Filter by instrument" className="inline-flex rounded-xl bg-canvas border border-warm p-1">
             {(['all', 'guitar', 'ukulele'] as const).map((inst) => (

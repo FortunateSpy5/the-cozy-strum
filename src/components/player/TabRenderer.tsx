@@ -29,16 +29,16 @@ export const TabRenderer: React.FC<TabRendererProps> = ({
 
   const getContainerLayout = () => {
     if (columnMode === 'two-column') {
-      return 'md:columns-2 gap-8 [column-fill:_auto]';
+      return 'md:columns-2 gap-8 [column-fill:_auto] w-full';
     }
     if (columnMode === 'three-column') {
-      return 'lg:columns-3 md:columns-2 gap-8 [column-fill:_auto]';
+      return 'lg:columns-3 md:columns-2 gap-8 [column-fill:_auto] w-full';
     }
-    return 'max-w-3xl mx-auto';
+    return 'w-full';
   };
 
   return (
-    <div className={`tab-sheet pb-36 ${getContainerLayout()}`}>
+    <div className={`tab-sheet pb-36 max-w-full overflow-x-auto ${getContainerLayout()}`}>
       {lines.map((line, idx) => {
         if (line.type === 'section-header') {
           return (

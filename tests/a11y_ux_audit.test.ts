@@ -166,4 +166,25 @@ describe('Accessibility & UX Verification', () => {
     assert.ok(footer.includes('Astro 5 & React'), 'Footer should use & instead of +');
     assert.ok(!footer.includes('min-h-[36px]'), 'Footer links must not have 36px min-height');
   });
+
+  it('verifies unified max-w-6xl width, solid non-jitter surfaces, and mobile dock optimization', () => {
+    const tabRenderer = fs.readFileSync(path.resolve('src/components/player/TabRenderer.tsx'), 'utf-8');
+    assert.ok(!tabRenderer.includes('max-w-3xl'), 'TabRenderer should not constrain width to max-w-3xl');
+    assert.ok(tabRenderer.includes("return 'w-full'"), 'TabRenderer single-column layout must be w-full');
+
+    const header = fs.readFileSync(path.resolve('src/components/common/Header.astro'), 'utf-8');
+    assert.ok(!header.includes('backdrop-blur'), 'Header must not use backdrop-blur to avoid scroll jitter');
+
+    const dock = fs.readFileSync(path.resolve('src/components/player/StickyPracticeDock.tsx'), 'utf-8');
+    assert.ok(!dock.includes('backdrop-blur'), 'StickyPracticeDock must not use backdrop-blur to avoid scroll jitter');
+    assert.ok(dock.includes('max-w-6xl'), 'StickyPracticeDock must match navbar max-w-6xl');
+    assert.ok(dock.includes('hidden md:flex'), 'StickyPracticeDock must hide desktop-only controls on mobile');
+
+    const shortcutBar = fs.readFileSync(path.resolve('src/components/player/ShortcutLegendBar.tsx'), 'utf-8');
+    assert.ok(!shortcutBar.includes('backdrop-blur'), 'ShortcutLegendBar must not use backdrop-blur');
+    assert.ok(shortcutBar.includes('max-w-6xl'), 'ShortcutLegendBar must match navbar max-w-6xl');
+
+    const css = fs.readFileSync(path.resolve('src/styles/global.css'), 'utf-8');
+    assert.ok(css.includes('overflow-x: hidden;'), 'global.css must prevent horizontal viewport overflow');
+  });
 });

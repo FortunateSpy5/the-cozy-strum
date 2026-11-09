@@ -18,7 +18,7 @@ export const ShortcutLegendBar: React.FC<ShortcutLegendBarProps> = ({
     <div
       role="region"
       aria-label="Practice keyboard shortcuts quick reference"
-      className="hidden md:flex items-center justify-between gap-3 px-4 py-1.5 rounded-full bg-surface/85 backdrop-blur-md border border-warm/60 shadow-xs text-[11px] font-mono text-walnut mb-2 max-w-3xl mx-auto transition-colors"
+      className="hidden md:flex items-center justify-between gap-3 px-4 py-1.5 rounded-full bg-surface border border-warm/60 shadow-md text-[11px] font-mono text-walnut mb-2 w-full max-w-6xl mx-auto transition-colors"
     >
       {/* Keyboard Shortcuts */}
       <div className="flex items-center gap-3">
