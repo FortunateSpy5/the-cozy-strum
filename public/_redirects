@@ -1,0 +1,3 @@
+/tabs/custom   /player          301!
+/custom        /player          301!
+/tabs/*        /tab?id=:splat   200

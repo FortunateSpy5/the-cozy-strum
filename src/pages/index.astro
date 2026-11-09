@@ -1,28 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
 import { LibraryIsland } from '../components/library/LibraryIsland';
 import type { TabItem } from '../lib/types';
 
-const rawTabs = await getCollection('tabs');
-
-const initialTabs: TabItem[] = rawTabs.map((entry) => ({
-  slug: entry.slug,
-  title: entry.data.title,
-  artist: entry.data.artist,
-  instrument: entry.data.instrument,
-  tuning: entry.data.tuning,
-  capo: entry.data.capo,
-  bpm: entry.data.bpm,
-  difficulty: entry.data.difficulty,
-  strummingPattern: entry.data.strummingPattern,
-  tags: entry.data.tags,
-  isFingerstyle: entry.data.isFingerstyle,
-  key: entry.data.key,
-  createdAt: entry.data.createdAt,
-  content: entry.body,
-  isCustom: false
-}));
+// Initial tabs for SSR shell (hydrates and updates from Firestore catalog cache on client:load)
+const initialTabs: TabItem[] = [];
 ---
 
 <BaseLayout title="The Cozy Strum — Personal Guitar & Ukulele Sanctuary">
@@ -33,7 +15,7 @@ const initialTabs: TabItem[] = rawTabs.map((entry) => ({
       <span>•</span>
       <span>No Subscriptions</span>
       <span>•</span>
-      <span>100% Static</span>
+      <span>100% Database Catalog</span>
     </div>
     <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-espresso tracking-tight [text-wrap:balance]">
       Your Acoustic Sanctuary

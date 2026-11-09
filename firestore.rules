@@ -15,6 +15,12 @@ service cloud.firestore {
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
 
+    // Catalog Index: Publicly readable by all; writable only by Admins
+    match /meta/catalog_index {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
     // Users: Read/Write own profile; prevent users from escalating their own role to 'admin'
     match /users/{uid} {
       allow read: if isOwner(uid) || isAdmin();

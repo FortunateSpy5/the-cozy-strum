@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CloudTabLoaderIsland } from '../components/player/CloudTabLoaderIsland';
+---
+
+<BaseLayout
+  title="The Cozy Strum — Song Player"
+  description="Distraction-free acoustic guitar and ukulele player with auto-scroll and dynamic chord diagrams."
+>
+  <CloudTabLoaderIsland client:load />
+</BaseLayout>

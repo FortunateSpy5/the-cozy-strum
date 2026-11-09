@@ -1,3 +1,6 @@
+import type { SongCategory } from '../types';
+export { SONG_CATEGORIES, type SongCategory } from '../types';
+
 export type UserRole = 'user' | 'admin';
 
 export interface SongPracticePreference {
@@ -23,21 +26,30 @@ export interface UserProfile {
 export type TabVisibility = 'private' | 'public';
 export type TabStatus = 'draft' | 'pending_review' | 'approved' | 'rejected' | 'removed_dmca';
 
-export interface CloudTab {
+export interface TabSummary {
   id: string;
   slug: string;
   title: string;
   artist: string;
   album?: string;
+  releaseYear?: number;
+  category?: string;
+  categories: SongCategory[];
   instrument: 'guitar' | 'ukulele';
   tuning: string;
   capo: number;
   bpm?: number;
+  key?: string;
+  timeSignature?: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  strummingPattern?: string;
   isFingerstyle: boolean;
-  content: string;
   chordsUsed: string[];
+  updatedAt: string;
+}
+
+export interface CloudTab extends TabSummary {
+  content: string;
+  strummingPattern?: string;
   lrclibId?: number;
   authorUid: string;
   authorName: string;
@@ -47,5 +59,25 @@ export interface CloudTab {
   favoritesCount: number;
   viewsCount: number;
   createdAt: string;
-  updatedAt: string;
+}
+
+export interface TabRevision {
+  id: string;
+  tabId: string;
+  songTitle: string;
+  contributorUid: string;
+  contributorName: string;
+  changeSummary: string;
+  proposedContent: string;
+  status: 'pending' | 'applied' | 'rejected';
+  createdAt: string;
+  reviewedByUid?: string;
+  reviewedAt?: string;
+}
+
+export interface CatalogIndexDoc {
+  lastUpdated: string;
+  totalCount: number;
+  items: Record<string, TabSummary>;
+  categoryCounts?: Partial<Record<SongCategory, number>>;
 }

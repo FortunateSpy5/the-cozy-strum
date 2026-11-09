@@ -2,17 +2,16 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { isUserSuperAdmin } from '../src/lib/firebase/auth';
 import { isFirebaseConfigured } from '../src/lib/firebase/config';
+import { createFallbackCatalogIndex } from '../src/lib/firebase/tabsService';
 import type { UserProfile } from '../src/lib/firebase/types';
 
 describe('Firebase Auth & Admin Bootstrap Logic', () => {
   it('identifies superadmin emails accurately with case-insensitivity and trimming', () => {
-    // When PUBLIC_SUPERADMIN_EMAIL is not set or empty
     assert.equal(isUserSuperAdmin(null), false);
     assert.equal(isUserSuperAdmin(undefined), false);
     assert.equal(isUserSuperAdmin(''), false);
     assert.equal(isUserSuperAdmin('random.user@example.com'), false);
 
-    // Test with simulated superadmin email
     const originalEnv = process.env.PUBLIC_SUPERADMIN_EMAIL;
     try {
       process.env.PUBLIC_SUPERADMIN_EMAIL = 'admin@thecozystrum.org';
@@ -58,8 +57,33 @@ describe('Firebase Auth & Admin Bootstrap Logic', () => {
   });
 
   it('checks if firebase configuration helper properly detects missing config', () => {
-    // In test environment without env vars, isFirebaseConfigured should return false safely
     const configured = isFirebaseConfigured();
     assert.equal(typeof configured, 'boolean');
+  });
+
+  it('verifies catalog index fallback structure with category and releaseYear', () => {
+    const catalog = createFallbackCatalogIndex();
+    assert.ok(catalog.totalCount >= 3, 'Catalog should contain at least 3 seed items');
+    assert.ok(catalog.items['seed-acoustic-strumming']);
+
+    const wonderwall = catalog.items['seed-acoustic-strumming'];
+    assert.ok(wonderwall);
+    assert.equal(wonderwall.title, 'Wonderwall');
+    assert.equal(wonderwall.releaseYear, 1995);
+    assert.ok(wonderwall.categories.includes('Classic Rock'));
+    assert.ok(wonderwall.categories.includes('Campfire'));
+    assert.ok(wonderwall.categories.length > 1, 'Song should support multiple predefined categories');
+
+    const dustInTheWind = catalog.items['seed-fingerstyle-blues'];
+    assert.ok(dustInTheWind);
+    assert.equal(dustInTheWind.releaseYear, 1977);
+    assert.ok(dustInTheWind.categories.includes('Acoustic'));
+    assert.ok(dustInTheWind.categories.includes('Folk'));
+    assert.ok(dustInTheWind.categories.includes('Fingerstyle'));
+
+    assert.ok(catalog.categoryCounts);
+    assert.ok((catalog.categoryCounts['Classic Rock'] ?? 0) >= 2);
+    assert.ok((catalog.categoryCounts['Pop'] ?? 0) >= 2);
+    assert.ok((catalog.categoryCounts['Campfire'] ?? 0) >= 2);
   });
 });

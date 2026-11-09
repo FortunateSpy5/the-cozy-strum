@@ -12,7 +12,7 @@ export const SongCard: React.FC<SongCardProps> = ({ tab, onDeleteCustom }) => {
   const isGuitar = tab.instrument === 'guitar';
   const tabUrl = tab.isCustom
     ? `/player?slug=${encodeURIComponent(tab.slug)}${tab.id ? `&id=${encodeURIComponent(tab.id)}` : ''}`
-    : `/tabs/${tab.slug}`;
+    : `/tab?id=${encodeURIComponent(tab.id || tab.slug)}`;
 
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -75,9 +75,24 @@ export const SongCard: React.FC<SongCardProps> = ({ tab, onDeleteCustom }) => {
             {tab.title}
           </a>
         </h3>
-        <p className="text-sm text-walnut font-medium line-clamp-1 mb-4">
-          {tab.artist}
+        <p className="text-sm text-walnut font-medium line-clamp-1 mb-2.5 flex items-center gap-1.5">
+          <span>{tab.artist}</span>
+          {tab.releaseYear && <span className="text-xs text-walnut/70">({tab.releaseYear})</span>}
         </p>
+
+        {tab.categories && tab.categories.length > 0 ? (
+          <div className="flex flex-wrap gap-1 mb-3">
+            {tab.categories.slice(0, 2).map((cat) => (
+              <span key={cat} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-terracotta/10 text-terracotta border border-terracotta/20">
+                {cat}
+              </span>
+            ))}
+          </div>
+        ) : tab.category ? (
+          <p className="text-xs text-terracotta/90 font-medium mb-3">
+            {tab.category}
+          </p>
+        ) : null}
 
         {/* Technical specs pill row */}
         <div className="flex flex-wrap items-center gap-2 text-xs text-walnut/90 font-mono">

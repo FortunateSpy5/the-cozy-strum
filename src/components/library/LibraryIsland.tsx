@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Search, Plus, Music2 } from 'lucide-react';
-import type { TabItem, Instrument } from '../../lib/types';
+import { Plus, Music2, Sparkles, Loader2 } from 'lucide-react';
+import type { TabItem, Instrument, Difficulty, SongCategory } from '../../lib/types';
 import { getUserTabs, deleteUserTab } from '../../lib/storage/tabStorage';
+import { getCatalogIndex, seedInitialTabs } from '../../lib/firebase/tabsService';
 import { SongCard } from './SongCard';
+import { LibraryFilterBar } from './LibraryFilterBar';
 
 interface LibraryIslandProps {
   initialTabs: TabItem[];
@@ -11,13 +13,72 @@ interface LibraryIslandProps {
 export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [instrumentFilter, setInstrumentFilter] = useState<'all' | Instrument>('all');
-  const [typeFilter, setTypeFilter] = useState<'all' | 'fingerstyle' | 'strumming' | 'custom'>('all');
+  const [typeFilter, setTypeFilter] = useState<'all' | 'fingerstyle' | 'custom'>('all');
+  const [categoryFilter, setCategoryFilter] = useState<'all' | SongCategory>('all');
   const [customTabs, setCustomTabs] = useState<TabItem[]>([]);
+  const [cloudTabs, setCloudTabs] = useState<TabItem[]>(initialTabs);
+  const [isSeeding, setIsSeeding] = useState(false);
 
   useEffect(() => {
-    const loaded = getUserTabs();
-    setCustomTabs(loaded);
+    setCustomTabs(getUserTabs());
+
+    async function loadCatalog() {
+      const catalog = await getCatalogIndex();
+      const items: TabItem[] = Object.values(catalog.items).map((s) => ({
+        id: s.id,
+        slug: s.slug,
+        title: s.title,
+        artist: s.artist,
+        album: s.album,
+        releaseYear: s.releaseYear,
+        category: s.category,
+        categories: s.categories || [],
+        instrument: s.instrument,
+        tuning: s.tuning,
+        capo: s.capo,
+        bpm: s.bpm,
+        difficulty: s.difficulty.toLowerCase() as Difficulty,
+        tags: [s.instrument, ...(s.categories || [])],
+        isFingerstyle: s.isFingerstyle,
+        createdAt: s.updatedAt,
+        isCustom: false,
+      }));
+      if (items.length > 0) {
+        setCloudTabs(items);
+      }
+    }
+
+    loadCatalog();
   }, []);
+
+  const handleSeed = async () => {
+    setIsSeeding(true);
+    try {
+      const res = await seedInitialTabs();
+      const items: TabItem[] = Object.values(res.items).map((s) => ({
+        id: s.id,
+        slug: s.slug,
+        title: s.title,
+        artist: s.artist,
+        album: s.album,
+        releaseYear: s.releaseYear,
+        category: s.category,
+        categories: s.categories || [],
+        instrument: s.instrument,
+        tuning: s.tuning,
+        capo: s.capo,
+        bpm: s.bpm,
+        difficulty: s.difficulty.toLowerCase() as Difficulty,
+        tags: [s.instrument, ...(s.categories || [])],
+        isFingerstyle: s.isFingerstyle,
+        createdAt: s.updatedAt,
+        isCustom: false,
+      }));
+      setCloudTabs(items);
+    } finally {
+      setIsSeeding(false);
+    }
+  };
 
   const handleDeleteCustom = (id: string) => {
     deleteUserTab(id);
@@ -25,116 +86,74 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
   };
 
   const allTabs = useMemo(() => {
-    // Custom tabs take precedence if duplicate slugs exist
     const map = new Map<string, TabItem>();
-    initialTabs.forEach((tab) => map.set(tab.slug, tab));
-    customTabs.forEach((tab) => map.set(tab.slug, tab));
+    cloudTabs.forEach((tab) => map.set(tab.id || tab.slug, tab));
+    customTabs.forEach((tab) => map.set(tab.id || tab.slug, tab));
     return Array.from(map.values());
-  }, [initialTabs, customTabs]);
+  }, [cloudTabs, customTabs]);
 
   const filteredTabs = useMemo(() => {
     return allTabs.filter((tab) => {
-      // Instrument match
-      if (instrumentFilter !== 'all' && tab.instrument !== instrumentFilter) {
-        return false;
-      }
-      // Type match
+      if (instrumentFilter !== 'all' && tab.instrument !== instrumentFilter) return false;
       if (typeFilter === 'fingerstyle' && !tab.isFingerstyle) return false;
-      if (typeFilter === 'strumming' && tab.isFingerstyle) return false;
       if (typeFilter === 'custom' && !tab.isCustom) return false;
 
-      // Query match
+      if (categoryFilter !== 'all') {
+        const matchesCategory = tab.categories?.includes(categoryFilter) || tab.category === categoryFilter;
+        if (!matchesCategory) return false;
+      }
+
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase();
       const inTitle = tab.title.toLowerCase().includes(q);
       const inArtist = tab.artist.toLowerCase().includes(q);
+      const inCat = tab.categories?.some((c) => c.toLowerCase().includes(q)) || tab.category?.toLowerCase().includes(q);
+      const inYear = tab.releaseYear ? String(tab.releaseYear).includes(q) : false;
       const inTags = tab.tags?.some((t) => t.toLowerCase().includes(q));
-      return inTitle || inArtist || inTags;
+      return inTitle || inArtist || inCat || inYear || inTags;
     });
-  }, [allTabs, instrumentFilter, typeFilter, searchQuery]);
+  }, [allTabs, instrumentFilter, typeFilter, categoryFilter, searchQuery]);
 
   return (
     <div className="space-y-6">
-      {/* Top Search & Filter Bar */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-4 rounded-2xl bg-surface border border-warm">
-        {/* Search input */}
-        <div className="relative flex-1">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-walnut/70" aria-hidden="true" />
-          <input
-            id="library-search-input"
-            name="search"
-            type="search"
-            autoComplete="off"
-            spellCheck={false}
-            aria-label="Search tabs by song title, artist, or tags"
-            placeholder="Search by song title, artist, or tags…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 min-h-[44px] rounded-xl bg-canvas border border-warm text-sm text-espresso placeholder:text-walnut/50 focus:outline-none focus:border-terracotta focus-visible:ring-2 focus-visible:ring-terracotta/30"
-          />
-        </div>
+      <LibraryFilterBar
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        instrumentFilter={instrumentFilter}
+        onInstrumentChange={setInstrumentFilter}
+        typeFilter={typeFilter}
+        onTypeChange={setTypeFilter}
+        categoryFilter={categoryFilter}
+        onCategoryChange={setCategoryFilter}
+        customTabsCount={customTabs.length}
+      />
 
-        {/* Filter buttons */}
-        <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 sm:pb-0 scrollbar-none sm:flex-wrap">
-          {/* Instrument Filter */}
-          <div role="group" aria-label="Filter by instrument" className="inline-flex rounded-xl bg-canvas border border-warm p-1">
-            {(['all', 'guitar', 'ukulele'] as const).map((inst) => (
-              <button
-                key={inst}
-                type="button"
-                onClick={() => setInstrumentFilter(inst)}
-                aria-pressed={instrumentFilter === inst}
-                className={`min-h-[44px] px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
-                  instrumentFilter === inst ? 'bg-terracotta text-white shadow-xs' : 'text-walnut hover:text-espresso'
-                }`}
-              >
-                {inst}
-              </button>
-            ))}
-          </div>
-
-          {/* Type Filter */}
-          <div role="group" aria-label="Filter by song type" className="inline-flex rounded-xl bg-canvas border border-warm p-1">
-            {([
-              { id: 'all', label: 'All Types' },
-              { id: 'fingerstyle', label: 'Fingerstyle' },
-              { id: 'custom', label: `Saved (${customTabs.length})` }
-            ] as const).map(({ id, label }) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => setTypeFilter(id)}
-                aria-pressed={typeFilter === id}
-                className={`min-h-[44px] px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta ${
-                  typeFilter === id ? 'bg-espresso text-canvas dark:bg-cream dark:text-espresso' : 'text-walnut hover:text-espresso'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Results Header */}
       <div className="flex items-center justify-between text-xs text-walnut px-1">
         <span role="status" aria-live="polite">
           Showing <strong className="text-espresso font-semibold">{filteredTabs.length}</strong> sanctuary songs
         </span>
-        <a
-          href="/import"
-          className="min-h-[44px] inline-flex items-center gap-1.5 text-terracotta hover:underline font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded-md"
-        >
-          <Plus className="w-3.5 h-3.5" aria-hidden="true" />
-          <span>Paste New Tab</span>
-        </a>
+        <div className="flex items-center gap-3">
+          {cloudTabs.length <= 3 && (
+            <button
+              onClick={handleSeed}
+              disabled={isSeeding}
+              className="inline-flex items-center gap-1.5 text-xs text-walnut hover:text-terracotta transition-colors disabled:opacity-50 cursor-pointer"
+            >
+              {isSeeding ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-amber" />}
+              <span>Sync Cloud Seeds</span>
+            </button>
+          )}
+          <a href="/import" className="min-h-[44px] inline-flex items-center gap-1.5 text-terracotta hover:underline font-medium">
+            <Plus className="w-3.5 h-3.5" aria-hidden="true" />
+            <span>Paste New Tab</span>
+          </a>
+        </div>
       </div>
 
-      {/* Grid */}
       {filteredTabs.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredTabs.map((tab) => (
-            <SongCard key={tab.slug} tab={tab} onDeleteCustom={handleDeleteCustom} />
+            <SongCard key={tab.id || tab.slug} tab={tab} onDeleteCustom={handleDeleteCustom} />
           ))}
         </div>
       ) : (
@@ -142,17 +161,10 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
           <Music2 className="w-12 h-12 mx-auto text-walnut/50 mb-3" aria-hidden="true" />
           <h4 className="font-serif text-lg font-bold text-espresso mb-1">No songs found</h4>
           <p className="text-sm text-walnut max-w-md mx-auto mb-5">
-            {searchQuery
-              ? `No tabs matching "${searchQuery}". Try a different search or clear filters.`
-              : 'Your practice library is waiting. Paste a song from Ultimate Guitar to get started.'}
+            {searchQuery || categoryFilter !== 'all'
+              ? 'No tabs matching your current search or genre filters.'
+              : 'Your practice library is waiting.'}
           </p>
-          <a
-            href="/import"
-            className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-xl bg-terracotta text-white text-sm font-medium hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-opacity"
-          >
-            <Plus className="w-4 h-4" aria-hidden="true" />
-            Paste a Tab Now
-          </a>
         </div>
       )}
     </div>

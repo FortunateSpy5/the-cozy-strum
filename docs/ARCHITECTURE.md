@@ -1,6 +1,6 @@
 # The Cozy Strum — System Architecture & Data Flow
 
-This document details the complete static architecture, data structures, and deployment pipelines for **The Cozy Strum**.
+This document details the complete database-backed architecture, data structures, caching tiers, and deployment pipelines for **The Cozy Strum**.
 
 ---
 
@@ -8,131 +8,112 @@ This document details the complete static architecture, data structures, and dep
 
 ```mermaid
 flowchart TD
-    subgraph BuildTime ["Static Build Phase (Astro 5 & SSG)"]
-        GitFiles["Git Markdown Tabs<br/>(src/content/tabs/*.md)"]
-        ZodValidator["Content Collections<br/>Strict Zod Schema"]
-        AstroPages["Astro Static Generator<br/>(output: 'static')"]
-        PreRendered["Pre-rendered HTML/CSS<br/>(/dist/index.html, /dist/tabs/*)"]
-        
-        GitFiles --> ZodValidator
-        ZodValidator --> AstroPages
-        AstroPages --> PreRendered
+    subgraph CloudStorage ["Cloud Firestore (Persistent Backend)"]
+        CatalogIndex["meta/catalog_index<br/>(Lightweight Catalog Index Document)"]
+        TabDocs["tabs/{tabId}<br/>(Full ASCII Tab & Lyric Content)"]
+        UserProfiles["users/{uid}<br/>(Favorites, Preferences, Roles)"]
+        SetlistDocs["setlists/{setlistId}<br/>(Ordered Custom Setlists)"]
+        DmcaDocs["dmca_requests/{requestId}<br/>(DMCA Takedown Notices)"]
+    end
+
+    subgraph ClientCache ["Near-Zero Read Multi-Layer Cache"]
+        LocalTtl["localStorage Catalog Cache<br/>(15-minute TTL: cozy_strum_catalog_cache)"]
+        IndexedDb["IndexedDB persistentLocalCache<br/>(Firebase v11 Tab Documents)"]
     end
 
     subgraph ClientRuntime ["Client Runtime (Browser Islands)"]
-        LocalStorage["Browser localStorage<br/>- Custom Tabs<br/>- Saved Setlists<br/>- Transposition State<br/>- UI Preferences"]
-        
+        UserMenu["UserMenuIsland.tsx<br/>(client:idle)"]
+        LibraryIsland["LibraryIsland.tsx<br/>(client:load)"]
         PlayerIsland["TabPlayerIsland.tsx<br/>(client:load)"]
         ImporterIsland["TabImporterIsland.tsx<br/>(client:load)"]
-        LibraryIsland["LibraryGrid.tsx<br/>(client:load)"]
-        
-        LocalStorage <--> LibraryIsland
-        LocalStorage <--> PlayerIsland
-        LocalStorage <--> ImporterIsland
     end
 
     subgraph AudioEngine ["Web Audio & Animation"]
         WebAudio["Web Audio API<br/>Synthetic Click Metronome"]
         AutoScroller["requestAnimationFrame<br/>Variable Speed Scroller"]
-        
-        PlayerIsland --> WebAudio
-        PlayerIsland --> AutoScroller
     end
 
-    PreRendered --> ClientRuntime
+    CatalogIndex -.->|1 read every 15 min| LocalTtl
+    LocalTtl --> LibraryIsland
+    TabDocs -.->|getDocFromCache First| IndexedDb
+    IndexedDb --> PlayerIsland
+    UserProfiles <--> UserMenu
+    UserProfiles <--> PlayerIsland
+    PlayerIsland --> WebAudio
+    PlayerIsland --> AutoScroller
 ```
 
 ---
 
-## 2. Content Collection Schema (`src/content/config.ts`)
+## 2. Near-Zero Read Optimization Architecture
 
-Astro Content Collections enforce strict schema validation at build time via Zod:
+To prevent expensive Firestore document reads on high-traffic static deployments, four caching and aggregation strategies operate in tandem:
 
-```typescript
-import { defineCollection, z } from 'astro:content';
-
-export const tabsCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string().min(1),
-    artist: z.string().min(1),
-    instrument: z.enum(['guitar', 'ukulele']).default('guitar'),
-    tuning: z.string().default('Standard (E A D G B e)'),
-    capo: z.number().int().min(0).max(12).default(0),
-    bpm: z.number().int().min(30).max(300).optional(),
-    difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('beginner'),
-    strummingPattern: z.string().optional(), // e.g. "D - D U - U D U"
-    tags: z.array(z.string()).default([]),
-    isFingerstyle: z.boolean().default(false),
-    key: z.string().optional(), // e.g. "G", "Am"
-    createdAt: z.string().or(z.date()).transform((val) => new Date(val).toISOString())
-  })
-});
-
-export const collections = {
-  tabs: tabsCollection
-};
-```
+| Layer | Implementation | Read Impact |
+|---|---|---|
+| **1. Catalog Index Document (`meta/catalog_index`)** | A single document stores summaries of all approved public songs (`id`, `title`, `artist`, `instrument`, `tuning`, `capo`, `difficulty`, `isFingerstyle`, `chordsUsed`, `updatedAt`). The homepage loads in **1 single read** regardless of catalog size. | Reduces homepage cost from $N$ reads to 1 read. |
+| **2. `localStorage` TTL Caching** | The parsed `meta/catalog_index` is stored in browser `localStorage` (`cozy_strum_catalog_cache`) with a 15-minute expiration timestamp. | **0 reads** on page refreshes and repeat homepage visits within 15 minutes. |
+| **3. `getDocFromCache` First** | When navigating to `/tab?id=xyz`, the client calls `getDocFromCache(docRef)`. If present and the cached `updatedAt` matches the catalog index, Firestore is never queried. | **0 reads** on repeat practice sessions for songs in local cache. |
+| **4. Debounced User Preference Writes** | Real-time adjustments to Transpose or Capo in the player UI update local memory instantly and debounce updates to `users/{uid}` by 2500ms. | Prevents write spikes during rapid key transpositions. |
 
 ---
 
-## 3. Browser `localStorage` Schema
+## 3. Data Model Specifications
 
-To enable instant importing without database dependencies, client state is stored across three typed keys:
-
-### 3.1 `cozy_strum_custom_tabs`
-Array of user-imported tabs from the Quick Paste Studio:
+### 3.1 `meta/catalog_index`
 ```typescript
-export interface UserTab {
-  id: string;               // e.g. "custom-hotel-california-1712345678"
-  slug: string;             // URL-friendly slug
+import type { SongCategory } from '../src/lib/types';
+
+export interface TabSummary {
+  id: string;
+  slug: string;
   title: string;
   artist: string;
+  album?: string;
+  releaseYear?: number;
+  category?: string;
+  categories: SongCategory[];
   instrument: 'guitar' | 'ukulele';
   tuning: string;
   capo: number;
   bpm?: number;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
-  strummingPattern?: string;
-  tags: string[];
+  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   isFingerstyle: boolean;
-  content: string;          // Raw markdown tab body
-  createdAt: string;        // ISO timestamp
-  isCustom: true;
-}
-```
-
-### 3.2 `cozy_strum_setlists`
-Curated collections of songs for practice sessions:
-```typescript
-export interface Setlist {
-  id: string;
-  name: string;
-  description?: string;
-  songSlugs: string[];      // References to either built-in or custom tab slugs
+  chordsUsed: string[];
   updatedAt: string;
 }
+
+export interface CatalogIndexDoc {
+  lastUpdated: string;
+  totalCount: number;
+  items: Record<string, TabSummary>;
+  categoryCounts?: Partial<Record<SongCategory, number>>;
+  decadeCounts?: Record<string, number>;
+}
 ```
 
-### 3.3 `cozy_strum_prefs`
-Global UI and player settings:
+### 3.2 `tabs/{tabId}`
 ```typescript
-export interface UserPreferences {
-  theme: 'parchment' | 'campfire';
-  defaultInstrument: 'guitar' | 'ukulele';
-  fontSize: 'sm' | 'base' | 'lg' | 'xl';
-  autoScrollSpeed: number;  // 0.5 to 10.0
-  columnMode: 'single' | 'two-column' | 'three-column';
-  dockPosition: 'bottom' | 'top';
-  metronomeVolume: number;  // 0.0 to 1.0
+export interface CloudTab extends TabSummary {
+  content: string; // Full raw tab and lyric text
+  strummingPattern?: string;
+  lrclibId?: number;
+  authorUid: string;
+  authorName: string;
+  visibility: 'private' | 'public';
+  status: 'draft' | 'pending_review' | 'approved' | 'rejected' | 'removed_dmca';
+  rejectionReason?: string;
+  favoritesCount: number;
+  viewsCount: number;
+  createdAt: string;
 }
 ```
 
 ---
 
-## 4. Netlify Deployment Architecture
+## 4. Netlify Deployment & Dynamic Tab Routing
 
-The site builds into a pure static `/dist` directory with zero runtime Node server:
+The site builds as a 100% static shell (`output: 'static'`) on Netlify with client-side hydration:
 
 ```toml
 # netlify.toml
@@ -148,50 +129,20 @@ The site builds into a pure static `/dist` directory with zero runtime Node serv
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "microphone=(), camera=(), geolocation=(), screen-wake-lock=(self)"
 
-[[headers]]
-  for = "/_astro/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.woff2"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
 [[redirects]]
-  from = "/custom"
-  to = "/player"
-  status = 301
-  force = false
+  from = "/tabs/*"
+  to = "/tab?id=:splat"
+  status = 200
 ```
 
 ---
 
-## 5. Unified Layout Geometry & 60fps Compositor Stabilization
+## 5. Local Offline Audio-to-Chord Pipeline (`tools/chord-sync/`)
 
-### 5.1 Standardized Width Alignment (`max-w-6xl`)
-To eliminate visual dissonance from disparate container breakpoints, all core interface tiers align strictly to the Header navbar geometry:
-- **Navbar**: `max-w-6xl mx-auto px-4 sm:px-6`
-- **Main Viewport & Song Header**: `max-w-6xl mx-auto px-4 sm:px-6`
-- **Tab Sheet & Section Lines**: `w-full` within `max-w-6xl`
-- **Shortcut Legend Bar**: `max-w-6xl mx-auto px-4 sm:px-6`
-- **Sticky Practice Dock**: `max-w-6xl mx-auto px-4 sm:px-6`
+To populate chords automatically without manual transcription or speech-to-text AI:
+1. **Host Environment:** Runs 100% locally on the creator's PC as an offline Python CLI. Never loaded in browser bundles.
+2. **LRCLIB Ingestion:** Fetches millisecond-synced lyrics (`.lrc`) from `https://lrclib.net/api/get` based on song title and artist.
+3. **Harmony Stem Isolation & Audio Estimation:** Uses `demucs` or `librosa` to separate audio stems and extracts timestamped chord changes via `chord-extractor`.
+4. **Deterministic Colocation:** `sync_generator.py` maps chords into precise monospace column positions above lyrics based on shared millisecond timestamps.
+5. **Output / Firestore Ingestion:** Outputs clean ASCII tabs or directly uploads to Firestore via `firebase-admin` with `status: 'draft'` or `status: 'pending_review'`.
 
-### 5.2 Scroll Jitter Elimination (Frosted Glass Removal)
-Applying CSS `backdrop-filter: blur(...)` to fixed floating elements during continuous requestAnimationFrame scrolling forces Chromium/Gecko/WebKit to continuously re-rasterize and re-blur moving font glyphs, causing GPU compositor pipeline stalls and visible frame jitter.
-- Replaced semi-transparent blurred surfaces with solid, opaque `bg-surface` (`#F3ECE1` light / `#1E1916` dark).
-- Enforced isolated GPU compositor layers via `transform-gpu` and `will-change: transform`.
-- Guaranteed a continuous 60fps/120fps auto-scroll experience with zero dropped frames.
-
----
-
-## 6. Backup & Restore Architecture (`src/lib/storage/`)
-
-### 6.1 JSON Serialization & Security
-- `exportAllTabsAsJson()`: Serializes all browser-stored `UserTab` entries with ISO metadata and client origin markers.
-- `restoreTabsFromJson()`: Validates input JSON with defensive schema enforcement, deep key validation, and protection against `__proto__` prototype pollution.
-
-### 6.2 Zero-Dependency Pure JS ZIP Engine (`src/lib/storage/zipEngine.ts`)
-- Implements standard PKZIP 2.0 format (`PK\x03\x04` local headers, `PK\x01\x02` central directory headers, and `PK\x05\x06` End of Central Directory).
-- Computes standard IEEE 802.3 CRC-32 checksums with a precomputed polynomial table.
-- Converts stored browser tabs directly into `.md` files with valid Zod frontmatter, packaged into a `.zip` archive ready to extract into `src/content/tabs/`.

@@ -14,6 +14,11 @@
   status = 301
   force = false
 
+[[redirects]]
+  from = "/tabs/*"
+  to = "/tab?id=:splat"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

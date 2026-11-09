@@ -2,9 +2,43 @@ export type Instrument = 'guitar' | 'ukulele';
 
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 
+export const SONG_CATEGORIES = [
+  'Acoustic',
+  'Folk',
+  'Singer-Songwriter',
+  'Classic Rock',
+  'Rock',
+  'Indie',
+  'Alternative',
+  'Pop',
+  'Ballad',
+  'Campfire',
+  'Fingerstyle',
+  'Bollywood',
+  'Hindi Indie',
+  'Bengali Modern',
+  'Rabindrasangeet',
+  'Soundtrack',
+  'Country',
+  'Americana',
+  'Blues',
+  'Soul',
+  'R&B',
+  'Jazz',
+  'Bossa Nova',
+  'Reggae',
+  'World'
+] as const;
+
+export type SongCategory = typeof SONG_CATEGORIES[number];
+
 export interface SongMetadata {
   title: string;
   artist: string;
+  album?: string;
+  releaseYear?: number;
+  category?: string;
+  categories?: SongCategory[];
   instrument: Instrument;
   tuning: string;
   capo: number;
@@ -14,6 +48,7 @@ export interface SongMetadata {
   tags: string[];
   isFingerstyle: boolean;
   key?: string;
+  timeSignature?: string;
   createdAt: string;
   slug?: string;
   isCustom?: boolean;
