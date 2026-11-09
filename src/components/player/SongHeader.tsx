@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Guitar, Music, Gauge, ArrowLeft, Copy, Check, Edit3 } from 'lucide-react';
+import { Guitar, Music, Gauge, ArrowLeft, Copy, Check, Edit3, Heart } from 'lucide-react';
 import type { SongMetadata } from '../../lib/types';
 
 interface SongHeaderProps {
@@ -7,13 +7,19 @@ interface SongHeaderProps {
   currentKey?: string;
   transposedSemitones: number;
   rawTabContent?: string;
+  isFavorited?: boolean;
+  isSavingPrefs?: boolean;
+  onToggleFavorite?: () => void;
 }
 
 export const SongHeader: React.FC<SongHeaderProps> = ({
   metadata,
   currentKey,
   transposedSemitones,
-  rawTabContent
+  rawTabContent,
+  isFavorited,
+  isSavingPrefs,
+  onToggleFavorite,
 }) => {
   const [copied, setCopied] = useState(false);
   const isGuitar = metadata.instrument === 'guitar';
@@ -47,6 +53,34 @@ export const SongHeader: React.FC<SongHeaderProps> = ({
         </a>
 
         <div className="flex items-center gap-2">
+          {isSavingPrefs && (
+            <span className="text-[10px] font-mono text-terracotta/80 animate-pulse hidden sm:inline">
+              Saving…
+            </span>
+          )}
+
+          {onToggleFavorite && (
+            <button
+              onClick={onToggleFavorite}
+              type="button"
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-xl border text-xs font-medium transition-colors shadow-2xs ${
+                isFavorited
+                  ? 'bg-rose-50 border-rose-300 text-rose-700 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300'
+                  : 'bg-canvas border-warm hover:border-terracotta text-espresso'
+              }`}
+              title={isFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
+              aria-label={isFavorited ? 'Remove from Favorites' : 'Add to Favorites'}
+            >
+              <Heart
+                className={`w-3.5 h-3.5 ${
+                  isFavorited ? 'fill-current text-rose-600 dark:text-rose-400' : 'text-walnut'
+                }`}
+                aria-hidden="true"
+              />
+              <span className="hidden sm:inline">{isFavorited ? 'Favorited' : 'Favorite'}</span>
+            </button>
+          )}
+
           <button
             onClick={handleCopyShare}
             type="button"

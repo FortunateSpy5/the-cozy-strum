@@ -12,6 +12,8 @@ import { ShortcutLegendBar } from './ShortcutLegendBar';
 import { useAutoScroller } from './useAutoScroller';
 import { usePlayerShortcuts } from './usePlayerShortcuts';
 import { useWakeLock } from './useWakeLock';
+import { usePerSongPracticeMemory } from './usePerSongPracticeMemory';
+import { SetlistGigDock } from './SetlistGigDock';
 
 interface TabPlayerIslandProps {
   metadata: SongMetadata;
@@ -28,6 +30,20 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
   const [activeChord, setActiveChord] = useState<string | null>(null);
   const [isMetronomeOpen, setIsMetronomeOpen] = useState(false);
   const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
+
+  const tabId = metadata.slug ?? '';
+
+  const { isFavorited, isSavingPrefs, toggleFavorite } = usePerSongPracticeMemory({
+    tabId,
+    currentSemitones: semitones,
+    currentSpeed: scrollSpeed,
+    currentInstrument: instrument,
+    onRestorePreferences: (prefs) => {
+      if (typeof prefs.transpose === 'number') setSemitones(prefs.transpose);
+      if (typeof prefs.scrollSpeed === 'number') setScrollSpeed(prefs.scrollSpeed);
+      if (prefs.instrumentView) setInstrument(prefs.instrumentView);
+    },
+  });
 
   const ast = useMemo(() => parseSongText(rawTabContent), [rawTabContent]);
   const currentKey = useMemo(() => {
@@ -59,11 +75,15 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
 
   return (
     <div className="tab-player-container relative min-h-screen">
+      <SetlistGigDock currentTabId={tabId} />
       <SongHeader
         metadata={metadata}
         currentKey={currentKey}
         transposedSemitones={semitones}
         rawTabContent={rawTabContent}
+        isFavorited={isFavorited}
+        isSavingPrefs={isSavingPrefs}
+        onToggleFavorite={toggleFavorite}
       />
 
       <ChordStrip

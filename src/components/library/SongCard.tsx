@@ -1,14 +1,21 @@
 import React from 'react';
-import { Guitar, Music, Download, Trash2, Gauge } from 'lucide-react';
+import { Guitar, Music, Download, Trash2, Gauge, Heart } from 'lucide-react';
 import type { TabItem } from '../../lib/types';
 import { generateMarkdownWithFrontmatter, downloadMarkdownFile } from '../../lib/storage/exportMd';
 
 interface SongCardProps {
   tab: TabItem;
+  isFavorited?: boolean;
+  onToggleFavorite?: (id: string) => void;
   onDeleteCustom?: (id: string) => void;
 }
 
-export const SongCard: React.FC<SongCardProps> = ({ tab, onDeleteCustom }) => {
+export const SongCard: React.FC<SongCardProps> = ({
+  tab,
+  isFavorited = false,
+  onToggleFavorite,
+  onDeleteCustom,
+}) => {
   const isGuitar = tab.instrument === 'guitar';
   const tabUrl = tab.isCustom
     ? `/player?slug=${encodeURIComponent(tab.slug)}${tab.id ? `&id=${encodeURIComponent(tab.id)}` : ''}`
@@ -62,6 +69,26 @@ export const SongCard: React.FC<SongCardProps> = ({ tab, onDeleteCustom }) => {
             <span className="text-[11px] font-mono text-walnut uppercase px-2 py-0.5 rounded bg-canvas border border-warm">
               {tab.difficulty}
             </span>
+            {onToggleFavorite && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onToggleFavorite(tab.id ?? tab.slug);
+                }}
+                className="relative z-10 p-1 rounded-md text-walnut/60 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                title={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
+                aria-label={`${isFavorited ? 'Remove from' : 'Add to'} favorites: ${tab.title}`}
+              >
+                <Heart
+                  className={`w-3.5 h-3.5 ${
+                    isFavorited ? 'fill-current text-rose-600 dark:text-rose-400' : ''
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+            )}
           </div>
         </div>
 

@@ -55,6 +55,28 @@ export function createFallbackCatalogIndex(): CatalogIndexDoc {
   };
 }
 
+export function catalogToTabItems(catalog: CatalogIndexDoc): import('../types').TabItem[] {
+  return Object.values(catalog.items).map((s) => ({
+    id: s.id,
+    slug: s.slug,
+    title: s.title,
+    artist: s.artist,
+    album: s.album,
+    releaseYear: s.releaseYear,
+    category: s.category,
+    categories: s.categories || [],
+    instrument: s.instrument,
+    tuning: s.tuning,
+    capo: s.capo,
+    bpm: s.bpm,
+    difficulty: s.difficulty.toLowerCase() as import('../types').Difficulty,
+    tags: [s.instrument, ...(s.categories || [])],
+    isFingerstyle: s.isFingerstyle,
+    createdAt: s.updatedAt,
+    isCustom: false,
+  }));
+}
+
 export async function getCatalogIndex(forceRefresh = false): Promise<CatalogIndexDoc> {
   if (typeof window !== 'undefined' && !forceRefresh) {
     try {

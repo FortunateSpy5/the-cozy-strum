@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import type { User } from 'firebase/auth';
 import { Plus, Music2, Sparkles, Loader2 } from 'lucide-react';
-import type { TabItem, Instrument, Difficulty, SongCategory } from '../../lib/types';
+import type { TabItem, Instrument, SongCategory } from '../../lib/types';
 import { getUserTabs, deleteUserTab } from '../../lib/storage/tabStorage';
-import { getCatalogIndex, seedInitialTabs } from '../../lib/firebase/tabsService';
+import { getCatalogIndex, seedInitialTabs, catalogToTabItems } from '../../lib/firebase/tabsService';
+import { subscribeToAuth } from '../../lib/firebase/auth';
+import type { UserProfile } from '../../lib/firebase/types';
+import { toggleFavoriteTab, onUserProfileChanged } from '../../lib/firebase/userService';
 import { SongCard } from './SongCard';
 import { LibraryFilterBar } from './LibraryFilterBar';
 
@@ -13,68 +17,42 @@ interface LibraryIslandProps {
 export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [instrumentFilter, setInstrumentFilter] = useState<'all' | Instrument>('all');
-  const [typeFilter, setTypeFilter] = useState<'all' | 'fingerstyle' | 'custom'>('all');
+  const [typeFilter, setTypeFilter] = useState<'all' | 'fingerstyle' | 'custom' | 'favorites'>('all');
   const [categoryFilter, setCategoryFilter] = useState<'all' | SongCategory>('all');
   const [customTabs, setCustomTabs] = useState<TabItem[]>([]);
   const [cloudTabs, setCloudTabs] = useState<TabItem[]>(initialTabs);
   const [isSeeding, setIsSeeding] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
 
   useEffect(() => {
     setCustomTabs(getUserTabs());
+    getCatalogIndex().then((catalog) => {
+      const items = catalogToTabItems(catalog);
+      if (items.length > 0) setCloudTabs(items);
+    });
 
-    async function loadCatalog() {
-      const catalog = await getCatalogIndex();
-      const items: TabItem[] = Object.values(catalog.items).map((s) => ({
-        id: s.id,
-        slug: s.slug,
-        title: s.title,
-        artist: s.artist,
-        album: s.album,
-        releaseYear: s.releaseYear,
-        category: s.category,
-        categories: s.categories || [],
-        instrument: s.instrument,
-        tuning: s.tuning,
-        capo: s.capo,
-        bpm: s.bpm,
-        difficulty: s.difficulty.toLowerCase() as Difficulty,
-        tags: [s.instrument, ...(s.categories || [])],
-        isFingerstyle: s.isFingerstyle,
-        createdAt: s.updatedAt,
-        isCustom: false,
-      }));
-      if (items.length > 0) {
-        setCloudTabs(items);
-      }
+    const unsubAuth = subscribeToAuth((u, p) => {
+      setUser(u);
+      setProfile(p);
+    });
+    const unsubProfile = onUserProfileChanged((p) => setProfile(p));
+
+    if (typeof window !== 'undefined' && window.location.hash === '#favorites') {
+      setTypeFilter('favorites');
     }
 
-    loadCatalog();
+    return () => {
+      unsubAuth();
+      unsubProfile();
+    };
   }, []);
 
   const handleSeed = async () => {
     setIsSeeding(true);
     try {
       const res = await seedInitialTabs();
-      const items: TabItem[] = Object.values(res.items).map((s) => ({
-        id: s.id,
-        slug: s.slug,
-        title: s.title,
-        artist: s.artist,
-        album: s.album,
-        releaseYear: s.releaseYear,
-        category: s.category,
-        categories: s.categories || [],
-        instrument: s.instrument,
-        tuning: s.tuning,
-        capo: s.capo,
-        bpm: s.bpm,
-        difficulty: s.difficulty.toLowerCase() as Difficulty,
-        tags: [s.instrument, ...(s.categories || [])],
-        isFingerstyle: s.isFingerstyle,
-        createdAt: s.updatedAt,
-        isCustom: false,
-      }));
-      setCloudTabs(items);
+      setCloudTabs(catalogToTabItems(res));
     } finally {
       setIsSeeding(false);
     }
@@ -85,6 +63,16 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
     setCustomTabs((prev) => prev.filter((t) => t.id !== id));
   };
 
+  const handleToggleFavorite = async (tabId: string) => {
+    if (!user) {
+      alert('Please sign in to save songs to your personal Favorites.');
+      return;
+    }
+    await toggleFavoriteTab(user.uid, tabId);
+  };
+
+  const favoriteIds = profile?.favoriteTabIds ?? [];
+
   const allTabs = useMemo(() => {
     const map = new Map<string, TabItem>();
     cloudTabs.forEach((tab) => map.set(tab.id || tab.slug, tab));
@@ -94,9 +82,11 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
 
   const filteredTabs = useMemo(() => {
     return allTabs.filter((tab) => {
+      const tabId = tab.id || tab.slug;
       if (instrumentFilter !== 'all' && tab.instrument !== instrumentFilter) return false;
       if (typeFilter === 'fingerstyle' && !tab.isFingerstyle) return false;
       if (typeFilter === 'custom' && !tab.isCustom) return false;
+      if (typeFilter === 'favorites' && !favoriteIds.includes(tabId)) return false;
 
       if (categoryFilter !== 'all') {
         const matchesCategory = tab.categories?.includes(categoryFilter) || tab.category === categoryFilter;
@@ -112,7 +102,7 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
       const inTags = tab.tags?.some((t) => t.toLowerCase().includes(q));
       return inTitle || inArtist || inCat || inYear || inTags;
     });
-  }, [allTabs, instrumentFilter, typeFilter, categoryFilter, searchQuery]);
+  }, [allTabs, instrumentFilter, typeFilter, categoryFilter, searchQuery, favoriteIds]);
 
   return (
     <div className="space-y-6">
@@ -126,6 +116,7 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
         categoryFilter={categoryFilter}
         onCategoryChange={setCategoryFilter}
         customTabsCount={customTabs.length}
+        favoritesCount={favoriteIds.length}
       />
 
       <div className="flex items-center justify-between text-xs text-walnut px-1">
@@ -152,18 +143,29 @@ export const LibraryIsland: React.FC<LibraryIslandProps> = ({ initialTabs }) => 
 
       {filteredTabs.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filteredTabs.map((tab) => (
-            <SongCard key={tab.id || tab.slug} tab={tab} onDeleteCustom={handleDeleteCustom} />
-          ))}
+          {filteredTabs.map((tab) => {
+            const id = tab.id || tab.slug;
+            return (
+              <SongCard
+                key={id}
+                tab={tab}
+                isFavorited={favoriteIds.includes(id)}
+                onToggleFavorite={handleToggleFavorite}
+                onDeleteCustom={handleDeleteCustom}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className="text-center py-16 px-4 rounded-3xl bg-surface border border-warm">
           <Music2 className="w-12 h-12 mx-auto text-walnut/50 mb-3" aria-hidden="true" />
-          <h4 className="font-serif text-lg font-bold text-espresso mb-1">No songs found</h4>
+          <h4 className="font-serif text-lg font-bold text-espresso mb-1">
+            {typeFilter === 'favorites' ? 'No favorites saved yet' : 'No songs found'}
+          </h4>
           <p className="text-sm text-walnut max-w-md mx-auto mb-5">
-            {searchQuery || categoryFilter !== 'all'
-              ? 'No tabs matching your current search or genre filters.'
-              : 'Your practice library is waiting.'}
+            {typeFilter === 'favorites'
+              ? 'Click the heart icon on any song to add it to your personal practice favorites.'
+              : 'No tabs matching your current search or genre filters.'}
           </p>
         </div>
       )}

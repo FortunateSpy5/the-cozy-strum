@@ -8,11 +8,12 @@ interface LibraryFilterBarProps {
   onSearchChange: (val: string) => void;
   instrumentFilter: 'all' | Instrument;
   onInstrumentChange: (val: 'all' | Instrument) => void;
-  typeFilter: 'all' | 'fingerstyle' | 'custom';
-  onTypeChange: (val: 'all' | 'fingerstyle' | 'custom') => void;
+  typeFilter: 'all' | 'fingerstyle' | 'custom' | 'favorites';
+  onTypeChange: (val: 'all' | 'fingerstyle' | 'custom' | 'favorites') => void;
   categoryFilter: 'all' | SongCategory;
   onCategoryChange: (val: 'all' | SongCategory) => void;
   customTabsCount: number;
+  favoritesCount: number;
 }
 
 export function LibraryFilterBar({
@@ -25,6 +26,7 @@ export function LibraryFilterBar({
   categoryFilter,
   onCategoryChange,
   customTabsCount,
+  favoritesCount,
 }: LibraryFilterBarProps): React.JSX.Element {
   return (
     <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 p-4 rounded-2xl bg-surface border border-warm">
@@ -82,7 +84,8 @@ export function LibraryFilterBar({
           {[
             { id: 'all' as const, label: 'All Types' },
             { id: 'fingerstyle' as const, label: 'Fingerstyle' },
-            { id: 'custom' as const, label: `Saved (${customTabsCount})` },
+            { id: 'favorites' as const, label: `Favorites (${favoritesCount})` },
+            { id: 'custom' as const, label: `Custom (${customTabsCount})` },
           ].map(({ id, label }) => (
             <button
               key={id}

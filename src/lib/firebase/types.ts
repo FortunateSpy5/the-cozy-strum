@@ -81,3 +81,15 @@ export interface CatalogIndexDoc {
   items: Record<string, TabSummary>;
   categoryCounts?: Partial<Record<SongCategory, number>>;
 }
+
+export interface Setlist {
+  id: string;
+  ownerUid: string;
+  ownerName: string;
+  title: string;
+  description?: string;
+  isPublic: boolean;
+  tabIds: string[];
+  createdAt: string;
+  updatedAt: string;
+}
