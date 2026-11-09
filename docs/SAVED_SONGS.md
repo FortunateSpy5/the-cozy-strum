@@ -2,7 +2,7 @@
 
 > **The Cozy Strum** sanctuary practice archive. Automatically parsed from user's Ultimate Guitar saved list.
 
-**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 231 Completed & Synced to Cloud Firestore (233 total catalog tabs)
+**Total Songs:** 241+ | **Unique Artists:** 115+ | **Status:** 243 Completed & Synced to Cloud Firestore (243 total catalog tabs)
 
 
 ## Batch Overview

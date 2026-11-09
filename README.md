@@ -13,7 +13,10 @@ Part of the **Cozy Web Suite**:
 ## ✨ Features
 
 - **Zero Distractions**: No subscription banners, no popups, no auto-playing video ads, no telemetry.
-- **100% Static Pre-rendering**: Powered by Astro 5 with static output (`output: 'static'`) deployed on Netlify with 33+ pre-rendered seed songs directly in static HTML.
+- **100% Static Pre-rendering & Cloud Firestore Agility**: Powered by Astro 5 with static output (`output: 'static'`) deployed on Netlify, paired with Firebase v11 for near-zero-read persistent cloud library, personal favorites, custom setlists, and 243+ pre-rendered acoustic songs.
+- **Google Auth & Personal Practice Ecosystem**: 1-click Google Sign-In with per-song memory (remembers user's custom Capo, Transposition offset, and Auto-scroll speed), custom setlist builder, and personal vault.
+- **Community Submission Studio (`/submit`)**: Submit guitar & ukulele tabs with 1-click **LRCLIB open-source synced lyrics** auto-fetch, live split-screen preview, and syntax validation.
+- **Admin Moderation & DMCA Portal (`/admin` & `/dmca`)**: Role-based admin console for approving community submissions and processing DMCA copyright takedown requests with full legal compliance.
 - **Dynamic SVG Chord Diagrams**: Instant fretboard diagrams for 6-string Guitar (`E A D G B e`) and 4-string Ukulele (`G C E A`), complete with finger numbers, nut indicators, barre arcs, and muted/open string markers.
 - **Deterministic Transposition & Capo Calculator**: Shift chords across all 12 chromatic semitones (`-11` to `+11`) with smart enharmonic spelling and slash chord support (`D/F#`).
 - **Screen Wake Lock Integration**: Automatically requests screen wake lock during practice so phone and laptop screens never dim mid-song.
@@ -29,10 +32,11 @@ Part of the **Cozy Web Suite**:
   - **Mobile Touch Optimization**: Compact single-row dock avoiding awkward multi-row wrapping on small phone screens.
 - **Parchment & Campfire Aesthetic**: Warm Latte Light Mode (`#FAF6F0`) and eye-friendly Campfire Dark Mode (`#14110F`) with instant local persistence.
 - **Quick Paste Studio (`/import`)**:
-  - Live split-screen parser: paste raw text from Ultimate Guitar on the left, see formatted chord badges and scroll-safe ASCII tab staves on the right.
+  - Live split-screen parser: paste raw text, see formatted chord badges and scroll-safe ASCII tab staves.
   - **Save to Browser**: Instant `localStorage` persistence routing to dedicated `/player?slug=...` static player without 404s.
   - **Backup & Restore (JSON / ZIP)**: 1-click export of lightweight JSON backups or full PKZIP archives of Markdown files for direct Git repository ingestion.
   - **Download `.md`**: Exports clean Astro Content Collection Markdown with validated YAML frontmatter.
+- **Automated Local Chord-Sync & ASCII Tab Synthesizer (`tools/chord-sync/`)**: Offline Python CLI utility combining LRCLIB millisecond-synced lyrics with local harmony extraction and procedural Travis-picking and arpeggio ASCII tab generation.
 
 ---
 
@@ -58,7 +62,7 @@ The codebase follows the strict guidelines set in [`AGENTS.md`](./AGENTS.md):
 - **The 200-Line Limit**: Every single source file in `src/` is strictly under 200 lines of code (highest file is 192 lines).
 - **Zero `any` & Strict Types**: Fully typed with strict TypeScript and Astro check.
 - **Pure Music-Theory Isolation**: Transposition, chord parsing, and voicing lookups in `src/lib/` are pure, deterministic functions with 100% automated test coverage.
-- **Comprehensive Test Suite**: 65+ automated unit, music theory, accessibility, and Web Interface Guidelines tests across 11 suites.
+- **Comprehensive Test Suite**: 89 automated unit, music theory, accessibility, and Web Interface Guidelines tests across 16 test suites.
 
 ---
 
