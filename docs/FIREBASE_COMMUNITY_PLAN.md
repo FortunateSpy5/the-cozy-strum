@@ -301,12 +301,13 @@ We integrate **LRCLIB (`https://lrclib.net/api`)** across two separate environme
 - Added `/tab.astro` dynamic player route and Netlify rewrite `/tabs/* -> /tab?id=:splat 200`.
 - Updated `LibraryIsland` and `LibraryFilterBar` with multi-category dropdown and 1-click sample seeder.
 
-### Phase 2: Logged-In Practice Features (Favorites, Setlists & Per-Song Memory)
-- Heart / Favorite toggle on songs writing to `users/{uid}.favoriteTabIds`.
+### Phase 2: Logged-In Practice Features (Favorites, Setlists & Per-Song Memory) *(Completed)*
+- Heart / Favorite toggle on songs writing to `users/{uid}.favoriteTabIds` with real-time library grid filtering (`Favorites (N)`).
 - Debounced (2500ms) sync of Transpose, Capo, and Auto-Scroll speed to `users/{uid}.songPreferences[tabId]`.
-- Setlists manager (`/setlists`) and stage playback mode.
+- Setlists manager (`/setlists`) for creating, ordering, and managing gig sets.
+- Full-screen "Stage Mode / Gig Mode" dock with previous/next sequential performance navigation.
 
-### Phase 3: Community Song Submission Studio + LRCLIB Lyrics Fetcher (`/submit`)
+### Phase 3: Community Song Submission Studio + LRCLIB Lyrics Fetcher (`/submit`) *(Next Milestone)*
 - Full submission studio with LRCLIB search modal (`https://lrclib.net/api/search`).
 - Auto-insert blank chord lines above lyrics for 1-click chord positioning.
 - Multi-category tag selector from predefined `SONG_CATEGORIES`.
