@@ -2,14 +2,14 @@
 
 > **The Cozy Strum** sanctuary practice archive. Automatically parsed from user's Ultimate Guitar saved list.
 
-**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 32 Built-in, 199 Pending across Batches
+**Total Songs:** 231 | **Unique Artists:** 111 | **Status:** 57 Built-in, 174 Pending across Batches
 
 
 ## Batch Overview
 
 | Batch | Category / Theme | Song Count | Built-in / Pending | Status |
 |---|---|---|---|---|
-| **Batch 1** | Bengali Acoustic Essentials & Rabindrasangeet | 25 songs | 0/25 | ⏳ Ready to create |
+| **Batch 1** | Bengali Acoustic Essentials & Rabindrasangeet | 25 songs | 25/25 | ✅ Completed |
 | **Batch 2** | Bengali Cinema & Contemporary Melodies | 24 songs | 0/24 | ⏳ Ready to create |
 | **Batch 3** | Hindi Acoustic Indie Pioneers | 26 songs | 0/26 | ⏳ Ready to create |
 | **Batch 4** | Bollywood Modern Acoustic Classics | 20 songs | 0/20 | ⏳ Ready to create |
@@ -22,35 +22,35 @@
 ---
 
 
-### Batch 1: Bengali Acoustic Essentials & Rabindrasangeet (25 songs — 0/25 Built-in)
+### Batch 1: Bengali Acoustic Essentials & Rabindrasangeet (25 songs — ✅ Complete)
 
 | # | Title | Artist | Type | Saved Date | Status | Local Link / UG Link |
 |---|---|---|---|---|---|---|
-| 7 | **Hemlock Society — Ekhon Onek Raat** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hemlock-society-ekhon-onek-raat-chords-1502430) |
-| 8 | **Jodi Boli** | Pratik Kundu | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/pratik-kundu/jodi-boli-chords-3731195) |
-| 9 | **Shah Jahan Regency — Kichchu Chaini Aami** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/shah-jahan-regency-kichchu-chaini-aami-chords-2708586) |
-| 10 | **Ogochhalo Mon** | Taalpatar Shepai | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/ogochhalo-mon-chords-3678044) |
-| 11 | **Ami Chini Go Chini Tomare** | Rabindranath Tagore | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/ami-chini-go-chini-tomare-chords-2203461) |
-| 12 | **O Je Mane Na Mana** | Rabindranath Tagore | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/o-je-mane-na-mana-chords-2143247) |
-| 13 | **2441139 Bela Bose** | Anjan Dutt | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/anjan-dutt/2441139-bela-bose-chords-1721919) |
-| 14 | **আমার পরান যাহা চায় Amaro Porano Jaha Chay (ver 4)** | Rabindranath Tagore | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/2811608) |
-| 15 | **Hemlock Society — Jawl Phoring** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hemlock-society-jawl-phoring-chords-1159917) |
-| 16 | **Praktan — Kolkata** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/praktan-kolkata-chords-2237981) |
-| 22 | **Dawshom Awbotaar — Baundule Ghuri** | Misc Soundtrack | `Chords` | Feb 6, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dawshom-awbotaar-baundule-ghuri-chords-4980325) |
-| 23 | **পুরানো সেই দিনের কথা Purano Sei Diner Kotha** | Rabindranath Tagore | `Chords` | Feb 10, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/1477102) |
-| 24 | **Oliro Kotha Shune** | Hemanta Mukherjee | `Chords` | Feb 16, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/hemanta-mukherjee/oliro-kotha-shune-chords-1918581) |
-| 55 | **Baishe Srabon — Je Kawta Din** | Misc Soundtrack | `Chords` | Feb 18, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/baishe-srabon-je-kawta-din-chords-1104128) |
-| 70 | **Parineeta — Tomake Female** | Misc Soundtrack | `Chords` | Feb 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/parineeta-tomake-female-chords-2827672) |
-| 71 | **Sweater — Preme Pora Baron** | Misc Soundtrack | `Chords` | Feb 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/sweater-preme-pora-baron-chords-4329122) |
-| 72 | **Dwitiyo Purush — Je Kawta Din Reprise** | Misc Soundtrack | `Chords` | Feb 22, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dwitiyo-purush-je-kawta-din-reprise-chords-3065831) |
-| 73 | **Adure Din** | Ranajoy Bhattacharjee | `Chords` | Feb 23, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/ranajoy-bhattacharjee/adure-din-chords-2810285) |
-| 74 | **Antaheen — Pherari Mon** | Misc Soundtrack | `Chords` | Feb 23, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/antaheen-pherari-mon-chords-1943817) |
-| 82 | **Cheeni 2 — Tumi Jantei Paro Na** | Misc Soundtrack | `Chords` | Feb 26, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/cheeni-2-tumi-jantei-paro-na-chords-4888543) |
-| 83 | **Jokhon Porbe Na Mor Payer Chinho** | Rabindranath Tagore | `Chords` | Feb 26, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/jokhon-porbe-na-mor-payer-chinho-chords-1716466) |
-| 86 | **With Love Calcutta — Decemberer Shohorey** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/with-love-calcutta-decemberer-shohorey-chords-2821145) |
-| 87 | **Ekannoborti — Behaya** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/ekannoborti-behaya-chords-3978073) |
-| 94 | **Chalo Paltai — Bariye Dao** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/chalo-paltai-bariye-dao-chords-2407343) |
-| 98 | **Ami Sudhu Khujechi Amay** | Taalpatar Shepai | `Chords` | Mar 25, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/ami-sudhu-khujechi-amay-chords-4135189) |
+| 7 | **Hemlock Society — Ekhon Onek Raat** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ✅ Built-in | [ekhon-onek-raat](/tabs/ekhon-onek-raat) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hemlock-society-ekhon-onek-raat-chords-1502430)) |
+| 8 | **Jodi Boli** | Pratik Kundu | `Chords` | Jan 13, 2024 | ✅ Built-in | [jodi-boli](/tabs/jodi-boli) ([UG](https://tabs.ultimate-guitar.com/tab/pratik-kundu/jodi-boli-chords-3731195)) |
+| 9 | **Shah Jahan Regency — Kichchu Chaini Aami** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ✅ Built-in | [kichchu-chaini-aami](/tabs/kichchu-chaini-aami) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/shah-jahan-regency-kichchu-chaini-aami-chords-2708586)) |
+| 10 | **Ogochhalo Mon** | Taalpatar Shepai | `Chords` | Jan 13, 2024 | ✅ Built-in | [ogochhalo-mon](/tabs/ogochhalo-mon) ([UG](https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/ogochhalo-mon-chords-3678044)) |
+| 11 | **Ami Chini Go Chini Tomare** | Rabindranath Tagore | `Chords` | Jan 13, 2024 | ✅ Built-in | [ami-chini-go-chini-tomare](/tabs/ami-chini-go-chini-tomare) ([UG](https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/ami-chini-go-chini-tomare-chords-2203461)) |
+| 12 | **O Je Mane Na Mana** | Rabindranath Tagore | `Chords` | Jan 13, 2024 | ✅ Built-in | [o-je-mane-na-mana](/tabs/o-je-mane-na-mana) ([UG](https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/o-je-mane-na-mana-chords-2143247)) |
+| 13 | **2441139 Bela Bose** | Anjan Dutt | `Chords` | Jan 13, 2024 | ✅ Built-in | [2441139-bela-bose](/tabs/2441139-bela-bose) ([UG](https://tabs.ultimate-guitar.com/tab/anjan-dutt/2441139-bela-bose-chords-1721919)) |
+| 14 | **আমার পরান যাহা চায় Amaro Porano Jaha Chay (ver 4)** | Rabindranath Tagore | `Chords` | Jan 13, 2024 | ✅ Built-in | [amaro-porano-jaha-chay](/tabs/amaro-porano-jaha-chay) ([UG](https://tabs.ultimate-guitar.com/tab/2811608)) |
+| 15 | **Hemlock Society — Jawl Phoring** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ✅ Built-in | [jawl-phoring](/tabs/jawl-phoring) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/hemlock-society-jawl-phoring-chords-1159917)) |
+| 16 | **Praktan — Kolkata** | Misc Soundtrack | `Chords` | Jan 13, 2024 | ✅ Built-in | [kolkata](/tabs/kolkata) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/praktan-kolkata-chords-2237981)) |
+| 22 | **Dawshom Awbotaar — Baundule Ghuri** | Misc Soundtrack | `Chords` | Feb 6, 2024 | ✅ Built-in | [baundule-ghuri](/tabs/baundule-ghuri) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dawshom-awbotaar-baundule-ghuri-chords-4980325)) |
+| 23 | **পুরানো সেই দিনের কথা Purano Sei Diner Kotha** | Rabindranath Tagore | `Chords` | Feb 10, 2024 | ✅ Built-in | [purano-sei-diner-kotha](/tabs/purano-sei-diner-kotha) ([UG](https://tabs.ultimate-guitar.com/tab/1477102)) |
+| 24 | **Oliro Kotha Shune** | Hemanta Mukherjee | `Chords` | Feb 16, 2024 | ✅ Built-in | [oliro-kotha-shune](/tabs/oliro-kotha-shune) ([UG](https://tabs.ultimate-guitar.com/tab/hemanta-mukherjee/oliro-kotha-shune-chords-1918581)) |
+| 55 | **Baishe Srabon — Je Kawta Din** | Misc Soundtrack | `Chords` | Feb 18, 2024 | ✅ Built-in | [je-kawta-din](/tabs/je-kawta-din) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/baishe-srabon-je-kawta-din-chords-1104128)) |
+| 70 | **Parineeta — Tomake Female** | Misc Soundtrack | `Chords` | Feb 22, 2024 | ✅ Built-in | [tomake-female](/tabs/tomake-female) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/parineeta-tomake-female-chords-2827672)) |
+| 71 | **Sweater — Preme Pora Baron** | Misc Soundtrack | `Chords` | Feb 22, 2024 | ✅ Built-in | [preme-pora-baron](/tabs/preme-pora-baron) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/sweater-preme-pora-baron-chords-4329122)) |
+| 72 | **Dwitiyo Purush — Je Kawta Din Reprise** | Misc Soundtrack | `Chords` | Feb 22, 2024 | ✅ Built-in | [je-kawta-din-reprise](/tabs/je-kawta-din-reprise) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dwitiyo-purush-je-kawta-din-reprise-chords-3065831)) |
+| 73 | **Adure Din** | Ranajoy Bhattacharjee | `Chords` | Feb 23, 2024 | ✅ Built-in | [adure-din](/tabs/adure-din) ([UG](https://tabs.ultimate-guitar.com/tab/ranajoy-bhattacharjee/adure-din-chords-2810285)) |
+| 74 | **Antaheen — Pherari Mon** | Misc Soundtrack | `Chords` | Feb 23, 2024 | ✅ Built-in | [pherari-mon](/tabs/pherari-mon) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/antaheen-pherari-mon-chords-1943817)) |
+| 82 | **Cheeni 2 — Tumi Jantei Paro Na** | Misc Soundtrack | `Chords` | Feb 26, 2024 | ✅ Built-in | [tumi-jantei-paro-na](/tabs/tumi-jantei-paro-na) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/cheeni-2-tumi-jantei-paro-na-chords-4888543)) |
+| 83 | **Jokhon Porbe Na Mor Payer Chinho** | Rabindranath Tagore | `Chords` | Feb 26, 2024 | ✅ Built-in | [jokhon-porbe-na-mor-payer-chinho](/tabs/jokhon-porbe-na-mor-payer-chinho) ([UG](https://tabs.ultimate-guitar.com/tab/rabindranath-tagore/jokhon-porbe-na-mor-payer-chinho-chords-1716466)) |
+| 86 | **With Love Calcutta — Decemberer Shohorey** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ✅ Built-in | [decemberer-shohorey](/tabs/decemberer-shohorey) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/with-love-calcutta-decemberer-shohorey-chords-2821145)) |
+| 87 | **Ekannoborti — Behaya** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ✅ Built-in | [behaya](/tabs/behaya) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/ekannoborti-behaya-chords-3978073)) |
+| 94 | **Chalo Paltai — Bariye Dao** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ✅ Built-in | [bariye-dao](/tabs/bariye-dao) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/chalo-paltai-bariye-dao-chords-2407343)) |
+| 98 | **Ami Sudhu Khujechi Amay** | Taalpatar Shepai | `Chords` | Mar 25, 2024 | ✅ Built-in | [ami-sudhu-khujechi-amay](/tabs/ami-sudhu-khujechi-amay) ([UG](https://tabs.ultimate-guitar.com/tab/taalpatar-shepai/ami-sudhu-khujechi-amay-chords-4135189)) |
 
 ### Batch 2: Bengali Cinema & Contemporary Melodies (24 songs — 0/24 Built-in)
 

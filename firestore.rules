@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Users: Read/Write own profile; prevent users from escalating their own role to 'admin'
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create: if isOwner(uid) && request.resource.data.role == 'user';
+      allow update: if (isOwner(uid) && request.resource.data.role == resource.data.role) || isAdmin();
+    }
+
+    // Tabs:
+    // - Anyone can read 'public' + 'approved' tabs
+    // - Authors can read/write their own 'private', 'draft', or 'pending_review' tabs
+    // - Admins can read/write/moderate all tabs
+    match /tabs/{tabId} {
+      allow read: if (resource.data.visibility == 'public' && resource.data.status == 'approved')
+                  || (isSignedIn() && resource.data.authorUid == request.auth.uid)
+                  || isAdmin();
+      allow create: if isSignedIn() 
+                    && request.resource.data.authorUid == request.auth.uid
+                    && request.resource.data.status in ['draft', 'pending_review'];
+      allow update: if (isSignedIn() && resource.data.authorUid == request.auth.uid 
+                        && request.resource.data.status in ['draft', 'pending_review'])
+                    || isAdmin();
+      allow delete: if (isSignedIn() && resource.data.authorUid == request.auth.uid) || isAdmin();
+    }
+
+    // Setlists: Public setlists readable by all; private only by owner
+    match /setlists/{setlistId} {
+      allow read: if resource.data.isPublic == true || isOwner(resource.data.ownerUid) || isAdmin();
+      allow create: if isSignedIn() && request.resource.data.ownerUid == request.auth.uid;
+      allow update, delete: if isOwner(resource.data.ownerUid) || isAdmin();
+    }
+
+    // DMCA Requests: Anyone can submit (create); only Admins can read or resolve
+    match /dmca_requests/{requestId} {
+      allow create: if request.resource.data.status == 'open'
+                    && request.resource.data.statementOfGoodFaith == true;
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}
