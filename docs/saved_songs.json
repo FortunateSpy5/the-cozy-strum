@@ -4156,5 +4156,115 @@
     "isExisting": true,
     "batch": 8,
     "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
+  },
+  {
+    "id": 232,
+    "title": "Chasing Cars",
+    "displayTitle": "Chasing Cars",
+    "artist": "Snow Patrol",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/snow-patrol/chasing-cars-chords-355425",
+    "slug": "chasing-cars",
+    "isExisting": true,
+    "batch": 8,
+    "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
+  },
+  {
+    "id": 233,
+    "title": "Nandemonaiya",
+    "displayTitle": "Nandemonaiya",
+    "artist": "RADWIMPS",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/radwimps/nandemonaiya-chords-1895726",
+    "slug": "nandemonaiya",
+    "isExisting": true,
+    "batch": 9,
+    "batchName": "Batch 9: Modern Ballads, Pop Hits & Screen OSTs"
+  },
+  {
+    "id": 234,
+    "title": "Save It For A Rainy Day",
+    "displayTitle": "Save It For A Rainy Day",
+    "artist": "The Jayhawks",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-jayhawks/save-it-for-a-rainy-day-chords-368055",
+    "slug": "save-it-for-a-rainy-day",
+    "isExisting": true,
+    "batch": 8,
+    "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
+  },
+  {
+    "id": 235,
+    "title": "Cleopatra (Acoustic)",
+    "displayTitle": "Cleopatra (Acoustic)",
+    "artist": "The Lumineers",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/the-lumineers/cleopatra-chords-1829193",
+    "slug": "cleopatra-acoustic",
+    "isExisting": true,
+    "batch": 8,
+    "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
+  },
+  {
+    "id": 236,
+    "title": "Have You Ever Seen The Rain",
+    "displayTitle": "Have You Ever Seen The Rain",
+    "artist": "Creedence Clearwater Revival",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/creedence-clearwater-revival/have-you-ever-seen-the-rain-chords-56479",
+    "slug": "have-you-ever-seen-the-rain",
+    "isExisting": true,
+    "batch": 6,
+    "batchName": "Batch 6: The Beatles Anthology & Vintage 60s/70s Classics"
+  },
+  {
+    "id": 237,
+    "title": "Wicked Game",
+    "displayTitle": "Wicked Game",
+    "artist": "Chris Isaak",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/chris-isaak/wicked-game-chords-11066",
+    "slug": "wicked-game",
+    "isExisting": true,
+    "batch": 7,
+    "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
+  },
+  {
+    "id": 238,
+    "title": "Puff The Magic Dragon",
+    "displayTitle": "Puff The Magic Dragon",
+    "artist": "Peter, Paul and Mary",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/peter-paul-and-mary/puff-the-magic-dragon-chords-354889",
+    "slug": "puff-the-magic-dragon",
+    "isExisting": true,
+    "batch": 7,
+    "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
+  },
+  {
+    "id": 239,
+    "title": "Alright",
+    "displayTitle": "Alright",
+    "artist": "Supergrass",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/supergrass/alright-chords-1501416",
+    "slug": "alright",
+    "isExisting": true,
+    "batch": 8,
+    "batchName": "Batch 8: Indie Pop, Folk-Rock & Campfire Anthems"
+  },
+  {
+    "id": 240,
+    "title": "Solo",
+    "displayTitle": "Solo",
+    "artist": "Myles Smith",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/myles-smith/solo-chords-5030257",
+    "slug": "solo",
+    "isExisting": true,
+    "batch": 7,
+    "batchName": "Batch 7: Singer-Songwriters & Acoustic Storytellers"
+  },
+  {
+    "id": 241,
+    "title": "Ami Ek Garib Premik Neela",
+    "displayTitle": "Ami Ek Garib Premik Neela",
+    "artist": "Argha Dev",
+    "tabUrl": "https://tabs.ultimate-guitar.com/tab/argha-dev/ami-ek-garib-premik-neela-chords-5364624",
+    "slug": "ami-ek-garib-premik-neela",
+    "isExisting": true,
+    "batch": 2,
+    "batchName": "Batch 2: Bengali Cinema & Contemporary Melodies"
   }
 ]
