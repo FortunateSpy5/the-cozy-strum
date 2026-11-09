@@ -15,7 +15,7 @@ interface StickyPracticeDockProps {
   onChangeFontSize: (larger: boolean) => void;
 }
 
-const STEP_BTN = 'px-1.5 sm:px-2.5 py-1.5 min-h-[44px] min-w-[34px] sm:min-w-[40px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta font-bold';
+const STEP_BTN = 'px-1.5 sm:px-2.5 py-1.5 min-h-[44px] min-w-[40px] sm:min-w-[44px] flex items-center justify-center hover:text-terracotta rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta font-bold';
 const DOCK_ICON_BTN = 'p-2 min-h-[44px] min-w-[40px] sm:min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-espresso flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2';
 
 export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({

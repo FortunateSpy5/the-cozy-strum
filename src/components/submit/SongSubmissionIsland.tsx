@@ -1,33 +1,17 @@
 import React, { useState, useEffect, useMemo, useDeferredValue, useCallback } from 'react';
 import type { User } from 'firebase/auth';
-import { Sparkles, Send, Loader2, AlertCircle } from 'lucide-react';
+import { Sparkles, Loader2, AlertCircle } from 'lucide-react';
 import { subscribeToAuth } from '../../lib/firebase/auth';
 import { submitTab, type TabSubmissionInput } from '../../lib/firebase/submitService';
 import type { TabStatus } from '../../lib/firebase/types';
 import { parseSongText } from '../../lib/parser/songParser';
 import { TabRenderer } from '../player/TabRenderer';
 import { SubmissionMetadataFields } from './SubmissionMetadataFields';
+import { SubmissionSubmitBar } from './SubmissionSubmitBar';
 import { LrclibSearchModal } from './LrclibSearchModal';
 import { SubmissionAuthGuard } from './SubmissionAuthGuard';
 import { SubmissionSuccessView } from './SubmissionSuccessView';
-
-type MetadataInput = Omit<TabSubmissionInput, 'content'>;
-
-const INITIAL_METADATA: MetadataInput = {
-  title: '',
-  artist: '',
-  album: '',
-  releaseYear: undefined,
-  categories: ['Acoustic'],
-  instrument: 'guitar',
-  tuning: 'Standard (E A D G B E)',
-  capo: 0,
-  difficulty: 'Beginner',
-  isFingerstyle: false,
-  visibility: 'public',
-};
-
-const INITIAL_CONTENT = `[Verse 1]\n\nWise men say only fools rush in\n\nBut I can't help falling in love with you`;
+import { INITIAL_METADATA, INITIAL_CONTENT, type MetadataInput } from './submissionConstants';
 
 export function SongSubmissionIsland(): React.JSX.Element {
   const [user, setUser] = useState<User | null>(null);
@@ -171,21 +155,11 @@ export function SongSubmissionIsland(): React.JSX.Element {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-surface border border-warm">
-        <p className="text-xs text-walnut">
-          {metadata.visibility === 'public'
-            ? 'Public submissions will be reviewed by sanctuary curators before publishing.'
-            : 'Private tabs are visible only to your signed-in account.'}
-        </p>
-        <button
-          type="submit"
-          disabled={isSubmitting || !metadata.title.trim() || !metadata.artist.trim()}
-          className="min-h-[44px] px-6 py-2.5 rounded-xl bg-terracotta text-white font-semibold text-xs sm:text-sm hover:bg-terracotta/90 inline-flex items-center gap-2 transition-colors disabled:opacity-50 cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
-        >
-          {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : <Send className="w-4 h-4" aria-hidden="true" />}
-          <span>{metadata.visibility === 'public' ? 'Submit to Community' : 'Save to Private Vault'}</span>
-        </button>
-      </div>
+      <SubmissionSubmitBar
+        visibility={metadata.visibility}
+        isSubmitting={isSubmitting}
+        canSubmit={Boolean(metadata.title.trim() && metadata.artist.trim())}
+      />
 
       <LrclibSearchModal
         isOpen={isLrclibOpen}

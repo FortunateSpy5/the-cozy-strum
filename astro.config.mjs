@@ -13,6 +13,7 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks(id) {
+            if (!id.includes('node_modules')) return;
             if (id.includes('@firebase/firestore') || id.includes('firebase/firestore')) {
               return 'firebase-firestore';
             }

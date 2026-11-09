@@ -6,7 +6,7 @@ import {
 } from 'firebase/firestore';
 import { getFirebaseDb } from './config';
 import type { CloudTab, CatalogIndexDoc, TabSummary, SongCategory } from './types';
-import { SEED_TABS } from './seedTabs';
+import { FALLBACK_SEED_TABS, SEED_TABS } from './seedTabs';
 
 export const CATALOG_CACHE_KEY = 'cozy_strum_catalog_cache';
 const TTL_MS = 15 * 60 * 1000; // 15 minutes
@@ -16,11 +16,11 @@ interface CachedCatalog {
   data: CatalogIndexDoc;
 }
 
-export function createFallbackCatalogIndex(): CatalogIndexDoc {
+export function buildCatalogFromTabs(tabs: CloudTab[]): CatalogIndexDoc {
   const items: Record<string, TabSummary> = {};
   const categoryCounts: Partial<Record<SongCategory, number>> = {};
 
-  for (const tab of SEED_TABS) {
+  for (const tab of tabs) {
     items[tab.id] = {
       id: tab.id,
       slug: tab.slug,
@@ -49,31 +49,24 @@ export function createFallbackCatalogIndex(): CatalogIndexDoc {
 
   return {
     lastUpdated: new Date().toISOString(),
-    totalCount: SEED_TABS.length,
+    totalCount: tabs.length,
     items,
     categoryCounts,
   };
 }
 
+export function createFallbackCatalogIndex(): CatalogIndexDoc {
+  return buildCatalogFromTabs(FALLBACK_SEED_TABS);
+}
+
 export function catalogToTabItems(catalog: CatalogIndexDoc): import('../types').TabItem[] {
   return Object.values(catalog.items).map((s) => ({
-    id: s.id,
-    slug: s.slug,
-    title: s.title,
-    artist: s.artist,
-    album: s.album,
-    releaseYear: s.releaseYear,
-    category: s.category,
-    categories: s.categories || [],
-    instrument: s.instrument,
-    tuning: s.tuning,
-    capo: s.capo,
-    bpm: s.bpm,
+    id: s.id, slug: s.slug, title: s.title, artist: s.artist, album: s.album,
+    releaseYear: s.releaseYear, category: s.category, categories: s.categories || [],
+    instrument: s.instrument, tuning: s.tuning, capo: s.capo, bpm: s.bpm,
     difficulty: s.difficulty.toLowerCase() as import('../types').Difficulty,
-    tags: [s.instrument, ...(s.categories || [])],
-    isFingerstyle: s.isFingerstyle,
-    createdAt: s.updatedAt,
-    isCustom: false,
+    tags: [s.instrument, ...(s.categories || [])], isFingerstyle: s.isFingerstyle,
+    createdAt: s.updatedAt, isCustom: false,
   }));
 }
 
@@ -155,7 +148,9 @@ export async function getTabById(tabId: string, expectedUpdatedAt?: string): Pro
 
 export async function seedInitialTabs(): Promise<CatalogIndexDoc> {
   const db = getFirebaseDb();
-  const catalog = createFallbackCatalogIndex();
+  const { loadCompleteCatalogSeed } = await import('./completeCatalogLoader');
+  const allTabs = await loadCompleteCatalogSeed();
+  const catalog = buildCatalogFromTabs(allTabs);
 
   if (!db) {
     if (typeof window !== 'undefined') {
@@ -165,15 +160,10 @@ export async function seedInitialTabs(): Promise<CatalogIndexDoc> {
   }
 
   const batch = writeBatch(db);
-
-  for (const tab of SEED_TABS) {
-    const tabRef = doc(db, 'tabs', tab.id);
-    batch.set(tabRef, tab);
+  for (const tab of allTabs) {
+    batch.set(doc(db, 'tabs', tab.id), tab);
   }
-
-  const metaRef = doc(db, 'meta', 'catalog_index');
-  batch.set(metaRef, catalog);
-
+  batch.set(doc(db, 'meta', 'catalog_index'), catalog);
   await batch.commit();
 
   if (typeof window !== 'undefined') {

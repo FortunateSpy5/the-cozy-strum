@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, ListPlus } from 'lucide-react';
 import { useModalA11y } from '../common/useModalA11y';
 
@@ -16,7 +16,8 @@ export function CreateSetlistModal({
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const dialogRef = useModalA11y({ isOpen, onClose });
+  const titleInputRef = useRef<HTMLInputElement | null>(null);
+  const dialogRef = useModalA11y({ isOpen, onClose, initialFocusRef: titleInputRef });
 
   if (!isOpen) return null;
 
@@ -69,6 +70,7 @@ export function CreateSetlistModal({
               Setlist Title *
             </label>
             <input
+              ref={titleInputRef}
               id="setlist-name"
               type="text"
               required

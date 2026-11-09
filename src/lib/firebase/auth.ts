@@ -6,7 +6,6 @@ import {
   type User,
   type Unsubscribe,
 } from 'firebase/auth';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { getFirebaseAuth, getFirebaseDb, isFirebaseConfigured, getEnvVar } from './config';
 import type { UserProfile } from './types';
 
@@ -43,6 +42,7 @@ export async function ensureUserProfileDoc(user: User): Promise<UserProfile> {
     return defaultProfile;
   }
 
+  const { doc, getDoc, setDoc, updateDoc } = await import('firebase/firestore');
   const userRef = doc(db, 'users', user.uid);
   const snap = await getDoc(userRef);
 

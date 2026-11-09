@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Search, Plus, Check } from 'lucide-react';
 import type { TabItem } from '../../lib/types';
 import { useModalA11y } from '../common/useModalA11y';
@@ -20,7 +20,8 @@ export function AddSongToSetlistModal({
 }: AddSongToSetlistModalProps): React.JSX.Element | null {
   const [query, setQuery] = useState('');
   const [addingId, setAddingId] = useState<string | null>(null);
-  const dialogRef = useModalA11y({ isOpen, onClose });
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const dialogRef = useModalA11y({ isOpen, onClose, initialFocusRef: searchInputRef });
 
   if (!isOpen) return null;
 
@@ -68,6 +69,7 @@ export function AddSongToSetlistModal({
         <div className="relative mb-4">
           <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-walnut/70" aria-hidden="true" />
           <input
+            ref={searchInputRef}
             type="search"
             autoFocus
             aria-label="Search available songs by title or artist"
