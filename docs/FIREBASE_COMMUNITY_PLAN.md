@@ -324,6 +324,11 @@ We integrate **LRCLIB (`https://lrclib.net/api`)** across two separate environme
 - Catalog maintenance panel (`CatalogManagerPanel.tsx`) with index rebuilder, sample song seeder, and local TTL cache eviction.
 - Zero `any`, strict types, all components < 185 lines, and 85 passing unit tests.
 
-### Phase 5: Local Audio + LRCLIB Automated Sync CLI (`tools/chord-sync/`) *(Next Milestone)*
-- Local Python CLI tool (`tools/chord-sync/sync_generator.py`) running on PC.
-- Uses `lrclib.net` synced lyrics and `librosa`/`chord-extractor` harmony detection.
+### Phase 5: Local Audio + LRCLIB Automated Sync CLI (`tools/chord-sync/`) *(Completed)*
+- Standalone Python CLI tool (`tools/chord-sync/sync_generator.py`) running locally on your computer with zero mandatory cloud dependencies.
+- Millisecond-synced lyrics parser (`lrc_fetcher.py`) querying `https://lrclib.net/api/get` or parsing local `.lrc` files.
+- Audio harmony detector wrapper (`chord_extractor_wrapper.py`) supporting `chord-extractor`, `librosa` chromagram analysis, and `.chords` text files.
+- Deterministic proportional chord aligner (`chord_aligner.py`) with word-boundary snapping and adjacent chord collision prevention.
+- Optional direct Firestore upload (`firestore_uploader.py`) using `firebase-admin` service accounts.
+- Automated Python unit test suite (`test_aligner.py`) and integrated Node test harness (`tests/chord_sync_pipeline.test.ts`) with all 89 tests passing.
+- Complete documentation in `tools/chord-sync/README.md` with CLI options and usage examples.

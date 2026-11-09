@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+"""
+The Cozy Strum — Automated Audio + LRCLIB Chord-over-Lyrics Generator CLI.
+Pairs open-source millisecond-synced lyrics with audio chord detection.
+"""
+
+from __future__ import annotations
+import argparse
+import json
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from lrc_fetcher import fetch_lrclib_synced_lyrics, parse_lrc_content, LyricLine
+from chord_extractor_wrapper import extract_chords_from_audio, TimestampedChord
+from chord_aligner import format_cozy_strum_tab, align_chords_with_lyrics
+from firestore_uploader import upload_tab_to_firestore
+
+def build_cli_parser() -> argparse.ArgumentParser:
+    """Builds the command-line argument parser."""
+    parser = argparse.ArgumentParser(
+        description="The Cozy Strum: Sync LRCLIB lyrics with audio chords to generate ASCII tabs.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument("--title", required=True, help="Song title (e.g., 'Wonderwall')")
+    parser.add_argument("--artist", required=True, help="Artist or band name (e.g., 'Oasis')")
+    parser.add_argument("--audio", help="Path to local audio file (.mp3, .wav, .m4a) or .chords file")
+    parser.add_argument("--lrc-file", help="Path to local .lrc file (skips LRCLIB online fetch)")
+    parser.add_argument("--capo", type=int, default=0, help="Capo fret position")
+    parser.add_argument("--instrument", default="guitar", choices=["guitar", "ukulele"])
+    parser.add_argument("--output", help="Path to save output .tab or .json file")
+    parser.add_argument("--upload", action="store_true", help="Upload directly to Firestore")
+    parser.add_argument("--service-account", help="Path to Firebase service account JSON")
+    parser.add_argument("--dry-run", action="store_true", help="Print tab to stdout without saving")
+    return parser
+
+def main() -> int:
+    try:
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+    parser = build_cli_parser()
+    args = parser.parse_args()
+
+    title: str = args.title.strip()
+    artist: str = args.artist.strip()
+    print(f"[The Cozy Strum] Processing '{title}' by '{artist}'...")
+
+    # Step 1: Synced Lyrics Retrieval
+    lyrics: list[LyricLine] = []
+    if args.lrc_file:
+        if not os.path.exists(args.lrc_file):
+            print(f"[Error] Local LRC file not found: {args.lrc_file}")
+            return 1
+        with open(args.lrc_file, "r", encoding="utf-8") as f:
+            lyrics = parse_lrc_content(f.read())
+        print(f"[OK] Loaded {len(lyrics)} lines from local LRC file.")
+    else:
+        print("[Network] Querying LRCLIB API for millisecond-synced lyrics...")
+        fetched = fetch_lrclib_synced_lyrics(title, artist)
+        if not fetched:
+            print("[Warning] No synced lyrics found on LRCLIB. Run with --lrc-file to supply local LRC.")
+            return 1
+        lyrics = fetched
+        print(f"[OK] Fetched {len(lyrics)} synced lyric lines from LRCLIB.")
+
+    # Step 2: Audio Chord Extraction
+    chords: list[TimestampedChord] = []
+    if args.audio:
+        print(f"[Audio] Extracting harmony and chords from '{args.audio}'...")
+        chords = extract_chords_from_audio(args.audio)
+        print(f"[OK] Extracted {len(chords)} timestamped chords.")
+    else:
+        print("[Info] No audio supplied (--audio). Generating clean lyric template with section headers.")
+
+    # Step 3: Alignment & Tab Generation
+    print("[Aligner] Aligning chords over lyrics proportionally...")
+    tab_content = format_cozy_strum_tab(
+        title=title,
+        artist=artist,
+        lyrics=lyrics,
+        chords=chords,
+        capo=args.capo,
+        instrument=args.instrument,
+    )
+    unique_chords = sorted(list({c["chord"] for c in chords if c["chord"]}))
+
+    # Step 4: Output / Save / Upload
+    if args.output:
+        out_ext = os.path.splitext(args.output)[1].lower()
+        if out_ext == ".json":
+            payload = {
+                "title": title,
+                "artist": artist,
+                "capo": args.capo,
+                "instrument": args.instrument,
+                "chordsUsed": unique_chords,
+                "content": tab_content,
+            }
+            with open(args.output, "w", encoding="utf-8") as f:
+                json.dump(payload, f, indent=2)
+            print(f"[Saved] JSON payload to: {args.output}")
+        else:
+            with open(args.output, "w", encoding="utf-8") as f:
+                f.write(tab_content)
+            print(f"[Saved] Formatted ASCII tab to: {args.output}")
+
+    if args.upload:
+        print("[Cloud] Uploading to Firestore...")
+        try:
+            doc_id = upload_tab_to_firestore(
+                title=title,
+                artist=artist,
+                content=tab_content,
+                chords_used=unique_chords,
+                service_account_path=args.service_account,
+                capo=args.capo,
+                instrument=args.instrument,
+            )
+            print(f"[Success] Successfully uploaded tab to Firestore with ID: {doc_id}")
+        except Exception as err:
+            print(f"[Error] Upload failed: {err}")
+            return 1
+
+    if args.dry_run or not args.output:
+        print("\n" + "=" * 50)
+        print(tab_content)
+        print("=" * 50 + "\n")
+
+    print("[Complete] Tab generation complete! Cozy practicing!")
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

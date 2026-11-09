@@ -1,0 +1,13 @@
+# The Cozy Strum — Local Audio + LRCLIB Automated Chord Sync Pipeline
+# Install with: pip install -r requirements.txt
+
+# HTTP requests for LRCLIB lyrics API
+requests>=2.31.0
+
+# Audio harmony and chord extraction (choose one or both)
+chord-extractor>=0.1.2
+librosa>=0.10.0
+numpy>=1.23.0
+
+# Optional: Direct upload to Firestore
+firebase-admin>=6.0.0
