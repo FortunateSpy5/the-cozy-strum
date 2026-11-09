@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agents.json/schema.json",
+  "name": "the-cozy-strum",
+  "version": "1.0.0",
+  "description": "Personal, ad-free, 100% static guitar and ukulele chord & ASCII tab sanctuary",
+  "skills": [
+    "ascii-chord-tab-engine",
+    "fretboard-chord-diagrams",
+    "cozy-strum-brand"
+  ]
+}

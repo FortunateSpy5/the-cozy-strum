@@ -1,0 +1,54 @@
+---
+import { ThemeToggle } from './ThemeToggle';
+---
+
+<header class="w-full border-b border-warm bg-surface/80 backdrop-blur-md sticky top-0 z-40 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-2.5 group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+      aria-label="The Cozy Strum Home"
+    >
+      <div class="w-8 h-8 rounded-lg bg-terracotta flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true">
+          <circle cx="12" cy="12" r="3" />
+          <path d="m19 19-3-3" />
+          <path d="M5 5l3 3" />
+          <path d="M12 2v3" />
+          <path d="M12 19v3" />
+        </svg>
+      </div>
+      <div>
+        <span class="font-serif text-lg sm:text-xl font-bold tracking-tight text-espresso group-hover:text-terracotta transition-colors">
+          The Cozy Strum
+        </span>
+        <span class="hidden md:inline-block text-[11px] font-mono text-walnut ml-2 px-1.5 py-0.5 rounded bg-canvas border border-warm">
+          ad-free sanctuary
+        </span>
+      </div>
+    </a>
+
+    <!-- Nav Items & Theme Toggle -->
+    <div class="flex items-center gap-2 sm:gap-4">
+      <nav aria-label="Main Navigation" class="flex items-center gap-1 sm:gap-2">
+        <a
+          href="/"
+          class="min-h-[44px] inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium text-walnut hover:text-espresso hover:bg-canvas focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors"
+        >
+          Library
+        </a>
+        <a
+          href="/import"
+          class="min-h-[44px] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-white bg-terracotta hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-all shadow-sm"
+        >
+          <span>Quick Paste</span>
+        </a>
+      </nav>
+
+      <div class="h-5 w-px bg-warm mx-1 hidden sm:block"></div>
+
+      <ThemeToggle client:load />
+    </div>
+  </div>
+</header>

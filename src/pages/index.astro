@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { LibraryIsland } from '../components/library/LibraryIsland';
+import type { TabItem } from '../lib/types';
+
+const rawTabs = await getCollection('tabs');
+
+const initialTabs: TabItem[] = rawTabs.map((entry) => ({
+  slug: entry.slug,
+  title: entry.data.title,
+  artist: entry.data.artist,
+  instrument: entry.data.instrument,
+  tuning: entry.data.tuning,
+  capo: entry.data.capo,
+  bpm: entry.data.bpm,
+  difficulty: entry.data.difficulty,
+  strummingPattern: entry.data.strummingPattern,
+  tags: entry.data.tags,
+  isFingerstyle: entry.data.isFingerstyle,
+  key: entry.data.key,
+  createdAt: entry.data.createdAt,
+  content: entry.body,
+  isCustom: false
+}));
+---
+
+<BaseLayout title="The Cozy Strum — Personal Guitar & Ukulele Sanctuary">
+  <!-- Hero Section -->
+  <div class="mb-10 text-center max-w-2xl mx-auto space-y-2">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-warm text-xs font-mono text-terracotta mb-2">
+      <span>✦ No Ads</span>
+      <span>•</span>
+      <span>No Subscriptions</span>
+      <span>•</span>
+      <span>100% Static</span>
+    </div>
+    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-espresso tracking-tight">
+      Your Acoustic Sanctuary
+    </h1>
+    <p class="text-sm sm:text-base text-walnut leading-relaxed">
+      Clean, instant, distraction-free guitar and ukulele tabs with dynamic SVG chord diagrams, smooth auto-scroll, and stage view.
+    </p>
+  </div>
+
+  <!-- Interactive Library Island -->
+  <LibraryIsland client:load initialTabs={initialTabs} />
+</BaseLayout>

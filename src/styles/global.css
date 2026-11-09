@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #FAF6F0;
+    --bg-surface: #F3ECE1;
+    --border-warm: #E4D7C5;
+    --text-espresso: #2A211B;
+    --text-walnut: #6E5A4F;
+    --accent-terracotta: #C85A32;
+    --accent-amber: #D97706;
+  }
+
+  html.dark {
+    --bg-canvas: #14110F;
+    --bg-surface: #1E1916;
+    --border-warm: #2E2620;
+    --text-espresso: #EDE4D7;
+    --text-walnut: #A8988B;
+    --accent-terracotta: #E07A5F;
+    --accent-amber: #F59E0B;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-espresso);
+    font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+}
+
+/* Cozy Custom Utilities */
+.bg-canvas { background-color: var(--bg-canvas); }
+.bg-surface { background-color: var(--bg-surface); }
+.border-warm { border-color: var(--border-warm); }
+.text-espresso { color: var(--text-espresso); }
+.text-walnut { color: var(--text-walnut); }
+.text-terracotta { color: var(--accent-terracotta); }
+.bg-terracotta { background-color: var(--accent-terracotta); }
+.text-amber { color: var(--accent-amber); }
+
+.font-serif {
+  font-family: "Fraunces", "Playfair Display", Georgia, serif;
+}
+
+.tab-monospace {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  white-space: pre;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-warm);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-walnut);
+}

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { TabImporterIsland } from '../components/import/TabImporterIsland';
+---
+
+<BaseLayout
+  title="Quick Paste Studio — The Cozy Strum"
+  description="Instantly convert and parse raw tabs copied from Ultimate Guitar into clean, ad-free Cozy Strum sheets."
+>
+  <TabImporterIsland client:load />
+</BaseLayout>

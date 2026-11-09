@@ -1,0 +1,67 @@
+---
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'The Cozy Strum — Ad-Free Guitar & Ukulele Sanctuary',
+  description = 'A personal, 100% static, ad-free guitar and ukulele chord & ASCII tablature sanctuary. Practice without distractions.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts Preconnect & Load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme Initialization Script to avoid FOUC -->
+    <script is:inline>
+      (function () {
+        try {
+          const raw = localStorage.getItem('cozy_strum_prefs');
+          const prefs = raw ? JSON.parse(raw) : null;
+          const theme = prefs?.theme;
+          if (
+            theme === 'campfire' ||
+            (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-canvas text-espresso flex flex-col min-h-screen selection:bg-amber-200 dark:selection:bg-amber-900/40">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-xl focus:bg-terracotta focus:text-white focus:font-semibold focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white"
+    >
+      Skip to main content
+    </a>
+    <Header />
+    <main id="main-content" tabindex="-1" class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-8 focus:outline-none">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
