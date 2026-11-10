@@ -6,7 +6,7 @@ import {
 } from 'firebase/firestore';
 import { getFirebaseDb } from './config';
 import type { CloudTab, CatalogIndexDoc, TabSummary, SongCategory } from './types';
-import { FALLBACK_SEED_TABS, SEED_TABS } from './seedTabs';
+import rawSummary from './catalogSummaryData.json';
 
 export const CATALOG_CACHE_KEY = 'cozy_strum_catalog_cache';
 const TTL_MS = 15 * 60 * 1000; // 15 minutes
@@ -22,24 +22,12 @@ export function buildCatalogFromTabs(tabs: CloudTab[]): CatalogIndexDoc {
 
   for (const tab of tabs) {
     items[tab.id] = {
-      id: tab.id,
-      slug: tab.slug,
-      title: tab.title,
-      artist: tab.artist,
-      album: tab.album,
-      releaseYear: tab.releaseYear,
-      category: tab.category,
-      categories: tab.categories,
-      instrument: tab.instrument,
-      tuning: tab.tuning,
-      capo: tab.capo,
-      bpm: tab.bpm,
-      key: tab.key,
-      timeSignature: tab.timeSignature,
-      difficulty: tab.difficulty,
-      isFingerstyle: tab.isFingerstyle,
-      chordsUsed: tab.chordsUsed,
-      updatedAt: tab.updatedAt,
+      id: tab.id, slug: tab.slug, title: tab.title, artist: tab.artist,
+      album: tab.album, releaseYear: tab.releaseYear, category: tab.category,
+      categories: tab.categories, instrument: tab.instrument, tuning: tab.tuning,
+      capo: tab.capo, bpm: tab.bpm, key: tab.key, timeSignature: tab.timeSignature,
+      difficulty: tab.difficulty, isFingerstyle: tab.isFingerstyle,
+      chordsUsed: tab.chordsUsed, updatedAt: tab.updatedAt,
     };
 
     for (const cat of tab.categories) {
@@ -56,7 +44,22 @@ export function buildCatalogFromTabs(tabs: CloudTab[]): CatalogIndexDoc {
 }
 
 export function createFallbackCatalogIndex(): CatalogIndexDoc {
-  return buildCatalogFromTabs(FALLBACK_SEED_TABS);
+  const items: Record<string, TabSummary> = {};
+  const categoryCounts: Partial<Record<SongCategory, number>> = {};
+
+  for (const s of rawSummary as TabSummary[]) {
+    items[s.id] = s;
+    for (const cat of s.categories) {
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    }
+  }
+
+  return {
+    lastUpdated: '2026-11-10T00:00:00.000Z',
+    totalCount: (rawSummary as TabSummary[]).length,
+    items,
+    categoryCounts,
+  };
 }
 
 export function catalogToTabItems(catalog: CatalogIndexDoc): import('../types').TabItem[] {
@@ -114,36 +117,42 @@ export async function getCatalogIndex(forceRefresh = false): Promise<CatalogInde
 
 export async function getTabById(tabId: string, expectedUpdatedAt?: string): Promise<CloudTab | null> {
   const db = getFirebaseDb();
-  if (!db) {
-    return SEED_TABS.find((t) => t.id === tabId || t.slug === tabId) ?? null;
-  }
+  if (db) {
+    const tabRef = doc(db, 'tabs', tabId);
 
-  const tabRef = doc(db, 'tabs', tabId);
-
-  // 1. Try cache-first to achieve 0 reads
-  try {
-    const cachedSnap = await getDocFromCache(tabRef);
-    if (cachedSnap.exists()) {
-      const cachedTab = cachedSnap.data() as CloudTab;
-      if (!expectedUpdatedAt || cachedTab.updatedAt >= expectedUpdatedAt) {
-        return cachedTab;
+    // 1. Try cache-first to achieve 0 reads
+    try {
+      const cachedSnap = await getDocFromCache(tabRef);
+      if (cachedSnap.exists()) {
+        const cachedTab = cachedSnap.data() as CloudTab;
+        if (!expectedUpdatedAt || cachedTab.updatedAt >= expectedUpdatedAt) {
+          return cachedTab;
+        }
       }
+    } catch {
+      // Cache miss is normal on first visit
     }
-  } catch {
-    // Cache miss is normal on first visit, proceed to server fetch
+
+    // 2. Fetch from server if not cached or cache is stale
+    try {
+      const serverSnap = await getDoc(tabRef);
+      if (serverSnap.exists()) {
+        return serverSnap.data() as CloudTab;
+      }
+    } catch (err) {
+      console.warn('[The Cozy Strum] Error loading tab from server:', err);
+    }
   }
 
-  // 2. Fetch from server if not cached or cache is stale
+  // 3. Fallback to complete catalog seed dynamically
   try {
-    const serverSnap = await getDoc(tabRef);
-    if (serverSnap.exists()) {
-      return serverSnap.data() as CloudTab;
-    }
+    const { loadCompleteCatalogSeed } = await import('./completeCatalogLoader');
+    const allTabs = await loadCompleteCatalogSeed();
+    return allTabs.find((t) => t.id === tabId || t.slug === tabId) ?? null;
   } catch (err) {
-    console.error('[The Cozy Strum] Error loading tab from server:', err);
+    console.error('[The Cozy Strum] Error loading fallback tab:', err);
+    return null;
   }
-
-  return SEED_TABS.find((t) => t.id === tabId || t.slug === tabId) ?? null;
 }
 
 export async function seedInitialTabs(): Promise<CatalogIndexDoc> {

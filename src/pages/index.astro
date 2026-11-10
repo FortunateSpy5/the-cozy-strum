@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { LibraryIsland } from '../components/library/LibraryIsland';
-import type { TabItem } from '../lib/types';
+import { createFallbackCatalogIndex, catalogToTabItems } from '../lib/firebase/tabsService';
 
-// Initial tabs for SSR shell (hydrates and updates from Firestore catalog cache on client:load)
-const initialTabs: TabItem[] = [];
+// Pre-render full 243-song catalog on static HTML shell
+const initialCatalog = createFallbackCatalogIndex();
+const initialTabs = catalogToTabItems(initialCatalog);
 ---
 
 <BaseLayout title="The Cozy Strum — Personal Guitar & Ukulele Sanctuary">

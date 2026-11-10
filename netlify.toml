@@ -2,6 +2,15 @@
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  PUBLIC_FIREBASE_API_KEY = "AIzaSyB1QeDAh4uYI8mhbiyD9UF9hfUqoFJVv8A"
+  PUBLIC_FIREBASE_AUTH_DOMAIN = "the-cozy-strum.firebaseapp.com"
+  PUBLIC_FIREBASE_PROJECT_ID = "the-cozy-strum"
+  PUBLIC_FIREBASE_STORAGE_BUCKET = "the-cozy-strum.firebasestorage.app"
+  PUBLIC_FIREBASE_MESSAGING_SENDER_ID = "39514743662"
+  PUBLIC_FIREBASE_APP_ID = "1:39514743662:web:9fd0d6a6daf459065cd77f"
+  PUBLIC_SUPERADMIN_EMAIL = "msoumotanu@gmail.com"
+
 [[redirects]]
   from = "/tabs/custom"
   to = "/player"
