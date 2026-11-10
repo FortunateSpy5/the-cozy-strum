@@ -9,18 +9,20 @@ interface SectionJumpBarProps {
 export function SectionJumpBar({ lines }: SectionJumpBarProps): React.JSX.Element | null {
   const sections = React.useMemo(() => {
     return lines
-      .filter((l) => l.type === 'section-header')
-      .map((l, idx) => {
-        const text = l.text.replace(/^\[|\]$/g, '').trim();
-        const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `sec-${idx}`;
-        return { text, slug: `section-${slug}` };
+      .map((line, lineIndex) => ({ line, lineIndex }))
+      .filter((item) => item.line.type === 'section-header')
+      .map(({ line, lineIndex }) => {
+        const text = line.text.replace(/^\[|\]$/g, '').trim();
+        const baseSlug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+        const uniqueId = `section-${lineIndex}-${baseSlug}`;
+        return { text, uniqueId, key: uniqueId };
       });
   }, [lines]);
 
   if (sections.length < 2) return null;
 
-  const handleJump = (slug: string) => {
-    const el = document.getElementById(slug);
+  const handleJump = (uniqueId: string) => {
+    const el = document.getElementById(uniqueId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -39,9 +41,9 @@ export function SectionJumpBar({ lines }: SectionJumpBarProps): React.JSX.Elemen
       <div className="flex items-center gap-1.5 shrink-0">
         {sections.map((sec) => (
           <button
-            key={sec.slug}
+            key={sec.key}
             type="button"
-            onClick={() => handleJump(sec.slug)}
+            onClick={() => handleJump(sec.uniqueId)}
             className="min-h-[36px] px-2.5 py-1 rounded-lg bg-surface border border-warm/80 hover:border-terracotta hover:text-terracotta text-espresso text-[11px] font-mono transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
           >
             {sec.text}

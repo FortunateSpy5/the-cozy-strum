@@ -87,6 +87,7 @@ export function CloudTabLoaderIsland(): React.JSX.Element {
       metadata={{
         title: tab.title,
         artist: tab.artist,
+        slug: tab.slug || tab.id,
         instrument: tab.instrument,
         tuning: tab.tuning,
         capo: tab.capo,

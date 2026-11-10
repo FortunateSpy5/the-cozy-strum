@@ -42,11 +42,12 @@ export const TabRenderer: React.FC<TabRendererProps> = ({
       {lines.map((line, idx) => {
         if (line.type === 'section-header') {
           const rawText = line.text.replace(/^\[|\]$/g, '').trim();
-          const slug = rawText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `sec-${idx}`;
+          const baseSlug = rawText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+          const uniqueId = `section-${idx}-${baseSlug}`;
           return (
             <div
-              id={`section-${slug}`}
-              key={`section-${idx}`}
+              id={uniqueId}
+              key={`section-block-${idx}`}
               className="mt-6 mb-2 pt-2 border-t border-warm/40 first:border-0 first:mt-0 break-inside-avoid scroll-mt-28"
             >
               <h3 className="font-serif font-bold text-terracotta tracking-wide text-sm sm:text-base">
