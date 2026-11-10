@@ -75,17 +75,26 @@ export function filterSongDirectory(
   instrument: 'all' | 'guitar' | 'ukulele' = 'all',
   fingerstyleOnly = false
 ): CompactSongEntry[] {
-  const q = query.trim().toLowerCase();
+  if (!songs || !Array.isArray(songs)) return [];
+  const rawQ = query.trim().toLowerCase();
+  const terms = rawQ.split(/\s+/).filter(Boolean);
+
   return songs.filter((s) => {
     if (instrument !== 'all') {
       const expectedIns = instrument === 'guitar' ? 'g' : 'u';
       if (s.ins !== expectedIns) return false;
     }
     if (fingerstyleOnly && !s.f) return false;
-    if (!q) return true;
+    if (terms.length === 0) return true;
+
     const title = typeof s?.t === 'string' ? s.t.toLowerCase() : '';
     const artist = typeof s?.a === 'string' ? s.a.toLowerCase() : '';
-    return title.includes(q) || artist.includes(q);
+    const combined = `${title} ${artist}`;
+    const cleanCombined = combined.replace(/[^\w\s\u00C0-\u024F\u0980-\u09FF\u3040-\u30FF\u4E00-\u9FFF]/g, ' ');
+
+    return terms.every(
+      (term) => combined.includes(term) || cleanCombined.includes(term)
+    );
   });
 }
 

@@ -1,14 +1,34 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { ArrowRight, Guitar, Music, ChevronLeft, ChevronRight } from 'lucide-react';
-import { getSongDirectory, syncSongDirectory, filterSongDirectory, difficultyLabel } from '../../lib/firebase/songDirectoryService';
+import { ArrowRight, Guitar, Music } from 'lucide-react';
+import {
+  getSongDirectory,
+  getFallbackSongDirectory,
+  syncSongDirectory,
+  filterSongDirectory,
+  difficultyLabel,
+  DIRECTORY_CACHE_KEY,
+} from '../../lib/firebase/songDirectoryService';
 import type { CompactSongEntry } from '../../lib/firebase/types';
 import { ExploreFilterBar } from './ExploreFilterBar';
+import { ExplorePagination } from './ExplorePagination';
 
 const PAGE_SIZE = 24;
 
 export function ExploreDirectoryIsland(): React.JSX.Element {
-  const [songs, setSongs] = useState<CompactSongEntry[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [songs, setSongs] = useState<CompactSongEntry[]>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const raw = localStorage.getItem(DIRECTORY_CACHE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed?.data?.songs?.length > 0) return parsed.data.songs;
+        }
+      } catch {
+        // Fallback to local catalog
+      }
+    }
+    return getFallbackSongDirectory().songs;
+  });
   const [isSyncing, setIsSyncing] = useState(false);
   const [query, setQuery] = useState('');
   const [instrument, setInstrument] = useState<'all' | 'guitar' | 'ukulele'>('all');
@@ -17,17 +37,36 @@ export function ExploreDirectoryIsland(): React.JSX.Element {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const initialQuery = params.get('q');
+      if (initialQuery) {
+        setQuery(initialQuery);
+      }
+    }
     getSongDirectory().then((doc) => {
-      setSongs(doc.songs);
-      setLoading(false);
+      if (doc?.songs?.length) setSongs(doc.songs);
     });
   }, []);
+
+  const handleQueryChange = (newQuery: string) => {
+    setQuery(newQuery);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (newQuery.trim()) {
+        url.searchParams.set('q', newQuery);
+      } else {
+        url.searchParams.delete('q');
+      }
+      window.history.replaceState({}, '', url.toString());
+    }
+  };
 
   const handleSync = async () => {
     setIsSyncing(true);
     try {
       const doc = await syncSongDirectory();
-      setSongs(doc.songs);
+      if (doc?.songs?.length) setSongs(doc.songs);
     } finally {
       setIsSyncing(false);
     }
@@ -44,7 +83,6 @@ export function ExploreDirectoryIsland(): React.JSX.Element {
     });
   }, [songs, query, instrument, fingerstyleOnly, sortBy]);
 
-  // Reset to page 1 on filter changes
   useEffect(() => {
     setPage(1);
   }, [query, instrument, fingerstyleOnly, sortBy]);
@@ -58,7 +96,7 @@ export function ExploreDirectoryIsland(): React.JSX.Element {
   return (
     <div className="space-y-6 max-w-5xl mx-auto">
       <ExploreFilterBar
-        query={query} onQueryChange={setQuery}
+        query={query} onQueryChange={handleQueryChange}
         instrument={instrument} onInstrumentChange={setInstrument}
         fingerstyleOnly={fingerstyleOnly} onFingerstyleChange={setFingerstyleOnly}
         sortBy={sortBy} onSortChange={setSortBy}
@@ -73,11 +111,9 @@ export function ExploreDirectoryIsland(): React.JSX.Element {
         <span className="font-mono text-[11px] text-walnut/70">1-Doc Cached Directory</span>
       </div>
 
-      {loading ? (
-        <div className="py-20 text-center text-sm font-mono text-walnut">Loading sanctuary songs…</div>
-      ) : paginatedSongs.length === 0 ? (
+      {paginatedSongs.length === 0 ? (
         <div className="p-12 text-center rounded-2xl bg-surface border border-warm">
-          <p className="font-serif text-base font-bold text-espresso">No songs matched your filter</p>
+          <p className="font-serif text-base font-bold text-espresso">No songs matched &ldquo;{query}&rdquo;</p>
           <p className="text-xs text-walnut mt-1">Try clearing your search query or instrument toggle.</p>
         </div>
       ) : (
@@ -120,34 +156,11 @@ export function ExploreDirectoryIsland(): React.JSX.Element {
         </div>
       )}
 
-      {/* Pagination Controls */}
-      {totalPages > 1 && (
-        <nav aria-label="Song directory pagination" className="flex items-center justify-center gap-3 pt-4">
-          <button
-            type="button"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-            aria-label="Previous page"
-            className="min-h-[44px] px-4 py-2 rounded-xl bg-surface border border-warm text-xs font-semibold text-espresso hover:border-terracotta disabled:opacity-40 cursor-pointer inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
-          >
-            <ChevronLeft className="w-4 h-4" aria-hidden="true" />
-            <span>Previous</span>
-          </button>
-          <span className="text-xs font-mono text-walnut">
-            {page} / {totalPages}
-          </span>
-          <button
-            type="button"
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-            disabled={page === totalPages}
-            aria-label="Next page"
-            className="min-h-[44px] px-4 py-2 rounded-xl bg-surface border border-warm text-xs font-semibold text-espresso hover:border-terracotta disabled:opacity-40 cursor-pointer inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
-          >
-            <span>Next</span>
-            <ChevronRight className="w-4 h-4" aria-hidden="true" />
-          </button>
-        </nav>
-      )}
+      <ExplorePagination
+        page={page}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
     </div>
   );
 }

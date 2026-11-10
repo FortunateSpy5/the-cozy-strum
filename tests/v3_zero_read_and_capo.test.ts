@@ -55,6 +55,14 @@ describe('v3.1 Zero-Read Architecture & Smart Capo Optimizer', () => {
     assert.strictEqual(searchOasis.length, 1);
     assert.strictEqual(searchOasis[0]?.t, 'Wonderwall');
 
+    // Multi-term and artist + title query
+    const searchCombined = filterSongDirectory(mockSongs, 'oasis wonderwall', 'all', false);
+    assert.strictEqual(searchCombined.length, 1);
+    assert.strictEqual(searchCombined[0]?.t, 'Wonderwall');
+
+    const searchReverse = filterSongDirectory(mockSongs, 'wonderwall oasis', 'all', false);
+    assert.strictEqual(searchReverse.length, 1);
+
     const ukeOnly = filterSongDirectory(mockSongs, '', 'ukulele', false);
     assert.strictEqual(ukeOnly.length, 1);
     assert.strictEqual(ukeOnly[0]?.t, 'Riptide');
@@ -88,8 +96,10 @@ describe('v3.1 Zero-Read Architecture & Smart Capo Optimizer', () => {
       'docs/ZERO_READ_UX_PLAN.md',
       'src/components/explore/ExploreDirectoryIsland.tsx',
       'src/components/explore/ExploreFilterBar.tsx',
+      'src/components/explore/ExplorePagination.tsx',
       'src/components/home/PracticeDeskIsland.tsx',
       'src/components/home/PracticeSearchInput.tsx',
+      'src/components/home/SearchDropdownResults.tsx',
       'src/components/home/RecentSongsGrid.tsx',
       'src/components/home/PracticeHubCards.tsx',
       'src/components/player/SectionJumpBar.tsx',
