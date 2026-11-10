@@ -116,6 +116,9 @@ export async function getCatalogIndex(forceRefresh = false): Promise<CatalogInde
 }
 
 export async function getTabById(tabId: string, expectedUpdatedAt?: string): Promise<CloudTab | null> {
+  if (!tabId || typeof tabId !== 'string' || tabId.includes('/')) {
+    return null;
+  }
   const db = getFirebaseDb();
   if (db) {
     const tabRef = doc(db, 'tabs', tabId);

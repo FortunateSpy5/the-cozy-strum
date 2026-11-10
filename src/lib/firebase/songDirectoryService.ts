@@ -83,7 +83,9 @@ export function filterSongDirectory(
     }
     if (fingerstyleOnly && !s.f) return false;
     if (!q) return true;
-    return s.t.toLowerCase().includes(q) || s.a.toLowerCase().includes(q);
+    const title = typeof s?.t === 'string' ? s.t.toLowerCase() : '';
+    const artist = typeof s?.a === 'string' ? s.a.toLowerCase() : '';
+    return title.includes(q) || artist.includes(q);
   });
 }
 

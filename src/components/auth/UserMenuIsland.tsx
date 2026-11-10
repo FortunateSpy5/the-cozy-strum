@@ -85,7 +85,8 @@ export function UserMenuIsland(): React.JSX.Element {
         <button
           onClick={handleSignIn}
           disabled={isSigningIn}
-          className="min-h-[40px] inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium border border-warm bg-canvas text-espresso hover:bg-surface hover:border-terracotta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors shadow-2xs disabled:opacity-50"
+          aria-label="Sign in with Google"
+          className="min-h-[44px] inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium border border-warm bg-canvas text-espresso hover:bg-surface hover:border-terracotta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors shadow-2xs disabled:opacity-50"
           title={isFirebaseConfigured() ? 'Sign in with Google' : 'Firebase not configured'}
         >
           {isSigningIn ? (
@@ -115,7 +116,8 @@ export function UserMenuIsland(): React.JSX.Element {
         onClick={() => setIsOpen((prev) => !prev)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="min-h-[40px] flex items-center gap-2 p-1 pl-1.5 pr-2 rounded-lg border border-warm bg-canvas hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        aria-label="User account menu"
+        className="min-h-[44px] flex items-center gap-2 p-1 pl-2 pr-2.5 rounded-lg border border-warm bg-canvas hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors cursor-pointer"
       >
         {user.photoURL ? (
           <img
