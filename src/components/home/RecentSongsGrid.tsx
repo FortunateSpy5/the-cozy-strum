@@ -13,20 +13,20 @@ export function RecentSongsGrid({ recentSongs }: RecentSongsGridProps): React.JS
 
   return (
     <section aria-labelledby="recent-practice-heading" className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
         <div className="flex items-center gap-2">
           {isStarter ? (
             <Sparkles className="w-4 h-4 text-terracotta" aria-hidden="true" />
           ) : (
             <Clock className="w-4 h-4 text-terracotta" aria-hidden="true" />
           )}
-          <h2 id="recent-practice-heading" className="font-serif text-lg font-bold text-espresso">
-            {isStarter ? 'Sanctuary Starter Picks' : 'Continue Practicing'}
+          <h2 id="recent-practice-heading" className="font-serif text-base sm:text-lg font-bold text-espresso">
+            {isStarter ? 'Starter Picks' : 'Continue Practicing'}
           </h2>
         </div>
         <a
           href="/explore"
-          className="text-xs font-semibold text-terracotta hover:underline inline-flex items-center gap-1"
+          className="text-xs font-semibold text-terracotta hover:underline min-h-[44px] inline-flex items-center gap-1 shrink-0"
         >
           <span>All 243 Songs →</span>
         </a>

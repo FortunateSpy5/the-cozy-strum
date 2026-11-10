@@ -73,7 +73,7 @@ export function PracticeSearchInput(): React.JSX.Element {
           aria-controls="practice-search-results"
           aria-activedescendant={activeIndex !== null && results[activeIndex] ? `suggestion-${results[activeIndex].i}` : undefined}
           aria-label="Search acoustic songs by title or artist"
-          placeholder="Search 243+ acoustic songs by title or artist…"
+          placeholder="Search 243+ songs by title or artist…"
           value={query}
           onFocus={handleFocus}
           onKeyDown={handleKeyDown}
