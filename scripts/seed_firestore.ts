@@ -115,6 +115,12 @@ async function seedFirestore() {
   await db.collection('meta').doc('catalog_index').set(catalogIndex);
   console.log(`✓ meta/catalog_index uploaded successfully!`);
 
+  // Upload ultra-compact song directory
+  const songDirDoc = JSON.parse(fs.readFileSync('src/lib/firebase/songDirectoryFallback.json', 'utf8'));
+  console.log(`\nUploading compact song directory to meta/song_directory...`);
+  await db.collection('meta').doc('song_directory').set(songDirDoc);
+  console.log(`✓ meta/song_directory uploaded successfully!`);
+
   console.log(`\n======================================================`);
   console.log(`ALL ${tabs.length} SONGS SUCCESSFULLY SEEDED TO FIRESTORE!`);
   console.log(`======================================================\n`);

@@ -1,44 +1,97 @@
 ---
 ---
 
-<footer class="w-full border-t border-warm bg-surface/50 mt-16 py-8 text-xs text-walnut transition-colors">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-    <div class="flex flex-col gap-1">
-      <p class="font-serif text-sm font-semibold text-espresso">
-        The Cozy Strum — Pure Acoustic Sanctuary
-      </p>
-      <p>
-        No subscription walls, no auto-playing ads, zero tracking. 100% static Astro 5 & React.
-      </p>
+<footer class="w-full border-t border-warm bg-surface/50 mt-16 py-10 text-xs text-walnut transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col gap-6">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div class="flex flex-col gap-1">
+        <p class="font-serif text-sm font-semibold text-espresso">
+          The Cozy Strum — Pure Acoustic Sanctuary
+        </p>
+        <p class="text-walnut">
+          No subscription walls, no auto-playing ads, zero tracking. 100% static Astro 5 & React.
+        </p>
+      </div>
+
+      <!-- Navigation & Legal Links -->
+      <nav aria-label="Footer Navigation" class="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+        <a
+          href="/"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md text-walnut hover:text-terracotta hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          Desk
+        </a>
+        <span class="text-warm" aria-hidden="true">•</span>
+        <a
+          href="/explore"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md text-walnut hover:text-terracotta hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          Song Directory
+        </a>
+        <span class="text-warm" aria-hidden="true">•</span>
+        <a
+          href="/setlists"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md text-walnut hover:text-terracotta hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          Setlists
+        </a>
+        <span class="text-warm" aria-hidden="true">•</span>
+        <a
+          href="/submit"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md text-walnut hover:text-terracotta hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          Submit Tab
+        </a>
+        <span class="text-warm" aria-hidden="true">•</span>
+        <a
+          href="/dmca"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md text-walnut hover:text-terracotta hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          DMCA / Takedown
+        </a>
+        <span class="text-warm" aria-hidden="true">•</span>
+        <a
+          href="/admin"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md text-walnut hover:text-terracotta hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          Admin
+        </a>
+      </nav>
     </div>
 
     <!-- Cozy Ecosystem Links -->
-    <div class="flex flex-wrap items-center justify-center gap-2">
-      <span class="text-[11px] uppercase tracking-wider text-walnut/70 mr-1">Cozy Suite:</span>
-      <a
-        href="https://github.com/FortunateSpy5/the-cozy-skillet"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md bg-canvas border border-warm hover:border-terracotta hover:text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors"
-      >
-        🍳 The Cozy Skillet
-      </a>
-      <a
-        href="https://github.com/FortunateSpy5/the-cozy-cart"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md bg-canvas border border-warm hover:border-terracotta hover:text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors"
-      >
-        🛒 The Cozy Cart
-      </a>
-      <a
-        href="https://github.com/FortunateSpy5/the-cozy-strum"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md bg-terracotta/10 text-terracotta border border-terracotta/30 font-medium hover:bg-terracotta/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 transition-colors"
-      >
-        🎸 The Cozy Strum
-      </a>
+    <div class="pt-4 border-t border-warm/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div class="flex flex-wrap items-center justify-center gap-2">
+        <span class="text-[11px] uppercase tracking-wider text-walnut/70 mr-1">Cozy Suite:</span>
+        <a
+          href="https://github.com/FortunateSpy5/the-cozy-skillet"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md bg-canvas border border-warm hover:border-terracotta hover:text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          🍳 The Cozy Skillet
+        </a>
+        <a
+          href="https://github.com/FortunateSpy5/the-cozy-cart"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md bg-canvas border border-warm hover:border-terracotta hover:text-espresso focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          🛒 The Cozy Cart
+        </a>
+        <a
+          href="https://github.com/FortunateSpy5/the-cozy-strum"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center min-h-[44px] px-2.5 py-1 rounded-md bg-terracotta/10 text-terracotta border border-terracotta/30 font-medium hover:bg-terracotta/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta transition-colors"
+        >
+          🎸 The Cozy Strum
+        </a>
+      </div>
+
+      <p class="text-[11px] text-walnut/80">
+        Crafted with warmth for musicians everywhere.
+      </p>
     </div>
   </div>
 </footer>

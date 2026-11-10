@@ -113,3 +113,32 @@ export interface DmcaRequest {
   createdAt: string;
   resolvedAt?: string;
 }
+
+/**
+ * Ultra-compact song directory tuple for meta/song_directory.
+ * Designed to minimize bandwidth and enable 1-read whole-catalog search.
+ */
+export interface CompactSongEntry {
+  i: string; // tab id or slug
+  t: string; // song title
+  a: string; // artist name
+  ins: 'g' | 'u'; // 'g' = guitar, 'u' = ukulele
+  d: 1 | 2 | 3; // 1 = Beginner, 2 = Intermediate, 3 = Advanced
+  f?: 1; // 1 if fingerstyle
+  u: number; // updatedAt epoch seconds (for smart cache invalidation)
+}
+
+export interface SongDirectoryDoc {
+  version: number;
+  lastUpdated: number;
+  totalCount: number;
+  songs: CompactSongEntry[];
+}
+
+export interface RecentSongItem {
+  id: string;
+  title: string;
+  artist: string;
+  instrument: 'guitar' | 'ukulele';
+  openedAt: number;
+}

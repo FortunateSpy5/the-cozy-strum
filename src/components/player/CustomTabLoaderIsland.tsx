@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Plus } from 'lucide-react';
 import type { UserTab } from '../../lib/types';
 import { getUserTabBySlug, getUserTabById } from '../../lib/storage/tabStorage';
+import { recordRecentSong } from '../../lib/storage/recentSongsStorage';
 import { TabPlayerIsland } from './TabPlayerIsland';
 
 export const CustomTabLoaderIsland: React.FC = () => {
@@ -16,9 +17,25 @@ export const CustomTabLoaderIsland: React.FC = () => {
     if (id) {
       const found = getUserTabById(id) ?? (slug ? getUserTabBySlug(slug) : null);
       setTab(found);
+      if (found) {
+        recordRecentSong({
+          id: found.id || found.slug,
+          title: found.title,
+          artist: found.artist,
+          instrument: found.instrument,
+        });
+      }
     } else if (slug) {
       const found = getUserTabBySlug(slug);
       setTab(found);
+      if (found) {
+        recordRecentSong({
+          id: found.id || found.slug,
+          title: found.title,
+          artist: found.artist,
+          instrument: found.instrument,
+        });
+      }
     }
     setLoading(false);
   }, []);

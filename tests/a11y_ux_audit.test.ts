@@ -113,11 +113,15 @@ describe('Accessibility & UX Verification', () => {
     assert.ok(shortcutsFile.includes('ctrlKey'), 'Must ignore shortcuts when ctrlKey or metaKey is pressed');
   });
 
-  it('verifies index.astro passes initialTabs to LibraryIsland with client:load', () => {
+  it('verifies index.astro hydrates PracticeDeskIsland and explore.astro hydrates ExploreDirectoryIsland', () => {
     const indexAstro = fs.readFileSync(path.resolve('src/pages/index.astro'), 'utf-8');
-    assert.ok(indexAstro.includes('client:load'), 'LibraryIsland must use client:load');
-    assert.ok(!indexAstro.includes('client:only'), 'LibraryIsland must NEVER use client:only');
-    assert.ok(indexAstro.includes('initialTabs={initialTabs}'), 'Must pass initialTabs to LibraryIsland');
+    assert.ok(indexAstro.includes('PracticeDeskIsland'), 'index.astro must render PracticeDeskIsland');
+    assert.ok(indexAstro.includes('client:load'), 'PracticeDeskIsland must use client:load');
+    assert.ok(!indexAstro.includes('client:only'), 'PracticeDeskIsland must NEVER use client:only');
+
+    const exploreAstro = fs.readFileSync(path.resolve('src/pages/explore.astro'), 'utf-8');
+    assert.ok(exploreAstro.includes('ExploreDirectoryIsland'), 'explore.astro must render ExploreDirectoryIsland');
+    assert.ok(exploreAstro.includes('client:load'), 'ExploreDirectoryIsland must use client:load');
   });
 
   it('verifies SongHeader provides Copy Raw Tab and Edit in Quick Paste', () => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Plus, Loader2 } from 'lucide-react';
 import type { CloudTab } from '../../lib/firebase/types';
 import { getTabById } from '../../lib/firebase/tabsService';
+import { recordRecentSong } from '../../lib/storage/recentSongsStorage';
 import { TabPlayerIsland } from './TabPlayerIsland';
 
 export function CloudTabLoaderIsland(): React.JSX.Element {
@@ -24,6 +25,14 @@ export function CloudTabLoaderIsland(): React.JSX.Element {
       if (tabId) {
         const result = await getTabById(tabId);
         setTab(result);
+        if (result) {
+          recordRecentSong({
+            id: result.id || tabId,
+            title: result.title,
+            artist: result.artist,
+            instrument: result.instrument,
+          });
+        }
       }
       setLoading(false);
     }

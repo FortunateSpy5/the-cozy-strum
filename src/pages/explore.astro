@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ExploreDirectoryIsland } from '../components/explore/ExploreDirectoryIsland';
+---
+
+<BaseLayout title="Song Directory — The Cozy Strum">
+  <!-- Header Section -->
+  <div class="mb-8 text-center max-w-2xl mx-auto space-y-2">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-warm text-xs font-mono text-terracotta mb-1">
+      <span>✦ 100% Free</span>
+      <span>•</span>
+      <span>Ultra-Fast Cache</span>
+      <span>•</span>
+      <span>243 Tracks</span>
+    </div>
+    <h1 class="font-serif text-3xl sm:text-4xl font-bold text-espresso tracking-tight [text-wrap:balance]">
+      Song Directory
+    </h1>
+    <p class="text-sm text-walnut leading-relaxed">
+      A lightweight, zero-bloat browser for guitar and ukulele songs. Instant alphabetical search, instrument filtering, and 1-click practice.
+    </p>
+  </div>
+
+  <!-- Dedicated Explore Directory Island -->
+  <ExploreDirectoryIsland client:load />
+</BaseLayout>

@@ -1,31 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { LibraryIsland } from '../components/library/LibraryIsland';
-import { createFallbackCatalogIndex, catalogToTabItems } from '../lib/firebase/tabsService';
-
-// Pre-render full 243-song catalog on static HTML shell
-const initialCatalog = createFallbackCatalogIndex();
-const initialTabs = catalogToTabItems(initialCatalog);
+import { PracticeDeskIsland } from '../components/home/PracticeDeskIsland';
 ---
 
 <BaseLayout title="The Cozy Strum — Personal Guitar & Ukulele Sanctuary">
   <!-- Hero Section -->
-  <div class="mb-10 text-center max-w-2xl mx-auto space-y-2">
+  <div class="mb-8 text-center max-w-2xl mx-auto space-y-2">
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-warm text-xs font-mono text-terracotta mb-2">
       <span>✦ No Ads</span>
       <span>•</span>
       <span>No Subscriptions</span>
       <span>•</span>
-      <span>100% Database Catalog</span>
+      <span>Zero Distractions</span>
     </div>
     <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-espresso tracking-tight [text-wrap:balance]">
       Your Acoustic Sanctuary
     </h1>
     <p class="text-sm sm:text-base text-walnut leading-relaxed">
-      Clean, instant, distraction-free guitar and ukulele tabs with dynamic SVG chord diagrams, smooth auto-scroll, and stage view.
+      A quiet practice desk for string players. Instant search across 243+ songs, local practice history, auto-scroll, and dynamic chord diagrams.
     </p>
   </div>
 
-  <!-- Interactive Library Island -->
-  <LibraryIsland client:load initialTabs={initialTabs} />
+  <!-- Zero-Read Personal Practice Desk -->
+  <PracticeDeskIsland client:load />
 </BaseLayout>
