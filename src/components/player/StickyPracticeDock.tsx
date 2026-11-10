@@ -122,8 +122,8 @@ export const StickyPracticeDock: React.FC<StickyPracticeDockProps> = ({
             className={`hidden md:flex p-2 min-h-[44px] min-w-[44px] rounded-xl bg-canvas border border-warm hover:border-terracotta text-xs items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
               columnMode !== 'single' ? 'text-terracotta border-terracotta' : 'text-espresso'
             }`}
-            title="Toggle Fit-to-Screen Stage Mode (C)"
-            aria-label="Toggle fit-to-screen multi-column stage mode"
+            title={columnMode === 'two-column' ? 'Switch to Standard Stacked View (C)' : 'Switch to Side-by-Side Chords View (C)'}
+            aria-label={columnMode === 'two-column' ? 'Switch to Standard Stacked View' : 'Switch to Side-by-Side Chords View'}
             aria-pressed={columnMode !== 'single'}
           >
             <Columns2 className="w-4 h-4" aria-hidden="true" />

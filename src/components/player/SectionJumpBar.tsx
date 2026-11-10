@@ -4,9 +4,10 @@ import { Bookmark } from 'lucide-react';
 
 interface SectionJumpBarProps {
   lines: ParsedLine[];
+  wrap?: boolean;
 }
 
-export function SectionJumpBar({ lines }: SectionJumpBarProps): React.JSX.Element | null {
+export function SectionJumpBar({ lines, wrap = false }: SectionJumpBarProps): React.JSX.Element | null {
   const sections = React.useMemo(() => {
     const list: Array<{ text: string; uniqueId: string; key: string }> = [];
     lines.forEach((line, lineIndex) => {
@@ -32,13 +33,17 @@ export function SectionJumpBar({ lines }: SectionJumpBarProps): React.JSX.Elemen
   return (
     <nav
       aria-label="Song sections navigation"
-      className="flex items-center gap-1.5 overflow-x-auto py-2 px-1 mb-4 scrollbar-thin text-xs"
+      className={
+        wrap
+          ? 'flex flex-wrap items-center gap-1.5 py-2 px-1 mb-3 text-xs'
+          : 'flex items-center gap-1.5 overflow-x-auto py-2 px-1 mb-4 scrollbar-thin text-xs'
+      }
     >
       <div className="flex items-center gap-1 text-walnut font-medium shrink-0 pr-1 text-xs font-mono">
         <Bookmark className="w-3.5 h-3.5 text-terracotta" aria-hidden="true" />
-        <span className="hidden sm:inline">Jump:</span>
+        <span className={wrap ? 'inline' : 'hidden sm:inline'}>Jump:</span>
       </div>
-      <div className="flex items-center gap-1.5 shrink-0">
+      <div className={wrap ? 'flex flex-wrap items-center gap-1.5' : 'flex items-center gap-1.5 shrink-0'}>
         {sections.map((sec) => (
           <button
             key={sec.key}

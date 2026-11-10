@@ -11,9 +11,7 @@ import { KeyboardShortcutsModal } from './KeyboardShortcutsModal';
 import { ShortcutLegendBar } from './ShortcutLegendBar';
 import { SectionJumpBar } from './SectionJumpBar';
 import { SmartCapoBanner } from './SmartCapoBanner';
-import { AutoScrollCountInOverlay } from './AutoScrollCountInOverlay';
 import { useAutoScroller } from './useAutoScroller';
-import { useAutoScrollCountIn } from './useAutoScrollCountIn';
 import { usePlayerShortcuts } from './usePlayerShortcuts';
 import { useWakeLock } from './useWakeLock';
 import { usePerSongPracticeMemory } from './usePerSongPracticeMemory';
@@ -51,7 +49,8 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
     return metadata.key ? transposeChord(metadata.key, semitones) : undefined;
   }, [metadata.key, semitones]);
 
-  const { countInSeconds, toggleScroll, cancelCountIn } = useAutoScrollCountIn(isScrolling, setIsScrolling);
+  // Instant scroll toggle (0s delay, count-in removed per user preference)
+  const toggleScroll = () => setIsScrolling((prev) => !prev);
   useAutoScroller(isScrolling, scrollSpeed, () => setIsScrolling(false));
   const { isSupported: isWakeSupported, isActive: isWakeActive, toggleWakeLock } = useWakeLock(true);
 
@@ -68,6 +67,8 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
     hasActiveModal: isMetronomeOpen || isShortcutsOpen,
   });
 
+  const isSideBySide = columnMode === 'two-column';
+
   return (
     <div className="tab-player-container relative min-h-screen">
       <SetlistGigDock currentTabId={tabId} />
@@ -77,25 +78,48 @@ export const TabPlayerIsland: React.FC<TabPlayerIslandProps> = ({ metadata, rawT
         onToggleFavorite={toggleFavorite}
       />
 
-      <SmartCapoBanner
-        uniqueChords={ast.uniqueChords} baseCapo={metadata.capo ?? 0}
-        currentSemitones={semitones} onApplyCapo={(_c, s) => setSemitones(s)}
-        onReset={() => setSemitones(0)}
-      />
+      {isSideBySide ? (
+        /* 2-Column Side-by-Side: Chords & Details on Left Sidebar, Tab Sheet on Right */
+        <div className="flex flex-col lg:flex-row gap-8 items-start mt-4">
+          <aside aria-label="Chords and Song Details" className="w-full lg:w-96 shrink-0 space-y-4 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto pr-1 scrollbar-thin">
+            <SmartCapoBanner
+              uniqueChords={ast.uniqueChords} baseCapo={metadata.capo ?? 0}
+              currentSemitones={semitones} onApplyCapo={(_c, s) => setSemitones(s)}
+              onReset={() => setSemitones(0)} compact
+            />
+            <ChordStrip
+              uniqueChords={ast.uniqueChords} semitones={semitones}
+              instrument={instrument} activeChord={activeChord} layout="grid"
+            />
+            <SectionJumpBar lines={ast.lines} wrap />
+          </aside>
 
-      <ChordStrip
-        uniqueChords={ast.uniqueChords} semitones={semitones}
-        instrument={instrument} activeChord={activeChord}
-      />
-
-      <SectionJumpBar lines={ast.lines} />
-
-      <TabRenderer
-        lines={ast.lines} semitones={semitones} fontSize={fontSize}
-        columnMode={columnMode} onChordClick={(chord) => setActiveChord(chord)}
-      />
-
-      <AutoScrollCountInOverlay secondsRemaining={countInSeconds} onCancel={cancelCountIn} />
+          <div className="flex-1 min-w-0 w-full">
+            <TabRenderer
+              lines={ast.lines} semitones={semitones} fontSize={fontSize}
+              onChordClick={(chord) => setActiveChord(chord)}
+            />
+          </div>
+        </div>
+      ) : (
+        /* Standard Single-Column Stacked View */
+        <>
+          <SmartCapoBanner
+            uniqueChords={ast.uniqueChords} baseCapo={metadata.capo ?? 0}
+            currentSemitones={semitones} onApplyCapo={(_c, s) => setSemitones(s)}
+            onReset={() => setSemitones(0)}
+          />
+          <ChordStrip
+            uniqueChords={ast.uniqueChords} semitones={semitones}
+            instrument={instrument} activeChord={activeChord}
+          />
+          <SectionJumpBar lines={ast.lines} />
+          <TabRenderer
+            lines={ast.lines} semitones={semitones} fontSize={fontSize}
+            onChordClick={(chord) => setActiveChord(chord)}
+          />
+        </>
+      )}
 
       <div className="fixed bottom-20 left-0 right-0 z-30 max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none">
         <div className="pointer-events-auto">

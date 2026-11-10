@@ -12,7 +12,7 @@ export const ShortcutLegendBar: React.FC<ShortcutLegendBarProps> = ({
   isWakeLockActive,
   isWakeLockSupported,
   onToggleWakeLock,
-  onOpenShortcutsModal
+  onOpenShortcutsModal,
 }) => {
   return (
     <div

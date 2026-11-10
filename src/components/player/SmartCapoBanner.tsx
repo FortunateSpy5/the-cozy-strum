@@ -8,6 +8,7 @@ interface SmartCapoBannerProps {
   currentSemitones: number;
   onApplyCapo: (newCapo: number, semitones: number) => void;
   onReset: () => void;
+  compact?: boolean;
 }
 
 export function SmartCapoBanner({
@@ -16,6 +17,7 @@ export function SmartCapoBanner({
   currentSemitones,
   onApplyCapo,
   onReset,
+  compact = false,
 }: SmartCapoBannerProps): React.JSX.Element | null {
   const recommendation = useMemo(() => {
     return recommendCapo(uniqueChords, baseCapo);
@@ -29,7 +31,9 @@ export function SmartCapoBanner({
     <div
       role="region"
       aria-label="Smart capo chord simplification suggestion"
-      className="mb-4 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs"
+      className={`mb-3 sm:mb-4 p-3 sm:p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex ${
+        compact ? 'flex-col gap-2.5' : 'flex-col sm:flex-row items-start sm:items-center justify-between gap-3'
+      } text-xs`}
     >
       <div className="flex items-center gap-2 text-espresso">
         <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" aria-hidden="true" />

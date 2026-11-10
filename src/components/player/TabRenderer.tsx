@@ -7,7 +7,7 @@ interface TabRendererProps {
   lines: ParsedLine[];
   semitones: number;
   fontSize: 'sm' | 'base' | 'lg' | 'xl';
-  columnMode: 'single' | 'two-column' | 'three-column';
+  columnMode?: 'single' | 'two-column' | 'three-column';
   onChordClick?: (chord: string) => void;
 }
 
@@ -22,23 +22,16 @@ export const TabRenderer: React.FC<TabRendererProps> = ({
   lines,
   semitones,
   fontSize,
-  columnMode,
   onChordClick
 }) => {
   const fontClass = FONT_SIZE_CLASSES[fontSize] ?? 'text-sm leading-6';
 
   const getContainerLayout = () => {
-    if (columnMode === 'two-column') {
-      return 'md:columns-2 gap-8 [column-fill:_auto] w-full';
-    }
-    if (columnMode === 'three-column') {
-      return 'lg:columns-3 md:columns-2 gap-8 [column-fill:_auto] w-full';
-    }
     return 'w-full';
   };
 
   return (
-    <div className={`tab-sheet pb-36 max-w-full overflow-x-auto ${getContainerLayout()}`}>
+    <div className={`tab-sheet pb-48 ${getContainerLayout()}`}>
       {lines.map((line, idx) => {
         if (line.type === 'section-header') {
           const rawText = line.text.replace(/^\[|\]$/g, '').trim();
