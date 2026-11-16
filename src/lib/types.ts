@@ -103,6 +103,9 @@ export interface ChordVoicing {
     fromString: number;
     toString: number;
   }[];
+  variation?: number;
+  totalVariations?: number;
+  variationLabel?: string;
 }
 
 export interface UserPreferences {

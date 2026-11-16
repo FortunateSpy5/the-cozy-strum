@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Plus, Loader2 } from 'lucide-react';
 import type { CloudTab } from '../../lib/firebase/types';
-import { getTabById } from '../../lib/firebase/tabsService';
+import { getTabById, getCatalogIndex } from '../../lib/firebase/tabsService';
 import { recordRecentSong } from '../../lib/storage/recentSongsStorage';
 import { TabPlayerIsland } from './TabPlayerIsland';
 
@@ -23,11 +23,26 @@ export function CloudTabLoaderIsland(): React.JSX.Element {
       }
 
       if (tabId) {
-        const result = await getTabById(tabId);
+        const isForce = params.has('force') || params.has('refresh');
+        let expectedUpdatedAt: string | undefined;
+        let resolvedDocId = tabId;
+
+        try {
+          const catalog = await getCatalogIndex(isForce);
+          const summary = catalog.items[tabId] || Object.values(catalog.items).find((s) => s.slug === tabId);
+          if (summary) {
+            resolvedDocId = summary.id;
+            expectedUpdatedAt = isForce ? '9999-12-31T23:59:59.999Z' : summary.updatedAt;
+          }
+        } catch {
+          // Graceful fallback if catalog index unavailable
+        }
+
+        const result = await getTabById(resolvedDocId, expectedUpdatedAt);
         setTab(result);
         if (result) {
           recordRecentSong({
-            id: result.id || tabId,
+            id: result.id || resolvedDocId,
             title: result.title,
             artist: result.artist,
             instrument: result.instrument,

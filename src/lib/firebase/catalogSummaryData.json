@@ -3588,7 +3588,7 @@
     "title": "Journey Song",
     "artist": "Misc Soundtrack",
     "album": "Piku",
-    "releaseYear": 2020,
+    "releaseYear": 2015,
     "category": "Bollywood",
     "categories": [
       "Bollywood",
@@ -3607,10 +3607,11 @@
       "Bb",
       "F",
       "Eb",
-      "Ab",
+      "Gm7",
+      "Gm",
       "Cm"
     ],
-    "updatedAt": "2026-11-09T22:12:41.538174+00:00"
+    "updatedAt": "2026-11-10T20:10:12.339Z"
   },
   {
     "id": "seed-moh-moh-ke-dhaage-male",

@@ -126,7 +126,7 @@
 | 61 | **Nautanki Saala — Mera Mann Kehne Laga** | Misc Soundtrack | `Chords` | Feb 18, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/nautanki-saala-mera-mann-kehne-laga-chords-1220424) |
 | 62 | **Woh Kaun Thi — Lag Ja Gale** | Misc Soundtrack | `Chords` | Feb 18, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/woh-kaun-thi-lag-ja-gale-chords-1460402) |
 | 84 | **Ajab Prem Ki Ghazab Kahani — Tu Jaane Na** | Misc Soundtrack | `Chords` | Feb 27, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/ajab-prem-ki-ghazab-kahani-tu-jaane-na-chords-3060079) |
-| 92 | **Piku — Journey Song** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/piku-journey-song-chords-1727410) |
+| 92 | **Piku — Journey Song** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ✅ Built-in | [journey-song](/player?slug=journey-song) ([UG](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/piku-journey-song-chords-1727410)) |
 | 93 | **Dum Laga Ke Haisha — Moh Moh Ke Dhaage Male** | Misc Soundtrack | `Chords` | Feb 28, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/dum-laga-ke-haisha-moh-moh-ke-dhaage-male-chords-2505804) |
 | 96 | **Parineeta — Piyu Bole** | Misc Soundtrack | `Chords` | Mar 7, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/misc-soundtrack/parineeta-piyu-bole-chords-2355827) |
 | 97 | **Pal Pal Har Pal** | Sonu Nigam | `Chords` | Mar 9, 2024 | ⏳ Pending | [UG Tab](https://tabs.ultimate-guitar.com/tab/sonu-nigam/pal-pal-har-pal-chords-1756749) |

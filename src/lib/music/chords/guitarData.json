@@ -1,0 +1,5532 @@
+{
+  "C": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        8,
+        10,
+        10,
+        9,
+        8,
+        8
+      ],
+      "barres": [
+        {
+          "fromFret": 8,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Cm": [
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        4,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        1
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        8,
+        10,
+        10,
+        8,
+        8,
+        8
+      ],
+      "barres": [
+        {
+          "fromFret": 8,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        0,
+        1,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        4
+      ],
+      "variationLabel": "Open (high)"
+    }
+  ],
+  "C7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        3,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        4,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        3,
+        5,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        1,
+        4,
+        1
+      ],
+      "variationLabel": "Barre (A7-shape)"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        8,
+        10,
+        8,
+        9,
+        8,
+        8
+      ],
+      "barres": [
+        {
+          "fromFret": 8,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        1,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E7-shape)"
+    }
+  ],
+  "Cmaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        4,
+        5,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        2,
+        4,
+        1
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "Cm7": [
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        3,
+        4,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        1,
+        2,
+        1
+      ],
+      "variationLabel": "Barre (Am7-shape)"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        8,
+        10,
+        8,
+        8,
+        8,
+        8
+      ],
+      "barres": [
+        {
+          "fromFret": 8,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (Em7-shape)"
+    }
+  ],
+  "Cadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        0,
+        2,
+        1,
+        0,
+        3,
+        4
+      ],
+      "variationLabel": "Open (4-finger)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        0,
+        3,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        0,
+        4,
+        0
+      ],
+      "variationLabel": "Open (standard)"
+    }
+  ],
+  "Cadd2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        0,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        0,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Cadd4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        3,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Csus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        3,
+        0,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        3,
+        4,
+        0,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        6,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Csus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        0,
+        0,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        3,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C6": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        2,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Cdim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        2,
+        1,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 1"
+    }
+  ],
+  "Cdim7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        4,
+        2,
+        4,
+        -1
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        1,
+        4,
+        0
+      ],
+      "variationLabel": "Pos 2"
+    }
+  ],
+  "Caug": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        1,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        1,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "C5": [
+    {
+      "baseFret": 3,
+      "frets": [
+        -1,
+        3,
+        5,
+        5,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        0
+      ],
+      "variationLabel": "Power 5th string"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        8,
+        10,
+        10,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Power 6th string"
+    }
+  ],
+  "C#": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        6,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 9,
+      "frets": [
+        9,
+        11,
+        11,
+        10,
+        9,
+        9
+      ],
+      "barres": [
+        {
+          "fromFret": 9,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Db": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        6,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 9,
+      "frets": [
+        9,
+        11,
+        11,
+        10,
+        9,
+        9
+      ],
+      "barres": [
+        {
+          "fromFret": 9,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "C#m": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        5,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        1
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    },
+    {
+      "baseFret": 9,
+      "frets": [
+        9,
+        11,
+        11,
+        9,
+        9,
+        9
+      ],
+      "barres": [
+        {
+          "fromFret": 9,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "Dbm": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        5,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    }
+  ],
+  "C#7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        4,
+        6,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C#maj7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        5,
+        6,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C#m7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        4,
+        5,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C#sus4": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        7,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C#sus2": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        6,
+        6,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C#add9": [
+    {
+      "baseFret": 4,
+      "frets": [
+        -1,
+        4,
+        3,
+        6,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "C#dim": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        -1,
+        2,
+        3,
+        2,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 2"
+    }
+  ],
+  "D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        3,
+        2
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        7,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 10,
+      "frets": [
+        10,
+        12,
+        12,
+        11,
+        10,
+        10
+      ],
+      "barres": [
+        {
+          "fromFret": 10,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Dm": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        2,
+        3,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        6,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    },
+    {
+      "baseFret": 10,
+      "frets": [
+        10,
+        12,
+        12,
+        10,
+        10,
+        10
+      ],
+      "barres": [
+        {
+          "fromFret": 10,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "D7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        3
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        5,
+        7,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Dmaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 4,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        6,
+        7,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Dm7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        5,
+        6,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Dsus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        4
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        8,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Dsus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Dadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        5,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        4,
+        2
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        5,
+        4,
+        2,
+        5,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 4,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Position 2"
+    }
+  ],
+  "Dadd4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        0,
+        3,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D6": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        0,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Ddim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        1,
+        3,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        3,
+        2
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Daug": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        3,
+        3,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        2,
+        3,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D5": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        3,
+        -1
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        -1,
+        5,
+        7,
+        7,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        0
+      ],
+      "variationLabel": "Power 5th string"
+    }
+  ],
+  "Eb": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        4,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "variationLabel": "Open (high)"
+    },
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        8,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 11,
+      "frets": [
+        11,
+        13,
+        13,
+        12,
+        11,
+        11
+      ],
+      "barres": [
+        {
+          "fromFret": 11,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "D#": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        3,
+        4,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "variationLabel": "Open (high)"
+    },
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        8,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "Ebm": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        7,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        1
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    },
+    {
+      "baseFret": 11,
+      "frets": [
+        11,
+        13,
+        13,
+        11,
+        11,
+        11
+      ],
+      "barres": [
+        {
+          "fromFret": 11,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "D#m": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        7,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Eb7": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        6,
+        8,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Ebmaj7": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        7,
+        8,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Ebm7": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        6,
+        7,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "D#sus4": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        9,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Ebsus4": [
+    {
+      "baseFret": 6,
+      "frets": [
+        -1,
+        6,
+        8,
+        8,
+        9,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Ebdim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        1,
+        2,
+        1,
+        2
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 1"
+    }
+  ],
+  "E": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        1,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        9,
+        9,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "Em": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    }
+  ],
+  "E7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        1,
+        3,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        1,
+        4,
+        0
+      ],
+      "variationLabel": "Open (4-finger)"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        7,
+        9,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Emaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        1,
+        2,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        8,
+        9,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Em7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        0,
+        3,
+        4
+      ],
+      "variationLabel": "Open (Campfire / Wonderwall)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open (1-finger)"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        -1,
+        7,
+        9,
+        7,
+        8,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Esus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        2,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        4,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Esus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        4,
+        4,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Eadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Eadd4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "E6": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        1,
+        4,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Edim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        2,
+        3,
+        2,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 2"
+    }
+  ],
+  "Eaug": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        3,
+        2,
+        1,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        4,
+        3,
+        1,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "E5": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        2,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Full Barre"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        0,
+        3,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Campfire (4-string)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "fingers": [
+        0,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Easy 5-string"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        10,
+        10,
+        8
+      ],
+      "barres": [
+        {
+          "fromFret": 8,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "Fm": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    },
+    {
+      "baseFret": 8,
+      "frets": [
+        -1,
+        8,
+        10,
+        10,
+        9,
+        8
+      ],
+      "barres": [
+        {
+          "fromFret": 8,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    }
+  ],
+  "F7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        1,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        2,
+        4,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        1,
+        4,
+        1
+      ],
+      "variationLabel": "Open/Easy"
+    }
+  ],
+  "Fmaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        3,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        4,
+        2,
+        1,
+        0
+      ],
+      "variationLabel": "Open Campfire"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Fm7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Fsus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        3,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        3,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Easy 4-string"
+    }
+  ],
+  "Fsus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        0,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        0,
+        3,
+        0,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        3,
+        0,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "5-string"
+    }
+  ],
+  "Fadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        2,
+        1,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F6": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        2,
+        3,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        1,
+        3,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Fdim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        3,
+        4,
+        3,
+        4
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 3"
+    }
+  ],
+  "F5": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        3,
+        3,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Power 6th string"
+    }
+  ],
+  "F#": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        3,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    },
+    {
+      "baseFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        11,
+        11,
+        9
+      ],
+      "barres": [
+        {
+          "fromFret": 9,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "Gb": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        3,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "F#m": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        2,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    },
+    {
+      "baseFret": 9,
+      "frets": [
+        -1,
+        9,
+        11,
+        11,
+        10,
+        9
+      ],
+      "barres": [
+        {
+          "fromFret": 9,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    }
+  ],
+  "Gbm": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        2,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "F#7": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        2,
+        3,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "F#maj7": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        3,
+        3,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "F#m7": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "F#sus4": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        4,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "F#dim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        4,
+        5,
+        4,
+        5
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 4"
+    }
+  ],
+  "F#5": [
+    {
+      "baseFret": 2,
+      "frets": [
+        2,
+        4,
+        4,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Power 6th string"
+    }
+  ],
+  "G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        2,
+        1,
+        0,
+        0,
+        3,
+        4
+      ],
+      "variationLabel": "Open (4-finger Rock)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        3
+      ],
+      "fingers": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "variationLabel": "Open (3-finger standard)"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        3,
+        5,
+        5,
+        4,
+        3,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    },
+    {
+      "baseFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        12,
+        12,
+        10
+      ],
+      "barres": [
+        {
+          "fromFret": 10,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "Gm": [
+    {
+      "baseFret": 3,
+      "frets": [
+        3,
+        5,
+        5,
+        3,
+        3,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    },
+    {
+      "baseFret": 10,
+      "frets": [
+        -1,
+        10,
+        12,
+        12,
+        11,
+        10
+      ],
+      "barres": [
+        {
+          "fromFret": 10,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    }
+  ],
+  "G7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "fingers": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        3,
+        5,
+        3,
+        4,
+        3,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Gmaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        2
+      ],
+      "fingers": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 3,
+      "frets": [
+        3,
+        5,
+        4,
+        4,
+        3,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Gm7": [
+    {
+      "baseFret": 3,
+      "frets": [
+        3,
+        5,
+        3,
+        3,
+        3,
+        3
+      ],
+      "barres": [
+        {
+          "fromFret": 3,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Gsus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        1,
+        3
+      ],
+      "fingers": [
+        3,
+        2,
+        0,
+        0,
+        1,
+        4
+      ],
+      "variationLabel": "Open standard"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        3,
+        0,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        1,
+        2,
+        0,
+        0,
+        3,
+        4
+      ],
+      "variationLabel": "Open Rock"
+    }
+  ],
+  "Gsus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        1,
+        0,
+        0,
+        0,
+        3,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Gadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        2,
+        0,
+        3
+      ],
+      "fingers": [
+        2,
+        1,
+        0,
+        3,
+        0,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "G6": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Gdim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        5,
+        6,
+        5,
+        6
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Pos 5"
+    }
+  ],
+  "Gaug": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        1,
+        0,
+        0,
+        3
+      ],
+      "fingers": [
+        3,
+        2,
+        1,
+        0,
+        0,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "G5": [
+    {
+      "baseFret": 3,
+      "frets": [
+        3,
+        5,
+        5,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Power 6th string"
+    }
+  ],
+  "Ab": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        5,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    },
+    {
+      "baseFret": 11,
+      "frets": [
+        -1,
+        11,
+        13,
+        13,
+        13,
+        11
+      ],
+      "barres": [
+        {
+          "fromFret": 11,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (A-shape)"
+    }
+  ],
+  "G#": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        5,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Abm": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        4,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "G#m": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        6,
+        4,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "Ab7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        4,
+        5,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "G#7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        4,
+        5,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Abmaj7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        5,
+        5,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Abm7": [
+    {
+      "baseFret": 4,
+      "frets": [
+        4,
+        6,
+        4,
+        4,
+        4,
+        4
+      ],
+      "barres": [
+        {
+          "fromFret": 4,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "G#dim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        2,
+        3,
+        0
+      ],
+      "variationLabel": "Open standard"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        2,
+        0
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 3,
+          "toString": 5
+        }
+      ],
+      "variationLabel": "Open 1-finger barre"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        5,
+        7,
+        7,
+        6,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Am": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        3,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        5,
+        7,
+        7,
+        5,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        1,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    },
+    {
+      "baseFret": 12,
+      "frets": [
+        -1,
+        12,
+        14,
+        14,
+        13,
+        12
+      ],
+      "barres": [
+        {
+          "fromFret": 12,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (12th fret)"
+    }
+  ],
+  "A7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        0,
+        3,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        5,
+        7,
+        5,
+        6,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Amaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        1,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        1,
+        3,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        5,
+        7,
+        6,
+        6,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Am7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        5,
+        7,
+        5,
+        5,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 5,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Asus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        3,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        2,
+        4,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Asus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        3,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A7sus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        0,
+        3,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Aadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        4,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A6": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 3,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Adim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        1,
+        2,
+        1,
+        -1
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        3,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Aaug": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        3,
+        2,
+        2,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        4,
+        2,
+        3,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A5": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        2,
+        2,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 5,
+      "frets": [
+        5,
+        7,
+        7,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Power 6th string"
+    }
+  ],
+  "Bb": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        3,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 6,
+      "frets": [
+        6,
+        8,
+        8,
+        7,
+        6,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "A#": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        3,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 6,
+      "frets": [
+        6,
+        8,
+        8,
+        7,
+        6,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Bbm": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        2,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        1
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    },
+    {
+      "baseFret": 6,
+      "frets": [
+        6,
+        8,
+        8,
+        6,
+        6,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "A#m": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        2,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bb7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        1,
+        3,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    },
+    {
+      "baseFret": 6,
+      "frets": [
+        6,
+        8,
+        6,
+        7,
+        6,
+        6
+      ],
+      "barres": [
+        {
+          "fromFret": 6,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bbmaj7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        2,
+        3,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bbm7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        1,
+        2,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bbsus4": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bbsus2": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bbadd9": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Pos 1"
+    }
+  ],
+  "Bb5": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        1,
+        3,
+        3,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        0
+      ],
+      "variationLabel": "Power 5th string"
+    }
+  ],
+  "B": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        4,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "variationLabel": "Barre (A-shape)"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        7,
+        9,
+        9,
+        8,
+        7,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Barre (E-shape)"
+    }
+  ],
+  "Bm": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        3,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        1
+      ],
+      "variationLabel": "Barre (Am-shape)"
+    },
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        -1,
+        4,
+        4,
+        3,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        0,
+        3,
+        4,
+        2,
+        1
+      ],
+      "variationLabel": "Easy 4-string"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        7,
+        9,
+        9,
+        7,
+        7,
+        7
+      ],
+      "barres": [
+        {
+          "fromFret": 7,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre (Em-shape)"
+    }
+  ],
+  "B7": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        2,
+        1,
+        2,
+        0,
+        2
+      ],
+      "fingers": [
+        0,
+        2,
+        1,
+        3,
+        0,
+        4
+      ],
+      "variationLabel": "Open standard"
+    },
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        2,
+        4,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        1,
+        4,
+        1
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bmaj7": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        3,
+        4,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bm7": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        2,
+        3,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        1,
+        2,
+        1
+      ],
+      "variationLabel": "Barre"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        2,
+        0,
+        2,
+        0,
+        2
+      ],
+      "fingers": [
+        0,
+        2,
+        0,
+        3,
+        0,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Bsus4": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        5,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bsus2": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 2,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "Bdim": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        2,
+        3,
+        4,
+        3,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        2,
+        4,
+        3,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "B5": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        4,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        3,
+        4,
+        0,
+        0
+      ],
+      "variationLabel": "Power 5th string"
+    },
+    {
+      "baseFret": 7,
+      "frets": [
+        7,
+        9,
+        9,
+        -1,
+        -1,
+        -1
+      ],
+      "fingers": [
+        1,
+        3,
+        4,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Power 6th string"
+    }
+  ],
+  "Gb5/B": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        2,
+        4,
+        3,
+        -1,
+        -1
+      ],
+      "fingers": [
+        0,
+        1,
+        4,
+        3,
+        0,
+        0
+      ],
+      "variationLabel": "Open/Pos 2"
+    }
+  ],
+  "Gsus2/A": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D7/F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        -1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "fingers": [
+        1,
+        0,
+        0,
+        3,
+        2,
+        4
+      ],
+      "variationLabel": "Open (fret 1 bass)"
+    }
+  ],
+  "Dsus4/F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        -1,
+        0,
+        2,
+        3,
+        3
+      ],
+      "fingers": [
+        1,
+        0,
+        0,
+        2,
+        3,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D/F#": [
+    {
+      "baseFret": 1,
+      "frets": [
+        2,
+        0,
+        0,
+        2,
+        3,
+        2
+      ],
+      "fingers": [
+        1,
+        0,
+        0,
+        2,
+        4,
+        3
+      ],
+      "variationLabel": "Open (thumb/index bass)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        2,
+        -1,
+        0,
+        2,
+        3,
+        2
+      ],
+      "fingers": [
+        1,
+        0,
+        0,
+        2,
+        4,
+        3
+      ],
+      "variationLabel": "Muted 5th"
+    }
+  ],
+  "G/B": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        2,
+        0,
+        0,
+        3,
+        3
+      ],
+      "fingers": [
+        0,
+        1,
+        0,
+        0,
+        3,
+        4
+      ],
+      "variationLabel": "Open (4-finger)"
+    },
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        2,
+        0,
+        0,
+        0,
+        3
+      ],
+      "fingers": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "variationLabel": "Open standard"
+    }
+  ],
+  "C/E": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        3,
+        2,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        3,
+        2,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "C/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        3,
+        2,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        3,
+        4,
+        2,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "C/B": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        2,
+        2,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        3,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open (passing)"
+    }
+  ],
+  "C/D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A/C#": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        4,
+        2,
+        2,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        4,
+        1,
+        2,
+        3,
+        0
+      ],
+      "variationLabel": "Open"
+    },
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        4,
+        2,
+        2,
+        5,
+        5
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 3,
+          "toString": 4
+        }
+      ],
+      "fingers": [
+        0,
+        2,
+        1,
+        1,
+        3,
+        4
+      ],
+      "variationLabel": "Position 2"
+    }
+  ],
+  "A/C": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        2,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A/D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        2,
+        2,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        0,
+        2,
+        2,
+        2,
+        0
+      ],
+      "fingers": [
+        3,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "A7/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      "fingers": [
+        3,
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Am/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        0,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        3,
+        0,
+        2,
+        2,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Am/E": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        2,
+        3,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Am/C": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        2,
+        2,
+        1,
+        0
+      ],
+      "fingers": [
+        0,
+        4,
+        2,
+        3,
+        1,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Dm/C": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        0,
+        2,
+        3,
+        1
+      ],
+      "fingers": [
+        0,
+        3,
+        0,
+        2,
+        4,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D/F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        -1,
+        0,
+        2,
+        3,
+        2
+      ],
+      "fingers": [
+        1,
+        0,
+        0,
+        2,
+        4,
+        3
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        -1,
+        0,
+        2,
+        3,
+        2
+      ],
+      "fingers": [
+        3,
+        0,
+        0,
+        1,
+        4,
+        2
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "D#/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        -1,
+        1,
+        3,
+        4,
+        3
+      ],
+      "fingers": [
+        2,
+        0,
+        1,
+        3,
+        4,
+        3
+      ],
+      "variationLabel": "Pos 1"
+    }
+  ],
+  "E/D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "E/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        2,
+        1,
+        0,
+        0
+      ],
+      "fingers": [
+        4,
+        2,
+        3,
+        1,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Em/D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Em/F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        1,
+        2,
+        3,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Em/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "fingers": [
+        3,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F/A": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        0,
+        3,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        0,
+        3,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F/C": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 5,
+          "toString": 6
+        }
+      ],
+      "fingers": [
+        0,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F/E": [
+    {
+      "baseFret": 1,
+      "frets": [
+        0,
+        3,
+        3,
+        2,
+        1,
+        1
+      ],
+      "fingers": [
+        0,
+        3,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F/G": [
+    {
+      "baseFret": 1,
+      "frets": [
+        3,
+        0,
+        3,
+        2,
+        1,
+        1
+      ],
+      "fingers": [
+        3,
+        0,
+        4,
+        2,
+        1,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "F#m/C": [
+    {
+      "baseFret": 2,
+      "frets": [
+        -1,
+        3,
+        4,
+        2,
+        2,
+        2
+      ],
+      "barres": [
+        {
+          "fromFret": 2,
+          "fromString": 4,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Barre"
+    }
+  ],
+  "G/D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "G/F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        3
+      ],
+      "fingers": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        4
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "G#/C": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        3,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 3,
+          "toString": 5
+        }
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Bb/D": [
+    {
+      "baseFret": 1,
+      "frets": [
+        -1,
+        -1,
+        0,
+        3,
+        3,
+        1
+      ],
+      "fingers": [
+        0,
+        0,
+        0,
+        2,
+        3,
+        1
+      ],
+      "variationLabel": "Open"
+    }
+  ],
+  "Bb/F": [
+    {
+      "baseFret": 1,
+      "frets": [
+        1,
+        1,
+        3,
+        3,
+        3,
+        1
+      ],
+      "barres": [
+        {
+          "fromFret": 1,
+          "fromString": 1,
+          "toString": 6
+        }
+      ],
+      "variationLabel": "Full Barre"
+    }
+  ]
+}
